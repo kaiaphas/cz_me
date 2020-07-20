@@ -23,6 +23,7 @@ namespace cz
     // 작성일 : 2020-06-23
     // 모듈명 : CUT-OFF 및 이월자료 등록
     // 페이지 : P_CZ_ME_SALES_FOR
+    // test
     // **************************************
 
     public partial class P_CZ_ME_SALES_FOR : PageBase
