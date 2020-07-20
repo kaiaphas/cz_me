@@ -23,7 +23,7 @@ namespace cz
 
         internal DataSet Search_M(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_PUB_S1", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_PUB_S", obj);
         }
 
         internal DataTable Get계정코드()
@@ -35,10 +35,9 @@ namespace cz
 
         public object Save(DataTable dtM, bool 타메뉴호출)
         {
+            
             SpInfoCollection sic = new SpInfoCollection();
             SpInfo si;
-
-            string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
 
             if (dtM != null)
             {
@@ -54,17 +53,17 @@ namespace cz
                 si.UserID = 사용자ID;
 
                 si.SpNameInsert = "UP_CZ_ME_SALES_PUB_I";
-                si.SpNameUpdate = "UP_CZ_ME_SALES_PUB_I";
+                si.SpNameUpdate = "UP_CZ_ME_SALES_PUB_U";
                 si.SpNameDelete = "UP_CZ_ME_SALES_PUB_D";
                 si.SpParamsInsert = new string[] { 
                     "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ"
-                    , "ME_CORPNO", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "AM_BUDGET", "AM_AGY_PRICE"
-                    , "AM_MEDIA_PRICE", "NO_DOCU_M", "NO_DOCU_C", "ID_INSERT", "ID_UPDATE"
+                    , "ME_CORPID", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "AM_BUDGET", "AM_AGY_PRICE"
+                    , "AM_MEDIA_PRICE", "ID_INSERT", "ID_UPDATE"
                 };
                 si.SpParamsUpdate = new string[] { 
                     "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ"
-                    , "ME_CORPNO", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "AM_BUDGET", "AM_AGY_PRICE"
-                    , "AM_MEDIA_PRICE", "NO_DOCU_M", "NO_DOCU_C", "ID_INSERT", "ID_UPDATE"
+                    , "ME_CORPID", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "AM_BUDGET", "AM_AGY_PRICE"
+                    , "AM_MEDIA_PRICE", "ID_INSERT", "ID_UPDATE"
                 };
                 si.SpParamsDelete = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ" };
                 sic.Add(si);

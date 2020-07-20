@@ -119,3 +119,4 @@ D:\Mezzo\개발소스\P_CZ_ME_SALES_PUB\obj\Debug\cz.P_CZ_ME_SALES_PUB.resources
 D:\Mezzo\개발소스\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.csproj.GenerateResource.Cache
 D:\Mezzo\개발소스\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.dll
 D:\Mezzo\개발소스\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.pdb
+D:\Mezzo\개발소스\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.csprojResolveAssemblyReference.cache
