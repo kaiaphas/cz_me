@@ -23,7 +23,6 @@ namespace cz
     // 작성일 : 2020-06-23
     // 모듈명 : CUT-OFF 및 이월자료 등록
     // 페이지 : P_CZ_ME_SALES_FOR
-    // test
     // **************************************
 
     public partial class P_CZ_ME_SALES_FOR : PageBase
@@ -35,6 +34,7 @@ namespace cz
         string today = "";
         string toyear = "";
         string rdo_idx = "";
+
         #endregion
 
         #region ♥ 초기화
@@ -151,6 +151,10 @@ namespace cz
             _flexM.AfterEdit += new RowColEventHandler(_flexM_AfterEdit);
             _flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
             //_flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
+
+            //20200720 Null Check 임시추가
+            _flexM.VerifyNotNull = new string[] { "ME_CPID", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "AY_AGENCYID", "ME_CORPID", "ME_TEAMID", "AM_BUDGET", "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE" };
+            //_flexM.VerifyNotNull = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "NM_CPID", "ME_SEQ", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "AY_AGENCYID", "AY_TRADE_TYPE", "ME_CORPID", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "ME_TEAMID", "CD_ACCT", "AM_BUDGET", "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID" };
         }
 
         #endregion
@@ -313,7 +317,6 @@ namespace cz
         // 저장 전 체크 사항
         protected bool BeforeSaveChk()
         {
-          
             if (!_flexM.HasNormalRow)
             {
                 ShowMessage("저장할 내용이 없습니다.");
