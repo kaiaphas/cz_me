@@ -549,11 +549,11 @@ namespace cz
             if (!_flexM_T1.Verify())
                 return false;
 
-            if (!_flexD_T1.HasNormalRow)
-                return false;
+            //if (!_flexD_T1.HasNormalRow)
+            //    return false;
 
-            if (!_flexD_T1.Verify())
-                return false;
+            //if (!_flexD_T1.Verify())
+            //    return false;
 
             return true;
         }
