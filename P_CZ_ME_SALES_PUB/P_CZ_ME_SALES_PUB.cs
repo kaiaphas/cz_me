@@ -75,23 +75,25 @@ namespace cz
             _flexM.SetCol("ME_SEQ", "번호", 0, false);
             _flexM.SetCol("ME_YEAR_MONTH", "발행월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
             _flexM.SetCol("ME_TRADE_TYPE", "기준", 60, false);
-
             _flexM.SetCol("ME_CORPNO", "사업자등록번호", 100, false);
             _flexM.SetCol("ME_CORPID", "사업자코드", 0, false);
-            _flexM.SetCol("ME_CORPNM", "사업자명", 120, false);
-
+            _flexM.SetCol("ME_CORPNM", "사업자명", 150, false);
             _flexM.SetCol("AM_BUDGET", "수주액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("AM_AGY_PRICE", "수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("AM_MEDIA_PRICE", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-
             _flexM.SetCol("TP_INDEX", "상태", 60, false);
-
             _flexM.SetCol("DT_SYNC", "동기화일시", 130, false);
             _flexM.SetCol("DT_JUNPYO", "전표처리일시", 130, false);
             _flexM.SetCol("NO_DOCU", "전표번호", 100, false);
+            _flexM.SetCol("NO_DOCU_M", "수주전표", 100, true);
+            _flexM.SetCol("NO_DOCU_C", "수수료전표", 100, true);
+            _flexM.SetCol("TP_TAXSTATUS", "세금계산서여부", 100, false);
+
+            _flexM.SetCol("PUB_BUDGET", "전수주액", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("PUB_AGY_PRICE", "전수수료", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("PUB_MEDIA_PRICE", "전매체수익", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
 
             _flexM.Cols["TP_INDEX"].TextAlign = TextAlignEnum.CenterCenter;
-            //_flexM.Cols["TP_SALES"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ME_YEAR_MONTH"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ME_TRADE_TYPE"].TextAlign = TextAlignEnum.CenterCenter;
 
@@ -108,16 +110,15 @@ namespace cz
             _flexM.Cols["DT_SYNC"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["DT_JUNPYO"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["NO_DOCU"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["NO_DOCU_M"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["NO_DOCU_C"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["TP_TAXSTATUS"].TextAlign = TextAlignEnum.CenterCenter;
 
             _flexM.SetDummyColumn("S");
 
-            _flexM.SetDummyColumn("DT_SYNC");
-            _flexM.SetDummyColumn("DT_JUNPYO");
-            _flexM.SetDummyColumn("NO_DOCU");
-
             _flexM.Cols.Frozen = 1;
 
-            _flexM.SettingVersion = "1.0.0.8";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.2.3";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
@@ -125,21 +126,11 @@ namespace cz
 
             //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
 
+            _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
             _flexM.HelpClick += new EventHandler(_flexM_HelpClick);
             _flexM.AfterEdit += new RowColEventHandler(_flexM_AfterEdit);
             //_flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
             //_flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
-
-
-            
-        }
-
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (((RadioButton)sender).Checked)
-                rdo_idx = ((RadioButton)sender).Text;
-            string[] tempstr = rdo_idx.Split('-');
-            rdo_idx = tempstr[0].Trim();
         }
         #endregion
 
@@ -149,12 +140,9 @@ namespace cz
         {
             base.InitPaint();
 
-            //Grant.CanDelete = false;
-            //Grant.CanAdd = false;
-            //Grant.CanPrint = false;
-
-            btn전표처리.Click += new EventHandler(btn전표처리_Click);
-            btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
+            Grant.CanDelete = false;
+            Grant.CanAdd = false;
+            Grant.CanPrint = false;
 
             DateTime time = Global.MainFrame.GetDateTimeToday();
 
@@ -168,13 +156,17 @@ namespace cz
             //_flexM.SetDataMap("CD_ACCT", dt계정코드.Copy(), "CODE", "NAME");
             _flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
             //_flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
+
+            btn전표처리.Click += new EventHandler(btn전표처리_Click);
+            btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
+
             rdo전체.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             rdo미처리.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             rdo처리.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             rdo변경.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
             rdo수기.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
 
-            
+            rdo_idx = "전체";
         }
 
         #endregion
@@ -189,12 +181,13 @@ namespace cz
         {
             try
             {
-                object[] Params = new object[5];
+                object[] Params = new object[6];
                 Params[0] = LoginInfo.CompanyCode;
                 Params[1] = "SELECT";
                 Params[2] = dt일자.StartDateToString.Substring(0, 6);
                 Params[3] = dt일자.EndDateToString.Substring(0, 6);
                 Params[4] = txt명.Text;
+                Params[5] = rdo_idx;
 
                 DataSet ds = _biz.Search_M(Params);
 
@@ -221,12 +214,13 @@ namespace cz
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-                        object[] Params = new object[5];
+                        object[] Params = new object[6];
                         Params[0] = LoginInfo.CompanyCode;
                         Params[1] = "SELECT";
                         Params[2] = dt일자.StartDateToString.Substring(0, 6);
                         Params[3] = dt일자.EndDateToString.Substring(0, 6);
                         Params[4] = txt명.Text;
+                        Params[5] = rdo_idx;
 
                         DataSet ds = _biz.Search_M(Params);
 
@@ -248,6 +242,21 @@ namespace cz
 
             if (_flexM.HasNormalRow)
             {
+                for (int i = _flexM.Rows.Fixed; i < _flexM.Rows.Count; i++)
+                {
+                    if (D.GetString(_flexM.Rows[i]["NO_DOCU"]).Length != 0 && (D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0 || D.GetString(_flexM.Rows[i]["NO_DOCU_C"]).Length != 0))
+                    {
+                        ShowMessage("이미 전표처리가 완료된 건은 수주전표와 수수료전표 입력이 불가능합니다.");
+                        return false;
+                    }
+
+                    if (D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0 && D.GetString(_flexM.Rows[i]["NO_DOCU_C"]).Length != 0)
+                    {
+                        ShowMessage("수주전표와 수수료전표는 동시에 입력이 불가능합니다.");
+                        return false;
+                    }
+                }
+
                 obj = _biz.Save(_flexM.GetChanges(), _타메뉴호출);
             }
 
@@ -334,7 +343,13 @@ namespace cz
 
         #region ♥ 기타 이벤트
 
-
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+                rdo_idx = ((RadioButton)sender).Text;
+            string[] tempstr = rdo_idx.Split('-');
+            rdo_idx = tempstr[0].Trim();
+        }
 
         #endregion
 
@@ -376,6 +391,45 @@ namespace cz
             object[] Args = { 전표번호, "", "", Global.MainFrame.LoginInfo.CompanyCode };
             CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
         }
+
+        private void _flexM_OwnerDrawCell(object sender, OwnerDrawCellEventArgs e)
+        {
+            CellRange rg;
+
+            if (!_flexM.HasNormalRow)
+                return;
+
+            if (e.Row < _flexM.Rows.Fixed || e.Col < _flexM.Cols.Fixed)
+                return;
+
+            if (D.GetString(_flexM[e.Row, "TP_INDEX"]) == "자료변경")
+            {
+                CellStyle csCellstyle = _flexM.Styles.Add("CellStyle");
+                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(230)), ((Byte)(230)));
+
+                _flexM.Rows[e.Row].Style = csCellstyle;
+
+                if (D.GetString(_flexM[e.Row, "AM_BUDGET"]) != D.GetString(_flexM[e.Row, "PUB_BUDGET"]))
+                {
+                    rg = _flexM.GetCellRange(e.Row, "AM_BUDGET");
+                    rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+                }
+
+                if (D.GetString(_flexM[e.Row, "AM_AGY_PRICE"]) != D.GetString(_flexM[e.Row, "PUB_AGY_PRICE"]))
+                {
+                    rg = _flexM.GetCellRange(e.Row, "AM_AGY_PRICE");
+                    rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+                }
+
+                if (D.GetString(_flexM[e.Row, "AM_MEDIA_PRICE"]) != D.GetString(_flexM[e.Row, "PUB_MEDIA_PRICE"]))
+                {
+                    rg = _flexM.GetCellRange(e.Row, "AM_MEDIA_PRICE");
+                    rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+                }
+
+            }
+        }
+
         #endregion
 
         #region ♥ 기타 Property
@@ -396,26 +450,38 @@ namespace cz
                     ShowMessage(공통메세지.선택된자료가없습니다);
                     return;
                 }
+
                 if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals(""))
+                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("수기등록"))
+                        {
+                            ShowMessage((i-1) + "행은 수주전표 및 수수료전표를 입력한 건으로 전표처리할 수 없습니다.");
+                        }
+
+                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("전표처리"))
+                        {
+                            ShowMessage((i-1) + "행은 이미 전표가 처리되었습니다.");
+                        }
+
+                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("자료변경"))
+                        {
+                            ShowMessage((i-1) + "행 전표를 삭제 후 처리하세요.");
+                        }
+
+                        if (_flexM[i, "S"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("미처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
                         {
                             string SALES_구분 = _flexM[i, "TP_SALES"].ToString();
                             string 순번 = _flexM[i, "ME_SEQ"].ToString();
-
                             string 거래처코드 = _flexM[i, "ME_CORPNO"].ToString();
                             string 거래처명 = _flexM[i, "ME_CORPNM"].ToString();
                             string 거래처구분 = _flexM[i, "ME_TRADE_TYPE"].ToString();
                             string 발행월 = _flexM[i, "ME_YEAR_MONTH"].ToString();
-
                             string PUB코드 = _flexM[i, "ME_CPID"].ToString();
-
                             string 수주액 = _flexM[i, "AM_BUDGET"].ToString();
                             string 수수료 = _flexM[i, "AM_AGY_PRICE"].ToString();
                             string 수익 = _flexM[i, "AM_MEDIA_PRICE"].ToString();
-
                             string 동기화 = _flexM[i, "DT_SYNC"].ToString();
 
                             //if (_biz.Save_Pub(SALES_구분, 순번, 거래처코드, 발행월, 거래처구분, PUB코드, 수주액, 수수료, 수익))
@@ -430,20 +496,21 @@ namespace cz
                         }
                     }
 
-                    ShowMessage("전표 처리가 완료 되었습니다.");
+                    //ShowMessage("전표 처리가 완료 되었습니다.");
 
-                    object[] Params = new object[5];
+                    object[] Params = new object[6];
                     Params[0] = LoginInfo.CompanyCode;
                     Params[1] = "SELECT";
                     Params[2] = dt일자.StartDateToString.Substring(0, 6);
                     Params[3] = dt일자.EndDateToString.Substring(0, 6);
                     Params[4] = txt명.Text;
+                    Params[5] = rdo_idx;
 
                     DataSet ds = _biz.Search_M(Params);
 
                     _flexM.Binding = ds.Tables[0];
 
-                    SetToolBarButtonState(true, false, true, true, true);
+                    //SetToolBarButtonState(true, false, true, true, true);
                 }
             }
             catch (Exception ex)
@@ -472,7 +539,7 @@ namespace cz
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("전표처리"))
+                        if (_flexM[i, "S"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("전표처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
                         {
                             string 전표번호 = _flexM[i, "NO_DOCU"].ToString();
 
@@ -483,14 +550,15 @@ namespace cz
                         }
                     }
 
-                    ShowMessage("전표 삭제가 완료 되었습니다.");
+                    //ShowMessage("전표 삭제가 완료 되었습니다.");
 
-                    object[] Params = new object[5];
+                    object[] Params = new object[6];
                     Params[0] = LoginInfo.CompanyCode;
                     Params[1] = "SELECT";
                     Params[2] = dt일자.StartDateToString.Substring(0, 6);
                     Params[3] = dt일자.EndDateToString.Substring(0, 6);
                     Params[4] = txt명.Text;
+                    Params[5] = rdo_idx;
 
                     DataSet ds = _biz.Search_M(Params);
 
