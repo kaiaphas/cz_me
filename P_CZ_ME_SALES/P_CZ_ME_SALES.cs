@@ -78,21 +78,28 @@ namespace cz
 
             _flexM.SetCol("S", "S", 35, true, CheckTypeEnum.Y_N);
 
-            _flexM.SetCol("ay_year", "매출월", 60, true);
+            _flexM.SetCol("tp_sales", "TP_SALES", 0, false);
+
+            _flexM.SetCol("ay_year", "매출월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
             _flexM.SetCol("CD_ACCT", "계정과목", 130, true);
             _flexM.SetCol("cpid", "캠페인ID", 0, false);
             _flexM.SetCol("cpname", "캠페인명", 130, false);
             _flexM.SetCol("req_no", "고유번호", 0, false);
+            _flexM.SetCol("seq", "매체순번", 0, false);
+
+            _flexM.SetCol("cp_agentno", "광고주사업자번호", 90, false);
+            _flexM.SetCol("cp_agentid", "광고주ID", 0, false);
+            _flexM.SetCol("cp_agentnm", "광고주", 130, false);
 
             //대행사
-            _flexM.SetCol("yearmonth", "월", 60, false);
+            _flexM.SetCol("ay_year_month", "월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
             _flexM.SetCol("ay_trade_type", "기준", 40, false); 
             _flexM.SetCol("ay_agencyno", "사업자번호", 90, false);
             _flexM.SetCol("ay_agencyid", "ID", 0, false);
             _flexM.SetCol("ay_agencynm", "명칭", 130, false); 
             
             //매체
-            _flexM.SetCol("yearmonth2", "월", 60, false);
+            _flexM.SetCol("me_year_month", "월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
             _flexM.SetCol("me_trade_type", "기준", 40, false); 
             _flexM.SetCol("me_corpno", "사업자번호", 90, false);
             _flexM.SetCol("me_corpid", "ID", 0, false);
@@ -102,11 +109,10 @@ namespace cz
             _flexM.SetCol("me_teamid", "팀ID", 0, false);
             _flexM.SetCol("me_teamnm", "팀", 100, false);
             _flexM.SetCol("am_budget", "광고수주액", 100, false, typeof(decimal), FormatTpType.MONEY);
-            _flexM.SetCol("am_agy_price", "대행사수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_UNIT_COST);
-            _flexM.SetCol("am_income", "영업수익(매출)", 100, false, typeof(decimal), FormatTpType.EXCHANGE_RATE); //내수액임, 전체금액 확인
-            _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY); 
-            _flexM.SetCol("cp_agentid", "광고주ID", 0, false);
-            _flexM.SetCol("cp_agentnm", "광고주", 80, false);
+            _flexM.SetCol("am_agy_price", "대행사수수료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "영업수익(매출)", 100, false, typeof(decimal), FormatTpType.MONEY); //내수액임, 전체금액 확인
+            _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.MONEY);
+
             //_flexM.SetCol("sales_etc", "수정일시", 0, false); //DT_UPDATE로 수정
              
             _flexM.SetCol("closed", "마감구분", 60, false); 
@@ -139,13 +145,13 @@ namespace cz
             _flexM.Cols["cpname"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["req_no"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["yearmonth"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_year_month"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_agencyno"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_agencyid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_agencynm"].TextAlign = TextAlignEnum.LeftCenter;
 
-            _flexM.Cols["yearmonth2"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["me_year_month"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["me_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["me_corpno"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["me_corpid"].TextAlign = TextAlignEnum.CenterCenter;
@@ -199,63 +205,63 @@ namespace cz
 
 
             //그리드 셀 병합
-            _flexM.Cols["S"].AllowMerging = false;
-            _flexM.Cols["ay_year"].AllowMerging = false;
-            _flexM.Cols["CD_ACCT"].AllowMerging = false;
-            _flexM.Cols["cpid"].AllowMerging = false;
-            _flexM.Cols["cpname"].AllowMerging = false;
-            _flexM.Cols["req_no"].AllowMerging = false;
-            _flexM.Cols["yearmonth"].AllowMerging = false;
+            //_flexM.Cols["S"].AllowMerging = false;
+            //_flexM.Cols["ay_year"].AllowMerging = false;
+            //_flexM.Cols["CD_ACCT"].AllowMerging = false;
+            //_flexM.Cols["cpid"].AllowMerging = false;
+            //_flexM.Cols["cpname"].AllowMerging = false;
+            //_flexM.Cols["req_no"].AllowMerging = false;
+            //_flexM.Cols["yearmonth"].AllowMerging = false;
 
-            _flexM.Cols["ay_trade_type"].AllowMerging = true;
-            _flexM.Cols["ay_agencyno"].AllowMerging = true;
-            _flexM.Cols["ay_agencyid"].AllowMerging = true;
-            _flexM.Cols["ay_agencynm"].AllowMerging = true;
+            //_flexM.Cols["ay_trade_type"].AllowMerging = true;
+            //_flexM.Cols["ay_agencyno"].AllowMerging = true;
+            //_flexM.Cols["ay_agencyid"].AllowMerging = true;
+            //_flexM.Cols["ay_agencynm"].AllowMerging = true;
 
-            _flexM.Cols["yearmonth2"].AllowMerging = false;
-            _flexM.Cols["me_trade_type"].AllowMerging = false;
-            _flexM.Cols["me_corpno"].AllowMerging = false;
-            _flexM.Cols["me_corpid"].AllowMerging = false;
-            _flexM.Cols["me_corpnm"].AllowMerging = false;
-            _flexM.Cols["NM_MEDIAGR"].AllowMerging = false;
-            _flexM.Cols["me_teamid"].AllowMerging = false;
-            _flexM.Cols["me_teamnm"].AllowMerging = false;
-            _flexM.Cols["am_budget"].AllowMerging = false;
-            _flexM.Cols["am_agy_price"].AllowMerging = false;
+            //_flexM.Cols["yearmonth2"].AllowMerging = false;
+            //_flexM.Cols["me_trade_type"].AllowMerging = false;
+            //_flexM.Cols["me_corpno"].AllowMerging = false;
+            //_flexM.Cols["me_corpid"].AllowMerging = false;
+            //_flexM.Cols["me_corpnm"].AllowMerging = false;
+            //_flexM.Cols["NM_MEDIAGR"].AllowMerging = false;
+            //_flexM.Cols["me_teamid"].AllowMerging = false;
+            //_flexM.Cols["me_teamnm"].AllowMerging = false;
+            //_flexM.Cols["am_budget"].AllowMerging = false;
+            //_flexM.Cols["am_agy_price"].AllowMerging = false;
 
-            _flexM.Cols["am_income"].AllowMerging = false;
-            _flexM.Cols["am_media_price"].AllowMerging = false;
-            _flexM.Cols["cp_agentid"].AllowMerging = false;
-            _flexM.Cols["cp_agentnm"].AllowMerging = false;
-            _flexM.Cols["closed"].AllowMerging = false;
+            //_flexM.Cols["am_income"].AllowMerging = false;
+            //_flexM.Cols["am_media_price"].AllowMerging = false;
+            //_flexM.Cols["cp_agentid"].AllowMerging = false;
+            //_flexM.Cols["cp_agentnm"].AllowMerging = false;
+            //_flexM.Cols["closed"].AllowMerging = false;
 
-            _flexM.Cols["S1"].AllowMerging = false;
-            _flexM.Cols["DOCU_TYPE_D"].AllowMerging = false;
-            _flexM.Cols["DOCU_NO_D"].AllowMerging = false;
-            _flexM.Cols["PUB_YN"].AllowMerging = false;
-            _flexM.Cols["SALES_TAX_ALL"].AllowMerging = false;
-            _flexM.Cols["SALES_TAX_D"].AllowMerging = false;
+            //_flexM.Cols["S1"].AllowMerging = false;
+            //_flexM.Cols["DOCU_TYPE_D"].AllowMerging = false;
+            //_flexM.Cols["DOCU_NO_D"].AllowMerging = false;
+            //_flexM.Cols["PUB_YN"].AllowMerging = false;
+            //_flexM.Cols["SALES_TAX_ALL"].AllowMerging = false;
+            //_flexM.Cols["SALES_TAX_D"].AllowMerging = false;
 
-            _flexM.Cols["S2"].AllowMerging = false;
-            _flexM.Cols["DOCU_TYPE_M"].AllowMerging = false;
-            _flexM.Cols["DOCU_NO_M"].AllowMerging = false;
-            _flexM.Cols["SALES_TAX_M"].AllowMerging = false;
+            //_flexM.Cols["S2"].AllowMerging = false;
+            //_flexM.Cols["DOCU_TYPE_M"].AllowMerging = false;
+            //_flexM.Cols["DOCU_NO_M"].AllowMerging = false;
+            //_flexM.Cols["SALES_TAX_M"].AllowMerging = false;
 
-            _flexM.Cols["SALES_CONTENT"].AllowMerging = false;
-            _flexM.Cols["ID_UPDATE"].AllowMerging = false;
-            _flexM.Cols["DT_UPDATE"].AllowMerging = false;
+            //_flexM.Cols["SALES_CONTENT"].AllowMerging = false;
+            //_flexM.Cols["ID_UPDATE"].AllowMerging = false;
+            //_flexM.Cols["DT_UPDATE"].AllowMerging = false;
 
-            _flexM.AllowMerging = AllowMergingEnum.FixedOnly;
+            //_flexM.AllowMerging = AllowMergingEnum.FixedOnly;
 
             //MERGE 처리 대행사
-            _flexM[0, "yearmonth"] = _flexM[0, "agency"] = "대행사";
+            _flexM[0, "ay_year_month"] = _flexM[0, "agency"] = "대행사";
             _flexM[0, "ay_trade_type"] = _flexM[0, "agency"] = "대행사";
             _flexM[0, "ay_agencyno"] = _flexM[0, "agency"] = "대행사";
             _flexM[0, "ay_agencyid"] = _flexM[0, "agency"] = "대행사";
             _flexM[0, "ay_agencynm"] = _flexM[0, "agency"] = "대행사";
 
             //MERGE 처리 매체
-            _flexM[0, "yearmonth2"] = _flexM[0, "agent"] = "매체";
+            _flexM[0, "me_year_month"] = _flexM[0, "agent"] = "매체";
             _flexM[0, "me_trade_type"] = _flexM[0, "agent"] = "매체";
             _flexM[0, "me_corpno"] = _flexM[0, "agent"] = "매체";
             _flexM[0, "me_corpid"] = _flexM[0, "agent"] = "매체";
@@ -338,6 +344,9 @@ namespace cz
         protected override void InitPaint()
         {
             base.InitPaint();
+
+            btn전표처리.Click += new EventHandler(btn전표처리_Click);
+            //btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
 
             try
             {
@@ -554,7 +563,27 @@ namespace cz
 
             if (_flexM.HasNormalRow)
             {
-                obj = _biz.Save(_flexM.GetChanges());
+
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                DataTable dt = _flexM.DataTable;
+                dt.AcceptChanges();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    dr.SetAdded();
+                }
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return false;
+                }
+
+                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    obj = _biz.Save(dt);
+                }
             }
 
             return false;
@@ -665,15 +694,15 @@ namespace cz
             }
             else
             {
-                if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "yearmonth"]))
+                if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "ay_year_month"]))
                 {
-                    rg = _flexM.GetCellRange(e.Row, "yearmonth");
+                    rg = _flexM.GetCellRange(e.Row, "ay_year_month");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "yearmonth2"]))
+                if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "me_year_month"]))
                 {
-                    rg = _flexM.GetCellRange(e.Row, "yearmonth2");
+                    rg = _flexM.GetCellRange(e.Row, "me_year_month");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
@@ -818,5 +847,70 @@ namespace cz
             }
         }
 
+        private void btn전표처리_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_flexM.HasNormalRow)
+                    return;
+
+                // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
+                if (!BeforeSaveChk())
+                    return;
+
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                        string 순번 = _flexM[i, "SEQ"].ToString();
+                        string 대행사발행월 = _flexM[i, "AY_YEAR_MONTH"].ToString();
+                        string 매체발행월 = _flexM[i, "ME_YEAR_MONTH"].ToString();
+
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            if (_biz.Save_Junpyo(캠페인코드, 순번, 대행사발행월, 매체발행월))
+                            {
+
+                            }
+                        }
+
+                        /*
+                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("수기등록"))
+                        {
+                            ShowMessage((i-1) + "행은 수주전표 및 수수료전표를 입력한 건으로 전표처리할 수 없습니다.");
+                        }
+
+                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("전표처리"))
+                        {
+                            ShowMessage((i-1) + "행은 이미 전표가 처리되었습니다.");
+                        }
+
+                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("자료변경"))
+                        {
+                            ShowMessage((i-1) + "행 전표를 삭제 후 처리하세요.");
+                        }
+
+                        if (_flexM[i, "S"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("미처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
+                        {
+
+                        }
+                         * */
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
     }
 }

@@ -36,8 +36,8 @@
             this.panelExt9 = new Duzon.Common.Controls.PanelExt();
             this.panelExt11 = new Duzon.Common.Controls.PanelExt();
             this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.roundedButton1 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.roundedButton2 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn전표처리 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn전표취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -144,41 +144,41 @@
             this.btn상세검색.UseVisualStyleBackColor = false;
             this.btn상세검색.Click += new System.EventHandler(this.btn상세검색_Click_1);
             // 
-            // roundedButton1
+            // btn전표처리
             // 
-            this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedButton1.BackColor = System.Drawing.Color.White;
-            this.roundedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Location = new System.Drawing.Point(846, 14);
-            this.roundedButton1.MaximumSize = new System.Drawing.Size(0, 19);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(78, 19);
-            this.roundedButton1.TabIndex = 5;
-            this.roundedButton1.TabStop = false;
-            this.roundedButton1.Text = "전표처리";
-            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.btn전표처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn전표처리.BackColor = System.Drawing.Color.White;
+            this.btn전표처리.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn전표처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn전표처리.Location = new System.Drawing.Point(846, 14);
+            this.btn전표처리.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn전표처리.Name = "btn전표처리";
+            this.btn전표처리.Size = new System.Drawing.Size(78, 19);
+            this.btn전표처리.TabIndex = 5;
+            this.btn전표처리.TabStop = false;
+            this.btn전표처리.Text = "전표처리";
+            this.btn전표처리.UseVisualStyleBackColor = false;
             // 
-            // roundedButton2
+            // btn전표취소
             // 
-            this.roundedButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedButton2.BackColor = System.Drawing.Color.White;
-            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Location = new System.Drawing.Point(929, 14);
-            this.roundedButton2.MaximumSize = new System.Drawing.Size(0, 19);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.Size = new System.Drawing.Size(78, 19);
-            this.roundedButton2.TabIndex = 6;
-            this.roundedButton2.TabStop = false;
-            this.roundedButton2.Text = "전표취소";
-            this.roundedButton2.UseVisualStyleBackColor = false;
+            this.btn전표취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn전표취소.BackColor = System.Drawing.Color.White;
+            this.btn전표취소.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn전표취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn전표취소.Location = new System.Drawing.Point(929, 14);
+            this.btn전표취소.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn전표취소.Name = "btn전표취소";
+            this.btn전표취소.Size = new System.Drawing.Size(78, 19);
+            this.btn전표취소.TabIndex = 6;
+            this.btn전표취소.TabStop = false;
+            this.btn전표취소.Text = "전표취소";
+            this.btn전표취소.UseVisualStyleBackColor = false;
             // 
             // P_CZ_ME_SALES
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.Controls.Add(this.roundedButton2);
-            this.Controls.Add(this.roundedButton1);
+            this.Controls.Add(this.btn전표취소);
+            this.Controls.Add(this.btn전표처리);
             this.Controls.Add(this.btn상세검색);
             this.Name = "P_CZ_ME_SALES";
             this.Size = new System.Drawing.Size(1090, 796);
@@ -186,8 +186,8 @@
             this.OwerClosed += new System.EventHandler(this.P_CZ_ME_SALES_OwerClosed);
             this.Controls.SetChildIndex(this.btn상세검색, 0);
             this.Controls.SetChildIndex(this.mDataArea, 0);
-            this.Controls.SetChildIndex(this.roundedButton1, 0);
-            this.Controls.SetChildIndex(this.roundedButton2, 0);
+            this.Controls.SetChildIndex(this.btn전표처리, 0);
+            this.Controls.SetChildIndex(this.btn전표취소, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
@@ -205,8 +205,8 @@
         private Duzon.Common.Controls.PanelExt panelExt11;
         private Dass.FlexGrid.FlexGrid _flexM;
         private Duzon.Common.Controls.RoundedButton btn상세검색;
-        private Duzon.Common.Controls.RoundedButton roundedButton1;
-        private Duzon.Common.Controls.RoundedButton roundedButton2;
+        private Duzon.Common.Controls.RoundedButton btn전표처리;
+        private Duzon.Common.Controls.RoundedButton btn전표취소;
 
     }
 }

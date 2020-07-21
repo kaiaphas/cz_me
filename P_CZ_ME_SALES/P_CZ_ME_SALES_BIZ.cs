@@ -33,6 +33,16 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
+        internal bool Save_Junpyo(string 캠페인코드, string 순번, string 대행사발행월, string 매체발행월)
+        {
+            string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
+            string CD_PC = Global.MainFrame.LoginInfo.CdPc;
+            string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
+            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_AY_I", new object[] { 회사코드, 캠페인코드, 순번, 대행사발행월, 매체발행월, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
+        }
+
         public object Save(DataTable dtM)
         {
 
@@ -47,22 +57,20 @@ namespace cz
                 si.CompanyID = 회사코드;
                 si.UserID = 사용자ID;
 
-                si.SpNameInsert = "UP_CZ_ME_SALES_I";
-                si.SpNameUpdate = "UP_CZ_ME_SALES_U";
+                si.SpNameInsert = "UP_CZ_ME_SALES_H_I";
+                si.SpNameUpdate = "UP_CZ_ME_SALES_H_U";
                 si.SpParamsInsert = new string[] { 
-                    "CD_COMPANY", "actyear", "CD_ACCT", "cpid", "cpname", "yearmonth"
-                    , "trade_type_d", "biz_no_d", "agencyid", "corpname_d", "yearmonth2"
-                    , "trade_type_m", "biz_no_m", "corpid", "corpname_m", "NM_MEDIAGR"
-                    , "teamid", "teamname", "budget", "agy_price", "income"
-                    , "corp_amt", "agentid", "agentname", "closed", "status"
-                    , "ID_INSERT", "ID_UPDATE"};
+                    "CD_COMPANY", "TP_SALES", "REQ_NO", "CPID", "CPNAME", "SEQ"
+                    , "AY_AGENCYID", "AY_AGENCYNO", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_CORPNO", "ME_YEAR_MONTH"
+                    , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "AM_BUDGET"
+                    , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
+                };
                 si.SpParamsUpdate = new string[] { 
-                    "CD_COMPANY", "actyear", "CD_ACCT", "cpid", "cpname", "yearmonth"
-                    , "trade_type_d", "biz_no_d", "agencyid", "corpname_d", "yearmonth2"
-                    , "trade_type_m", "biz_no_m", "corpid", "corpname_m", "NM_MEDIAGR"
-                    , "teamid", "teamname", "budget", "agy_price", "income"
-                    , "corp_amt", "agentid", "agentname", "closed", "status"
-                    , "ID_INSERT", "ID_UPDATE"};
+                    "CD_COMPANY", "TP_SALES", "REQ_NO", "CPID", "CPNAME", "SEQ"
+                    , "AY_AGENCYID", "AY_AGENCYNO", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_CORPNO", "ME_YEAR_MONTH"
+                    , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "AM_BUDGET"
+                    , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
+                };
                 
                 sic.Add(si);
 
