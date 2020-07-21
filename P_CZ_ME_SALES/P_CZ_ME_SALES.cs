@@ -78,7 +78,7 @@ namespace cz
 
             _flexM.SetCol("S", "S", 35, true, CheckTypeEnum.Y_N);
 
-            _flexM.SetCol("actyear", "매출월", 60, true);
+            _flexM.SetCol("ay_year", "매출월", 60, true);
             _flexM.SetCol("CD_ACCT", "계정과목", 130, true);
             _flexM.SetCol("cpid", "캠페인ID", 0, false);
             _flexM.SetCol("cpname", "캠페인명", 130, false);
@@ -86,31 +86,31 @@ namespace cz
 
             //대행사
             _flexM.SetCol("yearmonth", "월", 60, false);
-            _flexM.SetCol("trade_type_d", "기준", 40, false); 
-            _flexM.SetCol("biz_no_d", "사업자번호", 90, false);
-            _flexM.SetCol("agencyid", "ID", 0, false);
-            _flexM.SetCol("corpname_d", "명칭", 130, false); 
+            _flexM.SetCol("ay_trade_type", "기준", 40, false); 
+            _flexM.SetCol("ay_agencyno", "사업자번호", 90, false);
+            _flexM.SetCol("ay_agencyid", "ID", 0, false);
+            _flexM.SetCol("ay_agencynm", "명칭", 130, false); 
             
             //매체
             _flexM.SetCol("yearmonth2", "월", 60, false);
-            _flexM.SetCol("trade_type_m", "기준", 40, false); 
-            _flexM.SetCol("biz_no_m", "사업자번호", 90, false);
-            _flexM.SetCol("corpid", "ID", 0, false);
-            _flexM.SetCol("corpname_m", "명칭", 130, false); 
+            _flexM.SetCol("me_trade_type", "기준", 40, false); 
+            _flexM.SetCol("me_corpno", "사업자번호", 90, false);
+            _flexM.SetCol("me_corpid", "ID", 0, false);
+            _flexM.SetCol("me_corpnm", "명칭", 130, false); 
             _flexM.SetCol("NM_MEDIAGR", "구분", 60, false);
 
-            _flexM.SetCol("teamid", "팀ID", 0, false);
-            _flexM.SetCol("teamname", "팀", 100, false);
-            _flexM.SetCol("budget", "광고수주액", 100, false, typeof(decimal), FormatTpType.MONEY);
-            _flexM.SetCol("agy_price", "대행사수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_UNIT_COST);
-            _flexM.SetCol("income", "영업수익(매출)", 100, false, typeof(decimal), FormatTpType.EXCHANGE_RATE); //내수액임, 전체금액 확인
-            _flexM.SetCol("corp_amt", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY); 
-            _flexM.SetCol("agentid", "광고주ID", 0, false);
-            _flexM.SetCol("agentname", "광고주", 80, false);
-            _flexM.SetCol("sales_etc", "수정일시", 0, false); //DT_UPDATE로 수정
+            _flexM.SetCol("me_teamid", "팀ID", 0, false);
+            _flexM.SetCol("me_teamnm", "팀", 100, false);
+            _flexM.SetCol("am_budget", "광고수주액", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_agy_price", "대행사수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_UNIT_COST);
+            _flexM.SetCol("am_income", "영업수익(매출)", 100, false, typeof(decimal), FormatTpType.EXCHANGE_RATE); //내수액임, 전체금액 확인
+            _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY); 
+            _flexM.SetCol("cp_agentid", "광고주ID", 0, false);
+            _flexM.SetCol("cp_agentnm", "광고주", 80, false);
+            //_flexM.SetCol("sales_etc", "수정일시", 0, false); //DT_UPDATE로 수정
              
             _flexM.SetCol("closed", "마감구분", 60, false); 
-            _flexM.SetCol("status", "수정구분", 60, false);
+            //_flexM.SetCol("status", "수정구분", 60, false);
 
             //대행사 전표정보
             _flexM.SetCol("S1", "S", 35, true, CheckTypeEnum.Y_N);
@@ -130,61 +130,62 @@ namespace cz
             _flexM.SetCol("SALES_CONTENT", "내용", 200, false);
             _flexM.SetCol("ID_UPDATE", "등록(수정)자", 0, false);
             _flexM.SetCol("DT_UPDATE", "등록(수정)일시", 0, false);
-            
+
+
             //정렬
-            _flexM.Cols["actyear"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_year"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["CD_ACCT"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cpid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cpname"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["req_no"].TextAlign = TextAlignEnum.CenterCenter;
 
             _flexM.Cols["yearmonth"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["trade_type_d"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["biz_no_d"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["agencyid"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["corpname_d"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["ay_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_agencyno"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_agencyid"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_agencynm"].TextAlign = TextAlignEnum.LeftCenter;
 
             _flexM.Cols["yearmonth2"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["trade_type_m"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["biz_no_m"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["corpid"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["corpname_m"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["me_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["me_corpno"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["me_corpid"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["me_corpnm"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["NM_MEDIAGR"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["teamid"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["teamname"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["me_teamid"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["me_teamnm"].TextAlign = TextAlignEnum.LeftCenter;
 
-            _flexM.Cols["budget"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["budget"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_budget"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_budget"].Format = "###,###,###,##0;(###,###,###,##0)";
 
-            _flexM.Cols["agy_price"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["agy_price"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_agy_price"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_agy_price"].Format = "###,###,###,##0;(###,###,###,##0)";
 
-            _flexM.Cols["income"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["income"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_income"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_income"].Format = "###,###,###,##0;(###,###,###,##0)";
 
-            _flexM.Cols["corp_amt"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["corp_amt"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_media_price"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_media_price"].Format = "###,###,###,##0;(###,###,###,##0)";
 
-            _flexM.Cols["agentid"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["agentname"].TextAlign = TextAlignEnum.LeftCenter;
-            _flexM.Cols["sales_etc"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["cp_agentid"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["cp_agentnm"].TextAlign = TextAlignEnum.LeftCenter;
+            //_flexM.Cols["sales_etc"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["closed"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["status"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["status"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["DOCU_TYPE_D"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["DOCU_NO_D"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["PUB_YN"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["SALES_TAX_ALL"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["SALES_TAX_D"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["DOCU_TYPE_D"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["DOCU_NO_D"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["PUB_YN"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["SALES_TAX_ALL"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["SALES_TAX_D"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["DOCU_TYPE_M"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["DOCU_NO_M"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["SALES_TAX_M"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["DOCU_TYPE_M"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["DOCU_NO_M"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["SALES_TAX_M"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["SALES_CONTENT"].TextAlign = TextAlignEnum.LeftCenter;
-            _flexM.Cols["ID_UPDATE"].TextAlign = TextAlignEnum.LeftCenter;
-            _flexM.Cols["DT_UPDATE"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["SALES_CONTENT"].TextAlign = TextAlignEnum.LeftCenter;
+            //_flexM.Cols["ID_UPDATE"].TextAlign = TextAlignEnum.LeftCenter;
+            //_flexM.Cols["DT_UPDATE"].TextAlign = TextAlignEnum.CenterCenter;
 
             ////소계
             //_flexM.SetCol("actyear", "그룹A", true);
@@ -196,19 +197,69 @@ namespace cz
 
             _flexM.SetDummyColumn("S");
 
+
+            //그리드 셀 병합
+            _flexM.Cols["S"].AllowMerging = false;
+            _flexM.Cols["ay_year"].AllowMerging = false;
+            _flexM.Cols["CD_ACCT"].AllowMerging = false;
+            _flexM.Cols["cpid"].AllowMerging = false;
+            _flexM.Cols["cpname"].AllowMerging = false;
+            _flexM.Cols["req_no"].AllowMerging = false;
+            _flexM.Cols["yearmonth"].AllowMerging = false;
+
+            _flexM.Cols["ay_trade_type"].AllowMerging = true;
+            _flexM.Cols["ay_agencyno"].AllowMerging = true;
+            _flexM.Cols["ay_agencyid"].AllowMerging = true;
+            _flexM.Cols["ay_agencynm"].AllowMerging = true;
+
+            _flexM.Cols["yearmonth2"].AllowMerging = false;
+            _flexM.Cols["me_trade_type"].AllowMerging = false;
+            _flexM.Cols["me_corpno"].AllowMerging = false;
+            _flexM.Cols["me_corpid"].AllowMerging = false;
+            _flexM.Cols["me_corpnm"].AllowMerging = false;
+            _flexM.Cols["NM_MEDIAGR"].AllowMerging = false;
+            _flexM.Cols["me_teamid"].AllowMerging = false;
+            _flexM.Cols["me_teamnm"].AllowMerging = false;
+            _flexM.Cols["am_budget"].AllowMerging = false;
+            _flexM.Cols["am_agy_price"].AllowMerging = false;
+
+            _flexM.Cols["am_income"].AllowMerging = false;
+            _flexM.Cols["am_media_price"].AllowMerging = false;
+            _flexM.Cols["cp_agentid"].AllowMerging = false;
+            _flexM.Cols["cp_agentnm"].AllowMerging = false;
+            _flexM.Cols["closed"].AllowMerging = false;
+
+            _flexM.Cols["S1"].AllowMerging = false;
+            _flexM.Cols["DOCU_TYPE_D"].AllowMerging = false;
+            _flexM.Cols["DOCU_NO_D"].AllowMerging = false;
+            _flexM.Cols["PUB_YN"].AllowMerging = false;
+            _flexM.Cols["SALES_TAX_ALL"].AllowMerging = false;
+            _flexM.Cols["SALES_TAX_D"].AllowMerging = false;
+
+            _flexM.Cols["S2"].AllowMerging = false;
+            _flexM.Cols["DOCU_TYPE_M"].AllowMerging = false;
+            _flexM.Cols["DOCU_NO_M"].AllowMerging = false;
+            _flexM.Cols["SALES_TAX_M"].AllowMerging = false;
+
+            _flexM.Cols["SALES_CONTENT"].AllowMerging = false;
+            _flexM.Cols["ID_UPDATE"].AllowMerging = false;
+            _flexM.Cols["DT_UPDATE"].AllowMerging = false;
+
+            _flexM.AllowMerging = AllowMergingEnum.FixedOnly;
+
             //MERGE 처리 대행사
             _flexM[0, "yearmonth"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "trade_type_d"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "biz_no_d"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "agencyid"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "corpname_d"] = _flexM[0, "agency"] = "대행사";
+            _flexM[0, "ay_trade_type"] = _flexM[0, "agency"] = "대행사";
+            _flexM[0, "ay_agencyno"] = _flexM[0, "agency"] = "대행사";
+            _flexM[0, "ay_agencyid"] = _flexM[0, "agency"] = "대행사";
+            _flexM[0, "ay_agencynm"] = _flexM[0, "agency"] = "대행사";
 
             //MERGE 처리 매체
             _flexM[0, "yearmonth2"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "trade_type_m"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "biz_no_m"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "corpid"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "corpname_m"] = _flexM[0, "agent"] = "매체";
+            _flexM[0, "me_trade_type"] = _flexM[0, "agent"] = "매체";
+            _flexM[0, "me_corpno"] = _flexM[0, "agent"] = "매체";
+            _flexM[0, "me_corpid"] = _flexM[0, "agent"] = "매체";
+            _flexM[0, "me_corpnm"] = _flexM[0, "agent"] = "매체";
             _flexM[0, "NM_MEDIAGR"] = _flexM[0, "agent"] = "매체";
 
             //MERGE 대행사 전표정보
@@ -227,7 +278,9 @@ namespace cz
             _flexM[0, "SALES_CONTENT"] = _flexM[0, "sales_etc"] = "비고";
             _flexM[0, "ID_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
             _flexM[0, "DT_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
-            
+
+
+
             _flexM.Cols.Frozen = 1;
 
             _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
@@ -278,8 +331,6 @@ namespace cz
                     }
                 }
             }
-
-
         }
 
         #region -> InitPaint
@@ -369,8 +420,8 @@ namespace cz
 
                 //dt.AcceptChanges();
                 _flexM.Binding = dt;
-                _flexM.Rows.Frozen = 2;
-                _flexM.SetDummyColumn(new string[] { "S"});
+                //_flexM.Rows.Frozen = 2;
+                _flexM.SetDummyColumn(new string[] { "S" });
 
                 //디지털광고매출
                 decimal decBudget_dig = 0;decimal decAgy_price_dig = 0;decimal decIncome_dig = 0;decimal decMedia_price_dig = 0;
@@ -378,30 +429,38 @@ namespace cz
                 decimal decBudget_net = 0; decimal decAgy_price_net = 0; decimal decIncome_net = 0; decimal decMedia_price_net = 0;
                 //기타매출
                 decimal decBudget_etc = 0; decimal decAgy_price_etc = 0; decimal decIncome_etc = 0; decimal decMedia_price_etc = 0;
+
                 for (int i = _flexM.Rows.Fixed + 2; i < _flexM.Rows.Count; i++)
                 {
                     if (_flexM[i, "CD_ACCT"].ToString() == "1")
-                    {   decBudget_dig = decBudget_dig + D.GetDecimal(_flexM[i, "budget"]);
-                        decAgy_price_dig = decAgy_price_dig + D.GetDecimal(_flexM[i, "agy_price"]);
-                        decIncome_dig = decIncome_dig + D.GetDecimal(_flexM[i, "income"]);
-                        decMedia_price_dig = decMedia_price_dig + D.GetDecimal(_flexM[i, "corp_amt"]);}
+                    {   
+                        decBudget_dig = decBudget_dig + D.GetDecimal(_flexM[i, "am_budget"]);
+                        decAgy_price_dig = decAgy_price_dig + D.GetDecimal(_flexM[i, "am_agy_price"]);
+                        decIncome_dig = decIncome_dig + D.GetDecimal(_flexM[i, "am_income"]);
+                        decMedia_price_dig = decMedia_price_dig + D.GetDecimal(_flexM[i, "am_media_price"]);
+                    }
                     if (_flexM[i, "CD_ACCT"].ToString() == "2")
-                    {   decBudget_net = decBudget_net + D.GetDecimal(_flexM[i, "budget"]);
-                        decAgy_price_net = decAgy_price_net + D.GetDecimal(_flexM[i, "agy_price"]);
-                        decIncome_net = decIncome_net + D.GetDecimal(_flexM[i, "income"]);
-                        decMedia_price_net = decMedia_price_net + D.GetDecimal(_flexM[i, "corp_amt"]);}
+                    {
+                        decBudget_net = decBudget_net + D.GetDecimal(_flexM[i, "am_budget"]);
+                        decAgy_price_net = decAgy_price_net + D.GetDecimal(_flexM[i, "am_agy_price"]);
+                        decIncome_net = decIncome_net + D.GetDecimal(_flexM[i, "am_income"]);
+                        decMedia_price_net = decMedia_price_net + D.GetDecimal(_flexM[i, "am_media_price"]);
+                    }
                     if (_flexM[i, "CD_ACCT"].ToString() == "3")
-                    {   decBudget_etc = decBudget_etc + D.GetDecimal(_flexM[i, "budget"]);
-                        decAgy_price_etc = decAgy_price_etc + D.GetDecimal(_flexM[i, "agy_price"]);
-                        decIncome_etc = decIncome_etc + D.GetDecimal(_flexM[i, "income"]);
-                        decMedia_price_etc = decMedia_price_etc + D.GetDecimal(_flexM[i, "corp_amt"]);}
+                    {
+                        decBudget_etc = decBudget_etc + D.GetDecimal(_flexM[i, "am_budget"]);
+                        decAgy_price_etc = decAgy_price_etc + D.GetDecimal(_flexM[i, "am_agy_price"]);
+                        decIncome_etc = decIncome_etc + D.GetDecimal(_flexM[i, "am_income"]);
+                        decMedia_price_etc = decMedia_price_etc + D.GetDecimal(_flexM[i, "am_media_price"]);
+                    }
 
                 }
 
+                /*
                 if (_flexM.Rows.Count >= 4)
                 {
-                    _flexM.Rows[2].AllowEditing = false;
-                    _flexM.Rows[3].AllowEditing = false;
+                    //_flexM.Rows[2].AllowEditing = false;
+                    //_flexM.Rows[3].AllowEditing = false;
 
                     _flexM.Rows[_flexM.Rows.Count - 1].AllowEditing = false;
                     _flexM.Rows[_flexM.Rows.Count - 2].AllowEditing = false;
@@ -409,30 +468,30 @@ namespace cz
                     _flexM.Rows[_flexM.Rows.Count - 4].AllowEditing = false;
 
                     //디지털광고매출
-                    _flexM[_flexM.Rows.Count - 4, "budget"] = decBudget_dig;
-                    _flexM[_flexM.Rows.Count - 4, "agy_price"] = decAgy_price_dig;
-                    _flexM[_flexM.Rows.Count - 4, "income"] = decIncome_dig;
-                    _flexM[_flexM.Rows.Count - 4, "corp_amt"] = decMedia_price_dig;
+                    _flexM[_flexM.Rows.Count - 4, "am_budget"] = decBudget_dig;
+                    _flexM[_flexM.Rows.Count - 4, "am_agy_price"] = decAgy_price_dig;
+                    _flexM[_flexM.Rows.Count - 4, "am_income"] = decIncome_dig;
+                    _flexM[_flexM.Rows.Count - 4, "am_media_price"] = decMedia_price_dig;
                     //네트워크광고매출
-                    _flexM[_flexM.Rows.Count - 3, "budget"] = decBudget_net;
-                    _flexM[_flexM.Rows.Count - 3, "agy_price"] = decAgy_price_net;
-                    _flexM[_flexM.Rows.Count - 3, "income"] = decIncome_net;
-                    _flexM[_flexM.Rows.Count - 3, "corp_amt"] = decMedia_price_net;
+                    _flexM[_flexM.Rows.Count - 3, "am_budget"] = decBudget_net;
+                    _flexM[_flexM.Rows.Count - 3, "am_agy_price"] = decAgy_price_net;
+                    _flexM[_flexM.Rows.Count - 3, "am_income"] = decIncome_net;
+                    _flexM[_flexM.Rows.Count - 3, "am_media_price"] = decMedia_price_net;
 
                      //기타매출
-                    _flexM[_flexM.Rows.Count - 2, "budget"] = decBudget_etc;
-                    _flexM[_flexM.Rows.Count - 2, "agy_price"] = decAgy_price_etc;
-                    _flexM[_flexM.Rows.Count - 2, "income"] = decIncome_etc;
-                    _flexM[_flexM.Rows.Count - 2, "corp_amt"] = decMedia_price_etc;
+                    _flexM[_flexM.Rows.Count - 2, "am_budget"] = decBudget_etc;
+                    _flexM[_flexM.Rows.Count - 2, "am_agy_price"] = decAgy_price_etc;
+                    _flexM[_flexM.Rows.Count - 2, "am_income"] = decIncome_etc;
+                    _flexM[_flexM.Rows.Count - 2, "am_media_price"] = decMedia_price_etc;
 
                     //총계
-                    _flexM[_flexM.Rows.Count - 1, "budget"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "budget"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "budget"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "budget"]);
-                    _flexM[_flexM.Rows.Count - 1, "agy_price"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "agy_price"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "agy_price"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "agy_price"]);
-                    _flexM[_flexM.Rows.Count - 1, "income"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "income"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "income"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "income"]);
-                    _flexM[_flexM.Rows.Count - 1, "corp_amt"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "corp_amt"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "corp_amt"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "corp_amt"]);
+                    _flexM[_flexM.Rows.Count - 1, "am_budget"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "am_budget"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "am_budget"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "am_budget"]);
+                    _flexM[_flexM.Rows.Count - 1, "am_agy_price"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "am_agy_price"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "am_agy_price"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "am_agy_price"]);
+                    _flexM[_flexM.Rows.Count - 1, "am_income"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "am_income"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "am_income"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "am_income"]);
+                    _flexM[_flexM.Rows.Count - 1, "am_media_price"] = D.GetDecimal(_flexM[_flexM.Rows.Count - 4, "am_media_price"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 3, "am_media_price"]) + D.GetDecimal(_flexM[_flexM.Rows.Count - 2, "am_media_price"]);
                 }
-
-                if (_flexM.Rows.Count == 8) { _flexM.RemoveViewAll(); }
+                */
+                //if (_flexM.Rows.Count == 8) { _flexM.RemoveViewAll(); }
 
                 //ExecSubTotal();
 
@@ -505,15 +564,12 @@ namespace cz
 
         public override void OnToolBarSaveButtonClicked(object sender, EventArgs e)
         {
-
             try
             {
-
                 if (!BeforeSaveChk())
                     return;
 
-                
-                if (ShowMessage("사원 반영 작업을 진행하시겠습니까?","QY2") == DialogResult.Yes)
+                if (ShowMessage("저장하시겠습니까?","QY2") == DialogResult.Yes)
                 {
                     if (SaveData())
                     {
@@ -523,15 +579,10 @@ namespace cz
                             //_flexM.AllowEditing = true;
                         }
                     }
-                    OnToolBarSearchButtonClicked(sender, e);
-                    return;
                 }
-
-                
             }
             catch (Exception ex)
             {
-
                 MsgEnd(ex);
             }
 
@@ -598,7 +649,8 @@ namespace cz
             if (e.Row < _flexM.Rows.Fixed || e.Col < _flexM.Cols.Fixed)
                 return;
 
-            if (D.GetString(_flexM[e.Row, "cpname"]) == "조정 전표" || D.GetString(_flexM[e.Row, "cpname"]) == "디지털광고매출" || D.GetString(_flexM[e.Row, "cpname"]) == "네트워크광고매출" || D.GetString(_flexM[e.Row, "cpname"]) == "기타매출" || D.GetString(_flexM[e.Row, "cpname"]) == "총계")
+            //if (D.GetString(_flexM[e.Row, "cpname"]) == "조정 전표" || D.GetString(_flexM[e.Row, "cpname"]) == "디지털광고매출" || D.GetString(_flexM[e.Row, "cpname"]) == "네트워크광고매출" || D.GetString(_flexM[e.Row, "cpname"]) == "기타매출" || D.GetString(_flexM[e.Row, "cpname"]) == "총계")
+            if (D.GetString(_flexM[e.Row, "cpname"]) == "조정 전표")
             {
                 _flexM[e.Row, 0] = ""; //상단 고정그리드 숫자 지우기
 
@@ -613,51 +665,51 @@ namespace cz
             }
             else
             {
-                if (D.GetString(_flexM[e.Row, "actyear"]) != D.GetString(_flexM[e.Row, "yearmonth"]))
+                if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "yearmonth"]))
                 {
                     rg = _flexM.GetCellRange(e.Row, "yearmonth");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetString(_flexM[e.Row, "actyear"]) != D.GetString(_flexM[e.Row, "yearmonth2"]))
+                if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "yearmonth2"]))
                 {
                     rg = _flexM.GetCellRange(e.Row, "yearmonth2");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetString(_flexM[e.Row, "trade_type_d"]) == "순액")
+                if (D.GetString(_flexM[e.Row, "ay_trade_type"]) == "순액")
                 {
-                    rg = _flexM.GetCellRange(e.Row, "trade_type_d");
+                    rg = _flexM.GetCellRange(e.Row, "ay_trade_type");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetString(_flexM[e.Row, "trade_type_m"]) == "순액")
+                if (D.GetString(_flexM[e.Row, "me_trade_type"]) == "순액")
                 {
-                    rg = _flexM.GetCellRange(e.Row, "trade_type_m");
+                    rg = _flexM.GetCellRange(e.Row, "me_trade_type");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetDecimal(_flexM[e.Row, "budget"]) < 0)
+                if (D.GetDecimal(_flexM[e.Row, "am_budget"]) < 0)
                 {
-                    rg = _flexM.GetCellRange(e.Row, "budget");
+                    rg = _flexM.GetCellRange(e.Row, "am_budget");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetDecimal(_flexM[e.Row, "agy_price"]) < 0)
+                if (D.GetDecimal(_flexM[e.Row, "am_agy_price"]) < 0)
                 {
-                    rg = _flexM.GetCellRange(e.Row, "agy_price");
+                    rg = _flexM.GetCellRange(e.Row, "am_agy_price");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetDecimal(_flexM[e.Row, "income"]) < 0)
+                if (D.GetDecimal(_flexM[e.Row, "am_income"]) < 0)
                 {
-                    rg = _flexM.GetCellRange(e.Row, "income");
+                    rg = _flexM.GetCellRange(e.Row, "am_income");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
-                if (D.GetDecimal(_flexM[e.Row, "corp_amt"]) < 0)
+                if (D.GetDecimal(_flexM[e.Row, "am_media_price"]) < 0)
                 {
-                    rg = _flexM.GetCellRange(e.Row, "corp_amt");
+                    rg = _flexM.GetCellRange(e.Row, "am_media_price");
                     rg.StyleNew.ForeColor = System.Drawing.Color.Red;
                 }
 
@@ -667,11 +719,11 @@ namespace cz
                     rg.StyleNew.BackColor = System.Drawing.Color.LightYellow;
                 }
 
-                if (D.GetString(_flexM[e.Row, "status"]) == "승인")
-                {
-                    rg = _flexM.GetCellRange(e.Row, "status");
-                    rg.StyleNew.BackColor = System.Drawing.Color.LightYellow;
-                }
+                //if (D.GetString(_flexM[e.Row, "status"]) == "승인")
+                //{
+                //    rg = _flexM.GetCellRange(e.Row, "status");
+                //    rg.StyleNew.BackColor = System.Drawing.Color.LightYellow;
+                //}
 
             }
 
