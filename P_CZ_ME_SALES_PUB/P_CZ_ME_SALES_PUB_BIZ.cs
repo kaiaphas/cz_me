@@ -26,6 +26,11 @@ namespace cz
             return DBHelper.GetDataSet("UP_CZ_ME_SALES_PUB_S1", obj);
         }
 
+        internal DataSet Search_M2(object[] obj)
+        {
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_PUB_S2", obj);
+        }
+
         internal DataTable Get계정코드()
         {
             string sql = string.Format(@" 

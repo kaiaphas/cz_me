@@ -268,7 +268,7 @@ namespace cz
         // 저장 전 체크 사항
         protected bool BeforeSaveChk()
         {
-          
+            /*
             if (!_flexM.HasNormalRow)
             {
                 ShowMessage("저장할 내용이 없습니다.");
@@ -278,6 +278,37 @@ namespace cz
             if (!_flexM.Verify())
                 return false;
 
+            return true;
+            */
+
+            // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
+            for (int i = 2; i < _flexM.Rows.Count; i++)
+            {
+                if (_flexM[i, "S"].ToString().Equals("Y"))
+                {
+                    string SALES_구분 = _flexM[i, "TP_SALES"].ToString(); 
+                    string PUB코드 = _flexM[i, "ME_CPID"].ToString();
+                    string 순번 = _flexM[i, "ME_SEQ"].ToString();
+
+                    object[] Params = new object[5];
+                    Params[0] = LoginInfo.CompanyCode;
+                    Params[1] = "SELECT";
+                    Params[2] = SALES_구분;
+                    Params[3] = PUB코드;
+                    Params[4] = 순번;
+
+                    DataSet ds = _biz.Search_M2(Params);
+                    DataTable dt = new DataTable();
+                    
+                    dt = ds.Tables[0];
+
+                    if (dt.Rows.Count == 1)
+                    {
+                        ShowMessage((i - 1) + "행은 이미 전표가 처리되었습니다.");
+                        return false;
+                    }
+                }
+            }
             return true;
         }
         #endregion
@@ -302,10 +333,7 @@ namespace cz
                     if (_flexM.RowState(i) == DataRowState.Deleted)
                         continue;
 
-                    if (_flexM[i, "S"].ToString().Equals("Y"))
-                    {
-                        _flexM.RemoveItem(i);
-                    }
+                    _flexM.RemoveItem(i);             
                 }
             }
             catch (Exception ex)
@@ -442,6 +470,10 @@ namespace cz
             {
                 if (!_flexM.HasNormalRow)
                     return;
+              
+                // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
+                if (!BeforeSaveChk())
+                    return;
 
                 DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
 
@@ -539,13 +571,23 @@ namespace cz
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
+                        // 20200721 세금계산서 처리 시 삭제할 수 없도록 추가
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            if (_flexM[i, "TP_TAXSTATUS"].ToString().Equals("처리"))
+                            {
+                                ShowMessage((i - 1) + "행은 세금계산서 처리가 되어 삭제할 수 없습니다.");
+                                return;
+                            }
+                        }
+
                         if (_flexM[i, "S"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("전표처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
                         {
                             string 전표번호 = _flexM[i, "NO_DOCU"].ToString();
 
                             if (_biz.Delete_Junpyo(전표번호))
                             {
-
+                           
                             }
                         }
                     }
