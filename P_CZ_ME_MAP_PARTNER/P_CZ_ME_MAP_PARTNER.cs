@@ -91,6 +91,7 @@ namespace cz
                 _flexM_T1.SetCol("flag", "사용여부", 60, false);
                 _flexM_T1.SetCol("registdate", "등록일", 80, false);
                 _flexM_T1.SetCol("updatedate", "수정일", 80, false);
+                _flexM_T1.SetCol("nm_ceo", "대표자명", 0, false);
 
                 _flexM_T1.SetDummyColumn("S");
                 _flexM_T1.Cols.Frozen = 1;
@@ -664,9 +665,18 @@ namespace cz
                     {
                         if (_flexM_T1[i, "biz_no"].ToString().Length >= 10 && _flexM_T1[i, "S"].ToString().Equals("Y") && _flexM_T1[i, "no_apply"].ToString().Equals("미반영"))
                         {
-                            _flexM_T1[i, "cd_partner"] = _flexM_T1[i, "cd_partner_map"];
-                            _flexM_T1[i, "ln_partner"] = _flexM_T1[i, "ln_partner_map"];
+                            
+                            //20200722 조인 기준을 사업자번호로 변경으로 수정
+                            _flexM_T1[i, "cd_partner"] = _flexM_T1[i, "biz_no"];
+                            _flexM_T1[i, "ln_partner"] = _flexM_T1[i, "biz_name"];
                             _flexM_T1[i, "no_apply"] = "맵핑완료";
+
+                            /* 20200722 조인 기준을 사업자번호로 변경으로 수정
+                             _flexM_T1[i, "cd_partner"] = _flexM_T1[i, "cd_partner_map"];
+                             _flexM_T1[i, "ln_partner"] = _flexM_T1[i, "ln_partner_map"];
+                             _flexM_T1[i, "no_apply"] = "맵핑완료";
+                             */
+                            
                             //if (ldrchk != null && ldrchk.Length > 0)
                             //cd_dept_mst = cd_dept_mst + ":" + ldrchk[i]["CD_DEPT_MTS"].ToString();
                         }

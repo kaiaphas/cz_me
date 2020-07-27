@@ -54,8 +54,8 @@ namespace cz
 
                 si.SpNameInsert = "UP_CZ_ME_MAP_PARTNER_T1_IU";
                 si.SpNameUpdate = "UP_CZ_ME_MAP_PARTNER_T1_IU";
-                si.SpParamsInsert = new string[] { "CD_COMPANY", "BIZ_ID", "BIZ_NAME", "CD_PARTNER", "LN_PARTNER", "NO_APPLY" };
-                si.SpParamsUpdate = new string[] { "CD_COMPANY", "BIZ_ID", "BIZ_NAME", "CD_PARTNER", "LN_PARTNER", "NO_APPLY" };
+                si.SpParamsInsert = new string[] { "CD_COMPANY", "BIZ_ID", "BIZ_NAME", "CD_PARTNER", "LN_PARTNER", "NO_APPLY", "BIZ_NO", "MGR_NAME", "ID_INSERT" };
+                si.SpParamsUpdate = new string[] { "CD_COMPANY", "BIZ_ID", "BIZ_NAME", "CD_PARTNER", "LN_PARTNER", "NO_APPLY", "BIZ_NO", "MGR_NAME", "ID_UPDATE" };
                 sic.Add(si);
             }
             return Global.MainFrame.Save(sic);

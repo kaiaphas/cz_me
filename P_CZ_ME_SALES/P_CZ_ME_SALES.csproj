@@ -160,6 +160,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "D:\소스\AppLib"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "D:\AppLib"</PostBuildEvent>
   </PropertyGroup>
 </Project>

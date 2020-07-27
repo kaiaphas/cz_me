@@ -218,7 +218,6 @@ D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\Dass.FlexGridLight_v4.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\Interop.Office.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\Interop.VBIDE.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\Interop.MSXML2.dll
-D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\C1.C1Excel.2.xml
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\Duzon.ReportViewer.Viewer.xml
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\en-us\Duzon.ReportViewer.Viewer.resources.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\ja-jp\Duzon.ReportViewer.Viewer.resources.dll
@@ -237,8 +236,12 @@ D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\en-us\Duzon.ReportDesigner.FileManager.r
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\ja-jp\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\zh-cn\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\Duzon.ReportDesigner.Components.XmlSerializers.dll
-D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.csprojResolveAssemblyReference.cache
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\cz.P_CZ_ME_MAP_PARTNER.resources
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.pdb
+D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.XtraPivotGrid.v10.2.dll
+D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.PivotGrid.v10.2.Core.dll
+D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.Data.v10.2.dll
+D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.Utils.v10.2.dll
+D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.XtraEditors.v10.2.dll
