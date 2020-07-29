@@ -52,17 +52,26 @@ namespace cz
             base.InitLoad();
             string today = "";
             string toyear = "";
+            string longtoday = "";
 
             DateTime time = this.MainFrameInterface.GetDateTimeToday(); // 오늘 날짜
 
             today = time.ToString("yyyMMdd");
             toyear = today.Substring(0, 6);
 
+            dp년월_FROM.Text = toyear.Substring(0, 4) + "01";
+            dp년월_TO.Text = toyear.Substring(0, 6);
+
+            dp대행사FROM.Text = "";
+            dp대행사TO.Text = "";
+            dp매체월FROM.Text = "";
+            dp매체월TO.Text = "";
+
             Grant.CanAdd = false;
-            Grant.CanSearch = false;
+            //Grant.CanSearch = false;
             Grant.CanPrint = false;
 
-            this.DataChanged += new EventHandler(Page_DataChanged);
+            //this.DataChanged += new EventHandler(Page_DataChanged);
 
             InitGrid();
         }
@@ -203,7 +212,6 @@ namespace cz
 
             _flexM.SetDummyColumn("S");
 
-
             //그리드 셀 병합
             //_flexM.Cols["S"].AllowMerging = false;
             //_flexM.Cols["ay_year"].AllowMerging = false;
@@ -285,8 +293,6 @@ namespace cz
             _flexM[0, "ID_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
             _flexM[0, "DT_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
 
-
-
             _flexM.Cols.Frozen = 1;
 
             _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
@@ -347,25 +353,30 @@ namespace cz
 
             btn전표처리.Click += new EventHandler(btn전표처리_Click);
             //btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
-
+            
             try
             {
+                SetControl set = new SetControl();
+
+                set.SetCombobox(cbo마감구분, MA.GetCodeUser(new string[] { "", "1", "0" }, new string[] { DD("전체"), DD("마감"), DD("미마감") }));
+                set.SetCombobox(cbo수정구분, MA.GetCodeUser(new string[] { "", "4", "5" }, new string[] { DD("전체"), DD("검수중"), DD("승인") }));
+
+                set.SetCombobox(cbo수수료, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
+                set.SetCombobox(cbo영업수익, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
+                set.SetCombobox(cbo매체수익, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
+                set.SetCombobox(cbo수주액, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
+
+                // 전액 1 : 순액 2 : 인보이스 3
+                set.SetCombobox(cbo대행사기준, MA.GetCodeUser(new string[] { "", "1", "2", "3" }, new string[] { DD("전체"), DD("전액"), DD("순액"), DD("INVOICE") }));
+                set.SetCombobox(cbo대행사발행여부, MA.GetCodeUser(new string[] { "", "Y", "N" }, new string[] { DD("전체"), DD("발행"), DD("미발행") }));
+                set.SetCombobox(cbo대행사전표처리, MA.GetCodeUser(new string[] { "", "Y", "N" }, new string[] { DD("전체"), DD("처리"), DD("미처리") }));
+
+                set.SetCombobox(cbo매체기준, MA.GetCodeUser(new string[] { "", "1", "2", "3" }, new string[] { DD("전체"), DD("전액"), DD("순액"), DD("INVOICE") }));
+                set.SetCombobox(cbo매체발행여부, MA.GetCodeUser(new string[] { "", "Y", "N" }, new string[] { DD("전체"), DD("발행"), DD("미발행") }));
+                set.SetCombobox(cbo매체전표처리, MA.GetCodeUser(new string[] { "", "Y", "N" }, new string[] { DD("전체"), DD("처리"), DD("미처리") }));
+
                 //콤보박스 셋팅
                 _flexM.SetDataMap("CD_ACCT", MA.GetCode("CZ_ME_C008"), "CODE", "NAME");
-
-                //상세검색창 
-                foreach (Form openForm in Application.OpenForms)
-                {
-                    if (openForm.Name == "P_CZ_ME_SALES_SUB") // 열린 폼의 이름 검사
-                    {
-                        openForm.Activate();
-                        return;
-                    }
-                }
-
-                P_CZ_ME_SALES_SUB sub = new P_CZ_ME_SALES_SUB();		//WinForm 생성
-                sub.TextSendEvent += new P_CZ_ME_SALES_SUB.Form2_EventHandler(frm2_getTextEvent);
-                sub.Show();
             }
             catch (Exception ex)
             {
@@ -382,7 +393,7 @@ namespace cz
 
         #region -> 조회버튼클릭
 
-        public void searchNo(string strSearchFrom, string strSearchTo, string strCampaign, string strAgent, string strAccount, string strAgency, string strAgencyMonthFrom, string strAgencyMonthTo, string strdoAgency, string strDept, string strCorp, string strCorpMonthFrom, string strCorpMonthTo, string strdoCorp, string strCorpGubun, string strAgent_Amt_From, string strAgent_Amt_To, string strAgency_Amt_From, string strAgency_Amt_To, string strMezzo_Amt_From, string strMezzo_Amt_To, string strCorp_Amt_From, string strCorp_Amt_To, string strAgencyDoc, string strMediaDoc, string strAgencyTax, string strMediaTax, string strClosed, string strStatus)
+        public void searchNo()
         {
             try
             {
@@ -394,35 +405,31 @@ namespace cz
                 object[] Params = new object[31];
                 Params[0] = LoginInfo.CompanyCode;
                 Params[1] = strDz;
-                Params[2] = strSearchFrom;  //조회연월 FROM
-                Params[3] = strSearchTo;    //조회연월 TO
-                Params[4] = strCampaign;    //캠페인명
-                Params[5] = strAccount; //계정과목
-                Params[6] = strAgent;   //광고주
-                Params[7] = strAgency; //대행사ID
-                Params[8] = strAgencyMonthFrom; //대행사월FROM
-                Params[9] = strAgencyMonthTo; //대행사월TO
-                Params[10] = strdoAgency; //대행사기준
-                Params[11] = strDept; //부서
-                Params[12] = strCorp; //매체
-                Params[13] = strCorpMonthFrom; //매체월FROM
-                Params[14] = strCorpMonthTo; //매체월TO
-                Params[15] = strdoCorp; //매체기준
-                Params[16] = strCorpGubun; //매체구분
-                Params[17] = strAgent_Amt_From; //광고수주액FROM
-                Params[18] = strAgent_Amt_To; //광고수주액TO
-                Params[19] = strAgency_Amt_From; //대행사수수료FROM
-                Params[20] = strAgency_Amt_To; //대행사수수료TO
-                Params[21] = strMezzo_Amt_From; //영업이익FROM
-                Params[22] = strMezzo_Amt_To; //영업이익TO
-                Params[23] = strCorp_Amt_From; //매체수익FROM
-                Params[24] = strCorp_Amt_To; //매체수익TO
-                Params[25] = strAgencyDoc; //대행사전표처리
-                Params[26] = strMediaDoc; //매체전표처리
-                Params[27] = strAgencyTax; //대행사세금계산서
-                Params[28] = strMediaTax; //매체세금계산서
-                Params[29] = strClosed; //마감구분
-                Params[30] = strStatus; //수정구분
+                Params[2] = dp년월_FROM.Text;  //조회연월 FROM
+                Params[3] = dp년월_TO.Text; //조회연월 TO
+                Params[4] = txt캠페인명.Text; //캠페인명
+                Params[5] = MULTI_CD_ACCOUNT.QueryWhereIn_Pipe; //계정과목
+                Params[6] = MULTI_CD_AGENT.QueryWhereIn_Pipe;   //광고주
+                Params[7] = MULTI_CD_AGENCY.QueryWhereIn_Pipe; //대행사ID
+                Params[8] = dp대행사FROM.Text; //대행사월FROM
+                Params[9] = dp대행사TO.Text; //대행사월TO
+                Params[10] = cbo대행사기준.SelectedValue; //대행사기준
+                Params[11] = MULTI_CD_DEPT.QueryWhereIn_Pipe; //부서
+                Params[12] = MULTI_CD_CORP.QueryWhereIn_Pipe; //매체
+                Params[13] = dp매체월FROM.Text; //매체월FROM
+                Params[14] = dp매체월TO.Text; //매체월TO
+                Params[15] = cbo매체기준.SelectedValue; //매체기준
+                Params[16] = MULTI_CD_MEDIAGR.QueryWhereIn_Pipe; //매체구분
+                Params[17] = cbo수주액.SelectedValue; //
+                Params[18] = cbo수수료.SelectedValue; //
+                Params[19] = cbo영업수익.SelectedValue; //
+                Params[20] = cbo매체수익.SelectedValue; //
+                Params[21] = cbo대행사전표처리.SelectedValue; //대행사전표처리
+                Params[22] = cbo매체전표처리.SelectedValue; //매체전표처리
+                Params[23] = cbo대행사발행여부.SelectedValue; //대행사세금계산서
+                Params[24] = cbo매체발행여부.SelectedValue; //매체세금계산서
+                Params[25] = cbo마감구분.SelectedValue; //마감구분
+                Params[26] = cbo수정구분.SelectedValue; //수정구분
 
                 DataSet ds = _biz.Search_M(Params);
                 DataTable dt = ds.Tables[0];
@@ -433,7 +440,7 @@ namespace cz
                 _flexM.SetDummyColumn(new string[] { "S" });
 
                 //디지털광고매출
-                decimal decBudget_dig = 0;decimal decAgy_price_dig = 0;decimal decIncome_dig = 0;decimal decMedia_price_dig = 0;
+                decimal decBudget_dig = 0; decimal decAgy_price_dig = 0; decimal decIncome_dig = 0; decimal decMedia_price_dig = 0;
                 //네트워크광고매출
                 decimal decBudget_net = 0; decimal decAgy_price_net = 0; decimal decIncome_net = 0; decimal decMedia_price_net = 0;
                 //기타매출
@@ -516,19 +523,7 @@ namespace cz
 
         public override void OnToolBarSearchButtonClicked(object sender, EventArgs e)
         {
-            string strSearchFrom = ""; string strSearchTo = ""; string strCampaign = ""; string strAgent = ""; string strAccount = "";
-            string strAgency = "";string strAgencyMonthFrom = "";string strAgencyMonthTo = "";string strdoAgency = "";
-            string strDept = "";string strCorp = "";string strCorpMonthFrom = "";string strCorpMonthTo = "";
-            string strdoCorp = "";string strCorpGubun = "";
-            string strAgent_Amt_From = "";string strAgent_Amt_To = "";
-            string strAgency_Amt_From = "";string strAgency_Amt_To = "";
-            string strMezzo_Amt_From = "";string strMezzo_Amt_To = "";
-            string strCorp_Amt_From = "";string strCorp_Amt_To = "";
-            string strAgencyDoc = "";string strMediaDoc = "";string strAgencyTax = "";
-            string strMediaTax = "";string strClosed = "";string strStatus = "";
-
-            searchNo(strSearchFrom, strSearchTo, strCampaign, strAgent, strAccount, strAgency, strAgencyMonthFrom, strAgencyMonthTo, strdoAgency, strDept, strCorp, strCorpMonthFrom, strCorpMonthTo, strdoCorp, strCorpGubun, strAgent_Amt_From, strAgent_Amt_To, strAgency_Amt_From, strAgency_Amt_To, strMezzo_Amt_From, strMezzo_Amt_To, strCorp_Amt_From, strCorp_Amt_To, strAgencyDoc, strMediaDoc, strAgencyTax, strMediaTax, strClosed, strStatus);
-
+            searchNo();
         }
 
         #endregion
@@ -644,6 +639,36 @@ namespace cz
             {
                 MsgEnd(ex);
             }
+        }
+
+        private void MULTI_CD_AGENCY_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_AGENCY.UserParams = "대행사 도움창;H_CZ_ME_AGENCY;" + MULTI_CD_AGENCY.CodeNames + ";";
+        }
+
+        private void MULTI_CD_DEPT_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_DEPT.UserParams = "부서 도움창;H_CZ_ME_DEPT;" + MULTI_CD_DEPT.CodeNames + ";";
+        }
+
+        private void MULTI_CD_CORP_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_CORP.UserParams = "매체 도움창;H_CZ_ME_GR;" + MULTI_CD_CORP.CodeNames + ";";
+        }
+
+        private void MULTI_CD_MEDIAGR_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_MEDIAGR.UserParams = "매체구분 도움창;H_CZ_ME_MEDIAGR;" + MULTI_CD_MEDIAGR.CodeNames + ";";
+        }
+
+        private void MULTI_CD_AGENT_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_AGENT.UserParams = "광고주 도움창;H_CZ_ME_AGENT;" + MULTI_CD_AGENT.CodeNames + ";";
+        }
+
+        private void MULTI_CD_ACCOUNT_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_ACCOUNT.UserParams = "매출분석 계정과목 도움창;H_CZ_ME_ACCOUNT_USERDE1;" + MULTI_CD_ACCOUNT.CodeNames + ";";
         }
 
         #endregion
@@ -797,6 +822,7 @@ namespace cz
             public static int Count = 0;
         }
 
+        /*
         private void btn상세검색_Click_1(object sender, EventArgs e)
         {
             try
@@ -819,7 +845,8 @@ namespace cz
                 this.MsgEnd(ex);
             }
         }
-
+        */
+        /*
         void frm2_getTextEvent(string strSearchFrom, string strSearchTo, string strCampaign, string strAgent, string strAccount, string strAgency, string strAgencyMonthFrom, string strAgencyMonthTo, string strdoAgency, string strDept, string strCorp, string strCorpMonthFrom, string strCorpMonthTo, string strdoCorp, string strCorpGubun, string strAgent_Amt_From, string strAgent_Amt_To, string strAgency_Amt_From, string strAgency_Amt_To, string strMezzo_Amt_From, string strMezzo_Amt_To, string strCorp_Amt_From, string strCorp_Amt_To, string strAgencyDoc, string strMediaDoc, string strAgencyTax, string strMediaTax, string strClosed, string strStatus)
         {
             // 값을 넘겨 받아서 실제 처리할 함수
@@ -834,6 +861,7 @@ namespace cz
                 j++;
             }
         }
+        */
 
         private void P_CZ_ME_SALES_OwerClosed(object sender, EventArgs e)
         {

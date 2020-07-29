@@ -23,7 +23,7 @@ namespace cz
 
         internal DataSet Search_M(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_S_TEST", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_S_test2", obj);
         }
 
         internal DataTable Get계정코드()

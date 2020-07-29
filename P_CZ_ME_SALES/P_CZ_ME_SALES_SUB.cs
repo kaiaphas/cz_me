@@ -52,6 +52,7 @@ namespace cz
             base.InitLoad();
 
             btn상세검색.Text = "상세\r\n\r\n검색";
+
             string longtoday = "";
             string today = "";
 
@@ -250,7 +251,8 @@ namespace cz
         private void btn상세검색_Click_1(object sender, EventArgs e)
         {
 
-            string strSearchFrom = dp년월_FROM.Text; string strSearchTo = dp년월_TO.Text;//조회연월 FROM TO
+            string strSearchFrom = dp년월_FROM.Text; 
+            string strSearchTo = dp년월_TO.Text;//조회연월 FROM TO
             string strCampaign = txt캠페인명.Text; //캠페인명
             string strAgent = MULTI_CD_AGENT.QueryWhereIn_Pipe; //광고주
             string strAccount = MULTI_CD_ACCOUNT.QueryWhereIn_Pipe; //계정과목

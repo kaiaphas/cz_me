@@ -33,6 +33,7 @@
             this.dpAgencyTO = new Duzon.Common.Controls.DatePicker();
             this.dpAgencyFROM = new Duzon.Common.Controls.DatePicker();
             this.panelExt38 = new Duzon.Common.Controls.PanelExt();
+            this.rdoStatus4 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoStatus5 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoStatus3 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoStatus2 = new Duzon.Common.Controls.RadioButtonExt();
@@ -152,12 +153,12 @@
             this.panel7 = new Duzon.Common.Controls.PanelExt();
             this.labelExt5 = new Duzon.Common.Controls.LabelExt();
             this.btn상세검색 = new System.Windows.Forms.Button();
-            this.rdoStatus4 = new Duzon.Common.Controls.RadioButtonExt();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dpAgencyTO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dpAgencyFROM)).BeginInit();
             this.panelExt38.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdoStatus4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoStatus5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoStatus3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoStatus2)).BeginInit();
@@ -223,7 +224,6 @@
             this.panelExt8.SuspendLayout();
             this.panelExt9.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdoStatus4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -344,6 +344,18 @@
             this.panelExt38.Name = "panelExt38";
             this.panelExt38.Size = new System.Drawing.Size(259, 21);
             this.panelExt38.TabIndex = 28;
+            // 
+            // rdoStatus4
+            // 
+            this.rdoStatus4.Location = new System.Drawing.Point(143, 0);
+            this.rdoStatus4.Name = "rdoStatus4";
+            this.rdoStatus4.Size = new System.Drawing.Size(48, 24);
+            this.rdoStatus4.TabIndex = 13;
+            this.rdoStatus4.TabStop = true;
+            this.rdoStatus4.Text = "반려";
+            this.rdoStatus4.TextDD = null;
+            this.rdoStatus4.UseKeyEnter = true;
+            this.rdoStatus4.UseVisualStyleBackColor = true;
             // 
             // rdoStatus5
             // 
@@ -1670,18 +1682,6 @@
             this.btn상세검색.UseVisualStyleBackColor = false;
             this.btn상세검색.Click += new System.EventHandler(this.btn상세검색_Click_1);
             // 
-            // rdoStatus4
-            // 
-            this.rdoStatus4.Location = new System.Drawing.Point(143, 0);
-            this.rdoStatus4.Name = "rdoStatus4";
-            this.rdoStatus4.Size = new System.Drawing.Size(48, 24);
-            this.rdoStatus4.TabIndex = 13;
-            this.rdoStatus4.TabStop = true;
-            this.rdoStatus4.Text = "반려";
-            this.rdoStatus4.TextDD = null;
-            this.rdoStatus4.UseKeyEnter = true;
-            this.rdoStatus4.UseVisualStyleBackColor = true;
-            // 
             // P_CZ_ME_SALES_SUB
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1702,6 +1702,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dpAgencyTO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dpAgencyFROM)).EndInit();
             this.panelExt38.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rdoStatus4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoStatus5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoStatus3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoStatus2)).EndInit();
@@ -1767,7 +1768,6 @@
             this.panelExt8.ResumeLayout(false);
             this.panelExt9.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rdoStatus4)).EndInit();
             this.ResumeLayout(false);
 
         }
