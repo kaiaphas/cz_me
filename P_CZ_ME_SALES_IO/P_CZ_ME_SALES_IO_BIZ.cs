@@ -26,9 +26,9 @@ namespace cz
             return DBHelper.GetDataSet("UP_CZ_ME_SALES_IO_S1", obj);
         }
 
-        internal DataSet Search_M2(object[] obj)
+        internal DataSet Search_D(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_IO_S2", obj);
+            return DBHelper.GetDataSet("UP_FI_DOCU_NEW_S_D", obj);
         }
 
         internal DataTable Get계정코드()

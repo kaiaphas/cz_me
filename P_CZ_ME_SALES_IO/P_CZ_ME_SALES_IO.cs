@@ -45,6 +45,7 @@ namespace cz
             InitializeComponent();
 
             MainGrids = new FlexGrid[] { _flexM };
+            _flexM.DetailGrids = new FlexGrid[] { _flexD };
         }
 
         #endregion
@@ -65,7 +66,7 @@ namespace cz
 
         private void InitGrid()
         {
-            //DETAIL
+            //_flexM 메인그리드
             //merge 기능을 위해서 row 2 설정
             _flexM.BeginSetting(2, 1, false);
 
@@ -93,22 +94,13 @@ namespace cz
             _flexM.SetCol("PERIOD", "계약기간", 200, false);
             _flexM.SetCol("AGE_BUDGET", "금액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("AGENCY_ETC", "기타", 500, false);
-            _flexM.SetCol("MEZZO_AE_NAME", "담당자 이름", 100, false);
-            _flexM.SetCol("MEZZO_AE_EMAIL", "담당자 이메일", 150, false);
-            _flexM.SetCol("MEZZO_AE_PHONE", "담당자 전화번호", 100, false);
-            _flexM.SetCol("MEZZO_TEAM_NAME", "대리인 명", 100, false);
-            _flexM.SetCol("MEZZO_FAX", "팩스번호", 100, false);
-            _flexM.SetCol("MEZZO_CORPNAME", "상호", 150, false);
-            _flexM.SetCol("MEZZO_CATE", "업종", 80, false);
-            _flexM.SetCol("MEZZO_CEO", "대표자", 100, false);
-            _flexM.SetCol("MEZZO_ADDRESS", "주소", 250, false);
-            _flexM.SetCol("MEZZO_ACCOUNT", "계좌", 200, false);
             _flexM.SetCol("발행구분", "발행구분", 100, false);
             _flexM.SetCol("비고", "비고", 100, false);
             _flexM.SetCol("발행상태", "발행상태", 100, false);
             _flexM.SetCol("세금계산서번호", "세금계산서번호", 100, false);
             _flexM.SetCol("NO_DOCU", "전표정보", 100, false);
 
+            _flexM.Cols["DUZON_STATDT"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["BIZ_NO"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["PERIOD"].TextAlign = TextAlignEnum.CenterCenter;
 
@@ -129,34 +121,32 @@ namespace cz
             _flexM[0, "PERIOD"] = _flexM[0, "AGE"] = "대행사";
             _flexM[0, "AGE_BUDGET"] = _flexM[0, "AGE"] = "대행사";
             _flexM[0, "AGENCY_ETC"] = _flexM[0, "AGE"] = "대행사";
-            
-            //MERGE 처리
-            _flexM[0, "MEZZO_AE_NAME"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_AE_EMAIL"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_AE_PHONE"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_TEAM_NAME"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_FAX"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_CORPNAME"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_CATE"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_CEO"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_ADDRESS"] = _flexM[0, "MED"] = "메조미디어";
-            _flexM[0, "MEZZO_ACCOUNT"] = _flexM[0, "MED"] = "메조미디어";
-
 
             _flexM.SetDummyColumn("S");
 
             _flexM.Cols.Frozen = 1;
 
-            _flexM.SettingVersion = "1.0.2.4";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.2.5";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
 
-            //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
-            //_flexM.SetCodeHelpCol("AY_AGENCYNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "AY_AGENCYNO", "AY_AGENCYID", "AY_AGENCYNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
+            _flexM.AfterRowChange += new RangeEventHandler(_flexM_AfterRowChange);
 
-            //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
+            //_flexD 하단그리드
+            _flexD.BeginSetting(1, 1, false);
 
-            //_flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
-            //_flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
+            _flexD.SetCol("CD_ACCT", "계정코드", 100, false);
+            _flexD.SetCol("NM_NOTE", "적요", 100, false);
+            _flexD.SetCol("AM_DR", "차변", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexD.SetCol("AM_CR", "대변", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexD.SetCol("NM_BUDGET", "예산단위명", 100, false);
+            _flexD.SetCol("NM_BIZPLAN", "사업계획명", 100, false);
+            _flexD.SetCol("LN_PARTNER", "거래처명", 100, false);
+            _flexD.SetCol("CD_RELATION", "연동과목", 100, false);
+            _flexD.SetCol("NM_BIZCAR", "업무용차량", 100, false);
+            _flexD.SetCol("NM_TP_EVIDENCE", "증빙", 100, false);
+
+            _flexD.SettingVersion = "1.0.1.0";
+            _flexD.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
         }
         #endregion
 
@@ -165,7 +155,8 @@ namespace cz
         protected override void InitPaint()
         {
             base.InitPaint();
-
+            
+           
             Grant.CanSave = false;
             Grant.CanDelete = false;
             Grant.CanAdd = false;
@@ -179,11 +170,21 @@ namespace cz
             dt일자.EndDate = DateTime.ParseExact(toyear, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 
             //콤보박스 셋팅
+            _flexD.SetDataMap("CD_RELATION", MA.GetCode("FI_B000006"), "CODE", "NAME");
             //DataTable dt계정코드 = _biz.Get계정코드();
             //_flexM.SetDataMap("CD_ACCT", dt계정코드.Copy(), "CODE", "NAME");
             //_flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
-            
+
             //btn전표처리.Click += new EventHandler(btn전표처리_Click);          
+
+
+            SetControl set = new SetControl();
+
+            set.SetCombobox(cboIO상태값, MA.GetCodeUser(new string[] { "0", "1", "2", "" }, new string[] { DD("발행요청"), DD("발행완료"), DD("발행거절"), DD("전체")}));
+            set.SetCombobox(cbo계산서발행상태, MA.GetCodeUser(new string[] { "1", "2", "" }, new string[] { DD("발행"), DD("미발행"), DD("전체") }));
+            set.SetCombobox(cbo선택자료상태값변경, MA.GetCodeUser(new string[] { "0", "1", "2", "3" }, new string[] { DD("발행완료"), DD("발행완료-위수탁"), DD("발행완료-선발행"), DD("발행거절") }));
+         
+  
         }
 
         #endregion
@@ -229,13 +230,11 @@ namespace cz
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-                        object[] Params = new object[6];
+                        object[] Params = new object[4];
                         Params[0] = LoginInfo.CompanyCode;
                         Params[1] = "SELECT";
                         Params[2] = dt일자.StartDateToString.Substring(0, 6);
                         Params[3] = dt일자.EndDateToString.Substring(0, 6);
-                        Params[4] = txt명.Text;
-                        Params[5] = rdo_idx;
 
                         DataSet ds = _biz.Search_M(Params);
 
@@ -304,22 +303,31 @@ namespace cz
 
         #region ♥ 그리드 이벤트
 
+        //_flexD 하단그리드
+        void _flexM_AfterRowChange(object sender, RangeEventArgs e)
+        {
+            try
+            {
+                object[] Params = new object[5];
+                Params[0] = "*";
+                Params[1] = LoginInfo.CompanyCode;
+                Params[2] = LoginInfo.CompanyCode;
+                Params[3] = D.GetString(_flexM["NO_DOCU"]);
+                Params[4] = "L0";
+
+                DataSet ds = _biz.Search_D(Params);
+
+                _flexD.Binding = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                this.MsgEnd(ex);
+            }
+        }
         #endregion
 
         #region ♥ 기타 Property
         string ServerKey { get { return Global.MainFrame.ServerKeyCommon.ToUpper(); } }
-        #endregion
-
-        private void btn전표처리_Click(object sender, EventArgs e)
-        {
-            try
-            {
-               
-            }
-            catch (Exception ex)
-            {
-                MsgEnd(ex);
-            }
-        }
+        #endregion     
     }
 }
