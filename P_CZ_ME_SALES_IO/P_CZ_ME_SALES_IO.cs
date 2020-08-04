@@ -24,7 +24,7 @@ namespace cz
     // 페이지 : P_CZ_ME_SALES_IO
     // **************************************
 
-    public partial class P_CZ_ME_SALES_IO : PageBase
+    public partial class P_CZ_ME_SALES_IO_SUB : PageBase
     {
         #region ♥ 멤버필드
 
@@ -40,7 +40,7 @@ namespace cz
 
         #region -> 생성자
 
-        public P_CZ_ME_SALES_IO()
+        public P_CZ_ME_SALES_IO_SUB()
         {
             InitializeComponent();
 
@@ -73,60 +73,113 @@ namespace cz
             _flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);
 
             _flexM.SetCol("CPID", "CPID", 0, false);
+
             _flexM.SetCol("DUZON_STATDT", "요청일시", 100, false);
-            _flexM.SetCol("ME_CPNM", "캠페인", 100, false);
-            _flexM.SetCol("AM_AGYPRICE", "대행사 수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AGENTNAME", "캠페인 광고주명", 120, false);
-            _flexM.SetCol("CPNAME", "캠페인명", 200, false);
-            _flexM.SetCol("BIZ_NAME", "신청인", 120, false);
-            _flexM.SetCol("AGE_MGR", "대표자", 100, false);
-            _flexM.SetCol("BIZ_NO", "사업자번호", 100, false);
-            _flexM.SetCol("ADDRESS", "주소", 250, false);
-            _flexM.SetCol("AGENCY_AE_NAME", "담당자 이름", 100, false);
-            _flexM.SetCol("AGENCY_AE_EMAIL", "담당자 이메일", 150, false);
-            _flexM.SetCol("BIZ_TYPE", "업종", 100, false);
+            _flexM.SetCol("IO상태", "IO 상태", 100, false);
+            _flexM.SetCol("발행상태", "발행상태", 100, false);
+            _flexM.SetCol("사유", "사유", 200, false);
+            _flexM.SetCol("발행일시", "발행(반려)일시", 100, false);
+            _flexM.SetCol("NO_DOCU", "전표번호", 100, false);
+
+            _flexM.SetCol("TP_TAXSTATUS", "세금계산서", 0, false);
+            _flexM.SetCol("DUZON_NOTE", "비고", 0, false);
+           
+            _flexM.SetCol("MONTH2", "월", 40, false);
+            _flexM.SetCol("TEAMNAME", "팀", 100, false);
+            _flexM.SetCol("CPNAME", "캠페인", 200, false);
+            _flexM.SetCol("PERIOD", "기간", 200, false);
+            _flexM.SetCol("MEZZO_AE_NAME", "담당자", 100, false);
+            _flexM.SetCol("BUDGET", "수주액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("AGY_PRICE", "대행사 수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("INCOME", "내수액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("AGENTNAME", "광고주", 120, false);
+            _flexM.SetCol("BIZ_NAME", "대행사", 120, false);
+            _flexM.SetCol("AGENCY_AE_NAME", "대행사담당자(설정정보)", 100, false);
+            
+            _flexM.SetCol("AGENTNAME2", "광고주명", 120, false);
+            _flexM.SetCol("CPNAME2", "캠페인명", 200, false);
+
+            _flexM.SetCol("BIZ_NAME2", "신청인(대행사)", 120, false);
+            _flexM.SetCol("AGENCY_AE_NAME2", "담당자", 100, false);
+            _flexM.SetCol("AGE_MGR", "대표", 100, false);
             _flexM.SetCol("AGE_PHONE", "전화번호", 100, false);
             _flexM.SetCol("AGE_FAX", "팩스번호", 100, false);
+            _flexM.SetCol("BIZ_NO", "사업자번호", 100, false);
+            _flexM.SetCol("AGENCY_AE_EMAIL", "이메일", 150, false);
+            _flexM.SetCol("ADDRESS", "주소", 250, false);
+            _flexM.SetCol("BIZ_TYPE", "업종", 100, false);
+            _flexM.SetCol("AGE_OUTDATE_TXT", "계산서 발행일", 100, false);
             _flexM.SetCol("AGE_FEE", "수수료율", 120, false);
+            _flexM.SetCol("PERIOD2", "계약기간", 200, false);
             _flexM.SetCol("ACNAME", "결제조건", 180, false);
-            _flexM.SetCol("AGE_ACDATE_TXT", "입금일", 100, false);
-            _flexM.SetCol("AGE_OUTDATE_TXT", "계산서 발행일", 120, false);
-            _flexM.SetCol("PERIOD", "계약기간", 200, false);
             _flexM.SetCol("AGE_BUDGET", "금액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AGENCY_ETC", "기타", 500, false);
-            _flexM.SetCol("발행구분", "발행구분", 100, false);
-            _flexM.SetCol("비고", "비고", 100, false);
-            _flexM.SetCol("발행상태", "발행상태", 100, false);
-            _flexM.SetCol("세금계산서번호", "세금계산서번호", 100, false);
-            _flexM.SetCol("NO_DOCU", "전표정보", 100, false);
+            _flexM.SetCol("AGE_ACDATE_TXT", "입금일", 100, false);
+
 
             _flexM.Cols["DUZON_STATDT"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["IO상태"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["발행상태"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["발행일시"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["NO_DOCU"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["TP_TAXSTATUS"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["MONTH2"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["BIZ_NO"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["PERIOD"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["AGE_PHONE"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["AGE_FAX"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["AGE_OUTDATE_TXT"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["PERIOD2"].TextAlign = TextAlignEnum.CenterCenter;
 
             //MERGE 처리
-            _flexM[0, "BIZ_NAME"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_MGR"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "BIZ_NO"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "ADDRESS"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGENCY_AE_NAME"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGENCY_AE_EMAIL"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "BIZ_TYPE"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_PHONE"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_FAX"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_FEE"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "ACNAME"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_ACDATE_TXT"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_OUTDATE_TXT"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "PERIOD"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGE_BUDGET"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AGENCY_ETC"] = _flexM[0, "AGE"] = "대행사";
+            _flexM[0, "DUZON_STATDT"] = _flexM[0, "TAX"] = "세금계산서 정보";
+            _flexM[0, "IO상태"] = _flexM[0, "TAX"] = "세금계산서 정보";
+            _flexM[0, "발행상태"] = _flexM[0, "TAX"] = "세금계산서 정보";
+            _flexM[0, "사유"] = _flexM[0, "TAX"] = "세금계산서 정보";
+            _flexM[0, "발행일시"] = _flexM[0, "TAX"] = "세금계산서 정보";
+            _flexM[0, "NO_DOCU"] = _flexM[0, "TAX"] = "세금계산서 정보";
 
+            _flexM[0, "MONTH2"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "TEAMNAME"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "CPNAME"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "PERIOD"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "MEZZO_AE_NAME"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "BUDGET"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "AGY_PRICE"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "INCOME"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "AGENTNAME"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "BIZ_NAME"] = _flexM[0, "IOL"] = "IO 발급목록";
+            _flexM[0, "AGENCY_AE_NAME"] = _flexM[0, "IOL"] = "IO 발급목록";
+
+            _flexM[0, "AGENTNAME2"] = _flexM[0, "CAM"] = "Campaign Information";
+            _flexM[0, "CPNAME2"] = _flexM[0, "CAM"] = "Campaign Information";
+            
+            _flexM[0, "BIZ_NAME2"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGENCY_AE_NAME2"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_MGR"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_PHONE"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_FAX"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "BIZ_NO"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGENCY_AE_EMAIL"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "ADDRESS"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "BIZ_TYPE"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_OUTDATE_TXT"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_FEE"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "PERIOD2"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "ACNAME"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_BUDGET"] = _flexM[0, "AGE"] = "Agency Information";
+            _flexM[0, "AGE_ACDATE_TXT"] = _flexM[0, "AGE"] = "Agency Information";
+            
             _flexM.SetDummyColumn("S");
 
             _flexM.Cols.Frozen = 1;
+            _flexM.Cols.Frozen = _flexM.Cols["DUZON_STATDT"].Index;
+            _flexM.Cols.Frozen = _flexM.Cols["IO상태"].Index;
+            _flexM.Cols.Frozen = _flexM.Cols["발행상태"].Index;
+            _flexM.Cols.Frozen = _flexM.Cols["사유"].Index;
+            _flexM.Cols.Frozen = _flexM.Cols["발행일시"].Index;
+            _flexM.Cols.Frozen = _flexM.Cols["NO_DOCU"].Index;
 
-            _flexM.SettingVersion = "1.0.2.5";// new Random().Next().ToString();
+            _flexM.SettingVersion = new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
 
             _flexM.AfterRowChange += new RangeEventHandler(_flexM_AfterRowChange);
@@ -135,17 +188,18 @@ namespace cz
             _flexD.BeginSetting(1, 1, false);
 
             _flexD.SetCol("CD_ACCT", "계정코드", 100, false);
+            _flexD.SetCol("NM_ACCT", "계정명", 100, false);
             _flexD.SetCol("NM_NOTE", "적요", 100, false);
             _flexD.SetCol("AM_DR", "차변", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexD.SetCol("AM_CR", "대변", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexD.SetCol("NM_BUDGET", "예산단위명", 100, false);
-            _flexD.SetCol("NM_BIZPLAN", "사업계획명", 100, false);
+            _flexD.SetCol("CD_PARTNER", "거래처코드", 100, false);        
             _flexD.SetCol("LN_PARTNER", "거래처명", 100, false);
-            _flexD.SetCol("CD_RELATION", "연동과목", 100, false);
-            _flexD.SetCol("NM_BIZCAR", "업무용차량", 100, false);
-            _flexD.SetCol("NM_TP_EVIDENCE", "증빙", 100, false);
+            _flexD.SetCol("CD_MNGD1", "사업자등록번호", 100, false);
+            _flexD.SetCol("CD_MNGD2", "코드", 100, false);
+            _flexD.SetCol("NM_MNGD2", "코스트센터명", 100, false);
 
-            _flexD.SettingVersion = "1.0.1.0";
+
+            _flexD.SettingVersion = new Random().Next().ToString();
             _flexD.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
         }
         #endregion
@@ -162,15 +216,16 @@ namespace cz
             Grant.CanAdd = false;
             Grant.CanPrint = false;
 
+            string longtoday = "";
+
+            longtoday = DateTime.Now.ToString("yyyMMddHHmmss");
+
+            dp년월.Text = longtoday.Substring(0, 6);
+
             DateTime time = Global.MainFrame.GetDateTimeToday();
-
-            toyear = time.ToString("yyyy") + "0101";
-
-            dt일자.StartDate = DateTime.ParseExact(toyear, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-            dt일자.EndDate = DateTime.ParseExact(toyear, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-
+            
             //콤보박스 셋팅
-            _flexD.SetDataMap("CD_RELATION", MA.GetCode("FI_B000006"), "CODE", "NAME");
+            //_flexD.SetDataMap("CD_RELATION", MA.GetCode("FI_B000006"), "CODE", "NAME");
             //DataTable dt계정코드 = _biz.Get계정코드();
             //_flexM.SetDataMap("CD_ACCT", dt계정코드.Copy(), "CODE", "NAME");
             //_flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
@@ -180,9 +235,10 @@ namespace cz
 
             SetControl set = new SetControl();
 
-            set.SetCombobox(cboIO상태값, MA.GetCodeUser(new string[] { "0", "1", "2", "" }, new string[] { DD("발행요청"), DD("발행완료"), DD("발행거절"), DD("전체")}));
-            set.SetCombobox(cbo계산서발행상태, MA.GetCodeUser(new string[] { "1", "2", "" }, new string[] { DD("발행"), DD("미발행"), DD("전체") }));
-            set.SetCombobox(cbo선택자료상태값변경, MA.GetCodeUser(new string[] { "0", "1", "2", "3" }, new string[] { DD("발행완료"), DD("발행완료-위수탁"), DD("발행완료-선발행"), DD("발행거절") }));
+            set.SetCombobox(cboIO상태, MA.GetCode("CZ_ME_C010", false));
+            set.SetCombobox(cbo세금계산서발행상태, MA.GetCode("CZ_ME_C009", false));
+            set.SetCombobox(cboIO상태값변경, MA.GetCode("CZ_ME_C011", false));
+
          
   
         }
@@ -199,11 +255,10 @@ namespace cz
         {
             try
             {
-                object[] Params = new object[4];
+                object[] Params = new object[3];
                 Params[0] = LoginInfo.CompanyCode;
                 Params[1] = "SELECT";
-                Params[2] = dt일자.StartDateToString.Substring(0, 6);
-                Params[3] = dt일자.EndDateToString.Substring(0, 6);
+                Params[2] = dp년월.Text;
              
                 DataSet ds = _biz.Search_M(Params);
 
@@ -230,11 +285,10 @@ namespace cz
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-                        object[] Params = new object[4];
+                        object[] Params = new object[3];
                         Params[0] = LoginInfo.CompanyCode;
                         Params[1] = "SELECT";
-                        Params[2] = dt일자.StartDateToString.Substring(0, 6);
-                        Params[3] = dt일자.EndDateToString.Substring(0, 6);
+                        Params[2] = dp년월.Text;
 
                         DataSet ds = _biz.Search_M(Params);
 
@@ -311,8 +365,9 @@ namespace cz
                 object[] Params = new object[5];
                 Params[0] = "*";
                 Params[1] = LoginInfo.CompanyCode;
-                Params[2] = LoginInfo.CompanyCode;
+                Params[2] = Global.MainFrame.LoginInfo.CdPc;
                 Params[3] = D.GetString(_flexM["NO_DOCU"]);
+                //Params[3] = "NO202004300089";
                 Params[4] = "L0";
 
                 DataSet ds = _biz.Search_D(Params);
