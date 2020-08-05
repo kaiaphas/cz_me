@@ -3,9 +3,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>TEST 01 더존 1 P_CZ_ME_MAP_PARTNER</StartArguments>
     <StartAction>Project</StartAction>
-    <StartProgram>D:\소스\AppLib\NeoWeb.exe</StartProgram>
+    <StartProgram>D:\AppLib\NeoWeb.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup>
-    <ReferencePath>D:\소스\AppLib\</ReferencePath>
+    <ReferencePath>D:\AppLib\</ReferencePath>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>

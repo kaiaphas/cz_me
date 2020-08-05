@@ -47,20 +47,28 @@ namespace cz
 
             if (dtM != null)
             {
-                
-            }
-            
-            return Global.MainFrame.Save(sic);
-        }
+                si = new SpInfo();
 
-        internal bool Save_Junpyo(string SALES_구분, string 순번, string 거래처코드, string 발행월, string 거래처명, string 거래처구분, string PUB코드, string 수주액, string 수수료, string 수익, string 동기화)
-        {
-                string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
-                string CD_PC = Global.MainFrame.LoginInfo.CdPc;
-                string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
-                string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
-                
-                return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_I", new object[] { 회사코드, 거래처코드, 거래처명, 거래처구분, 수주액, 수수료, 수익, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO, SALES_구분, PUB코드, 순번, 발행월, 동기화 });
+                si.DataValue = dtM;
+                si.CompanyID = 회사코드;
+                si.UserID = 사용자ID;
+
+                si.SpNameInsert = "UP_CZ_ME_SALES_IO_U";
+                si.SpNameUpdate = "UP_CZ_ME_SALES_IO_U";
+                si.SpNameDelete = "UP_CZ_ME_SALES_IO_D";
+                si.SpParamsInsert = new string[] { 
+                     "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "CPID", "ME_SEQ"
+                     , "NO_DOCU", "NM_USERDE1", "ID_INSERT", "ID_UPDATE"
+                };
+                si.SpParamsUpdate = new string[] { 
+                   "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "CPID", "ME_SEQ"
+                   , "NO_DOCU", "NM_USERDE1", "ID_INSERT", "ID_UPDATE"
+                };
+                si.SpParamsDelete = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "CPID", "ME_SEQ" };
+                sic.Add(si);
+            }
+
+            return Global.MainFrame.Save(sic);
         }
     }
 }

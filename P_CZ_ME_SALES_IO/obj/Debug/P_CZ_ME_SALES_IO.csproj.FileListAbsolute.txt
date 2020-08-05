@@ -124,4 +124,5 @@ D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.csproj.ResolveComReference
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.dll
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.pdb
-D:\Source\P_CZ_ME_SALES_IO\obj\Debug\cz.P_CZ_ME_SALES_IO_SUB.resources
+D:\Source\P_CZ_ME_SALES_IO\obj\Debug\cz.P_CZ_ME_SALES_IO.resources
+D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.csprojResolveAssemblyReference.cache

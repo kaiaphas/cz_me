@@ -1,6 +1,6 @@
 ﻿namespace cz
 {
-    partial class P_CZ_ME_SALES_IO_SUB
+    partial class P_CZ_ME_SALES_IO
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_CZ_ME_SALES_IO_SUB));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_CZ_ME_SALES_IO));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexD = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -58,6 +58,8 @@
             this.rdoMts1 = new Duzon.Common.Controls.RadioButtonExt();
             this.btn전자세금계산서반영 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn변경 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.panelExt24 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt23 = new Duzon.Common.Controls.PanelExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexD)).BeginInit();
@@ -75,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts1)).BeginInit();
+            this.panelExt23.SuspendLayout();
             this.SuspendLayout();
             // 
             // mDataArea
@@ -150,6 +153,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.panelExt4);
             this.panel1.Controls.Add(this.txt사유작성);
             this.panel1.Controls.Add(this.dp년월);
@@ -163,14 +167,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1084, 62);
+            this.panel1.Size = new System.Drawing.Size(1084, 60);
             this.panel1.TabIndex = 1;
             // 
             // panelExt4
             // 
             this.panelExt4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt4.Controls.Add(this.labelExt1);
-            this.panelExt4.Location = new System.Drawing.Point(371, 31);
+            this.panelExt4.Location = new System.Drawing.Point(371, 28);
             this.panelExt4.Name = "panelExt4";
             this.panelExt4.Size = new System.Drawing.Size(160, 31);
             this.panelExt4.TabIndex = 1972;
@@ -189,7 +193,7 @@
             // 
             this.txt사유작성.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt사유작성.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt사유작성.Location = new System.Drawing.Point(533, 33);
+            this.txt사유작성.Location = new System.Drawing.Point(533, 34);
             this.txt사유작성.Name = "txt사유작성";
             this.txt사유작성.Size = new System.Drawing.Size(188, 25);
             this.txt사유작성.TabIndex = 1971;
@@ -227,7 +231,7 @@
             this.cboIO상태값변경.BackColor = System.Drawing.Color.White;
             this.cboIO상태값변경.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIO상태값변경.ItemHeight = 15;
-            this.cboIO상태값변경.Location = new System.Drawing.Point(162, 35);
+            this.cboIO상태값변경.Location = new System.Drawing.Point(162, 34);
             this.cboIO상태값변경.Name = "cboIO상태값변경";
             this.cboIO상태값변경.Size = new System.Drawing.Size(107, 23);
             this.cboIO상태값변경.TabIndex = 1968;
@@ -249,7 +253,7 @@
             // 
             this.panelExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt2.Controls.Add(this.lblIO상태값변경);
-            this.panelExt2.Location = new System.Drawing.Point(0, 31);
+            this.panelExt2.Location = new System.Drawing.Point(0, 28);
             this.panelExt2.Name = "panelExt2";
             this.panelExt2.Size = new System.Drawing.Size(160, 31);
             this.panelExt2.TabIndex = 1966;
@@ -257,9 +261,9 @@
             // lblIO상태값변경
             // 
             this.lblIO상태값변경.BackColor = System.Drawing.Color.Transparent;
-            this.lblIO상태값변경.Location = new System.Drawing.Point(4, 5);
+            this.lblIO상태값변경.Location = new System.Drawing.Point(4, 7);
             this.lblIO상태값변경.Name = "lblIO상태값변경";
-            this.lblIO상태값변경.Size = new System.Drawing.Size(153, 18);
+            this.lblIO상태값변경.Size = new System.Drawing.Size(153, 17);
             this.lblIO상태값변경.TabIndex = 41;
             this.lblIO상태값변경.Text = "IO 상태값 변경";
             this.lblIO상태값변경.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -336,14 +340,14 @@
             this._flexM.KeyActionLeft = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
             this._flexM.KeyActionRight = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
             this._flexM.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
-            this._flexM.Location = new System.Drawing.Point(3, 71);
+            this._flexM.Location = new System.Drawing.Point(3, 69);
             this._flexM.Name = "_flexM";
             this._flexM.Rows.Count = 1;
             this._flexM.Rows.DefaultSize = 18;
             this._flexM.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this._flexM.ShowButtons = C1.Win.C1FlexGrid.ShowButtonsEnum.Always;
             this._flexM.ShowSort = false;
-            this._flexM.Size = new System.Drawing.Size(1084, 397);
+            this._flexM.Size = new System.Drawing.Size(1084, 399);
             this._flexM.StyleInfo = resources.GetString("_flexM.StyleInfo");
             this._flexM.TabIndex = 156;
             this._flexM.UseGridCalculator = true;
@@ -437,13 +441,38 @@
             this.btn변경.Text = "변경";
             this.btn변경.UseVisualStyleBackColor = false;
             // 
-            // P_CZ_ME_SALES_IO_SUB
+            // panelExt24
+            // 
+            this.panelExt24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt24.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt24.BackgroundImage")));
+            this.panelExt24.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt24.Location = new System.Drawing.Point(0, 24);
+            this.panelExt24.Name = "panelExt24";
+            this.panelExt24.Size = new System.Drawing.Size(1080, 1);
+            this.panelExt24.TabIndex = 155;
+            // 
+            // panelExt23
+            // 
+            this.panelExt23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt23.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt23.BackgroundImage")));
+            this.panelExt23.Controls.Add(this.panelExt24);
+            this.panelExt23.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt23.Location = new System.Drawing.Point(1, 30);
+            this.panelExt23.Name = "panelExt23";
+            this.panelExt23.Size = new System.Drawing.Size(1080, 1);
+            this.panelExt23.TabIndex = 1973;
+            // 
+            // P_CZ_ME_SALES_IO
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.btn변경);
             this.Controls.Add(this.btn전자세금계산서반영);
             this.Controls.Add(this.panRadio1);
-            this.Name = "P_CZ_ME_SALES_IO_SUB";
+            this.Name = "P_CZ_ME_SALES_IO";
             this.Size = new System.Drawing.Size(1090, 796);
             this.TitleText = "IO 대사";
             this.Controls.SetChildIndex(this.panRadio1, 0);
@@ -468,6 +497,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts1)).EndInit();
+            this.panelExt23.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -502,6 +532,8 @@
         private Duzon.Common.Controls.TextBoxExt txt사유작성;
         private Duzon.Common.Controls.RoundedButton btn전자세금계산서반영;
         private Duzon.Common.Controls.RoundedButton btn변경;
+        private Duzon.Common.Controls.PanelExt panelExt23;
+        private Duzon.Common.Controls.PanelExt panelExt24;
 
     }
 }
