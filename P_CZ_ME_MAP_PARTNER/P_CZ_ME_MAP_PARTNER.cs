@@ -31,6 +31,8 @@ namespace cz
         string tab_index = "";
         string rdo_index = "";
         string rdo_yn = "";
+        int show_cell = 0;
+
         #endregion
 
         #region ♥ 초기화
@@ -457,6 +459,8 @@ namespace cz
                         {
                             ShowMessage(PageResultMode.SaveGood);
                             {
+                                //show_cell = int.Parse(rdo_index) + 17;
+
                                 object[] Params = new object[6];
                                 Params[0] = LoginInfo.CompanyCode;
                                 Params[1] = "MT1";
@@ -468,6 +472,8 @@ namespace cz
                                 DataSet ds_mt1 = _biz.Search_T1(Params);
 
                                 _flexM_T1.Binding = ds_mt1.Tables[0];
+
+                               // _flexM_T1.ShowCell(show_cell, 1);
                             }
                         }
 
