@@ -96,7 +96,7 @@ namespace cz
             _flexM.SetCol("req_no", "고유번호", 0, false);
             _flexM.SetCol("seq", "매체순번", 0, false);
 
-            _flexM.SetCol("cp_agentno", "광고주사업자번호", 90, false);
+            _flexM.SetCol("cp_agentno", "광고주사업자번호", 110, false);
             _flexM.SetCol("cp_agentid", "광고주ID", 0, false);
             _flexM.SetCol("cp_agentnm", "광고주", 130, false);
 
@@ -122,6 +122,7 @@ namespace cz
             _flexM.SetCol("am_income", "영업수익(매출)", 100, false, typeof(decimal), FormatTpType.MONEY); //내수액임, 전체금액 확인
             _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.MONEY);
 
+            _flexM.SetCol("me_sumcode", "합산매체", 0, false);
             //_flexM.SetCol("sales_etc", "수정일시", 0, false); //DT_UPDATE로 수정
              
             _flexM.SetCol("closed", "마감구분", 60, false); 
@@ -129,16 +130,12 @@ namespace cz
 
             //대행사 전표정보
             _flexM.SetCol("S1", "S", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("DOCU_TYPE_D", "전표유형", 0, false);
-            _flexM.SetCol("DOCU_NO_D", "전표번호", 100, false);
-            _flexM.SetCol("PUB_YN", "", 0, false);
-            _flexM.SetCol("SALES_TAX_ALL", "", 0, false);
+            _flexM.SetCol("NO_DOCU_M", "전표번호", 100, false);
             _flexM.SetCol("SALES_TAX_D", "세금계산서", 100, false);
 
             //매체 전표정보
             _flexM.SetCol("S2", "S", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("DOCU_TYPE_M", "전표유형", 0, false);
-            _flexM.SetCol("DOCU_NO_M", "전표번호", 100, false);
+            _flexM.SetCol("NO_DOCU_C", "전표번호", 100, false);
             _flexM.SetCol("SALES_TAX_M", "세금계산서", 100, false);
 
             //비고
@@ -277,14 +274,14 @@ namespace cz
             _flexM[0, "NM_MEDIAGR"] = _flexM[0, "agent"] = "매체";
 
             //MERGE 대행사 전표정보
-            _flexM[0, "DOCU_TYPE_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            //_flexM[0, "DOCU_TYPE_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
             _flexM[0, "DOCU_NO_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
-            _flexM[0, "PUB_YN"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
-            _flexM[0, "SALES_TAX_ALL"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            //_flexM[0, "PUB_YN"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            //_flexM[0, "SALES_TAX_ALL"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
             _flexM[0, "SALES_TAX_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
 
             //MERGE 매체 전표정보
-            _flexM[0, "DOCU_TYPE_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
+            //_flexM[0, "DOCU_TYPE_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
             _flexM[0, "DOCU_NO_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
             _flexM[0, "SALES_TAX_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
 
@@ -353,7 +350,10 @@ namespace cz
 
             btn전표처리.Click += new EventHandler(btn전표처리_Click);
             //btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
-            
+
+            btn대행사전표.Click += new EventHandler(btn대행사전표_Click);
+            btn매체전표.Click += new EventHandler(btn매체전표_Click);
+
             try
             {
                 SetControl set = new SetControl();
@@ -575,7 +575,7 @@ namespace cz
                     return false;
                 }
 
-                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                if (ShowMessage("선택한 데이터를 저장하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
                     obj = _biz.Save(dt);
                 }
@@ -900,12 +900,20 @@ namespace cz
                     {
                         string 캠페인코드 = _flexM[i, "CPID"].ToString();
                         string 순번 = _flexM[i, "SEQ"].ToString();
-                        string 대행사발행월 = _flexM[i, "AY_YEAR_MONTH"].ToString();
-                        string 매체발행월 = _flexM[i, "ME_YEAR_MONTH"].ToString();
+                        string 발행월 = _flexM[i, "ay_year"].ToString();
+                        string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
+                        string 매체기준 = _flexM[i, "me_trade_type"].ToString();
+                        string 합산매체 = _flexM[i, "me_sumcode"].ToString();
+                        string 구분 = _flexM[i, "CD_ACCT"].ToString();
 
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
-                            if (_biz.Save_Junpyo(캠페인코드, 순번, 대행사발행월, 매체발행월))
+                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            {
+
+                            }
+
+                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
                             {
 
                             }
@@ -932,6 +940,102 @@ namespace cz
 
                         }
                          * */
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
+
+
+        private void btn대행사전표_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_flexM.HasNormalRow)
+                    return;
+
+                // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
+                if (!BeforeSaveChk())
+                    return;
+
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                        string 순번 = _flexM[i, "SEQ"].ToString();
+                        string 발행월 = _flexM[i, "ay_year"].ToString();
+                        string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
+                        string 매체기준 = _flexM[i, "me_trade_type"].ToString();
+                        string 합산매체 = _flexM[i, "me_sumcode"].ToString();
+                        string 구분 = _flexM[i, "CD_ACCT"].ToString();
+
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
+
+
+        private void btn매체전표_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_flexM.HasNormalRow)
+                    return;
+
+                // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
+                if (!BeforeSaveChk())
+                    return;
+
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                        string 순번 = _flexM[i, "SEQ"].ToString();
+                        string 발행월 = _flexM[i, "ay_year"].ToString();
+                        string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
+                        string 매체기준 = _flexM[i, "me_trade_type"].ToString();
+                        string 합산매체 = _flexM[i, "me_sumcode"].ToString();
+                        string 구분 = _flexM[i, "CD_ACCT"].ToString();
+
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            {
+
+                            }
+                        }
                     }
                 }
             }
