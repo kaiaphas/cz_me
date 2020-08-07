@@ -38,6 +38,11 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
+        internal bool Update_Status(string 캠페인코드, string 상태값변경)
+        {            
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_IO_U2", new object[] { 캠페인코드, 상태값변경});
+        }
+
         public object Save(DataTable dtM, bool 타메뉴호출)
         {
             SpInfoCollection sic = new SpInfoCollection();

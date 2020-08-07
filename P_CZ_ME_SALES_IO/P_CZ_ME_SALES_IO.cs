@@ -34,6 +34,7 @@ namespace cz
         string today = "";
         string toyear = "";
         string rdo_idx = "";
+
         #endregion
 
         #region ♥ 초기화
@@ -70,9 +71,10 @@ namespace cz
             //merge 기능을 위해서 row 2 설정
             _flexM.BeginSetting(2, 1, false);
 
-            _flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);
+            _flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);           
 
-            _flexM.SetCol("CPID", "CPID", 0, false);
+            _flexM.SetCol("CPID", "CPID", 50, false);
+            
             _flexM.SetCol("CD_COMPANY", "CD_COMPANY", 0, false);
             _flexM.SetCol("TP_SALES", "TP_SALES", 0, false);
             _flexM.SetCol("MER_REQ_NO", "MER_REQ_NO", 0, false);
@@ -81,6 +83,7 @@ namespace cz
             _flexM.SetCol("DUZON_STATDT", "요청일시", 100, false);
             _flexM.SetCol("STATE", "IO 상태", 100, false);
             _flexM.SetCol("DUZON_STAT", "발행상태", 100, false);
+            _flexM.SetCol("ST_IO", "상태값 변경", 100, true);
             _flexM.SetCol("NM_USERDE1", "사유", 200, true);
             _flexM.SetCol("발행일시", "발행(반려)일시", 100, false);
             _flexM.SetCol("NO_DOCU", "전표번호", 100, true);
@@ -123,6 +126,7 @@ namespace cz
             _flexM.Cols["DUZON_STATDT"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["STATE"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["DUZON_STAT"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ST_IO"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["발행일시"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["NO_DOCU"].TextAlign = TextAlignEnum.CenterCenter;
             //_flexM.Cols["TP_TAXSTATUS"].TextAlign = TextAlignEnum.CenterCenter;
@@ -138,6 +142,7 @@ namespace cz
             _flexM[0, "DUZON_STATDT"] = _flexM[0, "TAX"] = "세금계산서 정보";
             _flexM[0, "STATE"] = _flexM[0, "TAX"] = "세금계산서 정보";
             _flexM[0, "DUZON_STAT"] = _flexM[0, "TAX"] = "세금계산서 정보";
+            _flexM[0, "ST_IO"] = _flexM[0, "TAX"] = "세금계산서 정보";
             _flexM[0, "NM_USERDE1"] = _flexM[0, "TAX"] = "세금계산서 정보";
             _flexM[0, "발행일시"] = _flexM[0, "TAX"] = "세금계산서 정보";
             _flexM[0, "NO_DOCU"] = _flexM[0, "TAX"] = "세금계산서 정보";
@@ -179,6 +184,7 @@ namespace cz
             _flexM.Cols.Frozen = _flexM.Cols["DUZON_STATDT"].Index;
             _flexM.Cols.Frozen = _flexM.Cols["STATE"].Index;
             _flexM.Cols.Frozen = _flexM.Cols["DUZON_STAT"].Index;
+            _flexM.Cols.Frozen = _flexM.Cols["ST_IO"].Index;
             _flexM.Cols.Frozen = _flexM.Cols["NM_USERDE1"].Index;
             _flexM.Cols.Frozen = _flexM.Cols["발행일시"].Index;
             _flexM.Cols.Frozen = _flexM.Cols["NO_DOCU"].Index;
@@ -210,7 +216,6 @@ namespace cz
             _flexD.Cols["CD_MNGD1"].Format = _flexD.Cols["CD_MNGD1"].EditMask = "###-##-#####";
             _flexD.SetStringFormatCol("CD_MNGD1");
             _flexD.SetNoMaskSaveCol("CD_MNGD1");
-            
 
             _flexD.SettingVersion = new Random().Next().ToString();
             _flexD.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
@@ -226,6 +231,8 @@ namespace cz
         protected override void InitPaint()
         {
             base.InitPaint();
+
+            btn변경.Click += new EventHandler(btn변경_Click);
             
             Grant.CanDelete = false;
             Grant.CanAdd = false;
@@ -247,13 +254,13 @@ namespace cz
             
             set.SetCombobox(cboIO상태, MA.GetCode("CZ_ME_C010", false));
             set.SetCombobox(cbo세금계산서발행상태, MA.GetCode("CZ_ME_C009", false));
-            set.SetCombobox(cboIO상태값변경, MA.GetCode("CZ_ME_C011", false));
-
+            //set.SetCombobox(cboIO상태값변경, MA.GetCode("CZ_ME_C011", false));
+            
             cboIO상태.SelectedIndex = 5;
             cbo세금계산서발행상태.SelectedIndex = 2;
 
             //_flexM.SetDataMap("STATE", MA.GetCode("CZ_ME_C010"), "CODE", "NAME");
-            //_flexM.SetDataMap("DUZON_STAT", MA.GetCode("CZ_ME_C009"), "CODE", "NAME");
+            _flexM.SetDataMap("ST_IO", MA.GetCode("CZ_ME_C011"), "CODE", "NAME");
 
         }
 
@@ -378,7 +385,52 @@ namespace cz
 
         #region ♥ 기타 이벤트
 
-     
+        private void btn변경_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_flexM.HasNormalRow)
+                    return;
+        
+                if (!BeforeSaveChk())
+                    return;
+        
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+        
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+        
+                if (ShowMessage("선택한 데이터의 IO 상태값을 변경 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                        string 상태값변경 = _flexM[i, "ST_IO"].ToString();
+                        //string 사유 = _flexM[i, "NM_USERDE1"].ToString();
+
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            if (_biz.Update_Status(캠페인코드, 상태값변경))
+                            {
+        
+                            }
+                        }
+                    }
+
+                    ShowMessage("변경이 완료 되었습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                //MsgEnd(ex);
+                ShowMessage("변경이 완료 되었습니다.");
+                return;
+            }
+        }
+
         #endregion
 
         #region ♥ 그리드 이벤트
@@ -427,6 +479,6 @@ namespace cz
 
         #region ♥ 기타 Property
         string ServerKey { get { return Global.MainFrame.ServerKeyCommon.ToUpper(); } }
-        #endregion     
+        #endregion            
     }
 }
