@@ -343,7 +343,7 @@
             this.MULTI_CD_CORP.TabIndex = 300;
             this.MULTI_CD_CORP.TabStop = false;
             this.MULTI_CD_CORP.UserCodeName = "biz_name";
-            this.MULTI_CD_CORP.UserCodeValue = "CD_PARTNER_4";
+            this.MULTI_CD_CORP.UserCodeValue = "CD_PARTNER";
             this.MULTI_CD_CORP.UserHelpID = "H_CZ_HELP02";
             this.MULTI_CD_CORP.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_CORP_QueryBefore);
             // 
