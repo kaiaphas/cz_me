@@ -294,13 +294,11 @@ D:\Source\H_CZ_HELP\bin\Debug\Duzon.Erpiu.Container.Util.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.BizOn.Erpu.BusinessConfig.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.Erpiu.Windows.OneControls.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.BizOn.Windows.PivotGrid.dll
-D:\Source\H_CZ_HELP\bin\Debug\DevExpress.XtraPivotGrid.v10.2.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.ERPU.FI.dll
 D:\Source\H_CZ_HELP\bin\Debug\Newtonsoft.Json.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.Windows.Print.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.BizOn.Erpu.Security.dll
 D:\Source\H_CZ_HELP\bin\Debug\bizbox_alpha_aes.dll
-D:\Source\H_CZ_HELP\bin\Debug\DevExpress.PivotGrid.v10.2.Core.dll
 D:\Source\H_CZ_HELP\bin\Debug\Oracle.DataAccess.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.Erpu.CloudFax.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.BizOn.Erpu.Net.dll
@@ -312,9 +310,6 @@ D:\Source\H_CZ_HELP\bin\Debug\Duzon.BizOn.Erpu.ConnectLib.dll
 D:\Source\H_CZ_HELP\bin\Debug\Dass.FlexGrid_v4.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.Erpiu.ControlLib.Container.dll
 D:\Source\H_CZ_HELP\bin\Debug\C1.Win.C1FlexGrid.4.dll
-D:\Source\H_CZ_HELP\bin\Debug\DevExpress.Data.v10.2.dll
-D:\Source\H_CZ_HELP\bin\Debug\DevExpress.Utils.v10.2.dll
-D:\Source\H_CZ_HELP\bin\Debug\DevExpress.XtraEditors.v10.2.dll
 D:\Source\H_CZ_HELP\bin\Debug\Interop.DZEBANKSDKLib.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.Utils.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.BizOn.Scraping.Interface.dll
@@ -393,3 +388,5 @@ D:\Source\H_CZ_HELP\bin\Debug\ja-jp\Duzon.ReportDesigner.FileManager.resources.d
 D:\Source\H_CZ_HELP\bin\Debug\zh-cn\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\H_CZ_HELP\bin\Debug\Duzon.ReportDesigner.Components.XmlSerializers.dll
 D:\Source\H_CZ_HELP\obj\Debug\cz.H_CZ_CP_SUB.resources
+D:\Source\H_CZ_HELP\bin\Debug\C1.C1Excel.2.xml
+D:\Source\H_CZ_HELP\obj\Debug\H_CZ_HELP.csprojResolveAssemblyReference.cache

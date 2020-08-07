@@ -41,7 +41,6 @@ namespace cz
              switch (base.GetHelpID)
              {
                  case "H_CZ_ME_GR":     //매체 도움창 메조미디어
-                     list.Add(new object[] { "S", "S", 30, true });
                      list.Add(new object[] { "CD_PARTNER", "매체ID", 70 });
                      list.Add(new object[] { "biz_name", "매체명", 180 });
                      list.Add(new object[] { "biz_name2", "사업자명", 180 });
