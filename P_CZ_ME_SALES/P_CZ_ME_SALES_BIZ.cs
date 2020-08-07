@@ -33,24 +33,24 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
-        internal bool Save_Junpyo_ay(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 구분)
+        internal bool Save_Junpyo_ay(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 계정과목, string 구분)
         {
             string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
             string CD_PC = Global.MainFrame.LoginInfo.CdPc;
             string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
             string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
 
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_AY_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_AY_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
-        internal bool Save_Junpyo_me(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 구분)
+        internal bool Save_Junpyo_me(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 계정과목, string 구분)
         {
             string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
             string CD_PC = Global.MainFrame.LoginInfo.CdPc;
             string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
             string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
 
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_ME_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_ME_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
         public object Save(DataTable dtM)

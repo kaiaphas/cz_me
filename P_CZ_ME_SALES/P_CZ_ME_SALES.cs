@@ -131,12 +131,12 @@ namespace cz
             //대행사 전표정보
             _flexM.SetCol("S1", "S", 35, true, CheckTypeEnum.Y_N);
             _flexM.SetCol("NO_DOCU_M", "전표번호", 100, false);
-            _flexM.SetCol("SALES_TAX_D", "세금계산서", 100, false);
+            _flexM.SetCol("SALES_TAX_M", "세금계산서", 100, false);
 
             //매체 전표정보
             _flexM.SetCol("S2", "S", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_C", "전표번호", 100, false);
-            _flexM.SetCol("SALES_TAX_M", "세금계산서", 100, false);
+            _flexM.SetCol("NO_DOCU_D", "전표번호", 100, false);
+            _flexM.SetCol("SALES_TAX_D", "세금계산서", 100, false);
 
             //비고
             _flexM.SetCol("SALES_CONTENT", "내용", 200, false);
@@ -183,17 +183,20 @@ namespace cz
             _flexM.Cols["cp_agentnm"].TextAlign = TextAlignEnum.LeftCenter;
             //_flexM.Cols["sales_etc"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["closed"].TextAlign = TextAlignEnum.CenterCenter;
+
+            _flexM.Cols["SALES_TAX_M"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["SALES_TAX_D"].TextAlign = TextAlignEnum.CenterCenter;
+
             //_flexM.Cols["status"].TextAlign = TextAlignEnum.CenterCenter;
 
             //_flexM.Cols["DOCU_TYPE_D"].TextAlign = TextAlignEnum.CenterCenter;
             //_flexM.Cols["DOCU_NO_D"].TextAlign = TextAlignEnum.CenterCenter;
             //_flexM.Cols["PUB_YN"].TextAlign = TextAlignEnum.CenterCenter;
             //_flexM.Cols["SALES_TAX_ALL"].TextAlign = TextAlignEnum.CenterCenter;
-            //_flexM.Cols["SALES_TAX_D"].TextAlign = TextAlignEnum.CenterCenter;
+
 
             //_flexM.Cols["DOCU_TYPE_M"].TextAlign = TextAlignEnum.CenterCenter;
             //_flexM.Cols["DOCU_NO_M"].TextAlign = TextAlignEnum.CenterCenter;
-            //_flexM.Cols["SALES_TAX_M"].TextAlign = TextAlignEnum.CenterCenter;
 
             //_flexM.Cols["SALES_CONTENT"].TextAlign = TextAlignEnum.LeftCenter;
             //_flexM.Cols["ID_UPDATE"].TextAlign = TextAlignEnum.LeftCenter;
@@ -904,16 +907,17 @@ namespace cz
                         string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
                         string 매체기준 = _flexM[i, "me_trade_type"].ToString();
                         string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 구분 = _flexM[i, "CD_ACCT"].ToString();
-
+                        string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
+                        string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
+                        
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
-                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
                             {
 
                             }
 
-                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
                             {
 
                             }
@@ -979,11 +983,12 @@ namespace cz
                         string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
                         string 매체기준 = _flexM[i, "me_trade_type"].ToString();
                         string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 구분 = _flexM[i, "CD_ACCT"].ToString();
+                        string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
+                        string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
 
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
-                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
                             {
 
                             }
@@ -1027,11 +1032,12 @@ namespace cz
                         string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
                         string 매체기준 = _flexM[i, "me_trade_type"].ToString();
                         string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 구분 = _flexM[i, "CD_ACCT"].ToString();
+                        string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
+                        string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
 
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
-                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 구분))
+                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
                             {
 
                             }
