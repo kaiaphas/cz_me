@@ -139,10 +139,9 @@ namespace cz
             _flexM.SetCol("SALES_TAX_D", "세금계산서", 100, false);
 
             //비고
-            _flexM.SetCol("SALES_CONTENT", "내용", 200, false);
+            _flexM.SetCol("NM_NOTE", "내용", 200, true);
             _flexM.SetCol("ID_UPDATE", "등록(수정)자", 0, false);
             _flexM.SetCol("DT_UPDATE", "등록(수정)일시", 0, false);
-
 
             //정렬
             _flexM.Cols["ay_year"].TextAlign = TextAlignEnum.CenterCenter;
@@ -289,7 +288,7 @@ namespace cz
             _flexM[0, "SALES_TAX_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
 
             //비고
-            _flexM[0, "SALES_CONTENT"] = _flexM[0, "sales_etc"] = "비고";
+            _flexM[0, "NM_NOTE"] = _flexM[0, "sales_etc"] = "비고";
             _flexM[0, "ID_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
             _flexM[0, "DT_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
 
@@ -405,7 +404,7 @@ namespace cz
                 if (_flexM.DataTable != null)
                     _flexM.DataTable.Rows.Clear();
 
-                object[] Params = new object[31];
+                object[] Params = new object[28];
                 Params[0] = LoginInfo.CompanyCode;
                 Params[1] = strDz;
                 Params[2] = dp년월_FROM.Text;  //조회연월 FROM
@@ -433,6 +432,7 @@ namespace cz
                 Params[24] = cbo매체발행여부.SelectedValue; //매체세금계산서
                 Params[25] = cbo마감구분.SelectedValue; //마감구분
                 Params[26] = cbo수정구분.SelectedValue; //수정구분
+                Params[27] = MULTI_CD_AGENCY_ORI.QueryWhereIn_Pipe; //매체구분
 
                 DataSet ds = _biz.Search_M(Params);
                 DataTable dt = ds.Tables[0];
@@ -647,6 +647,11 @@ namespace cz
         private void MULTI_CD_AGENCY_QueryBefore(object sender, BpQueryArgs e)
         {
             MULTI_CD_AGENCY.UserParams = "대행사 도움창;H_CZ_ME_AGENCY;" + MULTI_CD_AGENCY.CodeNames + ";";
+        }
+
+        private void MULTI_CD_AGENCY_ORI_QueryBefore(object sender, BpQueryArgs e)
+        {
+            MULTI_CD_AGENCY_ORI.UserParams = "대행사 도움창;H_CZ_ME_AGENCY;" + MULTI_CD_AGENCY_ORI.CodeNames + ";";
         }
 
         private void MULTI_CD_DEPT_QueryBefore(object sender, BpQueryArgs e)

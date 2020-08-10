@@ -497,4 +497,3 @@ D:\Source\P_CZ_ME_SALES\obj\Debug\P_CZ_ME_SALES.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_SALES\obj\Debug\P_CZ_ME_SALES.dll
 D:\Source\P_CZ_ME_SALES\obj\Debug\P_CZ_ME_SALES.pdb
 D:\Source\P_CZ_ME_SALES\bin\Debug\C1.C1Excel.2.xml
-D:\Source\P_CZ_ME_SALES\obj\Debug\P_CZ_ME_SALES.csprojResolveAssemblyReference.cache

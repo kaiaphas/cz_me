@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.MULTI_CD_AGENCY_ORI = new Duzon.Common.BpControls.BpComboBox();
             this.labelExt30 = new Duzon.Common.Controls.LabelExt();
             this.dp매체월TO = new Duzon.Common.Controls.DatePicker();
             this.dp매체월FROM = new Duzon.Common.Controls.DatePicker();
@@ -216,6 +217,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.MULTI_CD_AGENCY_ORI);
             this.panel1.Controls.Add(this.labelExt30);
             this.panel1.Controls.Add(this.dp매체월TO);
             this.panel1.Controls.Add(this.dp매체월FROM);
@@ -278,6 +280,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 122);
             this.panel1.TabIndex = 20;
+            // 
+            // MULTI_CD_AGENCY_ORI
+            // 
+            this.MULTI_CD_AGENCY_ORI.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MULTI_CD_AGENCY_ORI.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
+            this.MULTI_CD_AGENCY_ORI.Location = new System.Drawing.Point(1130, 65);
+            this.MULTI_CD_AGENCY_ORI.Name = "MULTI_CD_AGENCY_ORI";
+            this.MULTI_CD_AGENCY_ORI.Size = new System.Drawing.Size(150, 21);
+            this.MULTI_CD_AGENCY_ORI.TabIndex = 305;
+            this.MULTI_CD_AGENCY_ORI.TabStop = false;
+            this.MULTI_CD_AGENCY_ORI.UserCodeName = "CORPNAME";
+            this.MULTI_CD_AGENCY_ORI.UserCodeValue = "CORPID";
+            this.MULTI_CD_AGENCY_ORI.UserHelpID = "H_CZ_HELP02";
+            this.MULTI_CD_AGENCY_ORI.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_AGENCY_ORI_QueryBefore);
             // 
             // labelExt30
             // 
@@ -367,7 +383,7 @@
             this.cbo매체수익.BackColor = System.Drawing.Color.White;
             this.cbo매체수익.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo매체수익.ItemHeight = 12;
-            this.cbo매체수익.Location = new System.Drawing.Point(459, 35);
+            this.cbo매체수익.Location = new System.Drawing.Point(629, 35);
             this.cbo매체수익.Name = "cbo매체수익";
             this.cbo매체수익.Size = new System.Drawing.Size(90, 20);
             this.cbo매체수익.TabIndex = 297;
@@ -398,7 +414,7 @@
             this.cbo영업수익.BackColor = System.Drawing.Color.White;
             this.cbo영업수익.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo영업수익.ItemHeight = 12;
-            this.cbo영업수익.Location = new System.Drawing.Point(289, 34);
+            this.cbo영업수익.Location = new System.Drawing.Point(459, 34);
             this.cbo영업수익.Name = "cbo영업수익";
             this.cbo영업수익.Size = new System.Drawing.Size(89, 20);
             this.cbo영업수익.TabIndex = 298;
@@ -410,7 +426,7 @@
             this.cbo수수료.BackColor = System.Drawing.Color.White;
             this.cbo수수료.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo수수료.ItemHeight = 12;
-            this.cbo수수료.Location = new System.Drawing.Point(116, 34);
+            this.cbo수수료.Location = new System.Drawing.Point(286, 34);
             this.cbo수수료.Name = "cbo수수료";
             this.cbo수수료.Size = new System.Drawing.Size(90, 20);
             this.cbo수수료.TabIndex = 296;
@@ -669,7 +685,6 @@
             this.panelExt11.Name = "panelExt11";
             this.panelExt11.Size = new System.Drawing.Size(70, 27);
             this.panelExt11.TabIndex = 276;
-            this.panelExt11.Visible = false;
             // 
             // labelExt8
             // 
@@ -941,7 +956,7 @@
             this.cbo수주액.BackColor = System.Drawing.Color.White;
             this.cbo수주액.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo수주액.ItemHeight = 12;
-            this.cbo수주액.Location = new System.Drawing.Point(629, 34);
+            this.cbo수주액.Location = new System.Drawing.Point(116, 34);
             this.cbo수주액.Name = "cbo수주액";
             this.cbo수주액.Size = new System.Drawing.Size(90, 20);
             this.cbo수주액.TabIndex = 266;
@@ -951,7 +966,7 @@
             // 
             this.panelExt31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt31.Controls.Add(this.labelExt26);
-            this.panelExt31.Location = new System.Drawing.Point(388, 31);
+            this.panelExt31.Location = new System.Drawing.Point(558, 31);
             this.panelExt31.Name = "panelExt31";
             this.panelExt31.Size = new System.Drawing.Size(70, 27);
             this.panelExt31.TabIndex = 265;
@@ -970,7 +985,7 @@
             // 
             this.panelExt29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt29.Controls.Add(this.labelExt24);
-            this.panelExt29.Location = new System.Drawing.Point(217, 31);
+            this.panelExt29.Location = new System.Drawing.Point(387, 31);
             this.panelExt29.Name = "panelExt29";
             this.panelExt29.Size = new System.Drawing.Size(70, 27);
             this.panelExt29.TabIndex = 264;
@@ -989,7 +1004,7 @@
             // 
             this.panelExt26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt26.Controls.Add(this.labelExt21);
-            this.panelExt26.Location = new System.Drawing.Point(45, 31);
+            this.panelExt26.Location = new System.Drawing.Point(215, 31);
             this.panelExt26.Name = "panelExt26";
             this.panelExt26.Size = new System.Drawing.Size(70, 27);
             this.panelExt26.TabIndex = 263;
@@ -1008,7 +1023,7 @@
             // 
             this.panelExt17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt17.Controls.Add(this.labelExt18);
-            this.panelExt17.Location = new System.Drawing.Point(558, 31);
+            this.panelExt17.Location = new System.Drawing.Point(45, 31);
             this.panelExt17.Name = "panelExt17";
             this.panelExt17.Size = new System.Drawing.Size(70, 27);
             this.panelExt17.TabIndex = 262;
@@ -1440,6 +1455,7 @@
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_CORP;
         private Duzon.Common.Controls.RoundedButton btn대행사전표;
         private Duzon.Common.Controls.RoundedButton btn매체전표;
+        private Duzon.Common.BpControls.BpComboBox MULTI_CD_AGENCY_ORI;
 
     }
 }
