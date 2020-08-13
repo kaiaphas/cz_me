@@ -24,11 +24,11 @@ namespace cz
     // 페이지 : P_CZ_ME_SALES_PUB
     // **************************************
 
-    public partial class P_CZ_ME_SALES_PUB : PageBase
+    public partial class P_CZ_ME_SALES_REPORT : PageBase
     {
         #region ♥ 멤버필드
 
-        private P_CZ_ME_SALES_PUB_BIZ _biz = new P_CZ_ME_SALES_PUB_BIZ();
+        private P_CZ_ME_SALES_REPORT_BIZ _biz = new P_CZ_ME_SALES_REPORT_BIZ();
         bool _타메뉴호출 = false;
 
         string today = "";
@@ -40,7 +40,7 @@ namespace cz
 
         #region -> 생성자
 
-        public P_CZ_ME_SALES_PUB()
+        public P_CZ_ME_SALES_REPORT()
         {
             InitializeComponent();
 
@@ -71,44 +71,49 @@ namespace cz
 
             _flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);
 
-            _flexM.SetCol("TP_SALES", "구분", 0, false);
-            _flexM.SetCol("ME_SEQ", "번호", 0, false);
-            _flexM.SetCol("ME_YEAR_MONTH", "발행월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
-            _flexM.SetCol("ME_TRADE_TYPE", "기준", 60, false);
-            _flexM.SetCol("ME_CORPNO", "사업자등록번호", 100, false);
-            _flexM.SetCol("ME_CORPID", "사업자코드", 0, false);
-            _flexM.SetCol("ME_CORPNM", "사업자명", 150, false);
-            _flexM.SetCol("AM_BUDGET", "수주액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AM_AGY_PRICE", "수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AM_MEDIA_PRICE", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("TP_INDEX", "상태", 60, false);
-            _flexM.SetCol("DT_SYNC", "동기화일시", 130, false);
-            _flexM.SetCol("DT_JUNPYO", "전표처리일시", 130, false);
-            //_flexM.SetCol("NO_DOCU", "전표번호", 100, false);
-            _flexM.SetCol("S1", "선택", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_M", "수주전표", 100, true);
-            _flexM.SetCol("S2", "선택", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_C", "수수료전표", 100, true);
-            _flexM.SetCol("TP_TAXSTATUS", "세금계산서여부", 100, false);
+            _flexM.SetCol("TP_SALES", "계정명", 0, false);
+            _flexM.SetCol("ME_YEAR_MONTH", "월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
+            _flexM.SetCol("cpid", "캠페인ID", 0, false);
+            _flexM.SetCol("cpname", "캠페인명", 130, false);
 
-            _flexM.SetCol("PUB_BUDGET", "전수주액", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("PUB_AGY_PRICE", "전수수료", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("PUB_MEDIA_PRICE", "전매체수익", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("cp_agentno", "광고주사업자번호", 110, false);
+            _flexM.SetCol("cp_agentid", "광고주ID", 0, false);
+            _flexM.SetCol("cp_agentnm", "광고주", 130, false);
+
+            _flexM.SetCol("am_budget", "기타매출", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_budget", "광고수주액", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_agy_price", "디지털광고료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "순액차이", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "광고대행수수료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_budget", "광고대행수수료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_agy_price", "인터넷광고료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "네트워크광고료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "순액차이", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "네트워크광고대행사수수료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "네트워크광고대행사수수료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("ME_YEAR_MONTH", "월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
+            _flexM.SetCol("ay_trade_type", "종류", 40, false);
+            _flexM.SetCol("cp_agentnm", "담당자", 80, false);
+
+            _flexM.SetCol("me_corpid", "매체ID", 0, false);
+            _flexM.SetCol("me_corpnm", "매체", 130, false);
+
+            _flexM.SetCol("am_budget", "대행수수료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_budget", "순액차이", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_agy_price", "매체광고료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "매체광고료(세금계산서미발행)", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "대행수수료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "매체광고료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "네트워크대행수수료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_agy_price", "순액차이", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "네트워크매체광고료", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "네트워크대행수수료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_income", "네트워크매체광고료이월발행", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_media_price", "매출총이익", 100, false, typeof(decimal), FormatTpType.MONEY);
 
             _flexM.Cols["TP_INDEX"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ME_YEAR_MONTH"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ME_TRADE_TYPE"].TextAlign = TextAlignEnum.CenterCenter;
-
-            _flexM.Cols["ME_CORPNO"].Format = _flexM.Cols["ME_CORPNO"].EditMask = "###-##-#####";
-            _flexM.Cols["ME_CORPNO"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.SetStringFormatCol("ME_CORPNO");
-            _flexM.SetNoMaskSaveCol("ME_CORPNO");
-
-            _flexM.Cols["DT_JUNPYO"].Format = _flexM.Cols["DT_JUNPYO"].EditMask = "####-##-## ##:##:##";
-            _flexM.Cols["DT_JUNPYO"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.SetStringFormatCol("DT_JUNPYO");
-            _flexM.SetNoMaskSaveCol("DT_JUNPYO");
-
             _flexM.Cols["DT_SYNC"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["DT_JUNPYO"].TextAlign = TextAlignEnum.CenterCenter;
             //_flexM.Cols["NO_DOCU"].TextAlign = TextAlignEnum.CenterCenter;

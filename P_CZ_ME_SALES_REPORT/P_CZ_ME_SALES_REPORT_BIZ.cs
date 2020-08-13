@@ -6,7 +6,7 @@ using Duzon.ERPU;
 
 namespace cz
 {
-    class P_CZ_ME_SALES_PUB_BIZ
+    class P_CZ_ME_SALES_REPORT_BIZ
     {
         string 회사코드 = Global.MainFrame.LoginInfo.CompanyCode;
         string 사용자ID = Global.MainFrame.LoginInfo.UserID;

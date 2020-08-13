@@ -982,21 +982,30 @@ namespace cz
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
-                        string 순번 = _flexM[i, "SEQ"].ToString();
-                        string 발행월 = _flexM[i, "ay_year"].ToString();
-                        string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
-                        string 매체기준 = _flexM[i, "me_trade_type"].ToString();
-                        string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
-                        string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
-
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
-                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
+                            if (_flexM[i, "NO_DOCU_M"].ToString().Length.Equals(0))
                             {
+                                string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                                string 순번 = _flexM[i, "SEQ"].ToString();
+                                string 발행월 = _flexM[i, "ay_year"].ToString();
+                                string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
+                                string 매체기준 = _flexM[i, "me_trade_type"].ToString();
+                                string 합산매체 = _flexM[i, "me_sumcode"].ToString();
+                                string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
+                                string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
 
+                                if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
+                                {
+
+                                }
                             }
+                         /*
+                            else
+                            {
+                                ShowMessage("전표처리된 항목입니다.");
+                            }
+                            */
                         }
                     }
                 }
@@ -1031,21 +1040,33 @@ namespace cz
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
-                        string 순번 = _flexM[i, "SEQ"].ToString();
-                        string 발행월 = _flexM[i, "ay_year"].ToString();
-                        string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
-                        string 매체기준 = _flexM[i, "me_trade_type"].ToString();
-                        string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
-                        string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
-
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
-                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
+                            if (_flexM[i, "NO_DOCU_D"].ToString().Length.Equals(0))
                             {
+                                string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                                string 순번 = _flexM[i, "SEQ"].ToString();
+                                string 발행월 = _flexM[i, "ay_year"].ToString();
+                                string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
+                                string 매체기준 = _flexM[i, "me_trade_type"].ToString();
+                                string 합산매체 = _flexM[i, "me_sumcode"].ToString();
+                                string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
+                                string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
 
+                                if (_flexM[i, "S"].ToString().Equals("Y"))
+                                {
+                                    if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
+                                    {
+
+                                    }
+                                }
                             }
+                            /*
+                               else
+                               {
+                                   ShowMessage("전표처리된 항목입니다.");
+                               }
+                               */
                         }
                     }
                 }
