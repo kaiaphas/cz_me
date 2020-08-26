@@ -41,7 +41,6 @@
             this.lbl기준년도 = new Duzon.Common.Controls.LabelExt();
             this.panelExt1 = new Duzon.Common.Controls.PanelExt();
             this.rdo이월 = new Duzon.Common.Controls.RadioButtonExt();
-            this.rdo컷 = new Duzon.Common.Controls.RadioButtonExt();
             this.panelExt2 = new Duzon.Common.Controls.PanelExt();
             this.lbl등록구분 = new Duzon.Common.Controls.LabelExt();
             this.panRadio1 = new Duzon.Common.Controls.PanelExt();
@@ -59,7 +58,6 @@
             this.panel6.SuspendLayout();
             this.panelExt1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdo이월)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo컷)).BeginInit();
             this.panelExt2.SuspendLayout();
             this.panRadio1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts4)).BeginInit();
@@ -136,7 +134,7 @@
             this.txt캠페인명.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt캠페인명.Location = new System.Drawing.Point(733, 4);
             this.txt캠페인명.Name = "txt캠페인명";
-            this.txt캠페인명.Size = new System.Drawing.Size(127, 25);
+            this.txt캠페인명.Size = new System.Drawing.Size(127, 21);
             this.txt캠페인명.TabIndex = 1961;
             // 
             // panelExt3
@@ -196,7 +194,6 @@
             // panelExt1
             // 
             this.panelExt1.Controls.Add(this.rdo이월);
-            this.panelExt1.Controls.Add(this.rdo컷);
             this.panelExt1.Location = new System.Drawing.Point(362, 4);
             this.panelExt1.Name = "panelExt1";
             this.panelExt1.Size = new System.Drawing.Size(175, 21);
@@ -204,7 +201,7 @@
             // 
             // rdo이월
             // 
-            this.rdo이월.Location = new System.Drawing.Point(91, 2);
+            this.rdo이월.Location = new System.Drawing.Point(3, 1);
             this.rdo이월.Name = "rdo이월";
             this.rdo이월.Size = new System.Drawing.Size(78, 18);
             this.rdo이월.TabIndex = 192;
@@ -213,19 +210,6 @@
             this.rdo이월.TextDD = null;
             this.rdo이월.UseKeyEnter = true;
             this.rdo이월.UseVisualStyleBackColor = true;
-            // 
-            // rdo컷
-            // 
-            this.rdo컷.Checked = true;
-            this.rdo컷.Location = new System.Drawing.Point(8, 2);
-            this.rdo컷.Name = "rdo컷";
-            this.rdo컷.Size = new System.Drawing.Size(77, 18);
-            this.rdo컷.TabIndex = 191;
-            this.rdo컷.TabStop = true;
-            this.rdo컷.Text = "CUT-OFF";
-            this.rdo컷.TextDD = null;
-            this.rdo컷.UseKeyEnter = true;
-            this.rdo컷.UseVisualStyleBackColor = true;
             // 
             // panelExt2
             // 
@@ -342,7 +326,6 @@
             this.panel6.ResumeLayout(false);
             this.panelExt1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rdo이월)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo컷)).EndInit();
             this.panelExt2.ResumeLayout(false);
             this.panRadio1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts4)).EndInit();
@@ -365,7 +348,6 @@
         private Dass.FlexGrid.FlexGrid _flexM;
         private Duzon.Common.Controls.PanelExt panelExt1;
         private Duzon.Common.Controls.RadioButtonExt rdo이월;
-        private Duzon.Common.Controls.RadioButtonExt rdo컷;
         private Duzon.Common.Controls.PanelExt panelExt2;
         private Duzon.Common.Controls.LabelExt lbl등록구분;
         private Duzon.Common.Controls.DatePicker dp년도;
