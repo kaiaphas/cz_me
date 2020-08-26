@@ -38,9 +38,14 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
-        internal bool Update_Status(string 캠페인코드, string 상태값변경)
-        {            
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_IO_U2", new object[] { 캠페인코드, 상태값변경});
+        internal bool Update_Status(string 캠페인코드, string 상태값변경, string 상태값변경2)
+        {
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_IO_U2", new object[] { 캠페인코드, 상태값변경, 상태값변경2 });
+        }
+
+        internal bool Update_Status_Tax(string 전표번호)
+        {
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_IO_U3", new object[] { 전표번호});
         }
 
         public object Save(DataTable dtM, bool 타메뉴호출)
@@ -62,14 +67,12 @@ namespace cz
                 si.SpNameUpdate = "UP_CZ_ME_SALES_IO_U";
                 si.SpNameDelete = "UP_CZ_ME_SALES_IO_D";
                 si.SpParamsInsert = new string[] { 
-                     "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "CPID", "ME_SEQ"
-                     , "NO_DOCU", "NM_USERDE1", "ID_INSERT", "ID_UPDATE"
+                     "CD_COMPANY", "CPID", "NO_DOCU", "ST_IO", "NM_USERDE1", "ID_INSERT", "ID_UPDATE"
                 };
                 si.SpParamsUpdate = new string[] { 
-                   "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "CPID", "ME_SEQ"
-                   , "NO_DOCU", "NM_USERDE1", "ID_INSERT", "ID_UPDATE"
+                    "CD_COMPANY", "CPID", "NO_DOCU", "ST_IO", "NM_USERDE1", "ID_INSERT", "ID_UPDATE"
                 };
-                si.SpParamsDelete = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "CPID", "ME_SEQ" };
+                si.SpParamsDelete = new string[] { "CD_COMPANY", "CPID" };
                 sic.Add(si);
             }
 
