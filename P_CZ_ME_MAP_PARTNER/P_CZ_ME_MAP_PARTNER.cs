@@ -124,6 +124,8 @@ namespace cz
 
                 _flexM_T1.SetCodeHelpCol("cd_partner", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "cd_partner", "ln_partner" }, new string[] { "cd_partner", "ln_partner" }, ResultMode.FastMode);
 
+                _flexM_T1.VerifyNotNull = new string[] { "cd_partner", "ln_partner" };
+
                 _flexM_T1.SettingVersion = "1.0.1.3";
                 _flexM_T1.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
 
@@ -371,6 +373,7 @@ namespace cz
                         DataSet ds_mt1 = _biz.Search_T1(Params);
 
                         _flexM_T1.Binding = ds_mt1.Tables[0];
+                        SetToolBarButtonState(true, false, false, false, true);
 
                         break;
 
@@ -459,7 +462,14 @@ namespace cz
                         {
                             ShowMessage(PageResultMode.SaveGood);
                             {
-                                //show_cell = int.Parse(rdo_index) + 17;
+
+                                for (int i = 0; i < _flexM_T1.Rows.Count; i++)
+                                {
+                                    if (_flexM_T1[i, "S"].ToString().Equals("Y"))
+                                    {
+                                        show_cell = _flexM_T1.Row;
+                                    }
+                                }
 
                                 object[] Params = new object[6];
                                 Params[0] = LoginInfo.CompanyCode;
@@ -473,7 +483,10 @@ namespace cz
 
                                 _flexM_T1.Binding = ds_mt1.Tables[0];
 
-                               // _flexM_T1.ShowCell(show_cell, 1);
+                                _flexM_T1.ShowCell(show_cell, 1);
+
+                                SetToolBarButtonState(true, false, false, false, true);
+
                             }
                         }
 
@@ -511,8 +524,7 @@ namespace cz
 
             }
             catch (Exception ex)
-            {
-                
+            {                
                 MsgEnd(ex);
             }
             
@@ -528,6 +540,17 @@ namespace cz
                 case "0":
                     if (_flexM_T1.HasNormalRow)
                     {
+                        //for (int i = _flexM_T1.Rows.Fixed; i < _flexM_T1.Rows.Count; i++)
+                        //{
+                        //     if (_flexM_T1[i, "S"].ToString().Equals("Y"))
+                        //    {
+                        //        if (D.GetString(_flexM_T1.Rows[i]["cd_partner"]).Length == 0 || (D.GetString(_flexM_T1.Rows[i]["ln_partner"]).Length == 0))
+                        //        {
+                        //            ShowMessage((i) + "행에 더존코드, 더존명이 입력 되지 않았습니다.");
+                        //            return false;
+                        //        }
+                        //    }
+                        //}
                         obj = _biz.Save(_flexM_T1.GetChanges(), _타메뉴호출);
                     }
                     break;
@@ -665,6 +688,7 @@ namespace cz
                     ShowMessage(공통메세지.선택된자료가없습니다);
                     return;
                 }
+
                 else
                 {
                     for (int i = 0; i < _flexM_T1.Rows.Count; i++)
