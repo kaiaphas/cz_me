@@ -23,18 +23,24 @@ namespace cz
 
         internal DataSet Search_M(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_PUB_S1", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_REPORT_S", obj);
         }
 
-        internal DataSet Search_M2(object[] obj)
+        internal DataSet Search_M_Sum(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_PUB_S2", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_REPORT_S_SUM", obj);
         }
 
         internal DataTable Get계정코드()
         {
             string sql = string.Format(@" 
                                           SELECT NM_USERDE1 AS CODE, NM_ACCT AS NAME FROM FI_ACCTCODE WHERE NM_USERDE1 != '' ", 회사코드);
+            return DBHelper.GetDataTable(sql);
+        }
+
+        internal DataTable Get결산일시(string DT_DATE)
+        {
+            string sql = string.Format(@" SELECT CONVERT(DATETIME, LEFT(DT_CLOSING,8) + ' ' + STUFF(STUFF(RIGHT(DT_CLOSING,6), 3, 0, ':'), 6, 0, ':'), 120) AS DT_CLOSING FROM [NEOE].[CZ_MEZZO_SALES_CLOSE] WHERE DT_YEAR_MONTH = '" +DT_DATE+ @"'", 회사코드);
             return DBHelper.GetDataTable(sql);
         }
 

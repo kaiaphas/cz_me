@@ -28,7 +28,7 @@ namespace cz
         #region ♥ 멤버필드
 
         private P_CZ_ME_SALES_BIZ _biz = new P_CZ_ME_SALES_BIZ();
-        
+        bool _타메뉴호출 = false;
 
         #endregion
 
@@ -68,7 +68,8 @@ namespace cz
             dp매체월TO.Text = "";
 
             Grant.CanAdd = false;
-            //Grant.CanSearch = false;
+            //Grant.CanSave = false;
+            Grant.CanDelete = false;
             Grant.CanPrint = false;
 
             //this.DataChanged += new EventHandler(Page_DataChanged);
@@ -90,7 +91,7 @@ namespace cz
             _flexM.SetCol("tp_sales", "TP_SALES", 0, false);
 
             _flexM.SetCol("ay_year", "매출월", 60, false, typeof(string), FormatTpType.YEAR_MONTH);
-            _flexM.SetCol("CD_ACCT", "계정과목", 130, true);
+            _flexM.SetCol("cd_acct", "계정과목", 130, true);
             _flexM.SetCol("cpid", "캠페인ID", 0, false);
             _flexM.SetCol("cpname", "캠페인명", 130, false);
             _flexM.SetCol("req_no", "고유번호", 0, false);
@@ -113,7 +114,7 @@ namespace cz
             _flexM.SetCol("me_corpno", "사업자번호", 90, false);
             _flexM.SetCol("me_corpid", "ID", 0, false);
             _flexM.SetCol("me_corpnm", "명칭", 130, false); 
-            _flexM.SetCol("NM_MEDIAGR", "구분", 60, false);
+            _flexM.SetCol("nm_mediagr", "구분", 60, false);
 
             _flexM.SetCol("me_teamid", "팀ID", 0, false);
             _flexM.SetCol("me_teamnm", "팀", 100, false);
@@ -121,6 +122,7 @@ namespace cz
             _flexM.SetCol("am_agy_price", "대행사수수료", 100, false, typeof(decimal), FormatTpType.MONEY);
             _flexM.SetCol("am_income", "영업수익(매출)", 100, false, typeof(decimal), FormatTpType.MONEY); //내수액임, 전체금액 확인
             _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.MONEY);
+            _flexM.SetCol("am_fee_all", "수익", 0, false, typeof(decimal), FormatTpType.MONEY);
 
             _flexM.SetCol("me_sumcode", "합산매체", 0, false);
             //_flexM.SetCol("sales_etc", "수정일시", 0, false); //DT_UPDATE로 수정
@@ -130,22 +132,22 @@ namespace cz
 
             //대행사 전표정보
             _flexM.SetCol("S1", "S", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_M", "전표번호", 100, false);
-            _flexM.SetCol("SALES_TAX_M", "세금계산서", 100, false);
+            _flexM.SetCol("no_docu_m", "전표번호", 100, false);
+            _flexM.SetCol("sales_tax_m", "세금계산서", 100, false);
 
             //매체 전표정보
             _flexM.SetCol("S2", "S", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_D", "전표번호", 100, false);
-            _flexM.SetCol("SALES_TAX_D", "세금계산서", 100, false);
+            _flexM.SetCol("no_docu_d", "전표번호", 100, false);
+            _flexM.SetCol("sales_tax_d", "세금계산서", 100, false);
 
             //비고
-            _flexM.SetCol("NM_NOTE", "내용", 200, true);
-            _flexM.SetCol("ID_UPDATE", "등록(수정)자", 0, false);
-            _flexM.SetCol("DT_UPDATE", "등록(수정)일시", 0, false);
+            _flexM.SetCol("nm_note", "내용", 200, true);
+            _flexM.SetCol("id_update", "등록(수정)자", 0, false);
+            _flexM.SetCol("dt_update", "등록(수정)일시", 0, false);
 
             //정렬
             _flexM.Cols["ay_year"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["CD_ACCT"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["cd_acct"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cpid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cpname"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["req_no"].TextAlign = TextAlignEnum.CenterCenter;
@@ -183,8 +185,8 @@ namespace cz
             //_flexM.Cols["sales_etc"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["closed"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["SALES_TAX_M"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["SALES_TAX_D"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["sales_tax_m"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["sales_tax_d"].TextAlign = TextAlignEnum.CenterCenter;
 
             //_flexM.Cols["status"].TextAlign = TextAlignEnum.CenterCenter;
 
@@ -273,24 +275,24 @@ namespace cz
             _flexM[0, "me_corpno"] = _flexM[0, "agent"] = "매체";
             _flexM[0, "me_corpid"] = _flexM[0, "agent"] = "매체";
             _flexM[0, "me_corpnm"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "NM_MEDIAGR"] = _flexM[0, "agent"] = "매체";
+            _flexM[0, "nm_mediagr"] = _flexM[0, "agent"] = "매체";
 
             //MERGE 대행사 전표정보
             //_flexM[0, "DOCU_TYPE_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
-            _flexM[0, "DOCU_NO_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            _flexM[0, "docu_no_d"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
             //_flexM[0, "PUB_YN"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
             //_flexM[0, "SALES_TAX_ALL"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
-            _flexM[0, "SALES_TAX_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            _flexM[0, "sales_tax_d"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
 
             //MERGE 매체 전표정보
             //_flexM[0, "DOCU_TYPE_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
-            _flexM[0, "DOCU_NO_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
-            _flexM[0, "SALES_TAX_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
+            _flexM[0, "docu_no_m"] = _flexM[0, "agent_docu"] = "매체 전표정보";
+            _flexM[0, "sales_tax_m"] = _flexM[0, "agent_docu"] = "매체 전표정보";
 
             //비고
-            _flexM[0, "NM_NOTE"] = _flexM[0, "sales_etc"] = "비고";
-            _flexM[0, "ID_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
-            _flexM[0, "DT_UPDATE"] = _flexM[0, "sales_etc"] = "비고";
+            _flexM[0, "no_note"] = _flexM[0, "sales_etc"] = "비고";
+            _flexM[0, "id_update"] = _flexM[0, "sales_etc"] = "비고";
+            _flexM[0, "dt_update"] = _flexM[0, "sales_etc"] = "비고";
 
             _flexM.Cols.Frozen = 1;
 
@@ -355,6 +357,8 @@ namespace cz
 
             btn대행사전표.Click += new EventHandler(btn대행사전표_Click);
             btn매체전표.Click += new EventHandler(btn매체전표_Click);
+            btn동기화.Click += new EventHandler(btn동기화_Click);
+            btn결산취소.Click += new EventHandler(btn결산취소_Click);
 
             try
             {
@@ -378,7 +382,7 @@ namespace cz
                 set.SetCombobox(cbo매체전표처리, MA.GetCodeUser(new string[] { "", "Y", "N" }, new string[] { DD("전체"), DD("처리"), DD("미처리") }));
 
                 //콤보박스 셋팅
-                _flexM.SetDataMap("CD_ACCT", MA.GetCode("CZ_ME_C008"), "CODE", "NAME");
+                _flexM.SetDataMap("cd_acct", MA.GetCode("CZ_ME_C008"), "CODE", "NAME");
             }
             catch (Exception ex)
             {
@@ -451,21 +455,21 @@ namespace cz
 
                 for (int i = _flexM.Rows.Fixed + 2; i < _flexM.Rows.Count; i++)
                 {
-                    if (_flexM[i, "CD_ACCT"].ToString() == "1")
+                    if (_flexM[i, "cd_acct"].ToString() == "1")
                     {   
                         decBudget_dig = decBudget_dig + D.GetDecimal(_flexM[i, "am_budget"]);
                         decAgy_price_dig = decAgy_price_dig + D.GetDecimal(_flexM[i, "am_agy_price"]);
                         decIncome_dig = decIncome_dig + D.GetDecimal(_flexM[i, "am_income"]);
                         decMedia_price_dig = decMedia_price_dig + D.GetDecimal(_flexM[i, "am_media_price"]);
                     }
-                    if (_flexM[i, "CD_ACCT"].ToString() == "2")
+                    if (_flexM[i, "cd_acct"].ToString() == "2")
                     {
                         decBudget_net = decBudget_net + D.GetDecimal(_flexM[i, "am_budget"]);
                         decAgy_price_net = decAgy_price_net + D.GetDecimal(_flexM[i, "am_agy_price"]);
                         decIncome_net = decIncome_net + D.GetDecimal(_flexM[i, "am_income"]);
                         decMedia_price_net = decMedia_price_net + D.GetDecimal(_flexM[i, "am_media_price"]);
                     }
-                    if (_flexM[i, "CD_ACCT"].ToString() == "3")
+                    if (_flexM[i, "cd_acct"].ToString() == "3")
                     {
                         decBudget_etc = decBudget_etc + D.GetDecimal(_flexM[i, "am_budget"]);
                         decAgy_price_etc = decAgy_price_etc + D.GetDecimal(_flexM[i, "am_agy_price"]);
@@ -556,35 +560,21 @@ namespace cz
 
         protected override bool SaveData()
         {
-
             object obj = null;
 
             if (_flexM.HasNormalRow)
             {
-
                 DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
 
                 DataTable dt = _flexM.DataTable;
-                dt.AcceptChanges();
-
-                foreach (DataRow dr in dt.Rows)
+ 
+                if (ShowMessage("저장 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
-                    dr.SetAdded();
-                }
-
-                if (ldrchk == null || ldrchk.Length == 0)
-                {
-                    ShowMessage(공통메세지.선택된자료가없습니다);
-                    return false;
-                }
-
-                if (ShowMessage("선택한 데이터를 저장하시겠습니까?", "QY2") == DialogResult.Yes)
-                {
-                    obj = _biz.Save(dt);
+                    obj = _biz.Save(dt, _타메뉴호출);
                 }
             }
 
-            return false;
+            return false ;
         }
 
         #region -> 저장버튼클릭
@@ -596,15 +586,13 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                if (ShowMessage("저장하시겠습니까?","QY2") == DialogResult.Yes)
+                _타메뉴호출 = false;
+
+                if (SaveData())
                 {
-                    if (SaveData())
+                    ShowMessage(PageResultMode.SaveGood);
                     {
-                        ShowMessage(PageResultMode.SaveGood);
-                        {
-                            ShowMessage("저장하였습니다.");
-                            //_flexM.AllowEditing = true;
-                        }
+
                     }
                 }
             }
@@ -614,6 +602,7 @@ namespace cz
             }
 
         }
+
         #endregion
 
 
@@ -906,14 +895,14 @@ namespace cz
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        string 캠페인코드 = _flexM[i, "CPID"].ToString();
-                        string 순번 = _flexM[i, "SEQ"].ToString();
+                        string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                        string 순번 = _flexM[i, "seq"].ToString();
                         string 발행월 = _flexM[i, "ay_year"].ToString();
                         string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
                         string 매체기준 = _flexM[i, "me_trade_type"].ToString();
                         string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
-                        string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
+                        string 계정과목 = _flexM[i, "cd_acct"].ToString();
+                        string 구분 = _flexM[i, "nm_mediagr"].ToString();
                         
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
@@ -986,14 +975,14 @@ namespace cz
                         {
                             if (_flexM[i, "NO_DOCU_M"].ToString().Length.Equals(0))
                             {
-                                string 캠페인코드 = _flexM[i, "CPID"].ToString();
-                                string 순번 = _flexM[i, "SEQ"].ToString();
+                                string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                                string 순번 = _flexM[i, "seq"].ToString();
                                 string 발행월 = _flexM[i, "ay_year"].ToString();
                                 string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
                                 string 매체기준 = _flexM[i, "me_trade_type"].ToString();
                                 string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                                string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
-                                string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
+                                string 계정과목 = _flexM[i, "cd_acct"].ToString();
+                                string 구분 = _flexM[i, "nm_mediagr"].ToString();
 
                                 if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
                                 {
@@ -1044,14 +1033,14 @@ namespace cz
                         {
                             if (_flexM[i, "NO_DOCU_D"].ToString().Length.Equals(0))
                             {
-                                string 캠페인코드 = _flexM[i, "CPID"].ToString();
-                                string 순번 = _flexM[i, "SEQ"].ToString();
+                                string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                                string 순번 = _flexM[i, "seq"].ToString();
                                 string 발행월 = _flexM[i, "ay_year"].ToString();
                                 string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
                                 string 매체기준 = _flexM[i, "me_trade_type"].ToString();
                                 string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                                string 계정과목 = _flexM[i, "CD_ACCT"].ToString();
-                                string 구분 = _flexM[i, "NM_MEDIAGR"].ToString();
+                                string 계정과목 = _flexM[i, "cd_acct"].ToString();
+                                string 구분 = _flexM[i, "nm_mediagr"].ToString();
 
                                 if (_flexM[i, "S"].ToString().Equals("Y"))
                                 {
@@ -1069,6 +1058,80 @@ namespace cz
                                */
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
+
+        private void btn동기화_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string FROM = dp년월_FROM.Text;  //조회연월 FROM
+                string TO = dp년월_TO.Text; //조회연월 TO
+
+                /*
+                DataTable dt = _biz.Get결산여부(FROM, TO);
+
+                if (dt.Rows[0]["YEAR_MONTH"].Equals("N"))
+                {
+
+                }
+                else
+                {
+                    ShowMessage("이미 결산처리 된 월이 포함되었습니다.");
+                    return;
+                }
+                */
+                if (ShowMessage("해당 월에 대한 동기화를 진행하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    DataSet ds = _biz.Save_Sync(FROM, TO);
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
+
+        private void btn결산취소_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string FROM = dp년월_FROM.Text;  //조회연월 FROM
+                string TO = dp년월_TO.Text; //조회연월 TO
+
+                DataTable dt = _biz.Get결산여부(FROM, TO);
+
+                if (dt.Rows[0]["ay_year"].Equals("N"))
+                {
+                    ShowMessage("결산처리되지 않은 달이 포함되어 있습니다. 삭제할 수 없습니다.");
+                    return;
+                }
+
+                if (ShowMessage(" 삭제하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    if (_biz.Delete(FROM, TO))
+                    {
+
+                    }
+
+                    //ShowMessage("전표 삭제가 완료 되었습니다.");
+
+                    //object[] Params = new object[6];
+                    //Params[0] = LoginInfo.CompanyCode;
+                    //Params[1] = "SELECT";
+                    //Params[2] = dt일자.StartDateToString.Substring(0, 6);
+                    //Params[3] = dt일자.EndDateToString.Substring(0, 6);
+                    //Params[4] = txt명.Text;
+                    //Params[5] = rdo_idx;
+                    
+                    //DataSet ds = _biz.Search_M(Params);
+
+                    //_flexM.Binding = ds.Tables[0];
                 }
             }
             catch (Exception ex)

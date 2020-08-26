@@ -23,13 +23,24 @@ namespace cz
 
         internal DataSet Search_M(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_S_test2", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_S", obj);
+        }
+
+        internal bool Search_Save(object[] obj)
+        {
+             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_I_2", obj);
         }
 
         internal DataTable Get계정코드()
         {
             string sql = string.Format(@" 
                                           SELECT CD_SYSDEF AS CODE, NM_SYSDEF AS NAME FROM MA_CODEDTL WHERE CD_COMPANY != '' ", 회사코드);
+            return DBHelper.GetDataTable(sql);
+        }
+
+        internal DataTable Get결산여부(string FROM, string TO)
+        {
+            string sql = string.Format(@" SELECT ISNULL(MAX(DT_YEAR_MONTH),'N') AS YEAR_MONTH FROM [NEOE].[CZ_MEZZO_SALES_DOCU] WHERE DT_YEAR_MONTH BETWEEN '" +FROM+ @"' AND '" +TO+ @"'", 회사코드);
             return DBHelper.GetDataTable(sql);
         }
 
@@ -53,9 +64,18 @@ namespace cz
             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_ME_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
-        public object Save(DataTable dtM)
+        internal DataSet Save_Sync(string FROM, string TO)
         {
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_I_SYNC", new object[] { 회사코드, FROM, TO });
+        }
 
+        internal bool Delete(string FROM, string TO)
+        {
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_D", new object[] { 회사코드, FROM, TO });
+        }
+
+        public object Save(DataTable dtM, bool 타메뉴호출)
+        {
             SpInfoCollection sic = new SpInfoCollection();
             SpInfo si;
 
@@ -67,19 +87,24 @@ namespace cz
                 si.CompanyID = 회사코드;
                 si.UserID = 사용자ID;
 
+                if (타메뉴호출)
+                    si.DataState = DataValueState.Added;
+                else
+                    si.DataState = DataValueState.Modified;
+
                 si.SpNameInsert = "UP_CZ_ME_SALES_H_I";
                 si.SpNameUpdate = "UP_CZ_ME_SALES_H_U";
                 si.SpParamsInsert = new string[] { 
-                    "CD_COMPANY", "TP_SALES", "REQ_NO", "CPID", "CPNAME", "SEQ"
-                    , "AY_AGENCYID", "AY_AGENCYNO", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_CORPNO", "ME_YEAR_MONTH"
+                    "CD_COMPANY", "TP_SALES", "REQ_NO", "CPID", "CPNAME", "SEQ", "AY_YEAR"
+                    , "AY_AGENCYID", "AY_AGENCYNM", "AY_AGENCYNO", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_CORPNM", "ME_CORPNO", "ME_YEAR_MONTH"
                     , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "AM_BUDGET"
-                    , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
+                    , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "FEE_ALL", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
                 };
                 si.SpParamsUpdate = new string[] { 
-                    "CD_COMPANY", "TP_SALES", "REQ_NO", "CPID", "CPNAME", "SEQ"
-                    , "AY_AGENCYID", "AY_AGENCYNO", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_CORPNO", "ME_YEAR_MONTH"
+                    "CD_COMPANY", "TP_SALES", "REQ_NO", "CPID", "CPNAME", "SEQ", "AY_YEAR"
+                    , "AY_AGENCYID", "AY_AGENCYNM", "AY_AGENCYNO", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_CORPNM", "ME_CORPNO", "ME_YEAR_MONTH"
                     , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "AM_BUDGET"
-                    , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
+                    , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "FEE_ALL", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
                 };
                 
                 sic.Add(si);
@@ -88,6 +113,5 @@ namespace cz
 
             return Global.MainFrame.Save(sic);
         }
-
     }
 }

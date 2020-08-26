@@ -125,6 +125,8 @@
             this.btn전표취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn대행사전표 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn매체전표 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn결산취소 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -1227,7 +1229,7 @@
             this.btn상세검색.BackColor = System.Drawing.Color.White;
             this.btn상세검색.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn상세검색.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn상세검색.Location = new System.Drawing.Point(895, 10);
+            this.btn상세검색.Location = new System.Drawing.Point(160, 10);
             this.btn상세검색.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn상세검색.Name = "btn상세검색";
             this.btn상세검색.Size = new System.Drawing.Size(78, 19);
@@ -1243,7 +1245,7 @@
             this.btn전표처리.BackColor = System.Drawing.Color.White;
             this.btn전표처리.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표처리.Location = new System.Drawing.Point(1185, 14);
+            this.btn전표처리.Location = new System.Drawing.Point(1189, 14);
             this.btn전표처리.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표처리.Name = "btn전표처리";
             this.btn전표처리.Size = new System.Drawing.Size(78, 19);
@@ -1273,7 +1275,7 @@
             this.btn대행사전표.BackColor = System.Drawing.Color.White;
             this.btn대행사전표.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn대행사전표.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn대행사전표.Location = new System.Drawing.Point(988, 14);
+            this.btn대행사전표.Location = new System.Drawing.Point(1014, 14);
             this.btn대행사전표.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn대행사전표.Name = "btn대행사전표";
             this.btn대행사전표.Size = new System.Drawing.Size(78, 19);
@@ -1288,7 +1290,7 @@
             this.btn매체전표.BackColor = System.Drawing.Color.White;
             this.btn매체전표.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn매체전표.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn매체전표.Location = new System.Drawing.Point(1067, 14);
+            this.btn매체전표.Location = new System.Drawing.Point(1093, 14);
             this.btn매체전표.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn매체전표.Name = "btn매체전표";
             this.btn매체전표.Size = new System.Drawing.Size(78, 19);
@@ -1297,9 +1299,42 @@
             this.btn매체전표.Text = "매체전표";
             this.btn매체전표.UseVisualStyleBackColor = false;
             // 
+            // btn결산취소
+            // 
+            this.btn결산취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn결산취소.BackColor = System.Drawing.Color.White;
+            this.btn결산취소.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn결산취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn결산취소.Location = new System.Drawing.Point(326, 10);
+            this.btn결산취소.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn결산취소.Name = "btn결산취소";
+            this.btn결산취소.Size = new System.Drawing.Size(78, 19);
+            this.btn결산취소.TabIndex = 10;
+            this.btn결산취소.TabStop = false;
+            this.btn결산취소.Text = "결산취소";
+            this.btn결산취소.UseVisualStyleBackColor = false;
+            this.btn결산취소.Visible = false;
+            // 
+            // btn동기화
+            // 
+            this.btn동기화.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn동기화.BackColor = System.Drawing.Color.White;
+            this.btn동기화.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn동기화.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn동기화.Location = new System.Drawing.Point(919, 14);
+            this.btn동기화.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn동기화.Name = "btn동기화";
+            this.btn동기화.Size = new System.Drawing.Size(78, 19);
+            this.btn동기화.TabIndex = 9;
+            this.btn동기화.TabStop = false;
+            this.btn동기화.Text = "동기화";
+            this.btn동기화.UseVisualStyleBackColor = false;
+            // 
             // P_CZ_ME_SALES
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.btn결산취소);
+            this.Controls.Add(this.btn동기화);
             this.Controls.Add(this.btn매체전표);
             this.Controls.Add(this.btn대행사전표);
             this.Controls.Add(this.btn전표취소);
@@ -1315,6 +1350,8 @@
             this.Controls.SetChildIndex(this.mDataArea, 0);
             this.Controls.SetChildIndex(this.btn대행사전표, 0);
             this.Controls.SetChildIndex(this.btn매체전표, 0);
+            this.Controls.SetChildIndex(this.btn동기화, 0);
+            this.Controls.SetChildIndex(this.btn결산취소, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
@@ -1456,6 +1493,8 @@
         private Duzon.Common.Controls.RoundedButton btn대행사전표;
         private Duzon.Common.Controls.RoundedButton btn매체전표;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_AGENCY_ORI;
+        private Duzon.Common.Controls.RoundedButton btn결산취소;
+        private Duzon.Common.Controls.RoundedButton btn동기화;
 
     }
 }

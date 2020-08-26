@@ -75,7 +75,7 @@ namespace cz
             _flexM.SetCol("TP_SALES", "구분", 60, false);
             _flexM.SetCol("CD_ACCT", "계정과목", 120, true);
             _flexM.SetCol("ME_CPID", "캠페인", 60, false);
-            _flexM.SetCol("NM_CPID", "캠페인명", 160, true);
+            _flexM.SetCol("ME_CPNM", "캠페인명", 160, true);
 
             _flexM.SetCol("AY_YEAR_MONTH", "월", 60, true, typeof(string), FormatTpType.YEAR_MONTH);
             _flexM.SetCol("AY_TRADE_TYPE", "기준", 60, true);
@@ -97,7 +97,7 @@ namespace cz
             _flexM.SetCol("AM_INCOME", "영업수익(매출)", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("AM_MEDIA_PRICE", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
            
-            _flexM.SetCol("DT_YEAR", "년", 0, false);
+            _flexM.SetCol("DT_YEAR_MONTH", "년", 0, false);
 
             _flexM.Cols["TP_SALES"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["CD_ACCT"].TextAlign = TextAlignEnum.CenterCenter;
@@ -137,16 +137,16 @@ namespace cz
             _flexM[0, "ME_CORPNM"] = _flexM[0, "MED"] = "매체";
             _flexM[0, "CD_SYSDEF"] = _flexM[0, "MED"] = "매체";
 
-            _flexM.SettingVersion = "1.0.1.7";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.1.8";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
             _flexM.SetCodeHelpCol("AY_AGENCYNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "AY_AGENCYNO", "AY_AGENCYID", "AY_AGENCYNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
             _flexM.SetCodeHelpCol("ME_CORPNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "ME_CORPNO", "ME_CORPID", "ME_CORPNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
             _flexM.SetCodeHelpCol("ME_TEAMNM", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "ME_TEAMID", "ME_TEAMNM" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("NM_CPID", "H_CZ_CP_SUB", ShowHelpEnum.Always, new string[] { "ME_CPID", "NM_CPID" }, new string[] { "cpid", "cpname" });
+            _flexM.SetCodeHelpCol("ME_CPNM", "H_CZ_CP_SUB", ShowHelpEnum.Always, new string[] { "ME_CPID", "ME_CPNM" }, new string[] { "cpid", "cpname" });
 
-            rdo컷.CheckedChanged += new EventHandler(rdo컷_CheckedChanged);
+            //rdo컷.CheckedChanged += new EventHandler(rdo컷_CheckedChanged);
             //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
             _flexM.AfterEdit += new RowColEventHandler(_flexM_AfterEdit);
             _flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
@@ -177,7 +177,7 @@ namespace cz
             dp년도.Text = toyear;
 
             //체크박스 value 값 가져와서 조회하기 위해서
-            rdo_idx = rdo컷.Checked == true ? "4" : "3";
+            rdo_idx = rdo이월.Checked == true ? "2" : "0";
 
             //콤보박스 셋팅
             //DataTable dt계정코드 = _biz.Get계정코드();
@@ -198,7 +198,7 @@ namespace cz
             _flexM.Binding = ds.Tables[0];
 
             //페이지 로드 시 첫번 컷오프이므로 해당 컬럼 들 editing false 설정
-            _flexM.Cols["NM_CPID"].AllowEditing = false;
+            _flexM.Cols["ME_CPNM"].AllowEditing = false;
             _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
             _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
         }
@@ -215,17 +215,17 @@ namespace cz
         {
             try
             {
-                rdo_idx = rdo컷.Checked == true ? "4" : "3";
+                rdo_idx = rdo이월.Checked == true ? "2" : "0";
 
                 if (rdo_idx == "4")
                 {
-                    _flexM.Cols["NM_CPID"].AllowEditing = false;
+                    _flexM.Cols["ME_CPNM"].AllowEditing = false;
                     _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
                     _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
                 }
                 else
                 {
-                    _flexM.Cols["NM_CPID"].AllowEditing = true;
+                    _flexM.Cols["ME_CPNM"].AllowEditing = true;
                     _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = true;
                     _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = true;
                 }
@@ -264,17 +264,17 @@ namespace cz
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-                        rdo_idx = rdo컷.Checked == true ? "4" : "3";
+                        rdo_idx = rdo이월.Checked == true ? "2" : "0";
 
                         if (rdo_idx == "4")
                         {
-                            _flexM.Cols["NM_CPID"].AllowEditing = false;
+                            _flexM.Cols["ME_CPNM"].AllowEditing = false;
                             _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
                             _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
                         }
                         else
                         {
-                            _flexM.Cols["NM_CPID"].AllowEditing = true;
+                            _flexM.Cols["ME_CPNM"].AllowEditing = true;
                             _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = true;
                             _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = true;
                         }
@@ -372,29 +372,29 @@ namespace cz
                 _flexM.Rows.Add();
                 _flexM.Row = _flexM.Rows.Count - 1;
           
-                if (rdo컷.Checked == true)
+                if (rdo이월.Checked == true)
                 {
                     rdo_idx = "4";
 
                     _flexM[_flexM.Row, "TP_SALES"] = rdo_idx;
                     _flexM[_flexM.Row, "CD_ACCT"] = "1";
                     _flexM[_flexM.Row, "ME_CPID"] = toyear + "C";
-                    _flexM[_flexM.Row, "NM_CPID"] = Int32.Parse(dp년도.Text.Substring(2, 2)) - 1 + "년 컷오프";
+                    _flexM[_flexM.Row, "ME_CPNM"] = Int32.Parse(dp년도.Text.Substring(2, 2)) - 1 + "년 컷오프";
                     _flexM[_flexM.Row, "AY_YEAR_MONTH"] = toyear + "01";
                     _flexM[_flexM.Row, "AY_TRADE_TYPE"] = "1";
                     _flexM[_flexM.Row, "ME_YEAR_MONTH"] = toyear + "01";
                     _flexM[_flexM.Row, "ME_TRADE_TYPE"] = "2";
-                    _flexM[_flexM.Row, "DT_YEAR"] = dp년도.Text;
+                    _flexM[_flexM.Row, "DT_YEAR_MONTH"] = dp년도.Text;
                 }
                 else if (rdo이월.Checked == true)
                 {
-                    rdo_idx = "3";
+                    rdo_idx = "2";
 
                     _flexM[_flexM.Row, "TP_SALES"] = rdo_idx;
                     _flexM[_flexM.Row, "CD_ACCT"] = "1";
                     _flexM[_flexM.Row, "ME_YEAR_MONTH"] = "1";
                     _flexM[_flexM.Row, "ME_TRADE_TYPE"] = "1";
-                    _flexM[_flexM.Row, "DT_YEAR"] = dp년도.Text;
+                    _flexM[_flexM.Row, "DT_YEAR_MONTH"] = dp년도.Text;
                 }
 
                 _flexM.AddFinished();
@@ -415,17 +415,17 @@ namespace cz
 
         private void rdo컷_CheckedChanged(object sender, EventArgs e)
         {
-            rdo_idx = rdo컷.Checked == true ? "4" : "3";
+            rdo_idx = rdo이월.Checked == true ? "2" : "0";
 
             if (rdo_idx == "4")
             {
-                _flexM.Cols["NM_CPID"].AllowEditing = false;
+                _flexM.Cols["ME_CPNM"].AllowEditing = false;
                 _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
                 _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
             }
             else
             {
-                _flexM.Cols["NM_CPID"].AllowEditing = true;
+                _flexM.Cols["ME_CPNM"].AllowEditing = true;
                 _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = true;
                 _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = true;
             }
@@ -458,7 +458,7 @@ namespace cz
                     _flexM[_flexM.Row, "TP_SALES"] = _flexM[preIndex, "TP_SALES"];
                     _flexM[_flexM.Row, "CD_ACCT"] = _flexM[preIndex, "CD_ACCT"];
                     _flexM[_flexM.Row, "ME_CPID"] = _flexM[preIndex, "ME_CPID"];
-                    _flexM[_flexM.Row, "NM_CPID"] = _flexM[preIndex, "NM_CPID"];
+                    _flexM[_flexM.Row, "ME_CPNM"] = _flexM[preIndex, "ME_CPNM"];
 
                     _flexM[_flexM.Row, "AY_YEAR_MONTH"] = _flexM[preIndex, "AY_YEAR_MONTH"];
                     _flexM[_flexM.Row, "AY_TRADE_TYPE"] = _flexM[preIndex, "AY_TRADE_TYPE"];
@@ -475,7 +475,7 @@ namespace cz
 
                     _flexM[_flexM.Row, "ME_TEAMID"] = _flexM[preIndex, "ME_TEAMID"];
                     _flexM[_flexM.Row, "ME_TEAMNM"] = _flexM[preIndex, "ME_TEAMNM"];
-                    _flexM[_flexM.Row, "DT_YEAR"] = dp년도.Text;
+                    _flexM[_flexM.Row, "DT_YEAR_MONTH"] = dp년도.Text;
                  
                 }
                 else
@@ -501,13 +501,13 @@ namespace cz
         {
             try
             {
-                rdo_idx = rdo컷.Checked == true ? "4" : "3";
+                rdo_idx = rdo이월.Checked == true ? "2" : "0";
 
-                if (rdo_idx == "3")
+                if (rdo_idx == "2")
                 {
                     switch (_flexM.Cols[e.Col].Name)
                     {
-                        case "NM_CPID":
+                        case "ME_CPNM":
 
                             e.Parameter.UserParams = "캠페인 도움창;H_CZ_CP_SUB;";
                             break;
