@@ -53,7 +53,6 @@
             this.rdoMts2 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoMts1 = new Duzon.Common.Controls.RadioButtonExt();
             this.btn전자세금계산서반영 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn변경 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexD)).BeginInit();
@@ -371,7 +370,7 @@
             this.btn전자세금계산서반영.BackColor = System.Drawing.Color.White;
             this.btn전자세금계산서반영.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전자세금계산서반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전자세금계산서반영.Location = new System.Drawing.Point(868, 10);
+            this.btn전자세금계산서반영.Location = new System.Drawing.Point(940, 10);
             this.btn전자세금계산서반영.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전자세금계산서반영.Name = "btn전자세금계산서반영";
             this.btn전자세금계산서반영.Size = new System.Drawing.Size(150, 19);
@@ -380,25 +379,9 @@
             this.btn전자세금계산서반영.Text = "전자세금계산서 반영";
             this.btn전자세금계산서반영.UseVisualStyleBackColor = false;
             // 
-            // btn변경
-            // 
-            this.btn변경.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn변경.BackColor = System.Drawing.Color.White;
-            this.btn변경.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn변경.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn변경.Location = new System.Drawing.Point(1024, 10);
-            this.btn변경.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn변경.Name = "btn변경";
-            this.btn변경.Size = new System.Drawing.Size(60, 19);
-            this.btn변경.TabIndex = 6;
-            this.btn변경.TabStop = false;
-            this.btn변경.Text = "변경";
-            this.btn변경.UseVisualStyleBackColor = false;
-            // 
             // P_CZ_ME_SALES_IO
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.Controls.Add(this.btn변경);
             this.Controls.Add(this.btn전자세금계산서반영);
             this.Controls.Add(this.panRadio1);
             this.Name = "P_CZ_ME_SALES_IO";
@@ -407,7 +390,6 @@
             this.Controls.SetChildIndex(this.panRadio1, 0);
             this.Controls.SetChildIndex(this.mDataArea, 0);
             this.Controls.SetChildIndex(this.btn전자세금계산서반영, 0);
-            this.Controls.SetChildIndex(this.btn변경, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexD)).EndInit();
@@ -453,7 +435,6 @@
         private Duzon.Common.Controls.RoundedButton btn전자세금계산서반영;
         private Duzon.Common.Controls.PanelExt panelExt23;
         private Duzon.Common.Controls.PanelExt panelExt24;
-        private Duzon.Common.Controls.RoundedButton btn변경;
 
     }
 }
