@@ -41,9 +41,8 @@ namespace cz
              switch (base.GetHelpID)
              {
                  case "H_CZ_ME_GR":     //매체 도움창 메조미디어
-                     list.Add(new object[] { "CD_PARTNER", "매체ID", 70 });
-                     list.Add(new object[] { "biz_name", "매체명", 180 });
-                     list.Add(new object[] { "biz_name2", "사업자명", 180 });
+                     list.Add(new object[] { "cd_partner", "ID", 70 });
+                     list.Add(new object[] { "biz_name", "사업자명", 180 });
                      list.Add(new object[] { "biz_no", "사업자등록번호", 90 });
                      break;
                  case "H_CZ_ME_ACCOUNT_USERDE1":    //매출분석 계정과목 도움창 메조미디어       
@@ -56,10 +55,9 @@ namespace cz
                      list.Add(new object[] { "corpname", "광고주명", 200 });
                      break;
                  case "H_CZ_ME_AGENCY":                 //대행사 도움창 메조미디어
-                     list.Add(new object[] { "corpid", "대행사ID", 100 });
-                     list.Add(new object[] { "corpname", "대행사명", 200 });
-                     //list.Add(new object[] { "corpflag", "구분", 180 });
-                     //list.Add(new object[] { "biz_id", "BIZ ID", 90 });
+                     list.Add(new object[] { "cd_partner", "ID", 70 });
+                     list.Add(new object[] { "biz_name", "사업자명", 180 });
+                     list.Add(new object[] { "biz_no", "사업자등록번호", 90 });
                      break;
                  case "H_CZ_ME_DEPT":                 //부서 도움창 메조미디어
                      list.Add(new object[] { "CD_DEPT", "부서코드", 100 });
@@ -76,7 +74,7 @@ namespace cz
              }
 
              base.InitGrid(flex, list);  //그리드는 PageBase의 그리드와 다르다    
-             flex.SettingVersion = "1.3.8";
+             flex.SettingVersion = "1.4.0";
          }
 
 
@@ -106,7 +104,7 @@ namespace cz
              {
                  //메조미디어 매체
                  case "H_CZ_ME_GR":
-                     dt = DBHelper.GetDataTable("UP_CZ_MEZZO_SALESGR_P_S", new object[] { 회사코드, 검색, GetListParam[0] });
+                     dt = DBHelper.GetDataTable("UP_CZ_MEZZO_H_GR_S", new object[] { 회사코드, 검색, GetListParam[0] });
                      break;
                  //메조미디어 매출분석 계정과목
                  case "H_CZ_ME_ACCOUNT_USERDE1":
@@ -118,7 +116,7 @@ namespace cz
                      break;
                  //메조미디어 대행사
                  case "H_CZ_ME_AGENCY":
-                     dt = DBHelper.GetDataTable("UP_CZ_ME_AGENCY_P_S", new object[] { 회사코드, 검색, GetListParam[0] });
+                     dt = DBHelper.GetDataTable("UP_CZ_MEZZO_H_GR_S", new object[] { 회사코드, 검색, GetListParam[0] });
                      break;
                  //메조미디어 부서
                  case "H_CZ_ME_DEPT":

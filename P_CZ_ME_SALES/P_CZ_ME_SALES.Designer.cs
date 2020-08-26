@@ -853,14 +853,13 @@
             // MULTI_CD_AGENCY
             // 
             this.MULTI_CD_AGENCY.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MULTI_CD_AGENCY.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
             this.MULTI_CD_AGENCY.Location = new System.Drawing.Point(117, 65);
             this.MULTI_CD_AGENCY.Name = "MULTI_CD_AGENCY";
             this.MULTI_CD_AGENCY.Size = new System.Drawing.Size(150, 21);
             this.MULTI_CD_AGENCY.TabIndex = 269;
             this.MULTI_CD_AGENCY.TabStop = false;
-            this.MULTI_CD_AGENCY.UserCodeName = "CORPNAME";
-            this.MULTI_CD_AGENCY.UserCodeValue = "CORPID";
+            this.MULTI_CD_AGENCY.UserCodeName = "biz_name";
+            this.MULTI_CD_AGENCY.UserCodeValue = "CD_PARTNER";
             this.MULTI_CD_AGENCY.UserHelpID = "H_CZ_HELP02";
             this.MULTI_CD_AGENCY.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_AGENCY_QueryBefore);
             // 
