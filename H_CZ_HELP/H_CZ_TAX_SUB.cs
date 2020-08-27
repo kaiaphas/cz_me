@@ -44,6 +44,7 @@ namespace cz
 
             list.Add(new object[] { "DT_ACCT", "회계일자", 100 });
             list.Add(new object[] { "NO_DOCU", "전표번호", 120 });
+            list.Add(new object[] { "NO_DOLINE", "라인번호", 70 });
             list.Add(new object[] { "NM_NOTE", "적요", 120 });
             list.Add(new object[] { "ID_UPDATE", "사업자번호", 100 });
             list.Add(new object[] { "LN_PARTNER", "거래처명", 120 });
@@ -51,6 +52,8 @@ namespace cz
             list.Add(new object[] { "AM_ADDTAX", "공급가액", 100 });
 
             base.InitGrid(flex, list);
+
+            flex.Cols["NO_DOLINE"].TextAlign = TextAlignEnum.CenterCenter;
 
             flex.Cols["DT_ACCT"].TextAlign = TextAlignEnum.CenterCenter;
             flex.Cols["DT_ACCT"].Format = "####/##/##";
@@ -79,7 +82,7 @@ namespace cz
             flex.SetStringFormatCol("NO_COMPANY");
             */
 
-            flex.SettingVersion = "1.2";
+            flex.SettingVersion = "1.5";
         }
 
         #region IHelp 멤버
