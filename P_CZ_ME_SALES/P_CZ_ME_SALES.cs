@@ -441,6 +441,12 @@ namespace cz
                 DataSet ds = _biz.Search_M(Params);
                 DataTable dt = ds.Tables[0];
 
+                string DT_DATE = dp년월_TO.Text;
+
+                DataTable dt2 = _biz.Get결산일시(DT_DATE);
+
+                lbl결산일시.Text = "동기화 시간(to기준) : " + dt2.Rows[0]["DT_CLOSING"].ToString();
+
                 //dt.AcceptChanges();
                 _flexM.Binding = dt;
                 //_flexM.Rows.Frozen = 2;

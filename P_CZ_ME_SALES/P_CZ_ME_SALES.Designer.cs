@@ -127,6 +127,7 @@
             this.btn매체전표 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn결산취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -219,6 +220,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lbl결산일시);
             this.panel1.Controls.Add(this.MULTI_CD_AGENCY_ORI);
             this.panel1.Controls.Add(this.labelExt30);
             this.panel1.Controls.Add(this.dp매체월TO);
@@ -292,8 +294,8 @@
             this.MULTI_CD_AGENCY_ORI.Size = new System.Drawing.Size(150, 21);
             this.MULTI_CD_AGENCY_ORI.TabIndex = 305;
             this.MULTI_CD_AGENCY_ORI.TabStop = false;
-            this.MULTI_CD_AGENCY_ORI.UserCodeName = "CORPNAME";
-            this.MULTI_CD_AGENCY_ORI.UserCodeValue = "CORPID";
+            this.MULTI_CD_AGENCY_ORI.UserCodeName = "biz_name";
+            this.MULTI_CD_AGENCY_ORI.UserCodeValue = "CD_PARTNER";
             this.MULTI_CD_AGENCY_ORI.UserHelpID = "H_CZ_HELP02";
             this.MULTI_CD_AGENCY_ORI.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_AGENCY_ORI_QueryBefore);
             // 
@@ -440,7 +442,7 @@
             this.cbo수정구분.BackColor = System.Drawing.Color.White;
             this.cbo수정구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo수정구분.ItemHeight = 12;
-            this.cbo수정구분.Location = new System.Drawing.Point(1243, 4);
+            this.cbo수정구분.Location = new System.Drawing.Point(1197, 34);
             this.cbo수정구분.Name = "cbo수정구분";
             this.cbo수정구분.Size = new System.Drawing.Size(90, 20);
             this.cbo수정구분.TabIndex = 295;
@@ -452,7 +454,7 @@
             this.cbo마감구분.BackColor = System.Drawing.Color.White;
             this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo마감구분.ItemHeight = 12;
-            this.cbo마감구분.Location = new System.Drawing.Point(1069, 4);
+            this.cbo마감구분.Location = new System.Drawing.Point(1026, 34);
             this.cbo마감구분.Name = "cbo마감구분";
             this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
             this.cbo마감구분.TabIndex = 294;
@@ -1043,7 +1045,7 @@
             // 
             this.panelExt28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt28.Controls.Add(this.labelExt23);
-            this.panelExt28.Location = new System.Drawing.Point(1172, 1);
+            this.panelExt28.Location = new System.Drawing.Point(1126, 31);
             this.panelExt28.Name = "panelExt28";
             this.panelExt28.Size = new System.Drawing.Size(70, 27);
             this.panelExt28.TabIndex = 259;
@@ -1062,7 +1064,7 @@
             // 
             this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt25.Controls.Add(this.labelExt20);
-            this.panelExt25.Location = new System.Drawing.Point(998, 1);
+            this.panelExt25.Location = new System.Drawing.Point(955, 31);
             this.panelExt25.Name = "panelExt25";
             this.panelExt25.Size = new System.Drawing.Size(70, 27);
             this.panelExt25.TabIndex = 258;
@@ -1329,6 +1331,17 @@
             this.btn동기화.Text = "동기화";
             this.btn동기화.UseVisualStyleBackColor = false;
             // 
+            // lbl결산일시
+            // 
+            this.lbl결산일시.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl결산일시.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl결산일시.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl결산일시.Location = new System.Drawing.Point(987, 5);
+            this.lbl결산일시.Name = "lbl결산일시";
+            this.lbl결산일시.Size = new System.Drawing.Size(300, 18);
+            this.lbl결산일시.TabIndex = 1966;
+            this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // P_CZ_ME_SALES
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1494,6 +1507,7 @@
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_AGENCY_ORI;
         private Duzon.Common.Controls.RoundedButton btn결산취소;
         private Duzon.Common.Controls.RoundedButton btn동기화;
+        private Duzon.Common.Controls.LabelExt lbl결산일시;
 
     }
 }

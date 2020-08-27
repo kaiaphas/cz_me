@@ -34,6 +34,7 @@
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this._flexM_Sum = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
             this.txt캠페인명 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt3 = new Duzon.Common.Controls.PanelExt();
             this.lbl캠페인명 = new Duzon.Common.Controls.LabelExt();
@@ -45,7 +46,6 @@
             this.rdoMts3 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoMts2 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoMts1 = new Duzon.Common.Controls.RadioButtonExt();
-            this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -151,6 +151,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1084, 30);
             this.panel1.TabIndex = 1;
+            // 
+            // lbl결산일시
+            // 
+            this.lbl결산일시.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.lbl결산일시.Location = new System.Drawing.Point(450, 5);
+            this.lbl결산일시.Name = "lbl결산일시";
+            this.lbl결산일시.Size = new System.Drawing.Size(265, 18);
+            this.lbl결산일시.TabIndex = 1965;
+            this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txt캠페인명
             // 
@@ -273,15 +282,6 @@
             this.rdoMts1.TextDD = null;
             this.rdoMts1.UseKeyEnter = true;
             this.rdoMts1.UseVisualStyleBackColor = true;
-            // 
-            // lbl결산일시
-            // 
-            this.lbl결산일시.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.lbl결산일시.Location = new System.Drawing.Point(742, 5);
-            this.lbl결산일시.Name = "lbl결산일시";
-            this.lbl결산일시.Size = new System.Drawing.Size(337, 18);
-            this.lbl결산일시.TabIndex = 1965;
-            this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // P_CZ_ME_SALES_REPORT
             // 

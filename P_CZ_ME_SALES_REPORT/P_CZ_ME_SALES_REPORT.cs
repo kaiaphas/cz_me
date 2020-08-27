@@ -229,7 +229,7 @@ namespace cz
 
                 DataTable dt = _biz.Get결산일시(DT_DATE);
 
-                lbl결산일시.Text = "결산일자 : " + dt.Rows[0]["DT_CLOSING"].ToString();
+                lbl결산일시.Text = "동기화 시간 : " + dt.Rows[0]["DT_CLOSING"].ToString();
             }
             catch (Exception ex)
             {

@@ -44,6 +44,12 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
+        internal DataTable Get결산일시(string DT_DATE)
+        {
+            string sql = string.Format(@" SELECT CONVERT(DATETIME, LEFT(DT_CLOSING,8) + ' ' + STUFF(STUFF(RIGHT(DT_CLOSING,6), 3, 0, ':'), 6, 0, ':'), 120) AS DT_CLOSING FROM [NEOE].[CZ_MEZZO_SALES_CLOSE] WHERE DT_YEAR_MONTH = '" +DT_DATE+ @"'", 회사코드);
+            return DBHelper.GetDataTable(sql);
+        }
+
         internal bool Save_Junpyo_ay(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 계정과목, string 구분)
         {
             string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
