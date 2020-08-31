@@ -23,7 +23,7 @@ namespace cz
 
         internal DataSet Search_M(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_FOR_S", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_S2", obj);
         }
 
         internal DataTable Get계정코드()
@@ -31,6 +31,13 @@ namespace cz
             string sql = string.Format(@" 
                                           SELECT NM_USERDE1 AS CODE, NM_ACCT AS NAME FROM FI_ACCTCODE WHERE NM_USERDE1 != '' ", 회사코드);
             return DBHelper.GetDataTable(sql);
+        }
+
+        internal bool Update_Sales(string 구분, string 캠페인코드, string 순번)
+        {
+            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_TP_UP", new object[] { 회사코드, 구분, 캠페인코드, 순번, EMPLOYEE_NO });
         }
 
         public object Save(DataTable dtM, bool 타메뉴호출)

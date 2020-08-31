@@ -38,15 +38,18 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
-        internal DataTable Get결산여부(string FROM, string TO)
+        internal DataTable Get마감여부(string 연월)
         {
-            string sql = string.Format(@" SELECT ISNULL(MAX(DT_YEAR_MONTH),'N') AS YEAR_MONTH FROM [NEOE].[CZ_MEZZO_SALES_DOCU] WHERE DT_YEAR_MONTH BETWEEN '" +FROM+ @"' AND '" +TO+ @"'", 회사코드);
+            string sql = string.Format(@" SELECT ST_MAGAM 
+                FROM [NEOE].[CZ_MEZZO_SALES_CLOSE_N] 
+                WHERE DT_YEAR = LEFT('" +연월+ @"',4) AND DT_MAGAM = (SELECT MAX(DT_MAGAM) FROM [NEOE].[CZ_MEZZO_SALES_CLOSE_N] WHERE CD_INDEX = 'M') ", 회사코드);
+
             return DBHelper.GetDataTable(sql);
         }
 
         internal DataTable Get결산일시(string DT_DATE)
         {
-            string sql = string.Format(@" SELECT CONVERT(DATETIME, LEFT(DT_CLOSING,8) + ' ' + STUFF(STUFF(RIGHT(DT_CLOSING,6), 3, 0, ':'), 6, 0, ':'), 120) AS DT_CLOSING FROM [NEOE].[CZ_MEZZO_SALES_CLOSE] WHERE DT_YEAR_MONTH = '" +DT_DATE+ @"'", 회사코드);
+            string sql = string.Format(@" SELECT MAX(CONVERT(DATETIME, LEFT(DT_MAGAM,8) + ' ' + STUFF(STUFF(RIGHT(DT_MAGAM,6), 3, 0, ':'), 6, 0, ':'), 120)) AS DT_CLOSING FROM [NEOE].[CZ_MEZZO_SALES_CLOSE_N] WHERE CD_INDEX = 'S' AND DT_YEAR = LEFT('" +DT_DATE+ @"',4)", 회사코드);
             return DBHelper.GetDataTable(sql);
         }
 
@@ -72,12 +75,23 @@ namespace cz
 
         internal DataSet Save_Sync(string FROM, string TO)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_I_SYNC", new object[] { 회사코드, FROM, TO });
+            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+
+            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_I_SYNC", new object[] { 회사코드, FROM, TO, EMPLOYEE_NO });
         }
 
         internal bool Delete(string FROM, string TO)
         {
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_D", new object[] { 회사코드, FROM, TO });
+            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_D", new object[] { 회사코드, FROM, TO, EMPLOYEE_NO });
+        }
+
+        internal bool Update_Sales(string 구분, string 캠페인코드, string 순번)
+        {
+            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_TP_UP", new object[] { 회사코드, 구분, 캠페인코드, 순번, EMPLOYEE_NO });
         }
 
         public object Save(DataTable dtM, bool 타메뉴호출)

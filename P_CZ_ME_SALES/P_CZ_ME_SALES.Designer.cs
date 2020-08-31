@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
             this.MULTI_CD_AGENCY_ORI = new Duzon.Common.BpControls.BpComboBox();
             this.labelExt30 = new Duzon.Common.Controls.LabelExt();
             this.dp매체월TO = new Duzon.Common.Controls.DatePicker();
@@ -116,8 +117,6 @@
             this.panelExt23 = new Duzon.Common.Controls.PanelExt();
             this.panelExt24 = new Duzon.Common.Controls.PanelExt();
             this.labelExt28 = new Duzon.Common.Controls.LabelExt();
-            this.dp년월_TO = new Duzon.Common.Controls.DatePicker();
-            this.dp년월_FROM = new Duzon.Common.Controls.DatePicker();
             this.panel7 = new Duzon.Common.Controls.PanelExt();
             this.labelExt5 = new Duzon.Common.Controls.LabelExt();
             this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
@@ -125,9 +124,12 @@
             this.btn전표취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn대행사전표 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn매체전표 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn결산취소 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn삭제처리 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
+            this.btn이월수정 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.dpYear = new Duzon.Common.Controls.DateTimePickerExt();
+            this.dpMonthFr = new Duzon.Common.Controls.DateTimePickerExt();
+            this.dpMonthTo = new Duzon.Common.Controls.DateTimePickerExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -164,8 +166,6 @@
             this.panelExt2.SuspendLayout();
             this.panelExt1.SuspendLayout();
             this.panelExt23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dp년월_TO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp년월_FROM)).BeginInit();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,8 +220,11 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dpMonthTo);
             this.panel1.Controls.Add(this.lbl결산일시);
+            this.panel1.Controls.Add(this.dpMonthFr);
             this.panel1.Controls.Add(this.MULTI_CD_AGENCY_ORI);
+            this.panel1.Controls.Add(this.dpYear);
             this.panel1.Controls.Add(this.labelExt30);
             this.panel1.Controls.Add(this.dp매체월TO);
             this.panel1.Controls.Add(this.dp매체월FROM);
@@ -276,14 +279,23 @@
             this.panel1.Controls.Add(this.panelExt1);
             this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.labelExt28);
-            this.panel1.Controls.Add(this.dp년월_TO);
-            this.panel1.Controls.Add(this.dp년월_FROM);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 122);
             this.panel1.TabIndex = 20;
+            // 
+            // lbl결산일시
+            // 
+            this.lbl결산일시.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl결산일시.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl결산일시.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl결산일시.Location = new System.Drawing.Point(987, 5);
+            this.lbl결산일시.Name = "lbl결산일시";
+            this.lbl결산일시.Size = new System.Drawing.Size(300, 18);
+            this.lbl결산일시.TabIndex = 1966;
+            this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MULTI_CD_AGENCY_ORI
             // 
@@ -418,7 +430,7 @@
             this.cbo영업수익.BackColor = System.Drawing.Color.White;
             this.cbo영업수익.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo영업수익.ItemHeight = 12;
-            this.cbo영업수익.Location = new System.Drawing.Point(459, 34);
+            this.cbo영업수익.Location = new System.Drawing.Point(463, 34);
             this.cbo영업수익.Name = "cbo영업수익";
             this.cbo영업수익.Size = new System.Drawing.Size(89, 20);
             this.cbo영업수익.TabIndex = 298;
@@ -430,7 +442,7 @@
             this.cbo수수료.BackColor = System.Drawing.Color.White;
             this.cbo수수료.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo수수료.ItemHeight = 12;
-            this.cbo수수료.Location = new System.Drawing.Point(286, 34);
+            this.cbo수수료.Location = new System.Drawing.Point(296, 34);
             this.cbo수수료.Name = "cbo수수료";
             this.cbo수수료.Size = new System.Drawing.Size(90, 20);
             this.cbo수수료.TabIndex = 296;
@@ -988,7 +1000,7 @@
             // 
             this.panelExt29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt29.Controls.Add(this.labelExt24);
-            this.panelExt29.Location = new System.Drawing.Point(387, 31);
+            this.panelExt29.Location = new System.Drawing.Point(392, 31);
             this.panelExt29.Name = "panelExt29";
             this.panelExt29.Size = new System.Drawing.Size(70, 27);
             this.panelExt29.TabIndex = 264;
@@ -1007,9 +1019,9 @@
             // 
             this.panelExt26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt26.Controls.Add(this.labelExt21);
-            this.panelExt26.Location = new System.Drawing.Point(215, 31);
+            this.panelExt26.Location = new System.Drawing.Point(214, 31);
             this.panelExt26.Name = "panelExt26";
-            this.panelExt26.Size = new System.Drawing.Size(70, 27);
+            this.panelExt26.Size = new System.Drawing.Size(81, 27);
             this.panelExt26.TabIndex = 263;
             // 
             // labelExt21
@@ -1017,9 +1029,9 @@
             this.labelExt21.BackColor = System.Drawing.Color.Transparent;
             this.labelExt21.Location = new System.Drawing.Point(1, 5);
             this.labelExt21.Name = "labelExt21";
-            this.labelExt21.Size = new System.Drawing.Size(63, 18);
+            this.labelExt21.Size = new System.Drawing.Size(79, 18);
             this.labelExt21.TabIndex = 55;
-            this.labelExt21.Text = "수수료";
+            this.labelExt21.Text = "대행사수수료";
             this.labelExt21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt17
@@ -1168,42 +1180,12 @@
             // labelExt28
             // 
             this.labelExt28.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt28.Location = new System.Drawing.Point(206, 7);
+            this.labelExt28.Location = new System.Drawing.Point(208, 7);
             this.labelExt28.Name = "labelExt28";
             this.labelExt28.Size = new System.Drawing.Size(11, 18);
             this.labelExt28.TabIndex = 252;
             this.labelExt28.Text = "~";
             this.labelExt28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dp년월_TO
-            // 
-            this.dp년월_TO.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp년월_TO.Location = new System.Drawing.Point(217, 4);
-            this.dp년월_TO.Mask = "####/##";
-            this.dp년월_TO.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp년월_TO.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp년월_TO.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp년월_TO.Name = "dp년월_TO";
-            this.dp년월_TO.ShowUpDown = true;
-            this.dp년월_TO.Size = new System.Drawing.Size(86, 21);
-            this.dp년월_TO.TabIndex = 250;
-            this.dp년월_TO.Tag = "";
-            this.dp년월_TO.Value = new System.DateTime(((long)(0)));
-            // 
-            // dp년월_FROM
-            // 
-            this.dp년월_FROM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp년월_FROM.Location = new System.Drawing.Point(117, 4);
-            this.dp년월_FROM.Mask = "####/##";
-            this.dp년월_FROM.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp년월_FROM.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp년월_FROM.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp년월_FROM.Name = "dp년월_FROM";
-            this.dp년월_FROM.ShowUpDown = true;
-            this.dp년월_FROM.Size = new System.Drawing.Size(86, 21);
-            this.dp년월_FROM.TabIndex = 249;
-            this.dp년월_FROM.Tag = "";
-            this.dp년월_FROM.Value = new System.DateTime(((long)(0)));
             // 
             // panel7
             // 
@@ -1300,21 +1282,20 @@
             this.btn매체전표.Text = "매체전표";
             this.btn매체전표.UseVisualStyleBackColor = false;
             // 
-            // btn결산취소
+            // btn삭제처리
             // 
-            this.btn결산취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn결산취소.BackColor = System.Drawing.Color.White;
-            this.btn결산취소.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn결산취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn결산취소.Location = new System.Drawing.Point(326, 10);
-            this.btn결산취소.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn결산취소.Name = "btn결산취소";
-            this.btn결산취소.Size = new System.Drawing.Size(78, 19);
-            this.btn결산취소.TabIndex = 10;
-            this.btn결산취소.TabStop = false;
-            this.btn결산취소.Text = "결산취소";
-            this.btn결산취소.UseVisualStyleBackColor = false;
-            this.btn결산취소.Visible = false;
+            this.btn삭제처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn삭제처리.BackColor = System.Drawing.Color.White;
+            this.btn삭제처리.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn삭제처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn삭제처리.Location = new System.Drawing.Point(822, 14);
+            this.btn삭제처리.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn삭제처리.Name = "btn삭제처리";
+            this.btn삭제처리.Size = new System.Drawing.Size(78, 19);
+            this.btn삭제처리.TabIndex = 10;
+            this.btn삭제처리.TabStop = false;
+            this.btn삭제처리.Text = "삭제처리";
+            this.btn삭제처리.UseVisualStyleBackColor = false;
             // 
             // btn동기화
             // 
@@ -1331,21 +1312,62 @@
             this.btn동기화.Text = "동기화";
             this.btn동기화.UseVisualStyleBackColor = false;
             // 
-            // lbl결산일시
+            // btn이월수정
             // 
-            this.lbl결산일시.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl결산일시.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl결산일시.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl결산일시.Location = new System.Drawing.Point(987, 5);
-            this.lbl결산일시.Name = "lbl결산일시";
-            this.lbl결산일시.Size = new System.Drawing.Size(300, 18);
-            this.lbl결산일시.TabIndex = 1966;
-            this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn이월수정.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn이월수정.BackColor = System.Drawing.Color.White;
+            this.btn이월수정.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn이월수정.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn이월수정.Location = new System.Drawing.Point(742, 14);
+            this.btn이월수정.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn이월수정.Name = "btn이월수정";
+            this.btn이월수정.Size = new System.Drawing.Size(78, 19);
+            this.btn이월수정.TabIndex = 11;
+            this.btn이월수정.TabStop = false;
+            this.btn이월수정.Text = "이월수정";
+            this.btn이월수정.UseVisualStyleBackColor = false;
+            // 
+            // dpYear
+            // 
+            this.dpYear.CustomFormat = "yyyy";
+            this.dpYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpYear.Location = new System.Drawing.Point(116, 4);
+            this.dpYear.Name = "dpYear";
+            this.dpYear.ShowUpDown = true;
+            this.dpYear.Size = new System.Drawing.Size(52, 21);
+            this.dpYear.TabIndex = 1968;
+            this.dpYear.UseKeyEnter = true;
+            this.dpYear.UseKeyF3 = true;
+            // 
+            // dpMonthFr
+            // 
+            this.dpMonthFr.CustomFormat = "MM";
+            this.dpMonthFr.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpMonthFr.Location = new System.Drawing.Point(171, 4);
+            this.dpMonthFr.Name = "dpMonthFr";
+            this.dpMonthFr.ShowUpDown = true;
+            this.dpMonthFr.Size = new System.Drawing.Size(35, 21);
+            this.dpMonthFr.TabIndex = 1969;
+            this.dpMonthFr.UseKeyEnter = true;
+            this.dpMonthFr.UseKeyF3 = true;
+            // 
+            // dpMonthTo
+            // 
+            this.dpMonthTo.CustomFormat = "MM";
+            this.dpMonthTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpMonthTo.Location = new System.Drawing.Point(218, 5);
+            this.dpMonthTo.Name = "dpMonthTo";
+            this.dpMonthTo.ShowUpDown = true;
+            this.dpMonthTo.Size = new System.Drawing.Size(36, 21);
+            this.dpMonthTo.TabIndex = 1970;
+            this.dpMonthTo.UseKeyEnter = true;
+            this.dpMonthTo.UseKeyF3 = true;
             // 
             // P_CZ_ME_SALES
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.Controls.Add(this.btn결산취소);
+            this.Controls.Add(this.btn이월수정);
+            this.Controls.Add(this.btn삭제처리);
             this.Controls.Add(this.btn동기화);
             this.Controls.Add(this.btn매체전표);
             this.Controls.Add(this.btn대행사전표);
@@ -1359,11 +1381,12 @@
             this.Controls.SetChildIndex(this.btn상세검색, 0);
             this.Controls.SetChildIndex(this.btn전표처리, 0);
             this.Controls.SetChildIndex(this.btn전표취소, 0);
-            this.Controls.SetChildIndex(this.mDataArea, 0);
             this.Controls.SetChildIndex(this.btn대행사전표, 0);
             this.Controls.SetChildIndex(this.btn매체전표, 0);
             this.Controls.SetChildIndex(this.btn동기화, 0);
-            this.Controls.SetChildIndex(this.btn결산취소, 0);
+            this.Controls.SetChildIndex(this.btn삭제처리, 0);
+            this.Controls.SetChildIndex(this.btn이월수정, 0);
+            this.Controls.SetChildIndex(this.mDataArea, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
@@ -1401,8 +1424,6 @@
             this.panelExt2.ResumeLayout(false);
             this.panelExt1.ResumeLayout(false);
             this.panelExt23.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dp년월_TO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp년월_FROM)).EndInit();
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1417,8 +1438,6 @@
         private Dass.FlexGrid.FlexGrid _flexM;
         private Duzon.Common.Controls.PanelExt panel1;
         private Duzon.Common.Controls.LabelExt labelExt28;
-        private Duzon.Common.Controls.DatePicker dp년월_TO;
-        private Duzon.Common.Controls.DatePicker dp년월_FROM;
         private Duzon.Common.Controls.PanelExt panel7;
         private Duzon.Common.Controls.LabelExt labelExt5;
         private Duzon.Common.Controls.PanelExt panelExt23;
@@ -1505,9 +1524,13 @@
         private Duzon.Common.Controls.RoundedButton btn대행사전표;
         private Duzon.Common.Controls.RoundedButton btn매체전표;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_AGENCY_ORI;
-        private Duzon.Common.Controls.RoundedButton btn결산취소;
+        private Duzon.Common.Controls.RoundedButton btn삭제처리;
         private Duzon.Common.Controls.RoundedButton btn동기화;
         private Duzon.Common.Controls.LabelExt lbl결산일시;
+        private Duzon.Common.Controls.RoundedButton btn이월수정;
+        private Duzon.Common.Controls.DateTimePickerExt dpYear;
+        private Duzon.Common.Controls.DateTimePickerExt dpMonthFr;
+        private Duzon.Common.Controls.DateTimePickerExt dpMonthTo;
 
     }
 }

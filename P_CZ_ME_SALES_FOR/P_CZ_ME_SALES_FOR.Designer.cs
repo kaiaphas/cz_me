@@ -33,14 +33,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.cbo등록구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.txt캠페인명 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt3 = new Duzon.Common.Controls.PanelExt();
             this.lbl캠페인명 = new Duzon.Common.Controls.LabelExt();
             this.dp년도 = new Duzon.Common.Controls.DatePicker();
             this.panel6 = new Duzon.Common.Controls.PanelExt();
             this.lbl기준년도 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt1 = new Duzon.Common.Controls.PanelExt();
-            this.rdo이월 = new Duzon.Common.Controls.RadioButtonExt();
             this.panelExt2 = new Duzon.Common.Controls.PanelExt();
             this.lbl등록구분 = new Duzon.Common.Controls.LabelExt();
             this.panRadio1 = new Duzon.Common.Controls.PanelExt();
@@ -49,6 +48,7 @@
             this.rdoMts2 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoMts1 = new Duzon.Common.Controls.RadioButtonExt();
             this.btn행복사 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn복구처리 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -56,8 +56,6 @@
             this.panelExt3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp년도)).BeginInit();
             this.panel6.SuspendLayout();
-            this.panelExt1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo이월)).BeginInit();
             this.panelExt2.SuspendLayout();
             this.panRadio1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts4)).BeginInit();
@@ -116,11 +114,11 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cbo등록구분);
             this.panel1.Controls.Add(this.txt캠페인명);
             this.panel1.Controls.Add(this.panelExt3);
             this.panel1.Controls.Add(this.dp년도);
             this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panelExt1);
             this.panel1.Controls.Add(this.panelExt2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -128,11 +126,23 @@
             this.panel1.Size = new System.Drawing.Size(1084, 30);
             this.panel1.TabIndex = 1;
             // 
+            // cbo등록구분
+            // 
+            this.cbo등록구분.AutoDropDown = true;
+            this.cbo등록구분.BackColor = System.Drawing.Color.White;
+            this.cbo등록구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo등록구분.ItemHeight = 12;
+            this.cbo등록구분.Location = new System.Drawing.Point(362, 4);
+            this.cbo등록구분.Name = "cbo등록구분";
+            this.cbo등록구분.Size = new System.Drawing.Size(136, 20);
+            this.cbo등록구분.TabIndex = 1963;
+            this.cbo등록구분.UseKeyF3 = false;
+            // 
             // txt캠페인명
             // 
             this.txt캠페인명.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt캠페인명.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt캠페인명.Location = new System.Drawing.Point(733, 4);
+            this.txt캠페인명.Location = new System.Drawing.Point(697, 4);
             this.txt캠페인명.Name = "txt캠페인명";
             this.txt캠페인명.Size = new System.Drawing.Size(127, 21);
             this.txt캠페인명.TabIndex = 1961;
@@ -141,7 +151,7 @@
             // 
             this.panelExt3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt3.Controls.Add(this.lbl캠페인명);
-            this.panelExt3.Location = new System.Drawing.Point(609, -1);
+            this.panelExt3.Location = new System.Drawing.Point(573, -1);
             this.panelExt3.Name = "panelExt3";
             this.panelExt3.Size = new System.Drawing.Size(123, 31);
             this.panelExt3.TabIndex = 1962;
@@ -190,26 +200,6 @@
             this.lbl기준년도.TabIndex = 41;
             this.lbl기준년도.Text = "기준년도";
             this.lbl기준년도.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panelExt1
-            // 
-            this.panelExt1.Controls.Add(this.rdo이월);
-            this.panelExt1.Location = new System.Drawing.Point(362, 4);
-            this.panelExt1.Name = "panelExt1";
-            this.panelExt1.Size = new System.Drawing.Size(175, 21);
-            this.panelExt1.TabIndex = 1957;
-            // 
-            // rdo이월
-            // 
-            this.rdo이월.Location = new System.Drawing.Point(3, 1);
-            this.rdo이월.Name = "rdo이월";
-            this.rdo이월.Size = new System.Drawing.Size(78, 18);
-            this.rdo이월.TabIndex = 192;
-            this.rdo이월.TabStop = true;
-            this.rdo이월.Text = "초기이월";
-            this.rdo이월.TextDD = null;
-            this.rdo이월.UseKeyEnter = true;
-            this.rdo이월.UseVisualStyleBackColor = true;
             // 
             // panelExt2
             // 
@@ -305,9 +295,25 @@
             this.btn행복사.UseVisualStyleBackColor = false;
             this.btn행복사.Click += new System.EventHandler(this.btn행복사_Click);
             // 
+            // btn복구처리
+            // 
+            this.btn복구처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn복구처리.BackColor = System.Drawing.Color.White;
+            this.btn복구처리.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn복구처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn복구처리.Location = new System.Drawing.Point(912, 10);
+            this.btn복구처리.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn복구처리.Name = "btn복구처리";
+            this.btn복구처리.Size = new System.Drawing.Size(78, 19);
+            this.btn복구처리.TabIndex = 13;
+            this.btn복구처리.TabStop = false;
+            this.btn복구처리.Text = "복구처리";
+            this.btn복구처리.UseVisualStyleBackColor = false;
+            // 
             // P_CZ_ME_SALES_FOR
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.btn복구처리);
             this.Controls.Add(this.btn행복사);
             this.Controls.Add(this.panRadio1);
             this.Name = "P_CZ_ME_SALES_FOR";
@@ -316,6 +322,7 @@
             this.Controls.SetChildIndex(this.panRadio1, 0);
             this.Controls.SetChildIndex(this.mDataArea, 0);
             this.Controls.SetChildIndex(this.btn행복사, 0);
+            this.Controls.SetChildIndex(this.btn복구처리, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
@@ -324,8 +331,6 @@
             this.panelExt3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dp년도)).EndInit();
             this.panel6.ResumeLayout(false);
-            this.panelExt1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rdo이월)).EndInit();
             this.panelExt2.ResumeLayout(false);
             this.panRadio1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts4)).EndInit();
@@ -346,8 +351,6 @@
         private Duzon.Common.Controls.RadioButtonExt rdoMts2;
         private Duzon.Common.Controls.RadioButtonExt rdoMts1;
         private Dass.FlexGrid.FlexGrid _flexM;
-        private Duzon.Common.Controls.PanelExt panelExt1;
-        private Duzon.Common.Controls.RadioButtonExt rdo이월;
         private Duzon.Common.Controls.PanelExt panelExt2;
         private Duzon.Common.Controls.LabelExt lbl등록구분;
         private Duzon.Common.Controls.DatePicker dp년도;
@@ -357,6 +360,8 @@
         private Duzon.Common.Controls.PanelExt panelExt3;
         private Duzon.Common.Controls.LabelExt lbl캠페인명;
         private Duzon.Common.Controls.RoundedButton btn행복사;
+        private Duzon.Common.Controls.DropDownComboBox cbo등록구분;
+        private Duzon.Common.Controls.RoundedButton btn복구처리;
 
     }
 }

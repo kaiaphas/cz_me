@@ -33,7 +33,6 @@ namespace cz
         bool _타메뉴호출 = false;
         string today = "";
         string toyear = "";
-        string rdo_idx = "";
 
         #endregion
 
@@ -47,7 +46,7 @@ namespace cz
 
             MainGrids = new FlexGrid[] { _flexM };
         }
-        
+
         #endregion
 
         #region -> InitLoad
@@ -72,79 +71,79 @@ namespace cz
 
             _flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);
 
-            _flexM.SetCol("TP_SALES", "구분", 60, false);
-            _flexM.SetCol("CD_ACCT", "계정과목", 120, true);
-            _flexM.SetCol("ME_CPID", "캠페인", 60, false);
-            _flexM.SetCol("ME_CPNM", "캠페인명", 160, true);
+            _flexM.SetCol("tp_sales", "구분", 60, false);
+            _flexM.SetCol("cd_acct", "계정과목", 120, true);
+            _flexM.SetCol("cpid", "캠페인", 60, false);
+            _flexM.SetCol("cpname", "캠페인명", 160, true);
 
-            _flexM.SetCol("AY_YEAR_MONTH", "월", 60, true, typeof(string), FormatTpType.YEAR_MONTH);
-            _flexM.SetCol("AY_TRADE_TYPE", "기준", 60, true);
-            _flexM.SetCol("AY_AGENCYNO", "사업자등록번호", 100, true);
-            _flexM.SetCol("AY_AGENCYID", "대행사코드", 0, false);
-            _flexM.SetCol("AY_AGENCYNM", "대행사명", 120, false);
+            _flexM.SetCol("ay_year_month", "월", 60, true, typeof(string), FormatTpType.YEAR_MONTH);
+            _flexM.SetCol("ay_trade_type", "기준", 60, true);
+            _flexM.SetCol("ay_agencyno", "사업자등록번호", 100, true);
+            _flexM.SetCol("ay_agencyid", "대행사코드", 0, false);
+            _flexM.SetCol("ay_agencynm", "대행사명", 120, false);
 
-            _flexM.SetCol("ME_YEAR_MONTH", "월", 60, true, typeof(string), FormatTpType.YEAR_MONTH);
-            _flexM.SetCol("ME_TRADE_TYPE", "기준", 60, true);
-            _flexM.SetCol("ME_CORPNO", "사업자등록번호", 120, true);
-            _flexM.SetCol("ME_CORPID", "매체코드", 0, false);
-            _flexM.SetCol("ME_CORPNM", "매체명", 120, false);
-            _flexM.SetCol("CD_SYSDEF", "구분", 60, false);
+            _flexM.SetCol("me_year_month", "월", 60, true, typeof(string), FormatTpType.YEAR_MONTH);
+            _flexM.SetCol("me_trade_type", "기준", 60, true);
+            _flexM.SetCol("me_corpno", "사업자등록번호", 120, true);
+            _flexM.SetCol("me_corpid", "매체코드", 0, false);
+            _flexM.SetCol("me_corpnm", "매체명", 120, false);
+            _flexM.SetCol("nm_mediagr", "구분", 60, false);
 
-            _flexM.SetCol("ME_TEAMID", "팀코드", 0, false);
-            _flexM.SetCol("ME_TEAMNM", "팀명", 120, true);
-            _flexM.SetCol("AM_BUDGET", "광고수주액", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AM_AGY_PRICE", "대행사수수료", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AM_INCOME", "영업수익(매출)", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexM.SetCol("AM_MEDIA_PRICE", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-           
-            _flexM.SetCol("DT_YEAR_MONTH", "년", 0, false);
+            _flexM.SetCol("me_teamid", "팀코드", 0, false);
+            _flexM.SetCol("me_teamnm", "팀명", 120, true);
+            _flexM.SetCol("am_budget", "광고수주액", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("am_agy_price", "대행사수수료", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("am_income", "영업수익(매출)", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
 
-            _flexM.Cols["TP_SALES"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["CD_ACCT"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["AY_YEAR_MONTH"].TextAlign = TextAlignEnum.LeftCenter;
-            _flexM.Cols["AY_TRADE_TYPE"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.SetCol("dt_year_month", "년", 0, false);
 
-            _flexM.Cols["AY_AGENCYNO"].Format = _flexM.Cols["AY_AGENCYNO"].EditMask = "###-##-#####";
-            _flexM.Cols["AY_AGENCYNO"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.SetStringFormatCol("AY_AGENCYNO");
-            _flexM.SetNoMaskSaveCol("AY_AGENCYNO");
+            _flexM.Cols["tp_sales"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["cd_acct"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_year_month"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["ay_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["ME_YEAR_MONTH"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["ME_TRADE_TYPE"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["ay_agencyno"].Format = _flexM.Cols["ay_agencyno"].EditMask = "###-##-#####";
+            _flexM.Cols["ay_agencyno"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.SetStringFormatCol("ay_agencyno");
+            _flexM.SetNoMaskSaveCol("ay_agencyno");
 
-            _flexM.Cols["ME_CORPNO"].Format = _flexM.Cols["ME_CORPNO"].EditMask = "###-##-#####";
-            _flexM.Cols["ME_CORPNO"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.SetStringFormatCol("ME_CORPNO");
-            _flexM.SetNoMaskSaveCol("ME_CORPNO");
+            _flexM.Cols["me_year_month"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["me_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
 
-            _flexM.Cols["CD_SYSDEF"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["me_corpno"].Format = _flexM.Cols["me_corpno"].EditMask = "###-##-#####";
+            _flexM.Cols["me_corpno"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.SetStringFormatCol("me_corpno");
+            _flexM.SetNoMaskSaveCol("me_corpno");
+
+            _flexM.Cols["cd_sysdef"].TextAlign = TextAlignEnum.LeftCenter;
 
             _flexM.SetDummyColumn("S");
             _flexM.Cols.Frozen = 1;
 
             //MERGE 처리
-            _flexM[0, "AY_YEAR_MONTH"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "ME_TRADE_TYPE"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AY_AGENCYNO"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AY_AGENCYID"] = _flexM[0, "AGE"] = "대행사";
-            _flexM[0, "AY_AGENCYNM"] = _flexM[0, "AGE"] = "대행사";
+            _flexM[0, "ay_year_month"] = _flexM[0, "AGE"] = "대행사";
+            _flexM[0, "me_trade_type"] = _flexM[0, "AGE"] = "대행사";
+            _flexM[0, "ay_agencyno"] = _flexM[0, "AGE"] = "대행사";
+            _flexM[0, "ay_agencyid"] = _flexM[0, "AGE"] = "대행사";
+            _flexM[0, "ay_agencynm"] = _flexM[0, "AGE"] = "대행사";
 
             //MERGE 처리
-            _flexM[0, "ME_YEAR_MONTH"] = _flexM[0, "MED"] = "매체";
-            _flexM[0, "ME_TRADE_TYPE"] = _flexM[0, "MED"] = "매체";
-            _flexM[0, "ME_CORPNO"] = _flexM[0, "MED"] = "매체";
-            _flexM[0, "ME_CORPID"] = _flexM[0, "MED"] = "매체";
-            _flexM[0, "ME_CORPNM"] = _flexM[0, "MED"] = "매체";
-            _flexM[0, "CD_SYSDEF"] = _flexM[0, "MED"] = "매체";
+            _flexM[0, "me_year_month"] = _flexM[0, "MED"] = "매체";
+            _flexM[0, "me_trade_type"] = _flexM[0, "MED"] = "매체";
+            _flexM[0, "me_corpno"] = _flexM[0, "MED"] = "매체";
+            _flexM[0, "me_corpid"] = _flexM[0, "MED"] = "매체";
+            _flexM[0, "me_corpnm"] = _flexM[0, "MED"] = "매체";
+            _flexM[0, "nm_mediagr"] = _flexM[0, "MED"] = "매체";
 
             _flexM.SettingVersion = "1.0.1.8";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("AY_AGENCYNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "AY_AGENCYNO", "AY_AGENCYID", "AY_AGENCYNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("ME_CORPNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "ME_CORPNO", "ME_CORPID", "ME_CORPNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("ME_TEAMNM", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "ME_TEAMID", "ME_TEAMNM" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("ME_CPNM", "H_CZ_CP_SUB", ShowHelpEnum.Always, new string[] { "ME_CPID", "ME_CPNM" }, new string[] { "cpid", "cpname" });
+            _flexM.SetCodeHelpCol("ay_agencyno", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "ay_agencyno", "ay_agencyid", "ay_agencynm" }, new string[] { "no_company", "cd_partner", "ln_partner" }, ResultMode.FastMode);
+            _flexM.SetCodeHelpCol("me_corpno", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "me_corpno", "me_corpid", "me_corpnm" }, new string[] { "no_company", "cd_partner", "ln_partner" }, ResultMode.FastMode);
+            _flexM.SetCodeHelpCol("me_teamnm", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "me_teamid", "me_teamnm" }, new string[] { "cd_dept", "nm_dept" }, ResultMode.FastMode);
+            _flexM.SetCodeHelpCol("cpname", "H_CZ_CP_SUB", ShowHelpEnum.Always, new string[] { "cpid", "cpname" }, new string[] { "cpid", "cpname" });
 
             //rdo컷.CheckedChanged += new EventHandler(rdo컷_CheckedChanged);
             //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
@@ -153,8 +152,8 @@ namespace cz
             //_flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
 
             //20200720 Null Check 임시추가
-            _flexM.VerifyNotNull = new string[] { "ME_CPID", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "AY_AGENCYID", "ME_CORPID", "ME_TEAMID", "AM_BUDGET", "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE" };
-            //_flexM.VerifyNotNull = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "NM_CPID", "ME_SEQ", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "AY_AGENCYID", "AY_TRADE_TYPE", "ME_CORPID", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "ME_TEAMID", "CD_ACCT", "AM_BUDGET", "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID" };
+            _flexM.VerifyNotNull = new string[] { "cpid", "ay_year_month", "ay_trade_type", "ay_agencyid", "me_corpid", "me_teamid", "am_budget", "am_agy_price", "am_income", "am_media_price" };
+            //_flexM.VerifyNotNull = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "cpid", "NM_CPID", "ME_SEQ", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "AY_AGENCYID", "AY_TRADE_TYPE", "ME_CORPID", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "ME_TEAMID", "CD_ACCT", "AM_BUDGET", "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "CP_AGENTID" };
         }
 
         #endregion
@@ -169,6 +168,8 @@ namespace cz
             //Grant.CanAdd = false;
             //Grant.CanPrint = false;
 
+            btn복구처리.Click += new EventHandler(btn복구처리_Click);
+
             DateTime time = this.MainFrameInterface.GetDateTimeToday(); // 오늘 날짜
 
             today = time.ToString("yyyMMdd");
@@ -176,31 +177,33 @@ namespace cz
 
             dp년도.Text = toyear;
 
-            //체크박스 value 값 가져와서 조회하기 위해서
-            rdo_idx = rdo이월.Checked == true ? "2" : "0";
+            SetControl set = new SetControl();
+
+            set.SetCombobox(cbo등록구분, MA.GetCodeUser(new string[] { "2", "9" }, new string[] { DD("전기이월수정"), DD("삭제내역") }));
 
             //콤보박스 셋팅
             //DataTable dt계정코드 = _biz.Get계정코드();
             //_flexM.SetDataMap("CD_ACCT", dt계정코드.Copy(), "CODE", "NAME");
-            _flexM.SetDataMap("CD_ACCT", MA.GetCode("CZ_ME_C008"), "CODE", "NAME");
-            _flexM.SetDataMap("TP_SALES", MA.GetCode("CZ_ME_C005"), "CODE", "NAME");
-            _flexM.SetDataMap("AY_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
-            _flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
+            _flexM.SetDataMap("cd_acct", MA.GetCode("CZ_ME_C008"), "CODE", "NAME");
+            _flexM.SetDataMap("tp_sales", MA.GetCode("CZ_ME_C005"), "CODE", "NAME");
+            _flexM.SetDataMap("ay_trade_type", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
+            _flexM.SetDataMap("me_trade_type", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
+
+            //페이지 로드 시 첫번 컷오프이므로 해당 컬럼 들 editing false 설정
+            _flexM.Cols["cpname"].AllowEditing = false;
+            _flexM.Cols["ay_year_month"].AllowEditing = false;
+            _flexM.Cols["me_year_month"].AllowEditing = false;
 
             //페이지 오픈 시 조회할 수 있도록 처리
             object[] Params = new object[5];
             Params[0] = LoginInfo.CompanyCode;
-            Params[1] = "SELECT";
-            Params[2] = dp년도.Text;
-            Params[3] = rdo_idx;
-            Params[4] = txt캠페인명.Text;
+            Params[1] = cbo등록구분.SelectedValue; //tp_sales
+            Params[2] = dp년도.Text;  //조회연월 FROM
+            Params[3] = dp년도.Text; //조회연월 TO
+            Params[4] = txt캠페인명.Text; //캠페인명
+
             DataSet ds = _biz.Search_M(Params);
             _flexM.Binding = ds.Tables[0];
-
-            //페이지 로드 시 첫번 컷오프이므로 해당 컬럼 들 editing false 설정
-            _flexM.Cols["ME_CPNM"].AllowEditing = false;
-            _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
-            _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
         }
 
         #endregion
@@ -215,29 +218,27 @@ namespace cz
         {
             try
             {
-                rdo_idx = rdo이월.Checked == true ? "2" : "0";
-
-                if (rdo_idx == "4")
+                //삭제내역은 수정할 수 없도록 처리
+                if (cbo등록구분.SelectedValue.ToString().Equals("2"))
                 {
-                    _flexM.Cols["ME_CPNM"].AllowEditing = false;
-                    _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
-                    _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
+                    _flexM.Cols["cpname"].AllowEditing = true;
+                    _flexM.Cols["ay_year_month"].AllowEditing = true;
+                    _flexM.Cols["me_year_month"].AllowEditing = true;
                 }
                 else
                 {
-                    _flexM.Cols["ME_CPNM"].AllowEditing = true;
-                    _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = true;
-                    _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = true;
+                    _flexM.Cols["cpname"].AllowEditing = false;
+                    _flexM.Cols["ay_year_month"].AllowEditing = false;
+                    _flexM.Cols["me_year_month"].AllowEditing = false;
                 }
 
                 //_flexM.Binding = _biz.GetLineTable();
-
                 object[] Params = new object[5];
                 Params[0] = LoginInfo.CompanyCode;
-                Params[1] = "SELECT";
-                Params[2] = dp년도.Text;
-                Params[3] = rdo_idx;
-                Params[4] = txt캠페인명.Text;
+                Params[1] = cbo등록구분.SelectedValue; //tp_sales
+                Params[2] = dp년도.Text;  //조회연월 FROM
+                Params[3] = dp년도.Text; //조회연월 TO
+                Params[4] = txt캠페인명.Text; //캠페인명
 
                 DataSet ds = _biz.Search_M(Params);
 
@@ -264,27 +265,27 @@ namespace cz
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-                        rdo_idx = rdo이월.Checked == true ? "2" : "0";
-
-                        if (rdo_idx == "4")
+                        //삭제내역은 수정할 수 없도록 처리
+                        if (cbo등록구분.SelectedValue.ToString().Equals("2"))
                         {
-                            _flexM.Cols["ME_CPNM"].AllowEditing = false;
-                            _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
-                            _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
+                            _flexM.Cols["cpname"].AllowEditing = true;
+                            _flexM.Cols["ay_year_month"].AllowEditing = true;
+                            _flexM.Cols["me_year_month"].AllowEditing = true;
                         }
                         else
                         {
-                            _flexM.Cols["ME_CPNM"].AllowEditing = true;
-                            _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = true;
-                            _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = true;
+                            _flexM.Cols["cpname"].AllowEditing = false;
+                            _flexM.Cols["ay_year_month"].AllowEditing = false;
+                            _flexM.Cols["me_year_month"].AllowEditing = false;
                         }
 
+                        //_flexM.Binding = _biz.GetLineTable();
                         object[] Params = new object[5];
                         Params[0] = LoginInfo.CompanyCode;
-                        Params[1] = "SELECT";
-                        Params[2] = dp년도.Text;
-                        Params[3] = rdo_idx;
-                        Params[4] = txt캠페인명.Text;
+                        Params[1] = cbo등록구분.SelectedValue; //tp_sales
+                        Params[2] = dp년도.Text;  //조회연월 FROM
+                        Params[3] = dp년도.Text; //조회연월 TO
+                        Params[4] = txt캠페인명.Text; //캠페인명
 
                         DataSet ds = _biz.Search_M(Params);
 
@@ -294,7 +295,7 @@ namespace cz
             }
             catch (Exception ex)
             {
-                
+
                 MsgEnd(ex);
             }
         }
@@ -371,30 +372,15 @@ namespace cz
             {
                 _flexM.Rows.Add();
                 _flexM.Row = _flexM.Rows.Count - 1;
-          
-                if (rdo이월.Checked == true)
-                {
-                    rdo_idx = "4";
 
-                    _flexM[_flexM.Row, "TP_SALES"] = rdo_idx;
-                    _flexM[_flexM.Row, "CD_ACCT"] = "1";
-                    _flexM[_flexM.Row, "ME_CPID"] = toyear + "C";
-                    _flexM[_flexM.Row, "ME_CPNM"] = Int32.Parse(dp년도.Text.Substring(2, 2)) - 1 + "년 컷오프";
-                    _flexM[_flexM.Row, "AY_YEAR_MONTH"] = toyear + "01";
-                    _flexM[_flexM.Row, "AY_TRADE_TYPE"] = "1";
-                    _flexM[_flexM.Row, "ME_YEAR_MONTH"] = toyear + "01";
-                    _flexM[_flexM.Row, "ME_TRADE_TYPE"] = "2";
-                    _flexM[_flexM.Row, "DT_YEAR_MONTH"] = dp년도.Text;
-                }
-                else if (rdo이월.Checked == true)
+                //삭제내역은 수정할 수 없도록 처리
+                if (cbo등록구분.SelectedValue.ToString().Equals("2"))
                 {
-                    rdo_idx = "2";
-
-                    _flexM[_flexM.Row, "TP_SALES"] = rdo_idx;
-                    _flexM[_flexM.Row, "CD_ACCT"] = "1";
-                    _flexM[_flexM.Row, "ME_YEAR_MONTH"] = "1";
-                    _flexM[_flexM.Row, "ME_TRADE_TYPE"] = "1";
-                    _flexM[_flexM.Row, "DT_YEAR_MONTH"] = dp년도.Text;
+                    _flexM[_flexM.Row, "tp_sales"] = "2";
+                    _flexM[_flexM.Row, "cd_acct"] = "1";
+                    _flexM[_flexM.Row, "me_year_month"] = "1";
+                    _flexM[_flexM.Row, "me_trade_type"] = "1";
+                    _flexM[_flexM.Row, "dt_year_month"] = dp년도.Text;
                 }
 
                 _flexM.AddFinished();
@@ -413,35 +399,6 @@ namespace cz
 
         #region ♥ 기타 이벤트
 
-        private void rdo컷_CheckedChanged(object sender, EventArgs e)
-        {
-            rdo_idx = rdo이월.Checked == true ? "2" : "0";
-
-            if (rdo_idx == "4")
-            {
-                _flexM.Cols["ME_CPNM"].AllowEditing = false;
-                _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = false;
-                _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = false;
-            }
-            else
-            {
-                _flexM.Cols["ME_CPNM"].AllowEditing = true;
-                _flexM.Cols["AY_YEAR_MONTH"].AllowEditing = true;
-                _flexM.Cols["ME_YEAR_MONTH"].AllowEditing = true;
-            }
-
-            object[] Params = new object[5];
-            Params[0] = LoginInfo.CompanyCode;
-            Params[1] = "SELECT";
-            Params[2] = dp년도.Text;
-            Params[3] = rdo_idx;
-            Params[4] = txt캠페인명.Text;
-
-            DataSet ds = _biz.Search_M(Params);
-
-            _flexM.Binding = ds.Tables[0];
-        }
-
         private void btn행복사_Click(object sender, EventArgs e)
         {
             try
@@ -455,28 +412,28 @@ namespace cz
                     _flexM.Rows.Add();
                     _flexM.Row = _flexM.Rows.Count - 1;
 
-                    _flexM[_flexM.Row, "TP_SALES"] = _flexM[preIndex, "TP_SALES"];
-                    _flexM[_flexM.Row, "CD_ACCT"] = _flexM[preIndex, "CD_ACCT"];
-                    _flexM[_flexM.Row, "ME_CPID"] = _flexM[preIndex, "ME_CPID"];
-                    _flexM[_flexM.Row, "ME_CPNM"] = _flexM[preIndex, "ME_CPNM"];
+                    _flexM[_flexM.Row, "tp_sales"] = _flexM[preIndex, "tp_sales"];
+                    _flexM[_flexM.Row, "cd_acct"] = _flexM[preIndex, "cd_acct"];
+                    _flexM[_flexM.Row, "cpid"] = _flexM[preIndex, "cpid"];
+                    _flexM[_flexM.Row, "cpname"] = _flexM[preIndex, "cpname"];
 
-                    _flexM[_flexM.Row, "AY_YEAR_MONTH"] = _flexM[preIndex, "AY_YEAR_MONTH"];
-                    _flexM[_flexM.Row, "AY_TRADE_TYPE"] = _flexM[preIndex, "AY_TRADE_TYPE"];
-                    _flexM[_flexM.Row, "AY_AGENCYNO"] = _flexM[preIndex, "AY_AGENCYNO"];
-                    _flexM[_flexM.Row, "AY_AGENCYID"] = _flexM[preIndex, "AY_AGENCYID"];
-                    _flexM[_flexM.Row, "AY_AGENCYNM"] = _flexM[preIndex, "AY_AGENCYNM"];
+                    _flexM[_flexM.Row, "ay_year_month"] = _flexM[preIndex, "ay_year_month"];
+                    _flexM[_flexM.Row, "ay_trade_type"] = _flexM[preIndex, "ay_trade_type"];
+                    _flexM[_flexM.Row, "ay_agencyno"] = _flexM[preIndex, "ay_agencyno"];
+                    _flexM[_flexM.Row, "ay_agencyid"] = _flexM[preIndex, "ay_agencyid"];
+                    _flexM[_flexM.Row, "ay_agencynm"] = _flexM[preIndex, "ay_agencynm"];
 
-                    _flexM[_flexM.Row, "ME_YEAR_MONTH"] = _flexM[preIndex, "ME_YEAR_MONTH"];
-                    _flexM[_flexM.Row, "ME_TRADE_TYPE"] = _flexM[preIndex, "ME_TRADE_TYPE"];
-                    _flexM[_flexM.Row, "ME_CORPNO"] = _flexM[preIndex, "ME_CORPNO"];
-                    _flexM[_flexM.Row, "ME_CORPID"] = _flexM[preIndex, "ME_CORPID"];
-                    _flexM[_flexM.Row, "ME_CORPNM"] = _flexM[preIndex, "ME_CORPNM"];
-                    _flexM[_flexM.Row, "CD_SYSDEF"] = _flexM[preIndex, "CD_SYSDEF"];
+                    _flexM[_flexM.Row, "me_year_month"] = _flexM[preIndex, "me_year_month"];
+                    _flexM[_flexM.Row, "me_trade_type"] = _flexM[preIndex, "me_trade_type"];
+                    _flexM[_flexM.Row, "me_corpno"] = _flexM[preIndex, "me_corpno"];
+                    _flexM[_flexM.Row, "me_corpid"] = _flexM[preIndex, "me_corpid"];
+                    _flexM[_flexM.Row, "me_corpnm"] = _flexM[preIndex, "me_corpnm"];
+                    _flexM[_flexM.Row, "cd_sysdef"] = _flexM[preIndex, "cd_sysdef"];
 
-                    _flexM[_flexM.Row, "ME_TEAMID"] = _flexM[preIndex, "ME_TEAMID"];
-                    _flexM[_flexM.Row, "ME_TEAMNM"] = _flexM[preIndex, "ME_TEAMNM"];
-                    _flexM[_flexM.Row, "DT_YEAR_MONTH"] = dp년도.Text;
-                 
+                    _flexM[_flexM.Row, "me_teamid"] = _flexM[preIndex, "me_teamid"];
+                    _flexM[_flexM.Row, "me_teamnm"] = _flexM[preIndex, "me_teamnm"];
+                    _flexM[_flexM.Row, "dt_year_month"] = dp년도.Text;
+
                 }
                 else
                 {
@@ -493,6 +450,52 @@ namespace cz
             }
         }
 
+        private void btn복구처리_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                if (ShowMessage(" 이월처리하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                            string 순번 = _flexM[i, "seq"].ToString();
+                            string 구분 = "";
+
+                            //삭제내역은 수정할 수 없도록 처리
+                            if (cbo등록구분.SelectedValue.ToString().Equals("2"))
+                            {
+                                구분 = "이월복구";
+                            }
+                            else
+                            {
+                                구분 = "삭제복구";
+                            }
+
+                            if (_biz.Update_Sales(구분, 캠페인코드, 순번))
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
+
         #endregion
 
         #region ♥ 그리드 이벤트
@@ -501,13 +504,11 @@ namespace cz
         {
             try
             {
-                rdo_idx = rdo이월.Checked == true ? "2" : "0";
-
-                if (rdo_idx == "2")
+                if (cbo등록구분.SelectedValue.ToString().Equals("2"))
                 {
                     switch (_flexM.Cols[e.Col].Name)
                     {
-                        case "ME_CPNM":
+                        case "cpname":
 
                             e.Parameter.UserParams = "캠페인 도움창;H_CZ_CP_SUB;";
                             break;
@@ -527,14 +528,14 @@ namespace cz
             {
                 switch (_flexM.Cols[e.Col].Name)
                 {
-                    case "AM_BUDGET":
-                    case "AM_INCOME":
-                    case "AM_AGY_PRICE":
-                        decimal AM_SALES_1 = D.GetDecimal(_flexM[e.Row, "AM_BUDGET"]);
-                        decimal AM_SALES_2 = D.GetDecimal(_flexM[e.Row, "AM_AGY_PRICE"]);
-                        decimal AM_SALES_3 = D.GetDecimal(_flexM[e.Row, "AM_INCOME"]);
+                    case "am_budget":
+                    case "am_income":
+                    case "am_agy_price":
+                        decimal AM_SALES_1 = D.GetDecimal(_flexM[e.Row, "am_budget"]);
+                        decimal AM_SALES_2 = D.GetDecimal(_flexM[e.Row, "am_agy_price"]);
+                        decimal AM_SALES_3 = D.GetDecimal(_flexM[e.Row, "am_income"]);
 
-                        _flexM[e.Row, "AM_MEDIA_PRICE"] = AM_SALES_1 - AM_SALES_2 - AM_SALES_3;
+                        _flexM[e.Row, "am_media_price"] = AM_SALES_1 - AM_SALES_2 - AM_SALES_3;
                         break;
                 }
             }

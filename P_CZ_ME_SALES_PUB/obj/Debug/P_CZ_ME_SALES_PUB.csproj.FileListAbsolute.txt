@@ -232,7 +232,6 @@ D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\en-us\Duzon.ReportDesigner.FileManager.res
 D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\ja-jp\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\zh-cn\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\Duzon.ReportDesigner.Components.XmlSerializers.dll
-D:\Source\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.csprojResolveAssemblyReference.cache
 D:\Source\P_CZ_ME_SALES_PUB\obj\Debug\cz.P_CZ_ME_SALES_PUB.resources
 D:\Source\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.dll

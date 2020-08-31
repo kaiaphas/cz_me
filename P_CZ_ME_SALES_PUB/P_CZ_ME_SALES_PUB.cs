@@ -545,6 +545,11 @@ namespace cz
                             string 수익 = _flexM[i, "AM_MEDIA_PRICE"].ToString();
                             string 동기화 = _flexM[i, "DT_SYNC"].ToString();
 
+                            object[] Params = new object[3];
+                            Params[0] = LoginInfo.CompanyCode;
+                            Params[1] = _flexM[i, "DT_SYNC"].ToString();
+                            Params[2] = _flexM[i, "DT_SYNC"].ToString();  //조회연월 FROM
+
                             string tp_job = "";
 
                             if (_flexM[i, "S1"].ToString().Equals("Y"))
@@ -564,7 +569,7 @@ namespace cz
                             //    ShowMessage("퍼블리셔 발행이 완료 되었습니다.");
                             //}
 
-                            if (_biz.Save_Junpyo(SALES_구분, 순번, 거래처코드, 발행월, 거래처명, 거래처구분, PUB코드, 수주액, 수수료, 수익, 동기화, tp_job))
+                            if (_biz.Save_Junpyo(Params))
                             {
 
                             }

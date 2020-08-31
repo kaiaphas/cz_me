@@ -52,15 +52,26 @@ namespace cz
             base.InitLoad();
             string today = "";
             string toyear = "";
-            string longtoday = "";
 
             DateTime time = this.MainFrameInterface.GetDateTimeToday(); // 오늘 날짜
 
             today = time.ToString("yyyMMdd");
-            toyear = today.Substring(0, 6);
+            toyear = today.Substring(0, 8);
 
-            dp년월_FROM.Text = toyear.Substring(0, 4) + "01";
-            dp년월_TO.Text = toyear.Substring(0, 6);
+            dpYear.ShowUpDown = true;
+            dpYear.Format = DateTimePickerFormat.Custom;
+            dpYear.CustomFormat = "yyyy";
+            dpYear.Value = new DateTime(int.Parse(DateTime.Now.ToString("yyyy")), int.Parse(DateTime.Now.ToString("MM")), 1); 
+
+            dpMonthFr.ShowUpDown = true;
+            dpMonthFr.Format = DateTimePickerFormat.Custom;
+            dpMonthFr.CustomFormat = "MM";
+            dpMonthFr.Value = new DateTime(int.Parse(DateTime.Now.ToString("yyyy")), int.Parse(DateTime.Now.ToString("MM")), 1);
+
+            dpMonthTo.ShowUpDown = true;
+            dpMonthTo.Format = DateTimePickerFormat.Custom;
+            dpMonthTo.CustomFormat = "MM";
+            dpMonthTo.Value = new DateTime(int.Parse(DateTime.Now.ToString("yyyy")), int.Parse(DateTime.Now.ToString("MM")), 1); 
 
             dp대행사FROM.Text = "";
             dp대행사TO.Text = "";
@@ -163,7 +174,7 @@ namespace cz
             _flexM.Cols["me_corpno"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["me_corpid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["me_corpnm"].TextAlign = TextAlignEnum.LeftCenter;
-            _flexM.Cols["NM_MEDIAGR"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["nm_mediagr"].TextAlign = TextAlignEnum.CenterCenter;
 
             _flexM.Cols["me_teamid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["me_teamnm"].TextAlign = TextAlignEnum.LeftCenter;
@@ -358,8 +369,10 @@ namespace cz
             btn대행사전표.Click += new EventHandler(btn대행사전표_Click);
             btn매체전표.Click += new EventHandler(btn매체전표_Click);
             btn동기화.Click += new EventHandler(btn동기화_Click);
-            btn결산취소.Click += new EventHandler(btn결산취소_Click);
-
+            btn삭제처리.Click += new EventHandler(btn삭제처리_Click);
+            btn이월수정.Click += new EventHandler(btn이월수정_Click);
+            dpMonthFr.ValueChanged += new EventHandler(dpMonthFr_ValueChanged);
+            dpMonthTo.ValueChanged += new EventHandler(dpMonthTo_ValueChanged);
             try
             {
                 SetControl set = new SetControl();
@@ -410,9 +423,9 @@ namespace cz
 
                 object[] Params = new object[28];
                 Params[0] = LoginInfo.CompanyCode;
-                Params[1] = strDz;
-                Params[2] = dp년월_FROM.Text;  //조회연월 FROM
-                Params[3] = dp년월_TO.Text; //조회연월 TO
+                Params[1] = "1"; //tp_sales
+                Params[2] = dpYear.Text + dpMonthFr.Text;  //조회연월 FROM
+                Params[3] = dpYear.Text + dpMonthTo.Text; //조회연월 TO
                 Params[4] = txt캠페인명.Text; //캠페인명
                 Params[5] = MULTI_CD_ACCOUNT.QueryWhereIn_Pipe; //계정과목
                 Params[6] = MULTI_CD_AGENT.QueryWhereIn_Pipe;   //광고주
@@ -441,7 +454,7 @@ namespace cz
                 DataSet ds = _biz.Search_M(Params);
                 DataTable dt = ds.Tables[0];
 
-                string DT_DATE = dp년월_TO.Text;
+                string DT_DATE = dpYear.Text + dpMonthTo.Text;
 
                 DataTable dt2 = _biz.Get결산일시(DT_DATE);
 
@@ -543,7 +556,6 @@ namespace cz
 
         protected bool BeforeSaveChk()
         {
-          
             if (!_flexM.HasNormalRow)
             {
                 ShowMessage("저장할 내용이 없습니다.");
@@ -553,6 +565,15 @@ namespace cz
             if (!_flexM.Verify())
                 return false;
 
+            string Year = dpYear.Text;  //조회연월 FROM
+
+            DataTable dt = _biz.Get마감여부(Year);
+
+            if (dt.Rows[0]["ST_MAGAM"].Equals("1"))
+            {
+                ShowMessage("이미 마감처리된 기수로 동기화할 수 없습니다.");
+                return false;
+            }
             //if (!_flexD.HasNormalRow)
             //    return false;
 
@@ -573,7 +594,7 @@ namespace cz
                 DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
 
                 DataTable dt = _flexM.DataTable;
- 
+
                 if (ShowMessage("저장 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
                     obj = _biz.Save(dt, _타메뉴호출);
@@ -1076,25 +1097,23 @@ namespace cz
         {
             try
             {
-                string FROM = dp년월_FROM.Text;  //조회연월 FROM
-                string TO = dp년월_TO.Text; //조회연월 TO
+                string FROM = dpYear.Text + dpMonthFr.Text;  //조회연월 FROM
+                string TO = dpYear.Text + dpMonthTo.Text; //조회연월 TO
+                string Year = dpYear.Text;  //조회연월 FROM
 
-                /*
-                DataTable dt = _biz.Get결산여부(FROM, TO);
+                DataTable dt = _biz.Get마감여부(Year);
 
-                if (dt.Rows[0]["YEAR_MONTH"].Equals("N"))
+                if (dt.Rows[0]["ST_MAGAM"].Equals("1"))
                 {
-
-                }
-                else
-                {
-                    ShowMessage("이미 결산처리 된 월이 포함되었습니다.");
+                    ShowMessage("이미 마감처리된 기수로 동기화할 수 없습니다.");
                     return;
                 }
-                */
+
                 if (ShowMessage("해당 월에 대한 동기화를 진행하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
                     DataSet ds = _biz.Save_Sync(FROM, TO);
+
+                    ShowMessage("동기화 처리가 완료되었습니다.");
                 }
             }
             catch (Exception ex)
@@ -1103,46 +1122,118 @@ namespace cz
             }
         }
 
-        private void btn결산취소_Click(object sender, EventArgs e)
+        private void btn삭제처리_Click(object sender, EventArgs e)
         {
             try
             {
-                string FROM = dp년월_FROM.Text;  //조회연월 FROM
-                string TO = dp년월_TO.Text; //조회연월 TO
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
 
-                DataTable dt = _biz.Get결산여부(FROM, TO);
-
-                if (dt.Rows[0]["ay_year"].Equals("N"))
+                if (ldrchk == null || ldrchk.Length == 0)
                 {
-                    ShowMessage("결산처리되지 않은 달이 포함되어 있습니다. 삭제할 수 없습니다.");
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                string Year = dpYear.Text;  //조회연월 FROM
+
+                DataTable dt = _biz.Get마감여부(Year);
+
+                if (dt.Rows[0]["ST_MAGAM"].Equals("1"))
+                {
+                    ShowMessage("이미 마감처리된 기수로 동기화할 수 없습니다.");
                     return;
                 }
 
                 if (ShowMessage(" 삭제하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
-                    if (_biz.Delete(FROM, TO))
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                            string 순번 = _flexM[i, "seq"].ToString();
+                            string 구분 = "삭제";
 
+                            if (_biz.Update_Sales(구분, 캠페인코드, 순번))
+                            {
+
+                            }
+                        }
                     }
 
-                    //ShowMessage("전표 삭제가 완료 되었습니다.");
-
-                    //object[] Params = new object[6];
-                    //Params[0] = LoginInfo.CompanyCode;
-                    //Params[1] = "SELECT";
-                    //Params[2] = dt일자.StartDateToString.Substring(0, 6);
-                    //Params[3] = dt일자.EndDateToString.Substring(0, 6);
-                    //Params[4] = txt명.Text;
-                    //Params[5] = rdo_idx;
-                    
-                    //DataSet ds = _biz.Search_M(Params);
-
-                    //_flexM.Binding = ds.Tables[0];
+                    ShowMessage("삭제가 완료 되었습니다.");
+                    searchNo();
                 }
             }
             catch (Exception ex)
             {
                 MsgEnd(ex);
+            }
+        }
+
+
+        private void btn이월수정_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                string Year = dpYear.Text;  //조회연월 FROM
+
+                DataTable dt = _biz.Get마감여부(Year);
+
+                if (dt.Rows[0]["ST_MAGAM"].Equals("1"))
+                {
+                    ShowMessage("이미 마감처리된 기수로 동기화할 수 없습니다.");
+                    return;
+                }
+                if (ShowMessage(" 이월처리하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                            string 순번 = _flexM[i, "seq"].ToString();
+                            string 구분 = "이월";
+
+
+                            if (_biz.Update_Sales(구분, 캠페인코드, 순번))
+                            {
+
+                            }
+                        }
+                    }
+
+                    ShowMessage("이월처리가 완료 되었습니다.");
+                    searchNo();
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
+
+        private void dpMonthFr_ValueChanged(object sender, EventArgs e)
+        {
+            if (dpMonthFr.Value > dpMonthTo.Value)
+            {
+                dpMonthTo.Value = dpMonthFr.Value;
+            }
+        }
+
+        private void dpMonthTo_ValueChanged(object sender, EventArgs e)
+        {
+            if (dpMonthFr.Value > dpMonthTo.Value)
+            {
+                dpMonthFr.Value = dpMonthTo.Value;
             }
         }
     }

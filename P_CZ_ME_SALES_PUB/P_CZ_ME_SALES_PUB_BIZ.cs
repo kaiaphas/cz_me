@@ -78,14 +78,14 @@ namespace cz
             return Global.MainFrame.Save(sic);
         }
 
-        internal bool Save_Junpyo(string SALES_구분, string 순번, string 거래처코드, string 발행월, string 거래처명, string 거래처구분, string PUB코드, string 수주액, string 수수료, string 수익, string 동기화, string tp_job)
+        internal bool Save_Junpyo(object[] obj)
         {
                 string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
                 string CD_PC = Global.MainFrame.LoginInfo.CdPc;
                 string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
                 string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
 
-                return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_I", new object[] { 회사코드, 거래처코드, 거래처명, 거래처구분, 수주액, 수수료, 수익, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO, SALES_구분, PUB코드, 순번, 발행월, 동기화, tp_job });
+                return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_I", obj);
         }
 
         internal bool Delete_Junpyo(string 전표번호)
