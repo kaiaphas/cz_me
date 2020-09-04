@@ -364,7 +364,7 @@ namespace cz
             base.InitPaint();
 
             btn전표처리.Click += new EventHandler(btn전표처리_Click);
-            //btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
+            btn전표취소.Click += new EventHandler(btn전표취소_Click);
 
             btn대행사전표.Click += new EventHandler(btn대행사전표_Click);
             btn매체전표.Click += new EventHandler(btn매체전표_Click);
@@ -974,6 +974,40 @@ namespace cz
             }
         }
 
+        private void btn전표취소_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_flexM.HasNormalRow)
+                    return;
+
+                // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
+                if (!BeforeSaveChk())
+                    return;
+
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                if (ShowMessage("선택한 " + dpYear.Text + dpMonthTo.Text + "월(to기준)의 전체 전표취소를 진행하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
+
+                    if (_biz.Delete_Junpyo(발행월))
+                    {
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
+        }
 
         private void btn대행사전표_Click(object sender, EventArgs e)
         {
@@ -994,35 +1028,13 @@ namespace cz
                     return;
                 }
 
-                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                if (ShowMessage("선택한 " + dpYear.Text + dpMonthTo.Text + "월(to기준)의 대행사 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
-                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
+
+                    if (_biz.Save_Junpyo_ay_all(발행월))
                     {
-                        if (_flexM[i, "S"].ToString().Equals("Y"))
-                        {
-                            if (_flexM[i, "NO_DOCU_M"].ToString().Length.Equals(0))
-                            {
-                                string 캠페인코드 = _flexM[i, "cpid"].ToString();
-                                string 순번 = _flexM[i, "seq"].ToString();
-                                string 발행월 = _flexM[i, "ay_year"].ToString();
-                                string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
-                                string 매체기준 = _flexM[i, "me_trade_type"].ToString();
-                                string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                                string 계정과목 = _flexM[i, "cd_acct"].ToString();
-                                string 구분 = _flexM[i, "nm_mediagr"].ToString();
 
-                                if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
-                                {
-
-                                }
-                            }
-                         /*
-                            else
-                            {
-                                ShowMessage("전표처리된 항목입니다.");
-                            }
-                            */
-                        }
                     }
                 }
             }

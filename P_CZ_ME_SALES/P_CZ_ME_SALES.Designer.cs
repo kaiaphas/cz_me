@@ -33,8 +33,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.dpMonthTo = new Duzon.Common.Controls.DateTimePickerExt();
             this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
+            this.dpMonthFr = new Duzon.Common.Controls.DateTimePickerExt();
             this.MULTI_CD_AGENCY_ORI = new Duzon.Common.BpControls.BpComboBox();
+            this.dpYear = new Duzon.Common.Controls.DateTimePickerExt();
             this.labelExt30 = new Duzon.Common.Controls.LabelExt();
             this.dp매체월TO = new Duzon.Common.Controls.DatePicker();
             this.dp매체월FROM = new Duzon.Common.Controls.DatePicker();
@@ -127,9 +130,6 @@
             this.btn삭제처리 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn이월수정 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.dpYear = new Duzon.Common.Controls.DateTimePickerExt();
-            this.dpMonthFr = new Duzon.Common.Controls.DateTimePickerExt();
-            this.dpMonthTo = new Duzon.Common.Controls.DateTimePickerExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -286,6 +286,18 @@
             this.panel1.Size = new System.Drawing.Size(1340, 122);
             this.panel1.TabIndex = 20;
             // 
+            // dpMonthTo
+            // 
+            this.dpMonthTo.CustomFormat = "MM";
+            this.dpMonthTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpMonthTo.Location = new System.Drawing.Point(218, 5);
+            this.dpMonthTo.Name = "dpMonthTo";
+            this.dpMonthTo.ShowUpDown = true;
+            this.dpMonthTo.Size = new System.Drawing.Size(36, 21);
+            this.dpMonthTo.TabIndex = 1970;
+            this.dpMonthTo.UseKeyEnter = true;
+            this.dpMonthTo.UseKeyF3 = true;
+            // 
             // lbl결산일시
             // 
             this.lbl결산일시.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -296,6 +308,18 @@
             this.lbl결산일시.Size = new System.Drawing.Size(300, 18);
             this.lbl결산일시.TabIndex = 1966;
             this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dpMonthFr
+            // 
+            this.dpMonthFr.CustomFormat = "MM";
+            this.dpMonthFr.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpMonthFr.Location = new System.Drawing.Point(171, 4);
+            this.dpMonthFr.Name = "dpMonthFr";
+            this.dpMonthFr.ShowUpDown = true;
+            this.dpMonthFr.Size = new System.Drawing.Size(35, 21);
+            this.dpMonthFr.TabIndex = 1969;
+            this.dpMonthFr.UseKeyEnter = true;
+            this.dpMonthFr.UseKeyF3 = true;
             // 
             // MULTI_CD_AGENCY_ORI
             // 
@@ -310,6 +334,18 @@
             this.MULTI_CD_AGENCY_ORI.UserCodeValue = "CD_PARTNER";
             this.MULTI_CD_AGENCY_ORI.UserHelpID = "H_CZ_HELP02";
             this.MULTI_CD_AGENCY_ORI.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_AGENCY_ORI_QueryBefore);
+            // 
+            // dpYear
+            // 
+            this.dpYear.CustomFormat = "yyyy";
+            this.dpYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpYear.Location = new System.Drawing.Point(116, 4);
+            this.dpYear.Name = "dpYear";
+            this.dpYear.ShowUpDown = true;
+            this.dpYear.Size = new System.Drawing.Size(52, 21);
+            this.dpYear.TabIndex = 1968;
+            this.dpYear.UseKeyEnter = true;
+            this.dpYear.UseKeyF3 = true;
             // 
             // labelExt30
             // 
@@ -1243,7 +1279,7 @@
             this.btn전표취소.BackColor = System.Drawing.Color.White;
             this.btn전표취소.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표취소.Location = new System.Drawing.Point(1268, 14);
+            this.btn전표취소.Location = new System.Drawing.Point(568, 10);
             this.btn전표취소.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표취소.Name = "btn전표취소";
             this.btn전표취소.Size = new System.Drawing.Size(78, 19);
@@ -1258,7 +1294,7 @@
             this.btn대행사전표.BackColor = System.Drawing.Color.White;
             this.btn대행사전표.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn대행사전표.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn대행사전표.Location = new System.Drawing.Point(1014, 14);
+            this.btn대행사전표.Location = new System.Drawing.Point(396, 10);
             this.btn대행사전표.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn대행사전표.Name = "btn대행사전표";
             this.btn대행사전표.Size = new System.Drawing.Size(78, 19);
@@ -1273,7 +1309,7 @@
             this.btn매체전표.BackColor = System.Drawing.Color.White;
             this.btn매체전표.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn매체전표.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn매체전표.Location = new System.Drawing.Point(1093, 14);
+            this.btn매체전표.Location = new System.Drawing.Point(478, 10);
             this.btn매체전표.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn매체전표.Name = "btn매체전표";
             this.btn매체전표.Size = new System.Drawing.Size(78, 19);
@@ -1326,42 +1362,6 @@
             this.btn이월수정.TabStop = false;
             this.btn이월수정.Text = "이월수정";
             this.btn이월수정.UseVisualStyleBackColor = false;
-            // 
-            // dpYear
-            // 
-            this.dpYear.CustomFormat = "yyyy";
-            this.dpYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpYear.Location = new System.Drawing.Point(116, 4);
-            this.dpYear.Name = "dpYear";
-            this.dpYear.ShowUpDown = true;
-            this.dpYear.Size = new System.Drawing.Size(52, 21);
-            this.dpYear.TabIndex = 1968;
-            this.dpYear.UseKeyEnter = true;
-            this.dpYear.UseKeyF3 = true;
-            // 
-            // dpMonthFr
-            // 
-            this.dpMonthFr.CustomFormat = "MM";
-            this.dpMonthFr.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpMonthFr.Location = new System.Drawing.Point(171, 4);
-            this.dpMonthFr.Name = "dpMonthFr";
-            this.dpMonthFr.ShowUpDown = true;
-            this.dpMonthFr.Size = new System.Drawing.Size(35, 21);
-            this.dpMonthFr.TabIndex = 1969;
-            this.dpMonthFr.UseKeyEnter = true;
-            this.dpMonthFr.UseKeyF3 = true;
-            // 
-            // dpMonthTo
-            // 
-            this.dpMonthTo.CustomFormat = "MM";
-            this.dpMonthTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpMonthTo.Location = new System.Drawing.Point(218, 5);
-            this.dpMonthTo.Name = "dpMonthTo";
-            this.dpMonthTo.ShowUpDown = true;
-            this.dpMonthTo.Size = new System.Drawing.Size(36, 21);
-            this.dpMonthTo.TabIndex = 1970;
-            this.dpMonthTo.UseKeyEnter = true;
-            this.dpMonthTo.UseKeyF3 = true;
             // 
             // P_CZ_ME_SALES
             // 

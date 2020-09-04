@@ -96,7 +96,7 @@ namespace cz
             _flexM.SetCol("am_income", "영업수익(매출)", 100, true, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("am_media_price", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
 
-            _flexM.SetCol("dt_year_month", "년", 0, false);
+            _flexM.SetCol("ay_year", "년", 0, false);
 
             _flexM.Cols["tp_sales"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cd_acct"].TextAlign = TextAlignEnum.CenterCenter;
@@ -116,7 +116,7 @@ namespace cz
             _flexM.SetStringFormatCol("me_corpno");
             _flexM.SetNoMaskSaveCol("me_corpno");
 
-            _flexM.Cols["cd_sysdef"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["nm_mediagr"].TextAlign = TextAlignEnum.LeftCenter;
 
             _flexM.SetDummyColumn("S");
             _flexM.Cols.Frozen = 1;
@@ -378,9 +378,9 @@ namespace cz
                 {
                     _flexM[_flexM.Row, "tp_sales"] = "2";
                     _flexM[_flexM.Row, "cd_acct"] = "1";
-                    _flexM[_flexM.Row, "me_year_month"] = "1";
+                    _flexM[_flexM.Row, "me_year_month"] = dp년도.Text + "01";
                     _flexM[_flexM.Row, "me_trade_type"] = "1";
-                    _flexM[_flexM.Row, "dt_year_month"] = dp년도.Text;
+                    _flexM[_flexM.Row, "ay_year"] = dp년도.Text + "01";
                 }
 
                 _flexM.AddFinished();
@@ -428,11 +428,11 @@ namespace cz
                     _flexM[_flexM.Row, "me_corpno"] = _flexM[preIndex, "me_corpno"];
                     _flexM[_flexM.Row, "me_corpid"] = _flexM[preIndex, "me_corpid"];
                     _flexM[_flexM.Row, "me_corpnm"] = _flexM[preIndex, "me_corpnm"];
-                    _flexM[_flexM.Row, "cd_sysdef"] = _flexM[preIndex, "cd_sysdef"];
+                    _flexM[_flexM.Row, "nm_mediagr"] = _flexM[preIndex, "nm_mediagr"];
 
                     _flexM[_flexM.Row, "me_teamid"] = _flexM[preIndex, "me_teamid"];
                     _flexM[_flexM.Row, "me_teamnm"] = _flexM[preIndex, "me_teamnm"];
-                    _flexM[_flexM.Row, "dt_year_month"] = dp년도.Text;
+                    _flexM[_flexM.Row, "ay_year"] = dp년도.Text + "01";
 
                 }
                 else

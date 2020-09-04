@@ -233,6 +233,12 @@ namespace cz
 
                     DataTable dt = _biz.Get마감여부(연월, 구분);
 
+                    if (dt.Rows.Count.Equals(0) == false)
+                    {
+                        ShowMessage("동기화 처리되지 않은 기수입니다.");
+                        return;
+                    }
+
                     if (dt.Rows[0]["ST_MAGAM"].Equals("1"))
                     {
                         ShowMessage("이미 마감처리 된 기수입니다.");
