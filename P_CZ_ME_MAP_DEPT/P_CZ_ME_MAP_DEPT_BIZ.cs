@@ -33,6 +33,26 @@ namespace cz
             return dt;
         }
 
+        public object Save_Row_Number(DataTable dtM, bool 타메뉴호출)
+        {
+            SpInfoCollection sic = new SpInfoCollection();
+            SpInfo si;
+
+            si = new SpInfo();
+
+            si.DataValue = dtM;
+            si.CompanyID = 회사코드;
+            si.UserID = 사용자ID;
+
+            si.SpNameInsert = "UP_CZ_ME_MAP_DEPT_ROW";
+            si.SpNameUpdate = "UP_CZ_ME_MAP_DEPT_ROW";
+            si.SpParamsInsert = new string[] { "CD_COMPANY", "CD_DEPT", "NO_SORT", "LF_FLAG", "ID_TREE" };
+            si.SpParamsUpdate = new string[] { "CD_COMPANY", "CD_DEPT", "NO_SORT", "LF_FLAG", "ID_TREE" };
+            sic.Add(si);
+
+            return Global.MainFrame.Save(sic);
+        }
+
         public object Save(DataTable dtM, bool 타메뉴호출)
         {
             
@@ -55,8 +75,8 @@ namespace cz
                 si.SpNameInsert = "UP_CZ_ME_MAP_DEPT_IU";
                 si.SpNameUpdate = "UP_CZ_ME_MAP_DEPT_IU";
                 si.SpNameDelete = "UP_CZ_ME_MAP_DEPT_D";
-                si.SpParamsInsert = new string[] { "CD_COMPANY", "CD_DEPT_MTS", "NM_DEPT_MTS", "CD_DEPT", "NM_DEPT", "NO_APPLY", "CD_CC", "DT_START" };
-                si.SpParamsUpdate = new string[] { "CD_COMPANY", "CD_DEPT_MTS", "NM_DEPT_MTS", "CD_DEPT", "NM_DEPT", "NO_APPLY", "CD_CC", "DT_START" };
+                si.SpParamsInsert = new string[] { "CD_COMPANY", "CD_DEPT_MTS", "NM_DEPT_MTS", "CD_DEPT", "NM_DEPT", "NO_APPLY", "CD_CC", "DT_START", "DT_END", "ID_TREE", "ID_INSERT" };
+                si.SpParamsUpdate = new string[] { "CD_COMPANY", "CD_DEPT_MTS", "NM_DEPT_MTS", "CD_DEPT", "NM_DEPT", "NO_APPLY", "CD_CC", "DT_START", "DT_END", "ID_TREE", "ID_INSERT" };
                 si.SpParamsDelete = new string[] { "CD_COMPANY", "CD_DEPT" };
                 sic.Add(si);
             }

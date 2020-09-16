@@ -56,6 +56,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Win.C1FlexGrid.2, Version=2.5.20053.230, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="CommonFunction, Version=1.0.0.0, Culture=neutral, PublicKeyToken=59dfe63321a02d8d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AppLib\CommonFunction.dll</HintPath>
+    </Reference>
     <Reference Include="coParameter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0629c82a28f3ac5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\AppLib\coParameter.dll</HintPath>

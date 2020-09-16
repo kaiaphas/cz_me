@@ -145,7 +145,6 @@
             this.rdoYn3.Name = "rdoYn3";
             this.rdoYn3.Size = new System.Drawing.Size(78, 18);
             this.rdoYn3.TabIndex = 192;
-            this.rdoYn3.TabStop = true;
             this.rdoYn3.Text = "미사용";
             this.rdoYn3.TextDD = null;
             this.rdoYn3.UseKeyEnter = true;
@@ -153,6 +152,7 @@
             // 
             // rdoYn2
             // 
+            this.rdoYn2.Checked = true;
             this.rdoYn2.Location = new System.Drawing.Point(60, 2);
             this.rdoYn2.Name = "rdoYn2";
             this.rdoYn2.Size = new System.Drawing.Size(59, 18);
@@ -165,12 +165,10 @@
             // 
             // rdoYn1
             // 
-            this.rdoYn1.Checked = true;
             this.rdoYn1.Location = new System.Drawing.Point(3, 2);
             this.rdoYn1.Name = "rdoYn1";
             this.rdoYn1.Size = new System.Drawing.Size(51, 18);
             this.rdoYn1.TabIndex = 190;
-            this.rdoYn1.TabStop = true;
             this.rdoYn1.Text = "전체";
             this.rdoYn1.TextDD = null;
             this.rdoYn1.UseKeyEnter = true;

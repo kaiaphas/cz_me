@@ -462,29 +462,42 @@ namespace cz
                     return;
                 }
 
-                if (ShowMessage(" 이월처리하시겠습니까?", "QY2") == DialogResult.Yes)
+                string 구분 = "";
+
+                //삭제내역은 수정할 수 없도록 처리
+                if (cbo등록구분.SelectedValue.ToString().Equals("2"))
                 {
-                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    구분 = "이월복구";
+                }
+                else
+                {
+                    구분 = "삭제복구";
+                }
+
+                if (ShowMessage(구분 +" 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 3; i < _flexM.Rows.Count; i++)
                     {
                         if (_flexM[i, "S"].ToString().Equals("Y"))
                         {
                             string 캠페인코드 = _flexM[i, "cpid"].ToString();
                             string 순번 = _flexM[i, "seq"].ToString();
-                            string 구분 = "";
-
-                            //삭제내역은 수정할 수 없도록 처리
-                            if (cbo등록구분.SelectedValue.ToString().Equals("2"))
-                            {
-                                구분 = "이월복구";
-                            }
-                            else
-                            {
-                                구분 = "삭제복구";
-                            }
 
                             if (_biz.Update_Sales(구분, 캠페인코드, 순번))
                             {
+                                ShowMessage(구분 + "가 완료되었습니다.");
 
+                                //_flexM.Binding = _biz.GetLineTable();
+                                object[] Params = new object[5];
+                                Params[0] = LoginInfo.CompanyCode;
+                                Params[1] = cbo등록구분.SelectedValue; //tp_sales
+                                Params[2] = dp년도.Text;  //조회연월 FROM
+                                Params[3] = dp년도.Text; //조회연월 TO
+                                Params[4] = txt캠페인명.Text; //캠페인명
+
+                                DataSet ds = _biz.Search_M(Params);
+
+                                _flexM.Binding = ds.Tables[0];
                             }
                         }
                     }
@@ -550,5 +563,20 @@ namespace cz
         #region ♥ 기타 Property
         string ServerKey { get { return Global.MainFrame.ServerKeyCommon.ToUpper(); } }
         #endregion
+
+        private void cbo등록구분_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //_flexM.Binding = _biz.GetLineTable();
+            object[] Params = new object[5];
+            Params[0] = LoginInfo.CompanyCode;
+            Params[1] = cbo등록구분.SelectedValue; //tp_sales
+            Params[2] = dp년도.Text;  //조회연월 FROM
+            Params[3] = dp년도.Text; //조회연월 TO
+            Params[4] = txt캠페인명.Text; //캠페인명
+
+            DataSet ds = _biz.Search_M(Params);
+
+            _flexM.Binding = ds.Tables[0];
+        }
     }
 }

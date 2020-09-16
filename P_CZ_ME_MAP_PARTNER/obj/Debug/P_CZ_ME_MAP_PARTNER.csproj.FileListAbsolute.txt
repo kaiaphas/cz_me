@@ -240,8 +240,5 @@ D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\cz.P_CZ_ME_MAP_PARTNER.resources
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.dll
 D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.pdb
-D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.XtraPivotGrid.v10.2.dll
-D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.PivotGrid.v10.2.Core.dll
-D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.Data.v10.2.dll
-D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.Utils.v10.2.dll
-D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\DevExpress.XtraEditors.v10.2.dll
+D:\Source\P_CZ_ME_MAP_PARTNER\bin\Debug\C1.C1Excel.2.xml
+D:\Source\P_CZ_ME_MAP_PARTNER\obj\Debug\P_CZ_ME_MAP_PARTNER.csprojResolveAssemblyReference.cache

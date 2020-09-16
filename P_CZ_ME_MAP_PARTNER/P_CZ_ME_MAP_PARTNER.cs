@@ -916,7 +916,7 @@ namespace cz
                 {
                     case "me_sumcode":
 
-                        e.Parameter.UserParams = "매체 도움창;H_CZ_ME_GR;";
+                        e.Parameter.UserParams = "매체 도움창;H_CZ_ME_GR2;";
                         break;
                 }
 

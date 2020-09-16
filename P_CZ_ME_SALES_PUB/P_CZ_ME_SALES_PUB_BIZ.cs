@@ -80,11 +80,6 @@ namespace cz
 
         internal bool Save_Junpyo(object[] obj)
         {
-                string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
-                string CD_PC = Global.MainFrame.LoginInfo.CdPc;
-                string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
-                string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
-
                 return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_I", obj);
         }
 

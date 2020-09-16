@@ -240,3 +240,4 @@ D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\C1.Win.C1FlexGrid.2.dll
 D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\Duzon.BizOn.Erpu.Forms.dll
 D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\Duzon.BizOn.Windows.Forms.dll
 D:\Source\P_CZ_ME_SALES_PUB\bin\Debug\C1.C1Excel.2.xml
+D:\Source\P_CZ_ME_SALES_PUB\obj\Debug\P_CZ_ME_SALES_PUB.csprojResolveAssemblyReference.cache

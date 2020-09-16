@@ -51,6 +51,12 @@ namespace cz
                     list.Add(new object[] { "biz_no", "사업자등록번호", 90 });
                     break;
 
+                case "H_CZ_ME_GR2":     //매체 도움창 메조미디어
+                    list.Add(new object[] { "cd_partner", "ID", 70 });
+                    list.Add(new object[] { "biz_name", "사업자명", 180 });
+                    list.Add(new object[] { "biz_no", "사업자등록번호", 90 });
+                    break;
+
                 case "H_CZ_ME_EMP":              //사원 도움창 메조미디어
                     list.Add(new object[] { "NO_EMP", "사원코드", 100 });
                     list.Add(new object[] { "NM_KOR", "사원명", 200 });
@@ -94,6 +100,11 @@ namespace cz
                 //메조미디어 매체
                 case "H_CZ_ME_GR":
                     dt = DBHelper.GetDataTable("UP_CZ_MEZZO_SALESGR_P_S", new object[] { 회사코드, 검색, GetListParam[0] });
+                    break;
+
+                //메조미디어 매체
+                case "H_CZ_ME_GR2":
+                    dt = DBHelper.GetDataTable("UP_CZ_MEZZO_H_GR_S", new object[] { 회사코드, 검색, GetListParam[0] });
                     break;
 
                 //메조미디어 사원

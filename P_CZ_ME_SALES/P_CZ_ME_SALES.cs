@@ -6,6 +6,7 @@ using C1.Win.C1FlexGrid;
 using Dass.FlexGrid;
 using Duzon.Common.BpControls;
 using Duzon.Common.Forms;
+using Duzon.ERPU.Grant;
 using Duzon.ERPU;
 using Duzon.ERPU.MF;
 using Duzon.ERPU.MF.Common;
@@ -95,7 +96,7 @@ namespace cz
         private void InitGrid()
         {
             //HEADER
-            _flexM.BeginSetting(2, 1, false);
+            _flexM.BeginSetting(1, 1, false);
 
             _flexM.SetCol("S", "S", 35, true, CheckTypeEnum.Y_N);
 
@@ -162,7 +163,8 @@ namespace cz
             _flexM.Cols["cpid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cpname"].TextAlign = TextAlignEnum.LeftCenter;
             _flexM.Cols["req_no"].TextAlign = TextAlignEnum.CenterCenter;
-
+            _flexM.Cols["cp_agentno"].TextAlign = TextAlignEnum.CenterCenter;
+            
             _flexM.Cols["ay_year_month"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_agencyno"].TextAlign = TextAlignEnum.CenterCenter;
@@ -274,39 +276,40 @@ namespace cz
             //_flexM.AllowMerging = AllowMergingEnum.FixedOnly;
 
             //MERGE 처리 대행사
-            _flexM[0, "ay_year_month"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "ay_trade_type"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "ay_agencyno"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "ay_agencyid"] = _flexM[0, "agency"] = "대행사";
-            _flexM[0, "ay_agencynm"] = _flexM[0, "agency"] = "대행사";
+            //_flexM[0, "ay_year_month"] = _flexM[0, "agency"] = "대행사";
+            //_flexM[0, "ay_trade_type"] = _flexM[0, "agency"] = "대행사";
+            //_flexM[0, "ay_agencyno"] = _flexM[0, "agency"] = "대행사";
+            //_flexM[0, "ay_agencyid"] = _flexM[0, "agency"] = "대행사";
+            //_flexM[0, "ay_agencynm"] = _flexM[0, "agency"] = "대행사";
 
             //MERGE 처리 매체
-            _flexM[0, "me_year_month"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "me_trade_type"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "me_corpno"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "me_corpid"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "me_corpnm"] = _flexM[0, "agent"] = "매체";
-            _flexM[0, "nm_mediagr"] = _flexM[0, "agent"] = "매체";
+            //_flexM[0, "me_year_month"] = _flexM[0, "agent"] = "매체";
+            //_flexM[0, "me_trade_type"] = _flexM[0, "agent"] = "매체";
+            //_flexM[0, "me_corpno"] = _flexM[0, "agent"] = "매체";
+            //_flexM[0, "me_corpid"] = _flexM[0, "agent"] = "매체";
+            //_flexM[0, "me_corpnm"] = _flexM[0, "agent"] = "매체";
+            //_flexM[0, "nm_mediagr"] = _flexM[0, "agent"] = "매체";
 
             //MERGE 대행사 전표정보
             //_flexM[0, "DOCU_TYPE_D"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
-            _flexM[0, "docu_no_d"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            //_flexM[0, "docu_no_d"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
             //_flexM[0, "PUB_YN"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
             //_flexM[0, "SALES_TAX_ALL"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
-            _flexM[0, "sales_tax_d"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
+            //_flexM[0, "sales_tax_d"] = _flexM[0, "agency_docu"] = "대행사 전표정보";
 
             //MERGE 매체 전표정보
             //_flexM[0, "DOCU_TYPE_M"] = _flexM[0, "agent_docu"] = "매체 전표정보";
-            _flexM[0, "docu_no_m"] = _flexM[0, "agent_docu"] = "매체 전표정보";
-            _flexM[0, "sales_tax_m"] = _flexM[0, "agent_docu"] = "매체 전표정보";
+            //_flexM[0, "docu_no_m"] = _flexM[0, "agent_docu"] = "매체 전표정보";
+            //_flexM[0, "sales_tax_m"] = _flexM[0, "agent_docu"] = "매체 전표정보";
 
             //비고
-            _flexM[0, "no_note"] = _flexM[0, "sales_etc"] = "비고";
-            _flexM[0, "id_update"] = _flexM[0, "sales_etc"] = "비고";
-            _flexM[0, "dt_update"] = _flexM[0, "sales_etc"] = "비고";
+            //_flexM[0, "no_note"] = _flexM[0, "sales_etc"] = "비고";
+            //_flexM[0, "id_update"] = _flexM[0, "sales_etc"] = "비고";
+            //_flexM[0, "dt_update"] = _flexM[0, "sales_etc"] = "비고";
 
             _flexM.Cols.Frozen = 1;
 
+            _flexM.HelpClick += new EventHandler(_flexM_HelpClick);
             _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
             
         }
@@ -363,14 +366,24 @@ namespace cz
         {
             base.InitPaint();
 
-            btn전표처리.Click += new EventHandler(btn전표처리_Click);
-            btn전표취소.Click += new EventHandler(btn전표취소_Click);
+            UGrant grant = new UGrant();
 
-            btn대행사전표.Click += new EventHandler(btn대행사전표_Click);
-            btn매체전표.Click += new EventHandler(btn매체전표_Click);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn전표일괄처리", btn전표일괄처리);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn전표일괄취소", btn전표일괄취소);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn전표처리", btn전표처리);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn전표취소", btn전표취소);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn동기화", btn동기화);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn삭제반영", btn삭제반영);
+            grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn이월반영", btn이월반영);
+
+            btn전표일괄처리.Click += new EventHandler(btn전표일괄처리_Click);
+            btn전표일괄취소.Click += new EventHandler(btn전표일괄취소_Click);
+
+            btn전표처리.Click += new EventHandler(btn대행사전표_Click);
+            btn전표취소.Click += new EventHandler(btn매체전표_Click);
             btn동기화.Click += new EventHandler(btn동기화_Click);
-            btn삭제처리.Click += new EventHandler(btn삭제처리_Click);
-            btn이월수정.Click += new EventHandler(btn이월수정_Click);
+            btn삭제반영.Click += new EventHandler(btn삭제반영_Click);
+            btn이월반영.Click += new EventHandler(btn이월반영_Click);
             dpMonthFr.ValueChanged += new EventHandler(dpMonthFr_ValueChanged);
             dpMonthTo.ValueChanged += new EventHandler(dpMonthTo_ValueChanged);
             try
@@ -378,7 +391,7 @@ namespace cz
                 SetControl set = new SetControl();
 
                 set.SetCombobox(cbo마감구분, MA.GetCodeUser(new string[] { "", "1", "0" }, new string[] { DD("전체"), DD("마감"), DD("미마감") }));
-                set.SetCombobox(cbo수정구분, MA.GetCodeUser(new string[] { "", "4", "5" }, new string[] { DD("전체"), DD("검수중"), DD("승인") }));
+                set.SetCombobox(cbo수정구분, MA.GetCodeUser(new string[] { "0", "1" }, new string[] { DD("미포함"), DD("포함") }));
 
                 set.SetCombobox(cbo수수료, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
                 set.SetCombobox(cbo영업수익, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
@@ -457,14 +470,17 @@ namespace cz
                 string DT_DATE = dpYear.Text + dpMonthTo.Text;
 
                 DataTable dt2 = _biz.Get결산일시(DT_DATE);
+                DataTable dt3 = _biz.Get마감여부(dpYear.Text);
 
-                lbl결산일시.Text = "동기화 시간(to기준) : " + dt2.Rows[0]["DT_CLOSING"].ToString();
-
+                lbl결산일시.Text = "동기화시간 : " + dt2.Rows[0]["DT_CLOSING"].ToString();
+                lbl마감여부.Text = "마감여부 : " + dt3.Rows[0]["ST_FLAG"].ToString();
+                
                 //dt.AcceptChanges();
                 _flexM.Binding = dt;
                 //_flexM.Rows.Frozen = 2;
                 _flexM.SetDummyColumn(new string[] { "S" });
 
+                /*
                 //디지털광고매출
                 decimal decBudget_dig = 0; decimal decAgy_price_dig = 0; decimal decIncome_dig = 0; decimal decMedia_price_dig = 0;
                 //네트워크광고매출
@@ -497,7 +513,7 @@ namespace cz
                     }
 
                 }
-
+                */
                 /*
                 if (_flexM.Rows.Count >= 4)
                 {
@@ -601,7 +617,7 @@ namespace cz
                 }
             }
 
-            return false ;
+            return true;
         }
 
         #region -> 저장버튼클릭
@@ -662,12 +678,12 @@ namespace cz
 
         private void MULTI_CD_AGENCY_QueryBefore(object sender, BpQueryArgs e)
         {
-            MULTI_CD_AGENCY.UserParams = "대행사 도움창;H_CZ_ME_AGENCY;" + MULTI_CD_AGENCY.CodeNames + ";";
+            MULTI_CD_AGENCY.UserParams = "대행사 도움창;H_CZ_ME_GR;" + MULTI_CD_AGENCY.CodeNames + ";";
         }
 
         private void MULTI_CD_AGENCY_ORI_QueryBefore(object sender, BpQueryArgs e)
         {
-            MULTI_CD_AGENCY_ORI.UserParams = "대행사 도움창;H_CZ_ME_AGENCY;" + MULTI_CD_AGENCY_ORI.CodeNames + ";";
+            MULTI_CD_AGENCY_ORI.UserParams = "대행사 도움창;H_CZ_ME_GR;" + MULTI_CD_AGENCY_ORI.CodeNames + ";";
         }
 
         private void MULTI_CD_DEPT_QueryBefore(object sender, BpQueryArgs e)
@@ -716,6 +732,29 @@ namespace cz
             }
         }
 
+        void _flexM_HelpClick(object sender, EventArgs e)
+        {
+            if (_flexM.Cols[_flexM.Col].Name == "S")
+                return;
+
+            if (_flexM.Cols[_flexM.Col].Name == "no_docu_m")
+            {
+                string 대행사 = D.GetString(_flexM["NO_DOCU_M"]);
+                object[] Args = { 대행사, "", "", Global.MainFrame.LoginInfo.CompanyCode };
+                CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
+            }
+            else if (_flexM.Cols[_flexM.Col].Name == "no_docu_d")
+            {
+                string 매체 = D.GetString(_flexM["NO_DOCU_D"]);
+                object[] Args = { 매체, "", "", Global.MainFrame.LoginInfo.CompanyCode };
+                CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void _flexM_OwnerDrawCell(object sender, OwnerDrawCellEventArgs e)
         {
             CellRange rg;
@@ -728,7 +767,7 @@ namespace cz
                 return;
 
             //if (D.GetString(_flexM[e.Row, "cpname"]) == "조정 전표" || D.GetString(_flexM[e.Row, "cpname"]) == "디지털광고매출" || D.GetString(_flexM[e.Row, "cpname"]) == "네트워크광고매출" || D.GetString(_flexM[e.Row, "cpname"]) == "기타매출" || D.GetString(_flexM[e.Row, "cpname"]) == "총계")
-            if (D.GetString(_flexM[e.Row, "cpname"]) == "조정 전표")
+            if (D.GetString(_flexM[e.Row, "IDX"]) != "0")
             {
                 _flexM[e.Row, 0] = ""; //상단 고정그리드 숫자 지우기
 
@@ -823,6 +862,19 @@ namespace cz
                 _flexM.Rows[e.Row].Style = csCellstyle;
             }
 
+            if (D.GetString(_flexM[e.Row, "IDX"]) == "2")
+            {
+                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(196)), ((Byte)(215)), ((Byte)(155)));
+                _flexM.Rows[e.Row].Style = csCellstyle;
+            }
+
+            if (D.GetString(_flexM[e.Row, "IDX"]) == "1")
+            {
+                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(230)), ((Byte)(230)));
+                _flexM.Rows[e.Row].Style = csCellstyle;
+            }
+
+            /*
             if (D.GetString(_flexM[e.Row, "cpname"]) == "총계" )
             {
                 csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(196)), ((Byte)(215)), ((Byte)(155)));
@@ -834,6 +886,7 @@ namespace cz
                 csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(230)), ((Byte)(230)));
                 _flexM.Rows[e.Row].Style = csCellstyle;
             }
+             */
         }
 
         private void bpc광고주_QueryBefore(object sender, BpQueryArgs e)
@@ -899,7 +952,7 @@ namespace cz
             }
         }
 
-        private void btn전표처리_Click(object sender, EventArgs e)
+        private void btn전표일괄처리_Click(object sender, EventArgs e)
         {
             try
             {
@@ -910,62 +963,21 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
-
-                if (ldrchk == null || ldrchk.Length == 0)
+                if (ShowMessage("선택한 " + dpMonthTo.Text + "월(to기준)의 전표를 일괄처리 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
-                    ShowMessage(공통메세지.선택된자료가없습니다);
-                    return;
-                }
+                    string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
 
-                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
-                {
-                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    if (_biz.Save_Junpyo_ay_all(발행월))
                     {
-                        string 캠페인코드 = _flexM[i, "cpid"].ToString();
-                        string 순번 = _flexM[i, "seq"].ToString();
-                        string 발행월 = _flexM[i, "ay_year"].ToString();
-                        string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
-                        string 매체기준 = _flexM[i, "me_trade_type"].ToString();
-                        string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                        string 계정과목 = _flexM[i, "cd_acct"].ToString();
-                        string 구분 = _flexM[i, "nm_mediagr"].ToString();
                         
-                        if (_flexM[i, "S"].ToString().Equals("Y"))
-                        {
-                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
-                            {
-
-                            }
-
-                            if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
-                            {
-
-                            }
-                        }
-
-                        /*
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("수기등록"))
-                        {
-                            ShowMessage((i-1) + "행은 수주전표 및 수수료전표를 입력한 건으로 전표처리할 수 없습니다.");
-                        }
-
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("전표처리"))
-                        {
-                            ShowMessage((i-1) + "행은 이미 전표가 처리되었습니다.");
-                        }
-
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("자료변경"))
-                        {
-                            ShowMessage((i-1) + "행 전표를 삭제 후 처리하세요.");
-                        }
-
-                        if (_flexM[i, "S"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("미처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
-                        {
-
-                        }
-                         * */
                     }
+
+                    if (_biz.Save_Junpyo_me_all(발행월))
+                    {
+
+                    }
+
+                    ShowMessage(dpMonthTo.Text + "월의 전표 처리가 완료되었습니다.");
                 }
             }
             catch (Exception ex)
@@ -974,10 +986,11 @@ namespace cz
             }
         }
 
-        private void btn전표취소_Click(object sender, EventArgs e)
+        private void btn전표일괄취소_Click(object sender, EventArgs e)
         {
             try
             {
+
                 if (!_flexM.HasNormalRow)
                     return;
 
@@ -985,15 +998,11 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+                ShowMessage("준비중입니다.");
+                return;
 
-                if (ldrchk == null || ldrchk.Length == 0)
-                {
-                    ShowMessage(공통메세지.선택된자료가없습니다);
-                    return;
-                }
-
-                if (ShowMessage("선택한 " + dpYear.Text + dpMonthTo.Text + "월(to기준)의 전체 전표취소를 진행하시겠습니까?", "QY2") == DialogResult.Yes)
+                /*
+                if (ShowMessage("선택한 " + dpMonthTo.Text + "월(to기준)의 전표를 전체 취소 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
                     string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
 
@@ -1002,6 +1011,7 @@ namespace cz
 
                     }
                 }
+                 */
             }
             catch (Exception ex)
             {
@@ -1020,23 +1030,20 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+                ShowMessage("준비중입니다.");
+                return;
 
-                if (ldrchk == null || ldrchk.Length == 0)
-                {
-                    ShowMessage(공통메세지.선택된자료가없습니다);
-                    return;
-                }
-
-                if (ShowMessage("선택한 " + dpYear.Text + dpMonthTo.Text + "월(to기준)의 대행사 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                /*
+                if (ShowMessage("선택한 " + dpMonthTo.Text + "월(to기준)의 대행사 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
                     string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
 
                     if (_biz.Save_Junpyo_ay_all(발행월))
                     {
-
+                        ShowMessage("대행사 전표 처리가 완료되었습니다.");
                     }
                 }
+                 */
             }
             catch (Exception ex)
             {
@@ -1056,48 +1063,20 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+                ShowMessage("준비중입니다.");
+                return;
 
-                if (ldrchk == null || ldrchk.Length == 0)
+                /*
+                if (ShowMessage("선택한 " + dpMonthTo.Text + "월(to기준)의 매체 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
-                    ShowMessage(공통메세지.선택된자료가없습니다);
-                    return;
-                }
+                    string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
 
-                if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
-                {
-                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    if (_biz.Save_Junpyo_me_all(발행월))
                     {
-                        if (_flexM[i, "S"].ToString().Equals("Y"))
-                        {
-                            if (_flexM[i, "NO_DOCU_D"].ToString().Length.Equals(0))
-                            {
-                                string 캠페인코드 = _flexM[i, "cpid"].ToString();
-                                string 순번 = _flexM[i, "seq"].ToString();
-                                string 발행월 = _flexM[i, "ay_year"].ToString();
-                                string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
-                                string 매체기준 = _flexM[i, "me_trade_type"].ToString();
-                                string 합산매체 = _flexM[i, "me_sumcode"].ToString();
-                                string 계정과목 = _flexM[i, "cd_acct"].ToString();
-                                string 구분 = _flexM[i, "nm_mediagr"].ToString();
-
-                                if (_flexM[i, "S"].ToString().Equals("Y"))
-                                {
-                                    if (_biz.Save_Junpyo_me(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분))
-                                    {
-
-                                    }
-                                }
-                            }
-                            /*
-                               else
-                               {
-                                   ShowMessage("전표처리된 항목입니다.");
-                               }
-                               */
-                        }
+                        ShowMessage("매체 전표 처리가 완료되었습니다.");
                     }
                 }
+                 */
             }
             catch (Exception ex)
             {
@@ -1134,7 +1113,7 @@ namespace cz
             }
         }
 
-        private void btn삭제처리_Click(object sender, EventArgs e)
+        private void btn삭제반영_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1184,7 +1163,7 @@ namespace cz
         }
 
 
-        private void btn이월수정_Click(object sender, EventArgs e)
+        private void btn이월반영_Click(object sender, EventArgs e)
         {
             try
             {

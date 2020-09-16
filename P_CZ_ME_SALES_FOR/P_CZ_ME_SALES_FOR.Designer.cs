@@ -137,6 +137,7 @@
             this.cbo등록구분.Size = new System.Drawing.Size(136, 20);
             this.cbo등록구분.TabIndex = 1963;
             this.cbo등록구분.UseKeyF3 = false;
+            this.cbo등록구분.SelectionChangeCommitted += new System.EventHandler(this.cbo등록구분_SelectionChangeCommitted);
             // 
             // txt캠페인명
             // 

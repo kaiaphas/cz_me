@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.lbl마감여부 = new Duzon.Common.Controls.LabelExt();
             this.dpMonthTo = new Duzon.Common.Controls.DateTimePickerExt();
             this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
             this.dpMonthFr = new Duzon.Common.Controls.DateTimePickerExt();
@@ -45,12 +46,13 @@
             this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
             this.MULTI_CD_ACCOUNT = new Duzon.Common.BpControls.BpComboBox();
             this.cbo매체수익 = new Duzon.Common.Controls.DropDownComboBox();
+            this.panelExt28 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt23 = new Duzon.Common.Controls.LabelExt();
+            this.cbo수정구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.panelExt30 = new Duzon.Common.Controls.PanelExt();
             this.labelExt27 = new Duzon.Common.Controls.LabelExt();
             this.cbo영업수익 = new Duzon.Common.Controls.DropDownComboBox();
             this.cbo수수료 = new Duzon.Common.Controls.DropDownComboBox();
-            this.cbo수정구분 = new Duzon.Common.Controls.DropDownComboBox();
-            this.cbo마감구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.panelExt27 = new Duzon.Common.Controls.PanelExt();
             this.labelExt25 = new Duzon.Common.Controls.LabelExt();
             this.MULTI_CD_DEPT = new Duzon.Common.BpControls.BpComboBox();
@@ -107,10 +109,6 @@
             this.labelExt21 = new Duzon.Common.Controls.LabelExt();
             this.panelExt17 = new Duzon.Common.Controls.PanelExt();
             this.labelExt18 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt28 = new Duzon.Common.Controls.PanelExt();
-            this.labelExt23 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt25 = new Duzon.Common.Controls.PanelExt();
-            this.labelExt20 = new Duzon.Common.Controls.LabelExt();
             this.MULTI_CD_AGENT = new Duzon.Common.BpControls.BpComboBox();
             this.txt캠페인명 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt2 = new Duzon.Common.Controls.PanelExt();
@@ -122,20 +120,24 @@
             this.labelExt28 = new Duzon.Common.Controls.LabelExt();
             this.panel7 = new Duzon.Common.Controls.PanelExt();
             this.labelExt5 = new Duzon.Common.Controls.LabelExt();
+            this.cbo마감구분 = new Duzon.Common.Controls.DropDownComboBox();
+            this.panelExt25 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt20 = new Duzon.Common.Controls.LabelExt();
             this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn전표일괄처리 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn전표일괄취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn전표처리 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn전표취소 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn대행사전표 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn매체전표 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn삭제처리 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn삭제반영 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn이월수정 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.btn이월반영 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월TO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월FROM)).BeginInit();
+            this.panelExt28.SuspendLayout();
             this.panelExt30.SuspendLayout();
             this.panelExt27.SuspendLayout();
             this.panelExt22.SuspendLayout();
@@ -161,12 +163,11 @@
             this.panelExt29.SuspendLayout();
             this.panelExt26.SuspendLayout();
             this.panelExt17.SuspendLayout();
-            this.panelExt28.SuspendLayout();
-            this.panelExt25.SuspendLayout();
             this.panelExt2.SuspendLayout();
             this.panelExt1.SuspendLayout();
             this.panelExt23.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panelExt25.SuspendLayout();
             this.SuspendLayout();
             // 
             // mDataArea
@@ -220,6 +221,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lbl마감여부);
             this.panel1.Controls.Add(this.dpMonthTo);
             this.panel1.Controls.Add(this.lbl결산일시);
             this.panel1.Controls.Add(this.dpMonthFr);
@@ -232,11 +234,11 @@
             this.panel1.Controls.Add(this.MULTI_CD_CORP);
             this.panel1.Controls.Add(this.MULTI_CD_ACCOUNT);
             this.panel1.Controls.Add(this.cbo매체수익);
+            this.panel1.Controls.Add(this.panelExt28);
+            this.panel1.Controls.Add(this.cbo수정구분);
             this.panel1.Controls.Add(this.panelExt30);
             this.panel1.Controls.Add(this.cbo영업수익);
             this.panel1.Controls.Add(this.cbo수수료);
-            this.panel1.Controls.Add(this.cbo수정구분);
-            this.panel1.Controls.Add(this.cbo마감구분);
             this.panel1.Controls.Add(this.panelExt27);
             this.panel1.Controls.Add(this.MULTI_CD_DEPT);
             this.panel1.Controls.Add(this.panelExt22);
@@ -271,8 +273,6 @@
             this.panel1.Controls.Add(this.panelExt29);
             this.panel1.Controls.Add(this.panelExt26);
             this.panel1.Controls.Add(this.panelExt17);
-            this.panel1.Controls.Add(this.panelExt28);
-            this.panel1.Controls.Add(this.panelExt25);
             this.panel1.Controls.Add(this.MULTI_CD_AGENT);
             this.panel1.Controls.Add(this.txt캠페인명);
             this.panel1.Controls.Add(this.panelExt2);
@@ -285,6 +285,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 122);
             this.panel1.TabIndex = 20;
+            // 
+            // lbl마감여부
+            // 
+            this.lbl마감여부.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl마감여부.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl마감여부.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl마감여부.Location = new System.Drawing.Point(1236, 5);
+            this.lbl마감여부.Name = "lbl마감여부";
+            this.lbl마감여부.Size = new System.Drawing.Size(82, 18);
+            this.lbl마감여부.TabIndex = 1971;
+            this.lbl마감여부.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dpMonthTo
             // 
@@ -303,9 +314,9 @@
             this.lbl결산일시.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbl결산일시.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl결산일시.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl결산일시.Location = new System.Drawing.Point(987, 5);
+            this.lbl결산일시.Location = new System.Drawing.Point(985, 5);
             this.lbl결산일시.Name = "lbl결산일시";
-            this.lbl결산일시.Size = new System.Drawing.Size(300, 18);
+            this.lbl결산일시.Size = new System.Drawing.Size(248, 18);
             this.lbl결산일시.TabIndex = 1966;
             this.lbl결산일시.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -419,7 +430,7 @@
             // 
             this.MULTI_CD_ACCOUNT.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MULTI_CD_ACCOUNT.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
-            this.MULTI_CD_ACCOUNT.Location = new System.Drawing.Point(796, 33);
+            this.MULTI_CD_ACCOUNT.Location = new System.Drawing.Point(1130, 33);
             this.MULTI_CD_ACCOUNT.Name = "MULTI_CD_ACCOUNT";
             this.MULTI_CD_ACCOUNT.Size = new System.Drawing.Size(150, 21);
             this.MULTI_CD_ACCOUNT.TabIndex = 299;
@@ -441,11 +452,42 @@
             this.cbo매체수익.TabIndex = 297;
             this.cbo매체수익.UseKeyF3 = false;
             // 
+            // panelExt28
+            // 
+            this.panelExt28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt28.Controls.Add(this.labelExt23);
+            this.panelExt28.Location = new System.Drawing.Point(724, 31);
+            this.panelExt28.Name = "panelExt28";
+            this.panelExt28.Size = new System.Drawing.Size(70, 27);
+            this.panelExt28.TabIndex = 259;
+            // 
+            // labelExt23
+            // 
+            this.labelExt23.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt23.Location = new System.Drawing.Point(4, 5);
+            this.labelExt23.Name = "labelExt23";
+            this.labelExt23.Size = new System.Drawing.Size(60, 18);
+            this.labelExt23.TabIndex = 55;
+            this.labelExt23.Text = "수정구분";
+            this.labelExt23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbo수정구분
+            // 
+            this.cbo수정구분.AutoDropDown = true;
+            this.cbo수정구분.BackColor = System.Drawing.Color.White;
+            this.cbo수정구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo수정구분.ItemHeight = 12;
+            this.cbo수정구분.Location = new System.Drawing.Point(796, 34);
+            this.cbo수정구분.Name = "cbo수정구분";
+            this.cbo수정구분.Size = new System.Drawing.Size(90, 20);
+            this.cbo수정구분.TabIndex = 295;
+            this.cbo수정구분.UseKeyF3 = false;
+            // 
             // panelExt30
             // 
             this.panelExt30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt30.Controls.Add(this.labelExt27);
-            this.panelExt30.Location = new System.Drawing.Point(724, 31);
+            this.panelExt30.Location = new System.Drawing.Point(1059, 31);
             this.panelExt30.Name = "panelExt30";
             this.panelExt30.Size = new System.Drawing.Size(70, 27);
             this.panelExt30.TabIndex = 278;
@@ -483,30 +525,6 @@
             this.cbo수수료.Size = new System.Drawing.Size(90, 20);
             this.cbo수수료.TabIndex = 296;
             this.cbo수수료.UseKeyF3 = false;
-            // 
-            // cbo수정구분
-            // 
-            this.cbo수정구분.AutoDropDown = true;
-            this.cbo수정구분.BackColor = System.Drawing.Color.White;
-            this.cbo수정구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo수정구분.ItemHeight = 12;
-            this.cbo수정구분.Location = new System.Drawing.Point(1197, 34);
-            this.cbo수정구분.Name = "cbo수정구분";
-            this.cbo수정구분.Size = new System.Drawing.Size(90, 20);
-            this.cbo수정구분.TabIndex = 295;
-            this.cbo수정구분.UseKeyF3 = false;
-            // 
-            // cbo마감구분
-            // 
-            this.cbo마감구분.AutoDropDown = true;
-            this.cbo마감구분.BackColor = System.Drawing.Color.White;
-            this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo마감구분.ItemHeight = 12;
-            this.cbo마감구분.Location = new System.Drawing.Point(1026, 34);
-            this.cbo마감구분.Name = "cbo마감구분";
-            this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
-            this.cbo마감구분.TabIndex = 294;
-            this.cbo마감구분.UseKeyF3 = false;
             // 
             // panelExt27
             // 
@@ -1089,44 +1107,6 @@
             this.labelExt18.Text = "수주액";
             this.labelExt18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelExt28
-            // 
-            this.panelExt28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt28.Controls.Add(this.labelExt23);
-            this.panelExt28.Location = new System.Drawing.Point(1126, 31);
-            this.panelExt28.Name = "panelExt28";
-            this.panelExt28.Size = new System.Drawing.Size(70, 27);
-            this.panelExt28.TabIndex = 259;
-            // 
-            // labelExt23
-            // 
-            this.labelExt23.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt23.Location = new System.Drawing.Point(4, 5);
-            this.labelExt23.Name = "labelExt23";
-            this.labelExt23.Size = new System.Drawing.Size(60, 18);
-            this.labelExt23.TabIndex = 55;
-            this.labelExt23.Text = "수정구분";
-            this.labelExt23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelExt25
-            // 
-            this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt25.Controls.Add(this.labelExt20);
-            this.panelExt25.Location = new System.Drawing.Point(955, 31);
-            this.panelExt25.Name = "panelExt25";
-            this.panelExt25.Size = new System.Drawing.Size(70, 27);
-            this.panelExt25.TabIndex = 258;
-            // 
-            // labelExt20
-            // 
-            this.labelExt20.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt20.Location = new System.Drawing.Point(3, 5);
-            this.labelExt20.Name = "labelExt20";
-            this.labelExt20.Size = new System.Drawing.Size(61, 18);
-            this.labelExt20.TabIndex = 55;
-            this.labelExt20.Text = "마감구분";
-            this.labelExt20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // MULTI_CD_AGENT
             // 
             this.MULTI_CD_AGENT.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1242,6 +1222,39 @@
             this.labelExt5.Text = "매출월";
             this.labelExt5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // cbo마감구분
+            // 
+            this.cbo마감구분.AutoDropDown = true;
+            this.cbo마감구분.BackColor = System.Drawing.Color.White;
+            this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo마감구분.ItemHeight = 12;
+            this.cbo마감구분.Location = new System.Drawing.Point(393, 9);
+            this.cbo마감구분.Name = "cbo마감구분";
+            this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
+            this.cbo마감구분.TabIndex = 294;
+            this.cbo마감구분.UseKeyF3 = false;
+            this.cbo마감구분.Visible = false;
+            // 
+            // panelExt25
+            // 
+            this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt25.Controls.Add(this.labelExt20);
+            this.panelExt25.Location = new System.Drawing.Point(322, 6);
+            this.panelExt25.Name = "panelExt25";
+            this.panelExt25.Size = new System.Drawing.Size(70, 27);
+            this.panelExt25.TabIndex = 258;
+            this.panelExt25.Visible = false;
+            // 
+            // labelExt20
+            // 
+            this.labelExt20.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt20.Location = new System.Drawing.Point(3, 5);
+            this.labelExt20.Name = "labelExt20";
+            this.labelExt20.Size = new System.Drawing.Size(61, 18);
+            this.labelExt20.TabIndex = 55;
+            this.labelExt20.Text = "마감구분";
+            this.labelExt20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btn상세검색
             // 
             this.btn상세검색.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1258,17 +1271,47 @@
             this.btn상세검색.UseVisualStyleBackColor = false;
             this.btn상세검색.Visible = false;
             // 
+            // btn전표일괄처리
+            // 
+            this.btn전표일괄처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn전표일괄처리.BackColor = System.Drawing.Color.White;
+            this.btn전표일괄처리.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn전표일괄처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn전표일괄처리.Location = new System.Drawing.Point(1108, 10);
+            this.btn전표일괄처리.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn전표일괄처리.Name = "btn전표일괄처리";
+            this.btn전표일괄처리.Size = new System.Drawing.Size(78, 19);
+            this.btn전표일괄처리.TabIndex = 5;
+            this.btn전표일괄처리.TabStop = false;
+            this.btn전표일괄처리.Text = "전표일괄처리";
+            this.btn전표일괄처리.UseVisualStyleBackColor = false;
+            // 
+            // btn전표일괄취소
+            // 
+            this.btn전표일괄취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn전표일괄취소.BackColor = System.Drawing.Color.White;
+            this.btn전표일괄취소.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn전표일괄취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn전표일괄취소.Location = new System.Drawing.Point(1188, 10);
+            this.btn전표일괄취소.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn전표일괄취소.Name = "btn전표일괄취소";
+            this.btn전표일괄취소.Size = new System.Drawing.Size(78, 19);
+            this.btn전표일괄취소.TabIndex = 6;
+            this.btn전표일괄취소.TabStop = false;
+            this.btn전표일괄취소.Text = "전표일괄취소";
+            this.btn전표일괄취소.UseVisualStyleBackColor = false;
+            // 
             // btn전표처리
             // 
             this.btn전표처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn전표처리.BackColor = System.Drawing.Color.White;
             this.btn전표처리.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표처리.Location = new System.Drawing.Point(1189, 14);
+            this.btn전표처리.Location = new System.Drawing.Point(948, 10);
             this.btn전표처리.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표처리.Name = "btn전표처리";
             this.btn전표처리.Size = new System.Drawing.Size(78, 19);
-            this.btn전표처리.TabIndex = 5;
+            this.btn전표처리.TabIndex = 7;
             this.btn전표처리.TabStop = false;
             this.btn전표처리.Text = "전표처리";
             this.btn전표처리.UseVisualStyleBackColor = false;
@@ -1279,59 +1322,29 @@
             this.btn전표취소.BackColor = System.Drawing.Color.White;
             this.btn전표취소.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표취소.Location = new System.Drawing.Point(568, 10);
+            this.btn전표취소.Location = new System.Drawing.Point(1028, 10);
             this.btn전표취소.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표취소.Name = "btn전표취소";
             this.btn전표취소.Size = new System.Drawing.Size(78, 19);
-            this.btn전표취소.TabIndex = 6;
+            this.btn전표취소.TabIndex = 8;
             this.btn전표취소.TabStop = false;
             this.btn전표취소.Text = "전표취소";
             this.btn전표취소.UseVisualStyleBackColor = false;
             // 
-            // btn대행사전표
+            // btn삭제반영
             // 
-            this.btn대행사전표.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn대행사전표.BackColor = System.Drawing.Color.White;
-            this.btn대행사전표.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn대행사전표.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn대행사전표.Location = new System.Drawing.Point(396, 10);
-            this.btn대행사전표.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn대행사전표.Name = "btn대행사전표";
-            this.btn대행사전표.Size = new System.Drawing.Size(78, 19);
-            this.btn대행사전표.TabIndex = 7;
-            this.btn대행사전표.TabStop = false;
-            this.btn대행사전표.Text = "대행사전표";
-            this.btn대행사전표.UseVisualStyleBackColor = false;
-            // 
-            // btn매체전표
-            // 
-            this.btn매체전표.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn매체전표.BackColor = System.Drawing.Color.White;
-            this.btn매체전표.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn매체전표.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn매체전표.Location = new System.Drawing.Point(478, 10);
-            this.btn매체전표.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn매체전표.Name = "btn매체전표";
-            this.btn매체전표.Size = new System.Drawing.Size(78, 19);
-            this.btn매체전표.TabIndex = 8;
-            this.btn매체전표.TabStop = false;
-            this.btn매체전표.Text = "매체전표";
-            this.btn매체전표.UseVisualStyleBackColor = false;
-            // 
-            // btn삭제처리
-            // 
-            this.btn삭제처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn삭제처리.BackColor = System.Drawing.Color.White;
-            this.btn삭제처리.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn삭제처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn삭제처리.Location = new System.Drawing.Point(822, 14);
-            this.btn삭제처리.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn삭제처리.Name = "btn삭제처리";
-            this.btn삭제처리.Size = new System.Drawing.Size(78, 19);
-            this.btn삭제처리.TabIndex = 10;
-            this.btn삭제처리.TabStop = false;
-            this.btn삭제처리.Text = "삭제처리";
-            this.btn삭제처리.UseVisualStyleBackColor = false;
+            this.btn삭제반영.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn삭제반영.BackColor = System.Drawing.Color.White;
+            this.btn삭제반영.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn삭제반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn삭제반영.Location = new System.Drawing.Point(868, 10);
+            this.btn삭제반영.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn삭제반영.Name = "btn삭제반영";
+            this.btn삭제반영.Size = new System.Drawing.Size(78, 19);
+            this.btn삭제반영.TabIndex = 10;
+            this.btn삭제반영.TabStop = false;
+            this.btn삭제반영.Text = "삭제처리";
+            this.btn삭제반영.UseVisualStyleBackColor = false;
             // 
             // btn동기화
             // 
@@ -1339,7 +1352,7 @@
             this.btn동기화.BackColor = System.Drawing.Color.White;
             this.btn동기화.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn동기화.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn동기화.Location = new System.Drawing.Point(919, 14);
+            this.btn동기화.Location = new System.Drawing.Point(1268, 10);
             this.btn동기화.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn동기화.Name = "btn동기화";
             this.btn동기화.Size = new System.Drawing.Size(78, 19);
@@ -1348,44 +1361,48 @@
             this.btn동기화.Text = "동기화";
             this.btn동기화.UseVisualStyleBackColor = false;
             // 
-            // btn이월수정
+            // btn이월반영
             // 
-            this.btn이월수정.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn이월수정.BackColor = System.Drawing.Color.White;
-            this.btn이월수정.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn이월수정.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn이월수정.Location = new System.Drawing.Point(742, 14);
-            this.btn이월수정.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn이월수정.Name = "btn이월수정";
-            this.btn이월수정.Size = new System.Drawing.Size(78, 19);
-            this.btn이월수정.TabIndex = 11;
-            this.btn이월수정.TabStop = false;
-            this.btn이월수정.Text = "이월수정";
-            this.btn이월수정.UseVisualStyleBackColor = false;
+            this.btn이월반영.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn이월반영.BackColor = System.Drawing.Color.White;
+            this.btn이월반영.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn이월반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn이월반영.Location = new System.Drawing.Point(788, 10);
+            this.btn이월반영.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn이월반영.Name = "btn이월반영";
+            this.btn이월반영.Size = new System.Drawing.Size(78, 19);
+            this.btn이월반영.TabIndex = 11;
+            this.btn이월반영.TabStop = false;
+            this.btn이월반영.Text = "이월처리";
+            this.btn이월반영.UseVisualStyleBackColor = false;
             // 
             // P_CZ_ME_SALES
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.Controls.Add(this.btn이월수정);
-            this.Controls.Add(this.btn삭제처리);
+            this.Controls.Add(this.btn이월반영);
+            this.Controls.Add(this.btn삭제반영);
             this.Controls.Add(this.btn동기화);
-            this.Controls.Add(this.btn매체전표);
-            this.Controls.Add(this.btn대행사전표);
             this.Controls.Add(this.btn전표취소);
             this.Controls.Add(this.btn전표처리);
+            this.Controls.Add(this.btn전표일괄취소);
+            this.Controls.Add(this.btn전표일괄처리);
             this.Controls.Add(this.btn상세검색);
+            this.Controls.Add(this.cbo마감구분);
+            this.Controls.Add(this.panelExt25);
             this.Name = "P_CZ_ME_SALES";
             this.Size = new System.Drawing.Size(1346, 796);
             this.TitleText = "매출분석";
             this.OwerClosed += new System.EventHandler(this.P_CZ_ME_SALES_OwerClosed);
+            this.Controls.SetChildIndex(this.panelExt25, 0);
+            this.Controls.SetChildIndex(this.cbo마감구분, 0);
             this.Controls.SetChildIndex(this.btn상세검색, 0);
+            this.Controls.SetChildIndex(this.btn전표일괄처리, 0);
+            this.Controls.SetChildIndex(this.btn전표일괄취소, 0);
             this.Controls.SetChildIndex(this.btn전표처리, 0);
             this.Controls.SetChildIndex(this.btn전표취소, 0);
-            this.Controls.SetChildIndex(this.btn대행사전표, 0);
-            this.Controls.SetChildIndex(this.btn매체전표, 0);
             this.Controls.SetChildIndex(this.btn동기화, 0);
-            this.Controls.SetChildIndex(this.btn삭제처리, 0);
-            this.Controls.SetChildIndex(this.btn이월수정, 0);
+            this.Controls.SetChildIndex(this.btn삭제반영, 0);
+            this.Controls.SetChildIndex(this.btn이월반영, 0);
             this.Controls.SetChildIndex(this.mDataArea, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1394,6 +1411,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월TO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월FROM)).EndInit();
+            this.panelExt28.ResumeLayout(false);
             this.panelExt30.ResumeLayout(false);
             this.panelExt27.ResumeLayout(false);
             this.panelExt22.ResumeLayout(false);
@@ -1419,12 +1437,11 @@
             this.panelExt29.ResumeLayout(false);
             this.panelExt26.ResumeLayout(false);
             this.panelExt17.ResumeLayout(false);
-            this.panelExt28.ResumeLayout(false);
-            this.panelExt25.ResumeLayout(false);
             this.panelExt2.ResumeLayout(false);
             this.panelExt1.ResumeLayout(false);
             this.panelExt23.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panelExt25.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1433,8 +1450,8 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Duzon.Common.Controls.RoundedButton btn상세검색;
-        private Duzon.Common.Controls.RoundedButton btn전표처리;
-        private Duzon.Common.Controls.RoundedButton btn전표취소;
+        private Duzon.Common.Controls.RoundedButton btn전표일괄처리;
+        private Duzon.Common.Controls.RoundedButton btn전표일괄취소;
         private Dass.FlexGrid.FlexGrid _flexM;
         private Duzon.Common.Controls.PanelExt panel1;
         private Duzon.Common.Controls.LabelExt labelExt28;
@@ -1521,16 +1538,17 @@
         private Duzon.Common.Controls.DatePicker dp매체월FROM;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_MEDIAGR;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_CORP;
-        private Duzon.Common.Controls.RoundedButton btn대행사전표;
-        private Duzon.Common.Controls.RoundedButton btn매체전표;
+        private Duzon.Common.Controls.RoundedButton btn전표처리;
+        private Duzon.Common.Controls.RoundedButton btn전표취소;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_AGENCY_ORI;
-        private Duzon.Common.Controls.RoundedButton btn삭제처리;
+        private Duzon.Common.Controls.RoundedButton btn삭제반영;
         private Duzon.Common.Controls.RoundedButton btn동기화;
         private Duzon.Common.Controls.LabelExt lbl결산일시;
-        private Duzon.Common.Controls.RoundedButton btn이월수정;
+        private Duzon.Common.Controls.RoundedButton btn이월반영;
         private Duzon.Common.Controls.DateTimePickerExt dpYear;
         private Duzon.Common.Controls.DateTimePickerExt dpMonthFr;
         private Duzon.Common.Controls.DateTimePickerExt dpMonthTo;
+        private Duzon.Common.Controls.LabelExt lbl마감여부;
 
     }
 }

@@ -79,9 +79,10 @@ namespace cz
             _flexM.SetCol("CD_DEPT", "부서코드", 60, true);
             _flexM.SetCol("NM_DEPT", "부서명", 120, true);
             _flexM.SetCol("DT_START", "시작일", 80, true);
-            _flexM.SetCol("DT_END", "종료일", 80, false);
+            _flexM.SetCol("DT_END", "종료일", 80, true);
             _flexM.SetCol("CD_CC", "CC코드", 60, true);
             _flexM.SetCol("NM_CC", "CC명", 120, false);
+            _flexM.SetCol("LF_FLAG", "말단여부", 0, false);
 
             _flexM.SetDummyColumn("S");
             _flexM.Cols.Frozen = 2;
@@ -96,6 +97,7 @@ namespace cz
             _flexM.Cols["DT_END"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["CD_CC"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["NM_CC"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["LF_FLAG"].TextAlign = TextAlignEnum.CenterCenter;
 
             _flexM.Cols["DT_START"].Format = _flexM.Cols["DT_START"].EditMask = "####/##/##";
             _flexM.Cols["DT_START"].TextAlign = TextAlignEnum.CenterCenter;
@@ -117,6 +119,8 @@ namespace cz
             _flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
             _flexM.AfterEdit += new RowColEventHandler(_flexM_AfterEdit);
             _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
+
+            _flexM.VerifyNotNull = new string[] { "DT_START" };
         }
 
         #endregion
@@ -203,6 +207,8 @@ namespace cz
 
                 if (SaveData())
                 {
+                    SaveData_Row();
+
                     ShowMessage(PageResultMode.SaveGood);
                     {
                         object[] Params = new object[4];
@@ -220,6 +226,25 @@ namespace cz
             {
                 
                 MsgEnd(ex);
+            }
+        }
+
+        private void SaveData_Row()
+        {
+            object obj = null;
+
+            if (_flexM.HasNormalRow)
+            {
+                DataTable dt = _flexM.DataTable;
+
+                dt.AcceptChanges();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    dr.SetAdded();
+                }
+
+                obj = _biz.Save_Row_Number(dt, _타메뉴호출);
             }
         }
 

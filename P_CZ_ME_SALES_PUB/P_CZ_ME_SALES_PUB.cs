@@ -533,23 +533,6 @@ namespace cz
                         */
                         if ((_flexM[i, "S"].ToString().Equals("Y") || _flexM[i, "S1"].ToString().Equals("Y") || _flexM[i, "S2"].ToString().Equals("Y")) && (_flexM[i, "TP_INDEX"].ToString().Equals("미처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
                         {
-                            string SALES_구분 = _flexM[i, "TP_SALES"].ToString();
-                            string 순번 = _flexM[i, "ME_SEQ"].ToString();
-                            string 거래처코드 = _flexM[i, "ME_CORPNO"].ToString();
-                            string 거래처명 = _flexM[i, "ME_CORPNM"].ToString();
-                            string 거래처구분 = _flexM[i, "ME_TRADE_TYPE"].ToString();
-                            string 발행월 = _flexM[i, "ME_YEAR_MONTH"].ToString();
-                            string PUB코드 = _flexM[i, "ME_CPID"].ToString();
-                            string 수주액 = _flexM[i, "AM_BUDGET"].ToString();
-                            string 수수료 = _flexM[i, "AM_AGY_PRICE"].ToString();
-                            string 수익 = _flexM[i, "AM_MEDIA_PRICE"].ToString();
-                            string 동기화 = _flexM[i, "DT_SYNC"].ToString();
-
-                            object[] Params = new object[3];
-                            Params[0] = LoginInfo.CompanyCode;
-                            Params[1] = _flexM[i, "DT_SYNC"].ToString();
-                            Params[2] = _flexM[i, "DT_SYNC"].ToString();  //조회연월 FROM
-
                             string tp_job = "";
 
                             if (_flexM[i, "S1"].ToString().Equals("Y"))
@@ -564,10 +547,26 @@ namespace cz
                             {
                                 tp_job = "일괄발행";
                             }
-                            //if (_biz.Save_Pub(SALES_구분, 순번, 거래처코드, 발행월, 거래처구분, PUB코드, 수주액, 수수료, 수익))
-                            //{
-                            //    ShowMessage("퍼블리셔 발행이 완료 되었습니다.");
-                            //}
+
+                            object[] Params = new object[18];
+                            Params[0] = LoginInfo.CompanyCode;
+                            Params[1] = _flexM[i, "ME_CORPNO"].ToString();
+                            Params[2] = _flexM[i, "ME_CORPNM"].ToString();  //조회연월 FROM
+                            Params[3] = _flexM[i, "ME_TRADE_TYPE"].ToString();
+                            Params[4] = _flexM[i, "AM_BUDGET"].ToString();
+                            Params[5] = _flexM[i, "AM_AGY_PRICE"].ToString();
+                            Params[6] = _flexM[i, "AM_MEDIA_PRICE"].ToString();
+                            Params[7] = Global.MainFrame.LoginInfo.BizAreaCode;
+                            Params[8] = Global.MainFrame.LoginInfo.CdPc;
+                            Params[9] = Global.MainFrame.LoginInfo.DeptCode;
+                            Params[10] = Global.MainFrame.LoginInfo.EmployeeNo;
+                            Params[11] = _flexM[i, "TP_SALES"].ToString();
+                            Params[12] = _flexM[i, "ME_CPID"].ToString();
+                            Params[13] = _flexM[i, "ME_SEQ"].ToString();
+                            Params[14] = _flexM[i, "ME_YEAR_MONTH"].ToString();
+                            Params[15] = _flexM[i, "DT_SYNC"].ToString();
+                            Params[16] = tp_job;
+                            Params[17] = Global.MainFrame.LoginInfo.UserID;
 
                             if (_biz.Save_Junpyo(Params))
                             {
@@ -577,18 +576,6 @@ namespace cz
                     }
 
                     //ShowMessage("전표 처리가 완료 되었습니다.");
-
-                    object[] Params = new object[6];
-                    Params[0] = LoginInfo.CompanyCode;
-                    Params[1] = "SELECT";
-                    Params[2] = dt일자.StartDateToString.Substring(0, 6);
-                    Params[3] = dt일자.EndDateToString.Substring(0, 6);
-                    Params[4] = txt명.Text;
-                    Params[5] = rdo_idx;
-
-                    DataSet ds = _biz.Search_M(Params);
-
-                    _flexM.Binding = ds.Tables[0];
 
                     //SetToolBarButtonState(true, false, true, true, true);
                 }
