@@ -40,7 +40,7 @@ namespace cz
 
         internal DataTable Get마감여부(string 연월)
         {
-            string sql = string.Format(@" SELECT ST_MAGAM, CASE WHEN ST_MAGAM = '1' THEN 'Y' ELSE 'N' END ST_FLAG
+            string sql = string.Format(@" SELECT ST_MAGAM, CASE WHEN ST_MAGAM = '1' THEN '마감' ELSE '미마감' END ST_FLAG
                 FROM [NEOE].[CZ_MEZZO_SALES_CLOSE_N] 
                 WHERE DT_YEAR = LEFT('" +연월+ @"',4) AND DT_MAGAM = (SELECT MAX(DT_MAGAM) FROM [NEOE].[CZ_MEZZO_SALES_CLOSE_N] WHERE CD_INDEX = 'M' AND DT_YEAR = LEFT('" +연월+ @"',4)) ", 회사코드);
 
@@ -53,14 +53,14 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
-        internal bool Save_Junpyo_ay(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 계정과목, string 구분)
+        internal bool Save_Junpyo_ay(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 계정과목, string 구분, string 매체아이디, string 합산매체)
         {
             string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
             string CD_PC = Global.MainFrame.LoginInfo.CdPc;
             string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
             string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
 
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_AY_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_AY_I", new object[] { 회사코드, 발행월, 캠페인코드, 순번, 대행사기준, 계정과목, 구분, 매체아이디, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
         internal bool Delete_Junpyo(string 발행월)

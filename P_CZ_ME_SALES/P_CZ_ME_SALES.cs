@@ -30,7 +30,7 @@ namespace cz
 
         private P_CZ_ME_SALES_BIZ _biz = new P_CZ_ME_SALES_BIZ();
         bool _타메뉴호출 = false;
-
+        string dt_Syncday = "";
         #endregion
 
         #region ♥ 초기화
@@ -139,7 +139,7 @@ namespace cz
             _flexM.SetCol("me_sumcode", "합산매체", 0, false);
             //_flexM.SetCol("sales_etc", "수정일시", 0, false); //DT_UPDATE로 수정
              
-            _flexM.SetCol("closed", "마감구분", 60, false); 
+            //_flexM.SetCol("closed", "마감구분", 60, false); 
             //_flexM.SetCol("status", "수정구분", 60, false);
 
             //대행사 전표정보
@@ -196,7 +196,7 @@ namespace cz
             _flexM.Cols["cp_agentid"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cp_agentnm"].TextAlign = TextAlignEnum.LeftCenter;
             //_flexM.Cols["sales_etc"].TextAlign = TextAlignEnum.LeftCenter;
-            _flexM.Cols["closed"].TextAlign = TextAlignEnum.CenterCenter;
+            //_flexM.Cols["closed"].TextAlign = TextAlignEnum.CenterCenter;
 
             _flexM.Cols["sales_tax_m"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["sales_tax_d"].TextAlign = TextAlignEnum.CenterCenter;
@@ -379,8 +379,8 @@ namespace cz
             btn전표일괄처리.Click += new EventHandler(btn전표일괄처리_Click);
             btn전표일괄취소.Click += new EventHandler(btn전표일괄취소_Click);
 
-            btn전표처리.Click += new EventHandler(btn대행사전표_Click);
-            btn전표취소.Click += new EventHandler(btn매체전표_Click);
+            btn전표처리.Click += new EventHandler(btn전표처리_Click);
+            btn전표취소.Click += new EventHandler(btn전표취소_Click);
             btn동기화.Click += new EventHandler(btn동기화_Click);
             btn삭제반영.Click += new EventHandler(btn삭제반영_Click);
             btn이월반영.Click += new EventHandler(btn이월반영_Click);
@@ -391,7 +391,7 @@ namespace cz
                 SetControl set = new SetControl();
 
                 set.SetCombobox(cbo마감구분, MA.GetCodeUser(new string[] { "", "1", "0" }, new string[] { DD("전체"), DD("마감"), DD("미마감") }));
-                set.SetCombobox(cbo수정구분, MA.GetCodeUser(new string[] { "0", "1" }, new string[] { DD("미포함"), DD("포함") }));
+                set.SetCombobox(cbo수정구분, MA.GetCodeUser(new string[] { "1", "2" }, new string[] { DD("전체"), DD("수정내역조회") }));
 
                 set.SetCombobox(cbo수수료, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
                 set.SetCombobox(cbo영업수익, MA.GetCodeUser(new string[] { "", "초과", "영", "미만" }, new string[] { DD("전체"), DD("0초과"), DD("0(영)"), DD("0미만") }));
@@ -473,8 +473,9 @@ namespace cz
                 DataTable dt3 = _biz.Get마감여부(dpYear.Text);
 
                 lbl결산일시.Text = "동기화시간 : " + dt2.Rows[0]["DT_CLOSING"].ToString();
-                lbl마감여부.Text = "마감여부 : " + dt3.Rows[0]["ST_FLAG"].ToString();
-                
+                lbl마감여부.Text = dt3.Rows[0]["ST_FLAG"].ToString();
+                dt_Syncday = dt2.Rows[0]["DT_CLOSING"].ToString();
+
                 //dt.AcceptChanges();
                 _flexM.Binding = dt;
                 //_flexM.Rows.Frozen = 2;
@@ -862,15 +863,21 @@ namespace cz
                 _flexM.Rows[e.Row].Style = csCellstyle;
             }
 
+            if ((D.GetString(_flexM[e.Row, "confirm_date"]) != "") && DateTime.Parse(D.GetString(_flexM[e.Row, "confirm_date"])) > DateTime.Parse(dt_Syncday))
+            {
+                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(183)), ((Byte)(240)), ((Byte)(177)));
+                _flexM.Rows[e.Row].Style = csCellstyle;
+            }
+
             if (D.GetString(_flexM[e.Row, "IDX"]) == "2")
             {
-                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(196)), ((Byte)(215)), ((Byte)(155)));
+                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(193)), ((Byte)(158)));
                 _flexM.Rows[e.Row].Style = csCellstyle;
             }
 
             if (D.GetString(_flexM[e.Row, "IDX"]) == "1")
             {
-                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(230)), ((Byte)(230)));
+                csCellstyle.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(229)), ((Byte)(194)));
                 _flexM.Rows[e.Row].Style = csCellstyle;
             }
 
@@ -1019,7 +1026,7 @@ namespace cz
             }
         }
 
-        private void btn대행사전표_Click(object sender, EventArgs e)
+        private void btn전표처리_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1030,8 +1037,36 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                ShowMessage("준비중입니다.");
-                return;
+                if (ShowMessage(" 전표 처리 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+                    for (int i = 2; i < _flexM.Rows.Count; i++)
+                    {
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            string 캠페인코드 = _flexM[i, "cpid"].ToString();
+                            string 순번 = _flexM[i, "seq"].ToString();
+                            string 발행월 = dpYear.Text + dpMonthTo.Text; //조회연월 TO
+                            string 대행사기준 = _flexM[i, "ay_trade_type"].ToString();
+                            string 매체기준 = _flexM[i, "me_trade_type"].ToString();
+                            string 계정과목 = _flexM[i, "cd_acct"].ToString();
+                            string 구분 = _flexM[i, "cd_sysdef"].ToString();
+                            string 매체아이디 = _flexM[i, "me_corpid"].ToString();
+                            string 합산매체 = _flexM[i, "me_sumcode"].ToString();
+
+                            if (_biz.Save_Junpyo_ay(캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 계정과목, 구분, 매체아이디, 합산매체))
+                            {
+
+                            }
+                        }
+                    }
+
+                    ShowMessage("삭제가 완료 되었습니다.");
+                    searchNo();
+                }
+
+
+
+                
 
                 /*
                 if (ShowMessage("선택한 " + dpMonthTo.Text + "월(to기준)의 대행사 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
@@ -1052,7 +1087,7 @@ namespace cz
         }
 
 
-        private void btn매체전표_Click(object sender, EventArgs e)
+        private void btn전표취소_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1225,6 +1260,19 @@ namespace cz
             if (dpMonthFr.Value > dpMonthTo.Value)
             {
                 dpMonthFr.Value = dpMonthTo.Value;
+            }
+
+        }
+
+        private void cbo수정구분_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (D.GetString(cbo수정구분.SelectedValue) == "2")
+            {
+                _flexM.RowFilter = "confirm_date > '" + dt_Syncday + "'";
+            }
+            else
+            {
+                searchNo();
             }
         }
     }

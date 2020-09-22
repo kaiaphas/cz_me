@@ -291,9 +291,9 @@
             this.lbl마감여부.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbl마감여부.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl마감여부.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl마감여부.Location = new System.Drawing.Point(1236, 5);
+            this.lbl마감여부.Location = new System.Drawing.Point(1269, 5);
             this.lbl마감여부.Name = "lbl마감여부";
-            this.lbl마감여부.Size = new System.Drawing.Size(82, 18);
+            this.lbl마감여부.Size = new System.Drawing.Size(71, 18);
             this.lbl마감여부.TabIndex = 1971;
             this.lbl마감여부.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -314,7 +314,7 @@
             this.lbl결산일시.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbl결산일시.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl결산일시.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl결산일시.Location = new System.Drawing.Point(985, 5);
+            this.lbl결산일시.Location = new System.Drawing.Point(1019, 5);
             this.lbl결산일시.Name = "lbl결산일시";
             this.lbl결산일시.Size = new System.Drawing.Size(248, 18);
             this.lbl결산일시.TabIndex = 1966;
@@ -482,6 +482,7 @@
             this.cbo수정구분.Size = new System.Drawing.Size(90, 20);
             this.cbo수정구분.TabIndex = 295;
             this.cbo수정구분.UseKeyF3 = false;
+            this.cbo수정구분.SelectedIndexChanged += new System.EventHandler(this.cbo수정구분_SelectedIndexChanged);
             // 
             // panelExt30
             // 
@@ -530,7 +531,7 @@
             // 
             this.panelExt27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt27.Controls.Add(this.labelExt25);
-            this.panelExt27.Location = new System.Drawing.Point(760, 1);
+            this.panelExt27.Location = new System.Drawing.Point(794, 1);
             this.panelExt27.Name = "panelExt27";
             this.panelExt27.Size = new System.Drawing.Size(70, 27);
             this.panelExt27.TabIndex = 293;
@@ -549,7 +550,7 @@
             // 
             this.MULTI_CD_DEPT.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MULTI_CD_DEPT.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
-            this.MULTI_CD_DEPT.Location = new System.Drawing.Point(831, 4);
+            this.MULTI_CD_DEPT.Location = new System.Drawing.Point(865, 4);
             this.MULTI_CD_DEPT.Name = "MULTI_CD_DEPT";
             this.MULTI_CD_DEPT.Size = new System.Drawing.Size(150, 21);
             this.MULTI_CD_DEPT.TabIndex = 292;
@@ -1111,7 +1112,7 @@
             // 
             this.MULTI_CD_AGENT.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MULTI_CD_AGENT.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
-            this.MULTI_CD_AGENT.Location = new System.Drawing.Point(595, 4);
+            this.MULTI_CD_AGENT.Location = new System.Drawing.Point(629, 4);
             this.MULTI_CD_AGENT.Name = "MULTI_CD_AGENT";
             this.MULTI_CD_AGENT.Size = new System.Drawing.Size(150, 21);
             this.MULTI_CD_AGENT.TabIndex = 255;
@@ -1125,16 +1126,16 @@
             // 
             this.txt캠페인명.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt캠페인명.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt캠페인명.Location = new System.Drawing.Point(389, 4);
+            this.txt캠페인명.Location = new System.Drawing.Point(339, 4);
             this.txt캠페인명.Name = "txt캠페인명";
-            this.txt캠페인명.Size = new System.Drawing.Size(120, 21);
+            this.txt캠페인명.Size = new System.Drawing.Size(213, 21);
             this.txt캠페인명.TabIndex = 254;
             // 
             // panelExt2
             // 
             this.panelExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt2.Controls.Add(this.labelExt2);
-            this.panelExt2.Location = new System.Drawing.Point(524, 1);
+            this.panelExt2.Location = new System.Drawing.Point(558, 1);
             this.panelExt2.Name = "panelExt2";
             this.panelExt2.Size = new System.Drawing.Size(70, 27);
             this.panelExt2.TabIndex = 257;
@@ -1153,7 +1154,7 @@
             // 
             this.panelExt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt1.Controls.Add(this.labelExt1);
-            this.panelExt1.Location = new System.Drawing.Point(318, 1);
+            this.panelExt1.Location = new System.Drawing.Point(268, 1);
             this.panelExt1.Name = "panelExt1";
             this.panelExt1.Size = new System.Drawing.Size(70, 27);
             this.panelExt1.TabIndex = 256;
