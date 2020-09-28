@@ -120,17 +120,16 @@
             this.labelExt28 = new Duzon.Common.Controls.LabelExt();
             this.panel7 = new Duzon.Common.Controls.PanelExt();
             this.labelExt5 = new Duzon.Common.Controls.LabelExt();
-            this.cbo마감구분 = new Duzon.Common.Controls.DropDownComboBox();
-            this.panelExt25 = new Duzon.Common.Controls.PanelExt();
-            this.labelExt20 = new Duzon.Common.Controls.LabelExt();
-            this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn전표일괄처리 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.btn전표일괄취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn전표처리 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn전표취소 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn삭제반영 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn이월반영 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.labelExt20 = new Duzon.Common.Controls.LabelExt();
+            this.panelExt25 = new Duzon.Common.Controls.PanelExt();
+            this.cbo마감구분 = new Duzon.Common.Controls.DropDownComboBox();
+            this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -202,10 +201,10 @@
             this._flexM.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
             this._flexM.EnabledHeaderCheck = true;
             this._flexM.Font = new System.Drawing.Font("굴림", 9F);
-            this._flexM.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
+            this._flexM.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
             this._flexM.KeyActionLeft = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
             this._flexM.KeyActionRight = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
-            this._flexM.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
+            this._flexM.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
             this._flexM.Location = new System.Drawing.Point(3, 131);
             this._flexM.Name = "_flexM";
             this._flexM.Rows.Count = 1;
@@ -482,7 +481,7 @@
             this.cbo수정구분.Size = new System.Drawing.Size(90, 20);
             this.cbo수정구분.TabIndex = 295;
             this.cbo수정구분.UseKeyF3 = false;
-            this.cbo수정구분.SelectedIndexChanged += new System.EventHandler(this.cbo수정구분_SelectedIndexChanged);
+            this.cbo수정구분.SelectionChangeCommitted += new System.EventHandler(this.cbo수정구분_SelectionChangeCommitted);
             // 
             // panelExt30
             // 
@@ -564,15 +563,15 @@
             // 
             this.panelExt22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt22.Controls.Add(this.labelExt22);
-            this.panelExt22.Location = new System.Drawing.Point(0, 91);
+            this.panelExt22.Location = new System.Drawing.Point(-1, 89);
             this.panelExt22.Name = "panelExt22";
-            this.panelExt22.Size = new System.Drawing.Size(44, 27);
+            this.panelExt22.Size = new System.Drawing.Size(47, 32);
             this.panelExt22.TabIndex = 264;
             // 
             // labelExt22
             // 
             this.labelExt22.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt22.Location = new System.Drawing.Point(2, 4);
+            this.labelExt22.Location = new System.Drawing.Point(2, 7);
             this.labelExt22.Name = "labelExt22";
             this.labelExt22.Size = new System.Drawing.Size(41, 18);
             this.labelExt22.TabIndex = 55;
@@ -583,15 +582,15 @@
             // 
             this.panelExt21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt21.Controls.Add(this.labelExt19);
-            this.panelExt21.Location = new System.Drawing.Point(0, 61);
+            this.panelExt21.Location = new System.Drawing.Point(-1, 59);
             this.panelExt21.Name = "panelExt21";
-            this.panelExt21.Size = new System.Drawing.Size(44, 27);
+            this.panelExt21.Size = new System.Drawing.Size(47, 31);
             this.panelExt21.TabIndex = 263;
             // 
             // labelExt19
             // 
             this.labelExt19.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt19.Location = new System.Drawing.Point(2, 4);
+            this.labelExt19.Location = new System.Drawing.Point(2, 6);
             this.labelExt19.Name = "labelExt19";
             this.labelExt19.Size = new System.Drawing.Size(41, 18);
             this.labelExt19.TabIndex = 55;
@@ -714,15 +713,15 @@
             // 
             this.panelExt19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt19.Controls.Add(this.labelExt15);
-            this.panelExt19.Location = new System.Drawing.Point(283, 91);
+            this.panelExt19.Location = new System.Drawing.Point(283, 89);
             this.panelExt19.Name = "panelExt19";
-            this.panelExt19.Size = new System.Drawing.Size(70, 27);
+            this.panelExt19.Size = new System.Drawing.Size(70, 32);
             this.panelExt19.TabIndex = 279;
             // 
             // labelExt15
             // 
             this.labelExt15.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt15.Location = new System.Drawing.Point(4, 4);
+            this.labelExt15.Location = new System.Drawing.Point(4, 6);
             this.labelExt15.Name = "labelExt15";
             this.labelExt15.Size = new System.Drawing.Size(60, 18);
             this.labelExt15.TabIndex = 55;
@@ -733,15 +732,15 @@
             // 
             this.panelExt20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt20.Controls.Add(this.labelExt17);
-            this.panelExt20.Location = new System.Drawing.Point(45, 91);
+            this.panelExt20.Location = new System.Drawing.Point(45, 89);
             this.panelExt20.Name = "panelExt20";
-            this.panelExt20.Size = new System.Drawing.Size(70, 27);
+            this.panelExt20.Size = new System.Drawing.Size(70, 32);
             this.panelExt20.TabIndex = 278;
             // 
             // labelExt17
             // 
             this.labelExt17.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt17.Location = new System.Drawing.Point(4, 4);
+            this.labelExt17.Location = new System.Drawing.Point(4, 7);
             this.labelExt17.Name = "labelExt17";
             this.labelExt17.Size = new System.Drawing.Size(60, 18);
             this.labelExt17.TabIndex = 55;
@@ -864,15 +863,15 @@
             // 
             this.panelExt13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt13.Controls.Add(this.labelExt10);
-            this.panelExt13.Location = new System.Drawing.Point(283, 61);
+            this.panelExt13.Location = new System.Drawing.Point(283, 59);
             this.panelExt13.Name = "panelExt13";
-            this.panelExt13.Size = new System.Drawing.Size(70, 27);
+            this.panelExt13.Size = new System.Drawing.Size(70, 31);
             this.panelExt13.TabIndex = 263;
             // 
             // labelExt10
             // 
             this.labelExt10.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt10.Location = new System.Drawing.Point(4, 4);
+            this.labelExt10.Location = new System.Drawing.Point(4, 6);
             this.labelExt10.Name = "labelExt10";
             this.labelExt10.Size = new System.Drawing.Size(60, 18);
             this.labelExt10.TabIndex = 55;
@@ -922,6 +921,7 @@
             // MULTI_CD_AGENCY
             // 
             this.MULTI_CD_AGENCY.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MULTI_CD_AGENCY.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
             this.MULTI_CD_AGENCY.Location = new System.Drawing.Point(117, 65);
             this.MULTI_CD_AGENCY.Name = "MULTI_CD_AGENCY";
             this.MULTI_CD_AGENCY.Size = new System.Drawing.Size(150, 21);
@@ -936,15 +936,15 @@
             // 
             this.panelExt6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt6.Controls.Add(this.labelExt4);
-            this.panelExt6.Location = new System.Drawing.Point(0, 1);
+            this.panelExt6.Location = new System.Drawing.Point(-1, -2);
             this.panelExt6.Name = "panelExt6";
-            this.panelExt6.Size = new System.Drawing.Size(44, 57);
+            this.panelExt6.Size = new System.Drawing.Size(47, 62);
             this.panelExt6.TabIndex = 262;
             // 
             // labelExt4
             // 
             this.labelExt4.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt4.Location = new System.Drawing.Point(2, 17);
+            this.labelExt4.Location = new System.Drawing.Point(2, 22);
             this.labelExt4.Name = "labelExt4";
             this.labelExt4.Size = new System.Drawing.Size(41, 18);
             this.labelExt4.TabIndex = 55;
@@ -955,15 +955,15 @@
             // 
             this.panelExt9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt9.Controls.Add(this.labelExt6);
-            this.panelExt9.Location = new System.Drawing.Point(45, 61);
+            this.panelExt9.Location = new System.Drawing.Point(45, 59);
             this.panelExt9.Name = "panelExt9";
-            this.panelExt9.Size = new System.Drawing.Size(70, 27);
+            this.panelExt9.Size = new System.Drawing.Size(70, 31);
             this.panelExt9.TabIndex = 262;
             // 
             // labelExt6
             // 
             this.labelExt6.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt6.Location = new System.Drawing.Point(4, 4);
+            this.labelExt6.Location = new System.Drawing.Point(4, 6);
             this.labelExt6.Name = "labelExt6";
             this.labelExt6.Size = new System.Drawing.Size(60, 18);
             this.labelExt6.TabIndex = 55;
@@ -978,7 +978,7 @@
             this.panelExt7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt7.BackgroundImage")));
             this.panelExt7.Controls.Add(this.panelExt8);
             this.panelExt7.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt7.Location = new System.Drawing.Point(107, 89);
+            this.panelExt7.Location = new System.Drawing.Point(-152, 89);
             this.panelExt7.Name = "panelExt7";
             this.panelExt7.Size = new System.Drawing.Size(1494, 1);
             this.panelExt7.TabIndex = 268;
@@ -1074,9 +1074,9 @@
             // 
             this.panelExt26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt26.Controls.Add(this.labelExt21);
-            this.panelExt26.Location = new System.Drawing.Point(214, 31);
+            this.panelExt26.Location = new System.Drawing.Point(214, 29);
             this.panelExt26.Name = "panelExt26";
-            this.panelExt26.Size = new System.Drawing.Size(81, 27);
+            this.panelExt26.Size = new System.Drawing.Size(81, 31);
             this.panelExt26.TabIndex = 263;
             // 
             // labelExt21
@@ -1093,15 +1093,15 @@
             // 
             this.panelExt17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt17.Controls.Add(this.labelExt18);
-            this.panelExt17.Location = new System.Drawing.Point(45, 31);
+            this.panelExt17.Location = new System.Drawing.Point(45, 29);
             this.panelExt17.Name = "panelExt17";
-            this.panelExt17.Size = new System.Drawing.Size(70, 27);
+            this.panelExt17.Size = new System.Drawing.Size(70, 31);
             this.panelExt17.TabIndex = 262;
             // 
             // labelExt18
             // 
             this.labelExt18.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt18.Location = new System.Drawing.Point(6, 5);
+            this.labelExt18.Location = new System.Drawing.Point(6, 7);
             this.labelExt18.Name = "labelExt18";
             this.labelExt18.Size = new System.Drawing.Size(61, 18);
             this.labelExt18.TabIndex = 55;
@@ -1154,9 +1154,9 @@
             // 
             this.panelExt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt1.Controls.Add(this.labelExt1);
-            this.panelExt1.Location = new System.Drawing.Point(268, 1);
+            this.panelExt1.Location = new System.Drawing.Point(268, -1);
             this.panelExt1.Name = "panelExt1";
-            this.panelExt1.Size = new System.Drawing.Size(70, 27);
+            this.panelExt1.Size = new System.Drawing.Size(70, 31);
             this.panelExt1.TabIndex = 256;
             // 
             // labelExt1
@@ -1208,69 +1208,20 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panel7.Controls.Add(this.labelExt5);
-            this.panel7.Location = new System.Drawing.Point(45, 1);
+            this.panel7.Location = new System.Drawing.Point(45, -2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(70, 27);
+            this.panel7.Size = new System.Drawing.Size(70, 35);
             this.panel7.TabIndex = 251;
             // 
             // labelExt5
             // 
             this.labelExt5.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt5.Location = new System.Drawing.Point(4, 4);
+            this.labelExt5.Location = new System.Drawing.Point(4, 7);
             this.labelExt5.Name = "labelExt5";
             this.labelExt5.Size = new System.Drawing.Size(60, 18);
             this.labelExt5.TabIndex = 55;
             this.labelExt5.Text = "매출월";
             this.labelExt5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cbo마감구분
-            // 
-            this.cbo마감구분.AutoDropDown = true;
-            this.cbo마감구분.BackColor = System.Drawing.Color.White;
-            this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo마감구분.ItemHeight = 12;
-            this.cbo마감구분.Location = new System.Drawing.Point(393, 9);
-            this.cbo마감구분.Name = "cbo마감구분";
-            this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
-            this.cbo마감구분.TabIndex = 294;
-            this.cbo마감구분.UseKeyF3 = false;
-            this.cbo마감구분.Visible = false;
-            // 
-            // panelExt25
-            // 
-            this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt25.Controls.Add(this.labelExt20);
-            this.panelExt25.Location = new System.Drawing.Point(322, 6);
-            this.panelExt25.Name = "panelExt25";
-            this.panelExt25.Size = new System.Drawing.Size(70, 27);
-            this.panelExt25.TabIndex = 258;
-            this.panelExt25.Visible = false;
-            // 
-            // labelExt20
-            // 
-            this.labelExt20.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt20.Location = new System.Drawing.Point(3, 5);
-            this.labelExt20.Name = "labelExt20";
-            this.labelExt20.Size = new System.Drawing.Size(61, 18);
-            this.labelExt20.TabIndex = 55;
-            this.labelExt20.Text = "마감구분";
-            this.labelExt20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btn상세검색
-            // 
-            this.btn상세검색.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn상세검색.BackColor = System.Drawing.Color.White;
-            this.btn상세검색.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn상세검색.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn상세검색.Location = new System.Drawing.Point(160, 10);
-            this.btn상세검색.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn상세검색.Name = "btn상세검색";
-            this.btn상세검색.Size = new System.Drawing.Size(78, 19);
-            this.btn상세검색.TabIndex = 4;
-            this.btn상세검색.TabStop = false;
-            this.btn상세검색.Text = "상세검색";
-            this.btn상세검색.UseVisualStyleBackColor = false;
-            this.btn상세검색.Visible = false;
             // 
             // btn전표일괄처리
             // 
@@ -1278,7 +1229,7 @@
             this.btn전표일괄처리.BackColor = System.Drawing.Color.White;
             this.btn전표일괄처리.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표일괄처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표일괄처리.Location = new System.Drawing.Point(1108, 10);
+            this.btn전표일괄처리.Location = new System.Drawing.Point(1188, 10);
             this.btn전표일괄처리.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표일괄처리.Name = "btn전표일괄처리";
             this.btn전표일괄처리.Size = new System.Drawing.Size(78, 19);
@@ -1287,28 +1238,13 @@
             this.btn전표일괄처리.Text = "전표일괄처리";
             this.btn전표일괄처리.UseVisualStyleBackColor = false;
             // 
-            // btn전표일괄취소
-            // 
-            this.btn전표일괄취소.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn전표일괄취소.BackColor = System.Drawing.Color.White;
-            this.btn전표일괄취소.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn전표일괄취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표일괄취소.Location = new System.Drawing.Point(1188, 10);
-            this.btn전표일괄취소.MaximumSize = new System.Drawing.Size(0, 19);
-            this.btn전표일괄취소.Name = "btn전표일괄취소";
-            this.btn전표일괄취소.Size = new System.Drawing.Size(78, 19);
-            this.btn전표일괄취소.TabIndex = 6;
-            this.btn전표일괄취소.TabStop = false;
-            this.btn전표일괄취소.Text = "전표일괄취소";
-            this.btn전표일괄취소.UseVisualStyleBackColor = false;
-            // 
             // btn전표처리
             // 
             this.btn전표처리.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn전표처리.BackColor = System.Drawing.Color.White;
             this.btn전표처리.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표처리.Location = new System.Drawing.Point(948, 10);
+            this.btn전표처리.Location = new System.Drawing.Point(1028, 10);
             this.btn전표처리.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표처리.Name = "btn전표처리";
             this.btn전표처리.Size = new System.Drawing.Size(78, 19);
@@ -1323,7 +1259,7 @@
             this.btn전표취소.BackColor = System.Drawing.Color.White;
             this.btn전표취소.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전표취소.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전표취소.Location = new System.Drawing.Point(1028, 10);
+            this.btn전표취소.Location = new System.Drawing.Point(1108, 10);
             this.btn전표취소.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전표취소.Name = "btn전표취소";
             this.btn전표취소.Size = new System.Drawing.Size(78, 19);
@@ -1338,7 +1274,7 @@
             this.btn삭제반영.BackColor = System.Drawing.Color.White;
             this.btn삭제반영.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn삭제반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn삭제반영.Location = new System.Drawing.Point(868, 10);
+            this.btn삭제반영.Location = new System.Drawing.Point(948, 10);
             this.btn삭제반영.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn삭제반영.Name = "btn삭제반영";
             this.btn삭제반영.Size = new System.Drawing.Size(78, 19);
@@ -1368,7 +1304,7 @@
             this.btn이월반영.BackColor = System.Drawing.Color.White;
             this.btn이월반영.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn이월반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn이월반영.Location = new System.Drawing.Point(788, 10);
+            this.btn이월반영.Location = new System.Drawing.Point(868, 10);
             this.btn이월반영.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn이월반영.Name = "btn이월반영";
             this.btn이월반영.Size = new System.Drawing.Size(78, 19);
@@ -1376,6 +1312,55 @@
             this.btn이월반영.TabStop = false;
             this.btn이월반영.Text = "이월처리";
             this.btn이월반영.UseVisualStyleBackColor = false;
+            // 
+            // labelExt20
+            // 
+            this.labelExt20.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt20.Location = new System.Drawing.Point(3, 5);
+            this.labelExt20.Name = "labelExt20";
+            this.labelExt20.Size = new System.Drawing.Size(61, 18);
+            this.labelExt20.TabIndex = 55;
+            this.labelExt20.Text = "마감구분";
+            this.labelExt20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelExt25
+            // 
+            this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt25.Controls.Add(this.labelExt20);
+            this.panelExt25.Location = new System.Drawing.Point(322, 6);
+            this.panelExt25.Name = "panelExt25";
+            this.panelExt25.Size = new System.Drawing.Size(70, 27);
+            this.panelExt25.TabIndex = 258;
+            this.panelExt25.Visible = false;
+            // 
+            // cbo마감구분
+            // 
+            this.cbo마감구분.AutoDropDown = true;
+            this.cbo마감구분.BackColor = System.Drawing.Color.White;
+            this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo마감구분.ItemHeight = 12;
+            this.cbo마감구분.Location = new System.Drawing.Point(393, 9);
+            this.cbo마감구분.Name = "cbo마감구분";
+            this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
+            this.cbo마감구분.TabIndex = 294;
+            this.cbo마감구분.UseKeyF3 = false;
+            this.cbo마감구분.Visible = false;
+            // 
+            // btn상세검색
+            // 
+            this.btn상세검색.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn상세검색.BackColor = System.Drawing.Color.White;
+            this.btn상세검색.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn상세검색.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn상세검색.Location = new System.Drawing.Point(241, 9);
+            this.btn상세검색.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn상세검색.Name = "btn상세검색";
+            this.btn상세검색.Size = new System.Drawing.Size(78, 19);
+            this.btn상세검색.TabIndex = 4;
+            this.btn상세검색.TabStop = false;
+            this.btn상세검색.Text = "상세검색";
+            this.btn상세검색.UseVisualStyleBackColor = false;
+            this.btn상세검색.Visible = false;
             // 
             // P_CZ_ME_SALES
             // 
@@ -1385,7 +1370,6 @@
             this.Controls.Add(this.btn동기화);
             this.Controls.Add(this.btn전표취소);
             this.Controls.Add(this.btn전표처리);
-            this.Controls.Add(this.btn전표일괄취소);
             this.Controls.Add(this.btn전표일괄처리);
             this.Controls.Add(this.btn상세검색);
             this.Controls.Add(this.cbo마감구분);
@@ -1398,7 +1382,6 @@
             this.Controls.SetChildIndex(this.cbo마감구분, 0);
             this.Controls.SetChildIndex(this.btn상세검색, 0);
             this.Controls.SetChildIndex(this.btn전표일괄처리, 0);
-            this.Controls.SetChildIndex(this.btn전표일괄취소, 0);
             this.Controls.SetChildIndex(this.btn전표처리, 0);
             this.Controls.SetChildIndex(this.btn전표취소, 0);
             this.Controls.SetChildIndex(this.btn동기화, 0);
@@ -1450,9 +1433,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Duzon.Common.Controls.RoundedButton btn상세검색;
         private Duzon.Common.Controls.RoundedButton btn전표일괄처리;
-        private Duzon.Common.Controls.RoundedButton btn전표일괄취소;
         private Dass.FlexGrid.FlexGrid _flexM;
         private Duzon.Common.Controls.PanelExt panel1;
         private Duzon.Common.Controls.LabelExt labelExt28;
@@ -1467,8 +1448,6 @@
         private Duzon.Common.Controls.LabelExt labelExt1;
         private Duzon.Common.Controls.PanelExt panelExt28;
         private Duzon.Common.Controls.LabelExt labelExt23;
-        private Duzon.Common.Controls.PanelExt panelExt25;
-        private Duzon.Common.Controls.LabelExt labelExt20;
         private Duzon.Common.Controls.PanelExt panelExt6;
         private Duzon.Common.Controls.LabelExt labelExt4;
         private Duzon.Common.Controls.PanelExt panelExt9;
@@ -1524,7 +1503,6 @@
         private Duzon.Common.Controls.LabelExt labelExt29;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_AGENCY;
         private Duzon.Common.Controls.DropDownComboBox cbo수정구분;
-        private Duzon.Common.Controls.DropDownComboBox cbo마감구분;
         private Duzon.Common.Controls.PanelExt panelExt27;
         private Duzon.Common.Controls.LabelExt labelExt25;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_DEPT;
@@ -1550,6 +1528,10 @@
         private Duzon.Common.Controls.DateTimePickerExt dpMonthFr;
         private Duzon.Common.Controls.DateTimePickerExt dpMonthTo;
         private Duzon.Common.Controls.LabelExt lbl마감여부;
+        private Duzon.Common.Controls.LabelExt labelExt20;
+        private Duzon.Common.Controls.PanelExt panelExt25;
+        private Duzon.Common.Controls.DropDownComboBox cbo마감구분;
+        private Duzon.Common.Controls.RoundedButton btn상세검색;
 
     }
 }

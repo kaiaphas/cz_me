@@ -302,7 +302,7 @@
             this.btn복구처리.BackColor = System.Drawing.Color.White;
             this.btn복구처리.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn복구처리.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn복구처리.Location = new System.Drawing.Point(912, 10);
+            this.btn복구처리.Location = new System.Drawing.Point(930, 10);
             this.btn복구처리.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn복구처리.Name = "btn복구처리";
             this.btn복구처리.Size = new System.Drawing.Size(78, 19);

@@ -204,6 +204,17 @@ namespace cz
 
             DataSet ds = _biz.Search_M(Params);
             _flexM.Binding = ds.Tables[0];
+
+            if (cbo등록구분.SelectedValue == "2")
+            {
+                SetToolBarButtonState(true, true, false, false, false);
+                _flexM.AllowEditing = true;
+            }
+            else
+            {
+                SetToolBarButtonState(true, false, false, false, false);
+                _flexM.AllowEditing = false;
+            }
         }
 
         #endregion
@@ -243,6 +254,17 @@ namespace cz
                 DataSet ds = _biz.Search_M(Params);
 
                 _flexM.Binding = ds.Tables[0];
+
+                if (cbo등록구분.SelectedValue == "2")
+                {
+                    SetToolBarButtonState(true, true, false, false, false);
+                    _flexM.AllowEditing = true;
+                }
+                else
+                {
+                    SetToolBarButtonState(true, false, false, false, false);
+                    _flexM.AllowEditing = false;
+                }
             }
             catch (Exception ex)
             {
@@ -290,6 +312,17 @@ namespace cz
                         DataSet ds = _biz.Search_M(Params);
 
                         _flexM.Binding = ds.Tables[0];
+
+                        if (cbo등록구분.SelectedValue == "2")
+                        {
+                            SetToolBarButtonState(true, true, false, false, false);
+                            _flexM.AllowEditing = true;
+                        }
+                        else
+                        {
+                            SetToolBarButtonState(true, false, false, false, false);
+                            _flexM.AllowEditing = false;
+                        }
                     }
                 }
             }
@@ -498,6 +531,17 @@ namespace cz
                                 DataSet ds = _biz.Search_M(Params);
 
                                 _flexM.Binding = ds.Tables[0];
+
+                                if (cbo등록구분.SelectedValue == "2")
+                                {
+                                    SetToolBarButtonState(true, true, false, false, false);
+                                    _flexM.AllowEditing = true;
+                                }
+                                else
+                                {
+                                    SetToolBarButtonState(true, false, false, false, false);
+                                    _flexM.AllowEditing = false;
+                                }
                             }
                         }
                     }
@@ -577,6 +621,17 @@ namespace cz
             DataSet ds = _biz.Search_M(Params);
 
             _flexM.Binding = ds.Tables[0];
+
+            if (cbo등록구분.SelectedValue == "2")
+            {
+                SetToolBarButtonState(true, true, false, false, false);
+                _flexM.AllowEditing = true;
+            }
+            else
+            {
+                SetToolBarButtonState(true, false, false, false, false);
+                _flexM.AllowEditing = false;
+            }
         }
     }
 }

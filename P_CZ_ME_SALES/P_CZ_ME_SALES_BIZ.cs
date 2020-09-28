@@ -47,10 +47,59 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
+        internal DataTable Get일괄처리여부(string 연월)
+        {
+            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NM_USERDE1,'') != '' THEN '1' ELSE '0' END AS FLAG
+                FROM [NEOE].[CZ_MEZZO_SALES_DOCU] 
+                WHERE DT_YEAR_MONTH = '" +연월+ @"' 
+                GROUP BY NM_USERDE1 ", 회사코드);
+
+            return DBHelper.GetDataTable(sql);
+        }
+
+        internal DataTable Get대행사세금계산서여부(string 대행사전표번호)
+        {
+            string sql = string.Format(@" SELECT ISNULL(B.FINAL_STATUS,'0') AS FINAL_STATUS
+                FROM FI_DOCU A
+                LEFT OUTER JOIN FI_TAX B ON A.CD_COMPANY = B.CD_COMPANY AND A.NO_DOCU = B.NO_DOCU AND A.NO_DOLINE = B.NO_DOLINE
+                WHERE A.NO_DOCU = '" +대행사전표번호+ @"'", 회사코드);
+
+            return DBHelper.GetDataTable(sql);
+        }
+
+        internal DataTable Get매체세금계산서여부(string 매체전표번호)
+        {
+            string sql = string.Format(@" SELECT ISNULL(B.FINAL_STATUS,'0') AS FINAL_STATUS
+                FROM FI_DOCU A
+                LEFT OUTER JOIN FI_TAX B ON A.CD_COMPANY = B.CD_COMPANY AND A.NO_DOCU = B.NO_DOCU AND A.NO_DOLINE = B.NO_DOLINE
+                WHERE A.NO_DOCU = '" +매체전표번호+ @"'", 회사코드);
+
+            return DBHelper.GetDataTable(sql);
+        }
+
+        internal DataTable Get전표여부(string 캠페인ID, string SEQ)
+        {
+            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NO_DOCU_M,'') != '' OR ISNULL(NO_DOCU_D,'') != '' THEN '1' ELSE '0' END AS NO_DOCU
+                FROM [NEOE].[CZ_MEZZO_SALES_MAP] 
+                WHERE ME_CPID = '" +캠페인ID+ @"' AND ME_SEQ = '" +SEQ+ @"'", 회사코드);
+
+            return DBHelper.GetDataTable(sql);
+        }
+
         internal DataTable Get결산일시(string DT_DATE)
         {
             string sql = string.Format(@" SELECT MAX(CONVERT(DATETIME, LEFT(DT_MAGAM,8) + ' ' + STUFF(STUFF(RIGHT(DT_MAGAM,6), 3, 0, ':'), 6, 0, ':'), 120)) AS DT_CLOSING FROM [NEOE].[CZ_MEZZO_SALES_CLOSE_N] WHERE CD_INDEX = 'S' AND DT_YEAR = LEFT('" +DT_DATE+ @"',4)", 회사코드);
             return DBHelper.GetDataTable(sql);
+        }
+
+        internal bool Save_Junpyo_me(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 계정과목, string 구분, string 매체아이디, string 합산매체, string REQ_NO)
+        {
+            string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
+            string CD_PC = Global.MainFrame.LoginInfo.CdPc;
+            string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
+            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_ME_I", new object[] { 회사코드, 발행월, 캠페인코드, 순번, 매체기준, 계정과목, 구분, 합산매체, REQ_NO, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
         internal bool Save_Junpyo_ay(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 계정과목, string 구분, string 매체아이디, string 합산매체)
@@ -63,14 +112,14 @@ namespace cz
             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_AY_I", new object[] { 회사코드, 발행월, 캠페인코드, 순번, 대행사기준, 계정과목, 구분, 매체아이디, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
-        internal bool Delete_Junpyo(string 발행월)
+        internal bool Delete_Junpyo(string 대행사전표번호, string 매체전표번호, string 대행사세금계산서여부, string 매체세금계산서여부)
         {
-            string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
-            string CD_PC = Global.MainFrame.LoginInfo.CdPc;
-            string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
-            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_D", new object[] { 회사코드, 대행사전표번호, 매체전표번호, 대행사세금계산서여부, 매체세금계산서여부 });
+        }
 
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_DELETE", new object[] { 회사코드, 발행월, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
+        internal bool Delete_Junpyo_all(string 발행월)
+        {
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_D_ALL", new object[] { 회사코드, 발행월 });
         }
 
         internal bool Save_Junpyo_ay_all(string 발행월)
@@ -91,16 +140,6 @@ namespace cz
             string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
 
             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_ME_ALL_I", new object[] { 회사코드, 발행월, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
-        }
-
-        internal bool Save_Junpyo_me(string 캠페인코드, string 순번, string 발행월, string 대행사기준, string 매체기준, string 합산매체, string 계정과목, string 구분)
-        {
-            string BIZ_AREA = Global.MainFrame.LoginInfo.BizAreaCode;
-            string CD_PC = Global.MainFrame.LoginInfo.CdPc;
-            string DEPT_CODE = Global.MainFrame.LoginInfo.DeptCode;
-            string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
-
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_DOCU_ME_I", new object[] { 회사코드, 캠페인코드, 순번, 발행월, 대행사기준, 매체기준, 합산매체, 계정과목, 구분, BIZ_AREA, CD_PC, DEPT_CODE, EMPLOYEE_NO });
         }
 
         internal DataSet Save_Sync(string FROM, string TO)
