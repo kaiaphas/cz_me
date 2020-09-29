@@ -33,12 +33,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
-            this.panelExt1 = new Duzon.Common.Controls.PanelExt();
-            this.rdo수기 = new Duzon.Common.Controls.RadioButtonExt();
-            this.rdo변경 = new Duzon.Common.Controls.RadioButtonExt();
-            this.rdo처리 = new Duzon.Common.Controls.RadioButtonExt();
-            this.rdo미처리 = new Duzon.Common.Controls.RadioButtonExt();
-            this.rdo전체 = new Duzon.Common.Controls.RadioButtonExt();
             this.panelExt2 = new Duzon.Common.Controls.PanelExt();
             this.lbl구분 = new Duzon.Common.Controls.LabelExt();
             this.dt일자 = new Duzon.Common.Controls.PeriodPicker();
@@ -54,16 +48,14 @@
             this.rdoMts1 = new Duzon.Common.Controls.RadioButtonExt();
             this.btn전표처리 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn전표삭제 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.cbo상태구분 = new Duzon.Common.Controls.DropDownComboBox();
+            this.cbo기준 = new Duzon.Common.Controls.DropDownComboBox();
+            this.panelExt1 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt1 = new Duzon.Common.Controls.LabelExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panelExt1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo수기)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo변경)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo처리)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo미처리)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo전체)).BeginInit();
             this.panelExt2.SuspendLayout();
             this.panelExt3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -72,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts1)).BeginInit();
+            this.panelExt1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mDataArea
@@ -124,7 +117,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cbo기준);
             this.panel1.Controls.Add(this.panelExt1);
+            this.panel1.Controls.Add(this.cbo상태구분);
             this.panel1.Controls.Add(this.panelExt2);
             this.panel1.Controls.Add(this.dt일자);
             this.panel1.Controls.Add(this.txt명);
@@ -135,84 +130,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1084, 30);
             this.panel1.TabIndex = 1;
-            // 
-            // panelExt1
-            // 
-            this.panelExt1.Controls.Add(this.rdo수기);
-            this.panelExt1.Controls.Add(this.rdo변경);
-            this.panelExt1.Controls.Add(this.rdo처리);
-            this.panelExt1.Controls.Add(this.rdo미처리);
-            this.panelExt1.Controls.Add(this.rdo전체);
-            this.panelExt1.Location = new System.Drawing.Point(581, 4);
-            this.panelExt1.Name = "panelExt1";
-            this.panelExt1.Size = new System.Drawing.Size(363, 21);
-            this.panelExt1.TabIndex = 1963;
-            // 
-            // rdo수기
-            // 
-            this.rdo수기.Location = new System.Drawing.Point(274, 2);
-            this.rdo수기.Name = "rdo수기";
-            this.rdo수기.Size = new System.Drawing.Size(74, 18);
-            this.rdo수기.TabIndex = 195;
-            this.rdo수기.TabStop = true;
-            this.rdo수기.Tag = "4";
-            this.rdo수기.Text = "수기등록";
-            this.rdo수기.TextDD = null;
-            this.rdo수기.UseKeyEnter = true;
-            this.rdo수기.UseVisualStyleBackColor = true;
-            // 
-            // rdo변경
-            // 
-            this.rdo변경.Location = new System.Drawing.Point(200, 2);
-            this.rdo변경.Name = "rdo변경";
-            this.rdo변경.Size = new System.Drawing.Size(74, 18);
-            this.rdo변경.TabIndex = 194;
-            this.rdo변경.TabStop = true;
-            this.rdo변경.Tag = "3";
-            this.rdo변경.Text = "자료변경";
-            this.rdo변경.TextDD = null;
-            this.rdo변경.UseKeyEnter = true;
-            this.rdo변경.UseVisualStyleBackColor = true;
-            // 
-            // rdo처리
-            // 
-            this.rdo처리.Location = new System.Drawing.Point(126, 2);
-            this.rdo처리.Name = "rdo처리";
-            this.rdo처리.Size = new System.Drawing.Size(74, 18);
-            this.rdo처리.TabIndex = 193;
-            this.rdo처리.TabStop = true;
-            this.rdo처리.Tag = "2";
-            this.rdo처리.Text = "전표처리";
-            this.rdo처리.TextDD = null;
-            this.rdo처리.UseKeyEnter = true;
-            this.rdo처리.UseVisualStyleBackColor = true;
-            // 
-            // rdo미처리
-            // 
-            this.rdo미처리.Location = new System.Drawing.Point(61, 2);
-            this.rdo미처리.Name = "rdo미처리";
-            this.rdo미처리.Size = new System.Drawing.Size(64, 18);
-            this.rdo미처리.TabIndex = 192;
-            this.rdo미처리.TabStop = true;
-            this.rdo미처리.Tag = "1";
-            this.rdo미처리.Text = "미처리";
-            this.rdo미처리.TextDD = null;
-            this.rdo미처리.UseKeyEnter = true;
-            this.rdo미처리.UseVisualStyleBackColor = true;
-            // 
-            // rdo전체
-            // 
-            this.rdo전체.Checked = true;
-            this.rdo전체.Location = new System.Drawing.Point(8, 2);
-            this.rdo전체.Name = "rdo전체";
-            this.rdo전체.Size = new System.Drawing.Size(47, 18);
-            this.rdo전체.TabIndex = 191;
-            this.rdo전체.TabStop = true;
-            this.rdo전체.Tag = "0";
-            this.rdo전체.Text = "전체";
-            this.rdo전체.TextDD = null;
-            this.rdo전체.UseKeyEnter = true;
-            this.rdo전체.UseVisualStyleBackColor = true;
             // 
             // panelExt2
             // 
@@ -251,7 +168,7 @@
             this.txt명.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt명.Location = new System.Drawing.Point(375, 4);
             this.txt명.Name = "txt명";
-            this.txt명.Size = new System.Drawing.Size(107, 21);
+            this.txt명.Size = new System.Drawing.Size(107, 25);
             this.txt명.TabIndex = 1961;
             // 
             // panelExt3
@@ -266,11 +183,11 @@
             // lbl명
             // 
             this.lbl명.BackColor = System.Drawing.Color.Transparent;
-            this.lbl명.Location = new System.Drawing.Point(25, 6);
+            this.lbl명.Location = new System.Drawing.Point(3, 6);
             this.lbl명.Name = "lbl명";
-            this.lbl명.Size = new System.Drawing.Size(63, 18);
+            this.lbl명.Size = new System.Drawing.Size(85, 18);
             this.lbl명.TabIndex = 41;
-            this.lbl명.Text = "사업자명";
+            this.lbl명.Text = "사업자명/번호";
             this.lbl명.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel6
@@ -381,6 +298,49 @@
             this.btn전표삭제.Text = "전표삭제";
             this.btn전표삭제.UseVisualStyleBackColor = false;
             // 
+            // cbo상태구분
+            // 
+            this.cbo상태구분.AutoDropDown = true;
+            this.cbo상태구분.BackColor = System.Drawing.Color.White;
+            this.cbo상태구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo상태구분.ItemHeight = 15;
+            this.cbo상태구분.Location = new System.Drawing.Point(580, 4);
+            this.cbo상태구분.Name = "cbo상태구분";
+            this.cbo상태구분.Size = new System.Drawing.Size(80, 23);
+            this.cbo상태구분.TabIndex = 1972;
+            this.cbo상태구분.UseKeyF3 = false;
+            // 
+            // cbo기준
+            // 
+            this.cbo기준.AutoDropDown = true;
+            this.cbo기준.BackColor = System.Drawing.Color.White;
+            this.cbo기준.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo기준.ItemHeight = 15;
+            this.cbo기준.Location = new System.Drawing.Point(760, 4);
+            this.cbo기준.Name = "cbo기준";
+            this.cbo기준.Size = new System.Drawing.Size(80, 23);
+            this.cbo기준.TabIndex = 1974;
+            this.cbo기준.UseKeyF3 = false;
+            // 
+            // panelExt1
+            // 
+            this.panelExt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt1.Controls.Add(this.labelExt1);
+            this.panelExt1.Location = new System.Drawing.Point(667, -1);
+            this.panelExt1.Name = "panelExt1";
+            this.panelExt1.Size = new System.Drawing.Size(91, 31);
+            this.panelExt1.TabIndex = 1973;
+            // 
+            // labelExt1
+            // 
+            this.labelExt1.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt1.Location = new System.Drawing.Point(28, 6);
+            this.labelExt1.Name = "labelExt1";
+            this.labelExt1.Size = new System.Drawing.Size(60, 18);
+            this.labelExt1.TabIndex = 55;
+            this.labelExt1.Text = "기준";
+            this.labelExt1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // P_CZ_ME_SALES_PUB
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -391,20 +351,14 @@
             this.Size = new System.Drawing.Size(1090, 796);
             this.TitleText = "퍼블리셔정산";
             this.Controls.SetChildIndex(this.panRadio1, 0);
-            this.Controls.SetChildIndex(this.mDataArea, 0);
             this.Controls.SetChildIndex(this.btn전표처리, 0);
             this.Controls.SetChildIndex(this.btn전표삭제, 0);
+            this.Controls.SetChildIndex(this.mDataArea, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelExt1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rdo수기)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo변경)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo처리)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo미처리)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdo전체)).EndInit();
             this.panelExt2.ResumeLayout(false);
             this.panelExt3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -413,6 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts1)).EndInit();
+            this.panelExt1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -435,14 +390,12 @@
         private Duzon.Common.Controls.PeriodPicker dt일자;
         private Duzon.Common.Controls.RoundedButton btn전표처리;
         private Duzon.Common.Controls.RoundedButton btn전표삭제;
-        private Duzon.Common.Controls.PanelExt panelExt1;
-        private Duzon.Common.Controls.RadioButtonExt rdo수기;
-        private Duzon.Common.Controls.RadioButtonExt rdo변경;
-        private Duzon.Common.Controls.RadioButtonExt rdo처리;
-        private Duzon.Common.Controls.RadioButtonExt rdo미처리;
-        private Duzon.Common.Controls.RadioButtonExt rdo전체;
         private Duzon.Common.Controls.PanelExt panelExt2;
         private Duzon.Common.Controls.LabelExt lbl구분;
+        private Duzon.Common.Controls.DropDownComboBox cbo상태구분;
+        private Duzon.Common.Controls.DropDownComboBox cbo기준;
+        private Duzon.Common.Controls.PanelExt panelExt1;
+        private Duzon.Common.Controls.LabelExt labelExt1;
 
     }
 }

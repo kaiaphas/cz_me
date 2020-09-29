@@ -58,18 +58,14 @@ namespace cz
                 si.CompanyID = 회사코드;
                 si.UserID = 사용자ID;
 
-                si.SpNameInsert = "UP_CZ_ME_SALES_PUB_I";
-                si.SpNameUpdate = "UP_CZ_ME_SALES_PUB_I";
+                si.SpNameInsert = "UP_CZ_ME_SALES_PUB_PARTNER_I";
+                si.SpNameUpdate = "UP_CZ_ME_SALES_PUB_PARTNER_I";
                 si.SpNameDelete = "UP_CZ_ME_SALES_PUB_D";
                 si.SpParamsInsert = new string[] { 
-                    "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ"
-                    , "ME_CORPNO", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "AM_BUDGET", "AM_AGY_PRICE"
-                    , "AM_MEDIA_PRICE", "NO_DOCU_M", "NO_DOCU_C", "ID_INSERT", "ID_UPDATE"
+                    "CD_COMPANY", "ME_CORPID", "NO_COMPANY", "LN_PARTNER", "ID_INSERT"
                 };
                 si.SpParamsUpdate = new string[] { 
-                    "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ"
-                    , "ME_CORPNO", "ME_YEAR_MONTH", "ME_TRADE_TYPE", "AM_BUDGET", "AM_AGY_PRICE"
-                    , "AM_MEDIA_PRICE", "NO_DOCU_M", "NO_DOCU_C", "ID_INSERT", "ID_UPDATE"
+                    "CD_COMPANY", "ME_CORPID", "NO_COMPANY", "LN_PARTNER", "ID_INSERT"
                 };
                 si.SpParamsDelete = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ" };
                 sic.Add(si);
