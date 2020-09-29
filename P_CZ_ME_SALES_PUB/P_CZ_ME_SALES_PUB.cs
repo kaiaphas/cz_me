@@ -86,10 +86,12 @@ namespace cz
             _flexM.SetCol("DT_JUNPYO", "전표처리일시", 130, false);
             //_flexM.SetCol("NO_DOCU", "전표번호", 100, false);
             _flexM.SetCol("S1", "선택", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_M", "수주전표", 100, true);
+            _flexM.SetCol("NO_DOCU_M", "수주전표", 100, false);
             _flexM.SetCol("S2", "선택", 35, true, CheckTypeEnum.Y_N);
-            _flexM.SetCol("NO_DOCU_C", "수수료전표", 100, true);
-            _flexM.SetCol("TP_TAXSTATUS", "세금계산서여부", 100, false);
+            _flexM.SetCol("NO_DOCU_C", "수수료전표", 100, false);
+            _flexM.SetCol("TP_TAXSTATUS", "전자세금계산서", 100, false);
+            _flexM.SetCol("NO_COMPANY", "더존거래처코드", 100, true);
+            _flexM.SetCol("LN_PARTNER", "더존거래처명", 150, false);
 
             _flexM.SetCol("PUB_BUDGET", "전수주액", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("PUB_AGY_PRICE", "전수수료", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
@@ -103,6 +105,11 @@ namespace cz
             _flexM.Cols["ME_CORPNO"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.SetStringFormatCol("ME_CORPNO");
             _flexM.SetNoMaskSaveCol("ME_CORPNO");
+
+            _flexM.Cols["NO_COMPANY"].Format = _flexM.Cols["NO_COMPANY"].EditMask = "###-##-#####";
+            _flexM.Cols["NO_COMPANY"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.SetStringFormatCol("NO_COMPANY");
+            _flexM.SetNoMaskSaveCol("NO_COMPANY");
 
             _flexM.Cols["DT_JUNPYO"].Format = _flexM.Cols["DT_JUNPYO"].EditMask = "####-##-## ##:##:##";
             _flexM.Cols["DT_JUNPYO"].TextAlign = TextAlignEnum.CenterCenter;
@@ -122,16 +129,16 @@ namespace cz
 
             _flexM.Cols.Frozen = 1;
 
-            _flexM.SettingVersion = "1.0.2.4";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.2.5";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
-            //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
-            //_flexM.SetCodeHelpCol("AY_AGENCYNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "AY_AGENCYNO", "AY_AGENCYID", "AY_AGENCYNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
-
-            //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
+            //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);            
+            //_flexM.SetCodeHelpCol("NO_COMPANY", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "NO_COMPANY",  "ME_CORPID", "LN_PARTNER" }, new string[] { "NO_COMPANY", "BIZ_ID", "LN_PARTNER" }, ResultMode.FastMode);
+            _flexM.SetCodeHelpCol("NO_COMPANY", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "NO_COMPANY", "LN_PARTNER" }, new string[] { "NO_COMPANY", "LN_PARTNER" }, ResultMode.FastMode);
 
             _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
             _flexM.HelpClick += new EventHandler(_flexM_HelpClick);
+            _flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
             _flexM.AfterEdit += new RowColEventHandler(_flexM_AfterEdit);
             //_flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
             //_flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
@@ -160,17 +167,12 @@ namespace cz
             //_flexM.SetDataMap("CD_ACCT", dt계정코드.Copy(), "CODE", "NAME");
             _flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
             //_flexM.SetDataMap("ME_TRADE_TYPE", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
+            SetControl set = new SetControl();
+            set.SetCombobox(cbo상태구분, MA.GetCodeUser(new string[] { "전체", "미처리", "전표처리", "자료변경", "수기등록" }, new string[] { DD("전체"), DD("미처리"), DD("전표처리"), DD("자료변경"), DD("수기등록") }));
+            set.SetCombobox(cbo기준, MA.GetCodeUser(new string[] { "", "1", "2" }, new string[] { DD("전체"), DD("전액"), DD("순액") }));
 
             btn전표처리.Click += new EventHandler(btn전표처리_Click);
-            btn전표삭제.Click += new EventHandler(btn전표삭제_Click);
-
-            rdo전체.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
-            rdo미처리.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
-            rdo처리.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
-            rdo변경.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
-            rdo수기.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
-
-            rdo_idx = "전체";
+            btn전표삭제.Click += new EventHandler(btn전표삭제_Click);       
         }
 
         #endregion
@@ -185,13 +187,14 @@ namespace cz
         {
             try
             {
-                object[] Params = new object[6];
+                object[] Params = new object[8];
                 Params[0] = LoginInfo.CompanyCode;
                 Params[1] = "SELECT";
                 Params[2] = dt일자.StartDateToString.Substring(0, 6);
                 Params[3] = dt일자.EndDateToString.Substring(0, 6);
                 Params[4] = txt명.Text;
-                Params[5] = rdo_idx;
+                Params[5] = cbo상태구분.SelectedValue;
+                Params[6] = cbo기준.SelectedValue;
 
                 DataSet ds = _biz.Search_M(Params);
 
@@ -218,13 +221,14 @@ namespace cz
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-                        object[] Params = new object[6];
+                        object[] Params = new object[7];
                         Params[0] = LoginInfo.CompanyCode;
                         Params[1] = "SELECT";
                         Params[2] = dt일자.StartDateToString.Substring(0, 6);
                         Params[3] = dt일자.EndDateToString.Substring(0, 6);
                         Params[4] = txt명.Text;
-                        Params[5] = rdo_idx;
+                        Params[5] = cbo상태구분.SelectedValue;
+                        Params[6] = cbo기준.SelectedValue;
 
                         DataSet ds = _biz.Search_M(Params);
 
@@ -246,6 +250,7 @@ namespace cz
 
             if (_flexM.HasNormalRow)
             {
+                /*
                 for (int i = _flexM.Rows.Fixed; i < _flexM.Rows.Count; i++)
                 {
                     if (D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0)
@@ -260,6 +265,7 @@ namespace cz
                         return false;
                     }
                 }
+                */
 
                 obj = _biz.Save(_flexM.GetChanges(), _타메뉴호출);
             }
@@ -374,6 +380,7 @@ namespace cz
 
         #region ♥ 기타 이벤트
 
+        /*
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (((RadioButton)sender).Checked)
@@ -381,6 +388,7 @@ namespace cz
             string[] tempstr = rdo_idx.Split('-');
             rdo_idx = tempstr[0].Trim();
         }
+        */
 
         #endregion
 
@@ -423,16 +431,44 @@ namespace cz
 
         void _flexM_HelpClick(object sender, EventArgs e)
         {
-            if (_flexM.Cols[_flexM.Col].Name == "S")
-                return;
+            try
+            {
+                if (_flexM.Cols[_flexM.Col].Name == "S")
+                    return;
 
-            string 전표번호 = D.GetString(_flexM["NO_DOCU"]);
+                string 수주전표 = D.GetString(_flexM["NO_DOCU_M"]);
+                string 수수료전표 = D.GetString(_flexM["NO_DOCU_C"]);
 
-            if (전표번호 == "")
-                return;
+                if (수주전표 == "" && 수수료전표 == "")
+                    return;
 
-            object[] Args = { 전표번호, "", "", Global.MainFrame.LoginInfo.CompanyCode };
-            CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
+                switch (_flexM.Cols[_flexM.Col].Name)
+                {
+                    case "NO_DOCU_M":
+
+                        if (수주전표 == "")
+                            return;
+
+                        object[] Args = { 수주전표, "", "", Global.MainFrame.LoginInfo.CompanyCode };
+                        CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
+
+                        break;
+
+                    case "NO_DOCU_C":
+
+                        if (수수료전표 == "")
+                            return;
+
+                        object[] Args2 = { 수수료전표, "", "", Global.MainFrame.LoginInfo.CompanyCode };
+                        CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args2);
+
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MsgEnd(ex);
+            }
         }
 
         private void _flexM_OwnerDrawCell(object sender, OwnerDrawCellEventArgs e)
@@ -471,7 +507,39 @@ namespace cz
                 }
 
             }
+
+            // 기준컬럼 : '순액'일 경우 글자색상 적색
+            if (D.GetString(_flexM[e.Row, "ME_TRADE_TYPE"]) == "2")
+            {
+                rg = _flexM.GetCellRange(e.Row, "ME_TRADE_TYPE");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetString(_flexM[e.Row, "PARTNER_CHK"]) == "2")
+            {
+                rg = _flexM.GetCellRange(e.Row, "ME_CORPNO");
+                rg.StyleNew.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(126)), ((Byte)(126)));
+                rg = _flexM.GetCellRange(e.Row, "ME_CORPNM");
+                rg.StyleNew.BackColor = System.Drawing.Color.FromArgb(((Byte)(255)), ((Byte)(126)), ((Byte)(126)));
+            }
         }
+
+        void _flexM_StartEdit(object sender, RowColEventArgs e)
+        {
+            switch (_flexM.Cols[_flexM.Col].Name)
+            {
+                case "S2":
+
+                    //수수료전표 선택 체크박스의 경우 '순액'인 경우 비활성화 처리
+                    if (D.GetString(_flexM[e.Row, "ME_TRADE_TYPE"]) == "2")
+                    {
+                        e.Cancel = true;
+                    }
+
+                    break;
+            }
+        }
+
 
         #endregion
 
@@ -497,6 +565,9 @@ namespace cz
                     ShowMessage(공통메세지.선택된자료가없습니다);
                     return;
                 }
+
+                int row_chk = 0;
+                int j = 0;
 
                 if (ShowMessage("선택한 데이터를 전표처리 하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
@@ -570,10 +641,29 @@ namespace cz
 
                             if (_biz.Save_Junpyo(Params))
                             {
-
+                                if(j == 0)
+                                {
+                                    row_chk = i;
+                                    j = j + 1;
+                                }
                             }
                         }
                     }
+
+                    object[] Params2 = new object[7];
+                    Params2[0] = LoginInfo.CompanyCode;
+                    Params2[1] = "SELECT";
+                    Params2[2] = dt일자.StartDateToString.Substring(0, 6);
+                    Params2[3] = dt일자.EndDateToString.Substring(0, 6);
+                    Params2[4] = txt명.Text;
+                    Params2[5] = cbo상태구분.SelectedValue;
+                    Params2[6] = cbo기준.SelectedValue;
+
+                    DataSet ds = _biz.Search_M(Params2);
+
+                    _flexM.Binding = ds.Tables[0];
+
+                    _flexM.Select(row_chk, "NO_DOCU_M"); 
 
                     //ShowMessage("전표 처리가 완료 되었습니다.");
 
@@ -604,6 +694,10 @@ namespace cz
 
                 if (ShowMessage("선택하신 전표를 삭제하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
+
+                    int row_chk = 0;
+                    int j = 0;
+
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
                         // 20200721 세금계산서 처리 시 삭제할 수 없도록 추가
@@ -622,24 +716,31 @@ namespace cz
 
                             if (_biz.Delete_Junpyo(전표번호))
                             {
-                           
+                                if (j == 0)
+                                {
+                                    row_chk = i;
+                                    j = j + 1;
+                                }
                             }
                         }
                     }
 
                     //ShowMessage("전표 삭제가 완료 되었습니다.");
 
-                    object[] Params = new object[6];
+                    object[] Params = new object[7];
                     Params[0] = LoginInfo.CompanyCode;
                     Params[1] = "SELECT";
                     Params[2] = dt일자.StartDateToString.Substring(0, 6);
                     Params[3] = dt일자.EndDateToString.Substring(0, 6);
                     Params[4] = txt명.Text;
-                    Params[5] = rdo_idx;
+                    Params[5] = cbo상태구분.SelectedValue;
+                    Params[6] = cbo기준.SelectedValue;
 
                     DataSet ds = _biz.Search_M(Params);
 
                     _flexM.Binding = ds.Tables[0];
+
+                    _flexM.Select(row_chk, "NO_DOCU_M"); 
                 }
             }
             catch (Exception ex)
