@@ -100,7 +100,7 @@ namespace cz
 
             _flexM.Cols["tp_sales"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["cd_acct"].TextAlign = TextAlignEnum.CenterCenter;
-            _flexM.Cols["ay_year_month"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["ay_year_month"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ay_trade_type"].TextAlign = TextAlignEnum.CenterCenter;
 
             _flexM.Cols["ay_agencyno"].Format = _flexM.Cols["ay_agencyno"].EditMask = "###-##-#####";
@@ -116,12 +116,25 @@ namespace cz
             _flexM.SetStringFormatCol("me_corpno");
             _flexM.SetNoMaskSaveCol("me_corpno");
 
+            _flexM.Cols["am_budget"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_budget"].Format = "###,###,###,##0;(###,###,###,##0)";
+
+            _flexM.Cols["am_agy_price"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_agy_price"].Format = "###,###,###,##0;(###,###,###,##0)";
+
+            _flexM.Cols["am_income"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_income"].Format = "###,###,###,##0;(###,###,###,##0)";
+
+            _flexM.Cols["am_media_price"].TextAlign = TextAlignEnum.RightCenter;
+            _flexM.Cols["am_media_price"].Format = "###,###,###,##0;(###,###,###,##0)";
+
             _flexM.Cols["nm_mediagr"].TextAlign = TextAlignEnum.LeftCenter;
 
             _flexM.SetDummyColumn("S");
             _flexM.Cols.Frozen = 1;
 
             //MERGE 처리
+            /*
             _flexM[0, "ay_year_month"] = _flexM[0, "AGE"] = "대행사";
             _flexM[0, "me_trade_type"] = _flexM[0, "AGE"] = "대행사";
             _flexM[0, "ay_agencyno"] = _flexM[0, "AGE"] = "대행사";
@@ -135,8 +148,8 @@ namespace cz
             _flexM[0, "me_corpid"] = _flexM[0, "MED"] = "매체";
             _flexM[0, "me_corpnm"] = _flexM[0, "MED"] = "매체";
             _flexM[0, "nm_mediagr"] = _flexM[0, "MED"] = "매체";
-
-            _flexM.SettingVersion = "1.0.1.8";// new Random().Next().ToString();
+            */
+            _flexM.SettingVersion = "1.0.1.9";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
@@ -149,7 +162,7 @@ namespace cz
             //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
             _flexM.AfterEdit += new RowColEventHandler(_flexM_AfterEdit);
             _flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
-            //_flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
+            _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
 
             //20200720 Null Check 임시추가
             _flexM.VerifyNotNull = new string[] { "cpid", "ay_year_month", "ay_trade_type", "ay_agencyid", "me_corpid", "me_teamid", "am_budget", "am_agy_price", "am_income", "am_media_price" };
@@ -209,11 +222,13 @@ namespace cz
             {
                 SetToolBarButtonState(true, true, false, false, false);
                 _flexM.AllowEditing = true;
+                btn행복사.Enabled = true;
             }
             else
             {
                 SetToolBarButtonState(true, false, false, false, false);
                 _flexM.AllowEditing = false;
+                btn행복사.Enabled = false;
             }
         }
 
@@ -259,11 +274,13 @@ namespace cz
                 {
                     SetToolBarButtonState(true, true, false, false, false);
                     _flexM.AllowEditing = true;
+                    btn행복사.Enabled = true;
                 }
                 else
                 {
                     SetToolBarButtonState(true, false, false, false, false);
                     _flexM.AllowEditing = false;
+                    btn행복사.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -317,11 +334,13 @@ namespace cz
                         {
                             SetToolBarButtonState(true, true, false, false, false);
                             _flexM.AllowEditing = true;
+                            btn행복사.Enabled = true;
                         }
                         else
                         {
                             SetToolBarButtonState(true, false, false, false, false);
                             _flexM.AllowEditing = false;
+                            btn행복사.Enabled = false;
                         }
                     }
                 }
@@ -409,7 +428,7 @@ namespace cz
                 //삭제내역은 수정할 수 없도록 처리
                 if (cbo등록구분.SelectedValue.ToString().Equals("2"))
                 {
-                    _flexM[_flexM.Row, "tp_sales"] = "2";
+                    _flexM[_flexM.Row, "tp_sales"] = "이월자료";
                     _flexM[_flexM.Row, "cd_acct"] = "1";
                     _flexM[_flexM.Row, "me_year_month"] = dp년도.Text + "01";
                     _flexM[_flexM.Row, "me_trade_type"] = "1";
@@ -536,11 +555,13 @@ namespace cz
                                 {
                                     SetToolBarButtonState(true, true, false, false, false);
                                     _flexM.AllowEditing = true;
+                                    btn행복사.Enabled = true;
                                 }
                                 else
                                 {
                                     SetToolBarButtonState(true, false, false, false, false);
                                     _flexM.AllowEditing = false;
+                                    btn행복사.Enabled = false;
                                 }
                             }
                         }
@@ -602,6 +623,66 @@ namespace cz
             }
         }
 
+
+        private void _flexM_OwnerDrawCell(object sender, OwnerDrawCellEventArgs e)
+        {
+            CellRange rg;
+            CellStyle csCellstyle = _flexM.Styles.Add("CellStyle");
+
+            if (!_flexM.HasNormalRow)
+                return;
+
+            if (e.Row < _flexM.Rows.Fixed || e.Col < _flexM.Cols.Fixed)
+                return;
+
+            if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "ay_year_month"]))
+            {
+                rg = _flexM.GetCellRange(e.Row, "ay_year_month");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetString(_flexM[e.Row, "ay_year"]) != D.GetString(_flexM[e.Row, "me_year_month"]))
+            {
+                rg = _flexM.GetCellRange(e.Row, "me_year_month");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetString(_flexM[e.Row, "ay_trade_type"]) == "순액")
+            {
+                rg = _flexM.GetCellRange(e.Row, "ay_trade_type");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetString(_flexM[e.Row, "me_trade_type"]) == "순액")
+            {
+                rg = _flexM.GetCellRange(e.Row, "me_trade_type");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetDecimal(_flexM[e.Row, "am_budget"]) < 0)
+            {
+                rg = _flexM.GetCellRange(e.Row, "am_budget");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetDecimal(_flexM[e.Row, "am_agy_price"]) < 0)
+            {
+                rg = _flexM.GetCellRange(e.Row, "am_agy_price");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetDecimal(_flexM[e.Row, "am_income"]) < 0)
+            {
+                rg = _flexM.GetCellRange(e.Row, "am_income");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+
+            if (D.GetDecimal(_flexM[e.Row, "am_media_price"]) < 0)
+            {
+                rg = _flexM.GetCellRange(e.Row, "am_media_price");
+                rg.StyleNew.ForeColor = System.Drawing.Color.Red;
+            }
+        }
         #endregion
 
         #region ♥ 기타 Property
@@ -626,11 +707,13 @@ namespace cz
             {
                 SetToolBarButtonState(true, true, false, false, false);
                 _flexM.AllowEditing = true;
+                btn행복사.Enabled = true;
             }
             else
             {
                 SetToolBarButtonState(true, false, false, false, false);
                 _flexM.AllowEditing = false;
+                btn행복사.Enabled = false;
             }
         }
     }

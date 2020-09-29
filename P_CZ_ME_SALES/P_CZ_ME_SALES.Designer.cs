@@ -220,6 +220,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelExt23);
+            this.panel1.Controls.Add(this.panelExt7);
+            this.panel1.Controls.Add(this.panelExt4);
             this.panel1.Controls.Add(this.lbl마감여부);
             this.panel1.Controls.Add(this.dpMonthTo);
             this.panel1.Controls.Add(this.lbl결산일시);
@@ -228,7 +231,9 @@
             this.panel1.Controls.Add(this.dpYear);
             this.panel1.Controls.Add(this.labelExt30);
             this.panel1.Controls.Add(this.dp매체월TO);
+            this.panel1.Controls.Add(this.cbo마감구분);
             this.panel1.Controls.Add(this.dp매체월FROM);
+            this.panel1.Controls.Add(this.panelExt25);
             this.panel1.Controls.Add(this.MULTI_CD_MEDIAGR);
             this.panel1.Controls.Add(this.MULTI_CD_CORP);
             this.panel1.Controls.Add(this.MULTI_CD_ACCOUNT);
@@ -265,8 +270,6 @@
             this.panel1.Controls.Add(this.MULTI_CD_AGENCY);
             this.panel1.Controls.Add(this.panelExt6);
             this.panel1.Controls.Add(this.panelExt9);
-            this.panel1.Controls.Add(this.panelExt7);
-            this.panel1.Controls.Add(this.panelExt4);
             this.panel1.Controls.Add(this.cbo수주액);
             this.panel1.Controls.Add(this.panelExt31);
             this.panel1.Controls.Add(this.panelExt29);
@@ -276,7 +279,6 @@
             this.panel1.Controls.Add(this.txt캠페인명);
             this.panel1.Controls.Add(this.panelExt2);
             this.panel1.Controls.Add(this.panelExt1);
-            this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.labelExt28);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -455,15 +457,15 @@
             // 
             this.panelExt28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt28.Controls.Add(this.labelExt23);
-            this.panelExt28.Location = new System.Drawing.Point(724, 31);
+            this.panelExt28.Location = new System.Drawing.Point(724, 29);
             this.panelExt28.Name = "panelExt28";
-            this.panelExt28.Size = new System.Drawing.Size(70, 27);
+            this.panelExt28.Size = new System.Drawing.Size(70, 33);
             this.panelExt28.TabIndex = 259;
             // 
             // labelExt23
             // 
             this.labelExt23.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt23.Location = new System.Drawing.Point(4, 5);
+            this.labelExt23.Location = new System.Drawing.Point(4, 7);
             this.labelExt23.Name = "labelExt23";
             this.labelExt23.Size = new System.Drawing.Size(60, 18);
             this.labelExt23.TabIndex = 55;
@@ -487,15 +489,15 @@
             // 
             this.panelExt30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt30.Controls.Add(this.labelExt27);
-            this.panelExt30.Location = new System.Drawing.Point(1059, 31);
+            this.panelExt30.Location = new System.Drawing.Point(1059, 29);
             this.panelExt30.Name = "panelExt30";
-            this.panelExt30.Size = new System.Drawing.Size(70, 27);
+            this.panelExt30.Size = new System.Drawing.Size(70, 32);
             this.panelExt30.TabIndex = 278;
             // 
             // labelExt27
             // 
             this.labelExt27.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt27.Location = new System.Drawing.Point(2, 4);
+            this.labelExt27.Location = new System.Drawing.Point(2, 7);
             this.labelExt27.Name = "labelExt27";
             this.labelExt27.Size = new System.Drawing.Size(60, 18);
             this.labelExt27.TabIndex = 55;
@@ -530,15 +532,15 @@
             // 
             this.panelExt27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt27.Controls.Add(this.labelExt25);
-            this.panelExt27.Location = new System.Drawing.Point(794, 1);
+            this.panelExt27.Location = new System.Drawing.Point(794, -1);
             this.panelExt27.Name = "panelExt27";
-            this.panelExt27.Size = new System.Drawing.Size(70, 27);
+            this.panelExt27.Size = new System.Drawing.Size(70, 31);
             this.panelExt27.TabIndex = 293;
             // 
             // labelExt25
             // 
             this.labelExt25.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt25.Location = new System.Drawing.Point(3, 5);
+            this.labelExt25.Location = new System.Drawing.Point(3, 7);
             this.labelExt25.Name = "labelExt25";
             this.labelExt25.Size = new System.Drawing.Size(64, 18);
             this.labelExt25.TabIndex = 55;
@@ -601,15 +603,15 @@
             // 
             this.panelExt3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt3.Controls.Add(this.labelExt3);
-            this.panelExt3.Location = new System.Drawing.Point(1059, 91);
+            this.panelExt3.Location = new System.Drawing.Point(1059, 89);
             this.panelExt3.Name = "panelExt3";
-            this.panelExt3.Size = new System.Drawing.Size(70, 27);
+            this.panelExt3.Size = new System.Drawing.Size(70, 32);
             this.panelExt3.TabIndex = 290;
             // 
             // labelExt3
             // 
             this.labelExt3.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt3.Location = new System.Drawing.Point(2, 4);
+            this.labelExt3.Location = new System.Drawing.Point(2, 7);
             this.labelExt3.Name = "labelExt3";
             this.labelExt3.Size = new System.Drawing.Size(60, 18);
             this.labelExt3.TabIndex = 55;
@@ -644,15 +646,15 @@
             // 
             this.panelExt10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt10.Controls.Add(this.labelExt7);
-            this.panelExt10.Location = new System.Drawing.Point(891, 91);
+            this.panelExt10.Location = new System.Drawing.Point(891, 89);
             this.panelExt10.Name = "panelExt10";
-            this.panelExt10.Size = new System.Drawing.Size(70, 27);
+            this.panelExt10.Size = new System.Drawing.Size(70, 32);
             this.panelExt10.TabIndex = 286;
             // 
             // labelExt7
             // 
             this.labelExt7.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt7.Location = new System.Drawing.Point(4, 4);
+            this.labelExt7.Location = new System.Drawing.Point(4, 7);
             this.labelExt7.Name = "labelExt7";
             this.labelExt7.Size = new System.Drawing.Size(60, 18);
             this.labelExt7.TabIndex = 55;
@@ -663,15 +665,15 @@
             // 
             this.panelExt12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt12.Controls.Add(this.labelExt9);
-            this.panelExt12.Location = new System.Drawing.Point(724, 91);
+            this.panelExt12.Location = new System.Drawing.Point(724, 89);
             this.panelExt12.Name = "panelExt12";
-            this.panelExt12.Size = new System.Drawing.Size(70, 27);
+            this.panelExt12.Size = new System.Drawing.Size(70, 32);
             this.panelExt12.TabIndex = 287;
             // 
             // labelExt9
             // 
             this.labelExt9.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt9.Location = new System.Drawing.Point(4, 4);
+            this.labelExt9.Location = new System.Drawing.Point(4, 7);
             this.labelExt9.Name = "labelExt9";
             this.labelExt9.Size = new System.Drawing.Size(60, 18);
             this.labelExt9.TabIndex = 55;
@@ -694,15 +696,15 @@
             // 
             this.panelExt18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt18.Controls.Add(this.labelExt14);
-            this.panelExt18.Location = new System.Drawing.Point(558, 91);
+            this.panelExt18.Location = new System.Drawing.Point(558, 89);
             this.panelExt18.Name = "panelExt18";
-            this.panelExt18.Size = new System.Drawing.Size(70, 27);
+            this.panelExt18.Size = new System.Drawing.Size(70, 32);
             this.panelExt18.TabIndex = 280;
             // 
             // labelExt14
             // 
             this.labelExt14.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt14.Location = new System.Drawing.Point(4, 4);
+            this.labelExt14.Location = new System.Drawing.Point(4, 7);
             this.labelExt14.Name = "labelExt14";
             this.labelExt14.Size = new System.Drawing.Size(60, 18);
             this.labelExt14.TabIndex = 55;
@@ -751,15 +753,15 @@
             // 
             this.panelExt11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt11.Controls.Add(this.labelExt8);
-            this.panelExt11.Location = new System.Drawing.Point(1059, 61);
+            this.panelExt11.Location = new System.Drawing.Point(1059, 59);
             this.panelExt11.Name = "panelExt11";
-            this.panelExt11.Size = new System.Drawing.Size(70, 27);
+            this.panelExt11.Size = new System.Drawing.Size(70, 32);
             this.panelExt11.TabIndex = 276;
             // 
             // labelExt8
             // 
             this.labelExt8.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt8.Location = new System.Drawing.Point(2, 4);
+            this.labelExt8.Location = new System.Drawing.Point(2, 7);
             this.labelExt8.Name = "labelExt8";
             this.labelExt8.Size = new System.Drawing.Size(60, 18);
             this.labelExt8.TabIndex = 55;
@@ -794,15 +796,15 @@
             // 
             this.panelExt16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt16.Controls.Add(this.labelExt13);
-            this.panelExt16.Location = new System.Drawing.Point(891, 61);
+            this.panelExt16.Location = new System.Drawing.Point(891, 59);
             this.panelExt16.Name = "panelExt16";
-            this.panelExt16.Size = new System.Drawing.Size(70, 27);
+            this.panelExt16.Size = new System.Drawing.Size(70, 32);
             this.panelExt16.TabIndex = 274;
             // 
             // labelExt13
             // 
             this.labelExt13.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt13.Location = new System.Drawing.Point(4, 4);
+            this.labelExt13.Location = new System.Drawing.Point(4, 7);
             this.labelExt13.Name = "labelExt13";
             this.labelExt13.Size = new System.Drawing.Size(60, 18);
             this.labelExt13.TabIndex = 55;
@@ -813,15 +815,15 @@
             // 
             this.panelExt15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt15.Controls.Add(this.labelExt12);
-            this.panelExt15.Location = new System.Drawing.Point(724, 61);
+            this.panelExt15.Location = new System.Drawing.Point(724, 59);
             this.panelExt15.Name = "panelExt15";
-            this.panelExt15.Size = new System.Drawing.Size(70, 27);
+            this.panelExt15.Size = new System.Drawing.Size(70, 32);
             this.panelExt15.TabIndex = 274;
             // 
             // labelExt12
             // 
             this.labelExt12.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt12.Location = new System.Drawing.Point(4, 4);
+            this.labelExt12.Location = new System.Drawing.Point(4, 7);
             this.labelExt12.Name = "labelExt12";
             this.labelExt12.Size = new System.Drawing.Size(60, 18);
             this.labelExt12.TabIndex = 55;
@@ -844,15 +846,15 @@
             // 
             this.panelExt14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt14.Controls.Add(this.labelExt11);
-            this.panelExt14.Location = new System.Drawing.Point(558, 61);
+            this.panelExt14.Location = new System.Drawing.Point(558, 59);
             this.panelExt14.Name = "panelExt14";
-            this.panelExt14.Size = new System.Drawing.Size(70, 27);
+            this.panelExt14.Size = new System.Drawing.Size(70, 32);
             this.panelExt14.TabIndex = 264;
             // 
             // labelExt11
             // 
             this.labelExt11.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt11.Location = new System.Drawing.Point(4, 4);
+            this.labelExt11.Location = new System.Drawing.Point(4, 7);
             this.labelExt11.Name = "labelExt11";
             this.labelExt11.Size = new System.Drawing.Size(60, 18);
             this.labelExt11.TabIndex = 55;
@@ -1036,15 +1038,15 @@
             // 
             this.panelExt31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt31.Controls.Add(this.labelExt26);
-            this.panelExt31.Location = new System.Drawing.Point(558, 31);
+            this.panelExt31.Location = new System.Drawing.Point(558, 29);
             this.panelExt31.Name = "panelExt31";
-            this.panelExt31.Size = new System.Drawing.Size(70, 27);
+            this.panelExt31.Size = new System.Drawing.Size(70, 32);
             this.panelExt31.TabIndex = 265;
             // 
             // labelExt26
             // 
             this.labelExt26.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt26.Location = new System.Drawing.Point(3, 5);
+            this.labelExt26.Location = new System.Drawing.Point(3, 8);
             this.labelExt26.Name = "labelExt26";
             this.labelExt26.Size = new System.Drawing.Size(65, 18);
             this.labelExt26.TabIndex = 55;
@@ -1135,15 +1137,15 @@
             // 
             this.panelExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt2.Controls.Add(this.labelExt2);
-            this.panelExt2.Location = new System.Drawing.Point(558, 1);
+            this.panelExt2.Location = new System.Drawing.Point(558, -1);
             this.panelExt2.Name = "panelExt2";
-            this.panelExt2.Size = new System.Drawing.Size(70, 27);
+            this.panelExt2.Size = new System.Drawing.Size(70, 32);
             this.panelExt2.TabIndex = 257;
             // 
             // labelExt2
             // 
             this.labelExt2.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt2.Location = new System.Drawing.Point(3, 4);
+            this.labelExt2.Location = new System.Drawing.Point(3, 7);
             this.labelExt2.Name = "labelExt2";
             this.labelExt2.Size = new System.Drawing.Size(66, 18);
             this.labelExt2.TabIndex = 55;
@@ -1177,7 +1179,7 @@
             this.panelExt23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt23.BackgroundImage")));
             this.panelExt23.Controls.Add(this.panelExt24);
             this.panelExt23.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt23.Location = new System.Drawing.Point(-78, 29);
+            this.panelExt23.Location = new System.Drawing.Point(45, 29);
             this.panelExt23.Name = "panelExt23";
             this.panelExt23.Size = new System.Drawing.Size(1494, 1);
             this.panelExt23.TabIndex = 253;
@@ -1316,7 +1318,7 @@
             // labelExt20
             // 
             this.labelExt20.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt20.Location = new System.Drawing.Point(3, 5);
+            this.labelExt20.Location = new System.Drawing.Point(3, 7);
             this.labelExt20.Name = "labelExt20";
             this.labelExt20.Size = new System.Drawing.Size(61, 18);
             this.labelExt20.TabIndex = 55;
@@ -1327,11 +1329,10 @@
             // 
             this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt25.Controls.Add(this.labelExt20);
-            this.panelExt25.Location = new System.Drawing.Point(322, 6);
+            this.panelExt25.Location = new System.Drawing.Point(891, 29);
             this.panelExt25.Name = "panelExt25";
-            this.panelExt25.Size = new System.Drawing.Size(70, 27);
+            this.panelExt25.Size = new System.Drawing.Size(70, 32);
             this.panelExt25.TabIndex = 258;
-            this.panelExt25.Visible = false;
             // 
             // cbo마감구분
             // 
@@ -1339,12 +1340,11 @@
             this.cbo마감구분.BackColor = System.Drawing.Color.White;
             this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo마감구분.ItemHeight = 12;
-            this.cbo마감구분.Location = new System.Drawing.Point(393, 9);
+            this.cbo마감구분.Location = new System.Drawing.Point(962, 34);
             this.cbo마감구분.Name = "cbo마감구분";
             this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
             this.cbo마감구분.TabIndex = 294;
             this.cbo마감구분.UseKeyF3 = false;
-            this.cbo마감구분.Visible = false;
             // 
             // btn상세검색
             // 
@@ -1372,14 +1372,10 @@
             this.Controls.Add(this.btn전표처리);
             this.Controls.Add(this.btn전표일괄처리);
             this.Controls.Add(this.btn상세검색);
-            this.Controls.Add(this.cbo마감구분);
-            this.Controls.Add(this.panelExt25);
             this.Name = "P_CZ_ME_SALES";
             this.Size = new System.Drawing.Size(1346, 796);
             this.TitleText = "매출분석";
             this.OwerClosed += new System.EventHandler(this.P_CZ_ME_SALES_OwerClosed);
-            this.Controls.SetChildIndex(this.panelExt25, 0);
-            this.Controls.SetChildIndex(this.cbo마감구분, 0);
             this.Controls.SetChildIndex(this.btn상세검색, 0);
             this.Controls.SetChildIndex(this.btn전표일괄처리, 0);
             this.Controls.SetChildIndex(this.btn전표처리, 0);
