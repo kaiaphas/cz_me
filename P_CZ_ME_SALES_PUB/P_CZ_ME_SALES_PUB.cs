@@ -106,7 +106,7 @@ namespace cz
             _flexM.SetStringFormatCol("ME_CORPNO");
             _flexM.SetNoMaskSaveCol("ME_CORPNO");
 
-            _flexM.Cols["NO_COMPANY"].Format = _flexM.Cols["NO_COMPANY"].EditMask = "###-##-#####";
+            //_flexM.Cols["NO_COMPANY"].Format = _flexM.Cols["NO_COMPANY"].EditMask = "###-##-#####";
             _flexM.Cols["NO_COMPANY"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.SetStringFormatCol("NO_COMPANY");
             _flexM.SetNoMaskSaveCol("NO_COMPANY");
@@ -129,12 +129,14 @@ namespace cz
 
             _flexM.Cols.Frozen = 1;
 
-            _flexM.SettingVersion = "1.0.2.5";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.2.6";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);            
             //_flexM.SetCodeHelpCol("NO_COMPANY", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "NO_COMPANY",  "ME_CORPID", "LN_PARTNER" }, new string[] { "NO_COMPANY", "BIZ_ID", "LN_PARTNER" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("NO_COMPANY", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "NO_COMPANY", "LN_PARTNER" }, new string[] { "NO_COMPANY", "LN_PARTNER" }, ResultMode.FastMode);
+            //_flexM.SetCodeHelpCol("NO_COMPANY", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "NO_COMPANY", "LN_PARTNER" }, new string[] { "NO_COMPANY", "LN_PARTNER" }, ResultMode.FastMode);
+
+            _flexM.SetCodeHelpCol("NO_COMPANY", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "NO_COMPANY", "LN_PARTNER" }, new string[] { "cd_partner", "ln_partner" }, ResultMode.FastMode);
 
             _flexM.OwnerDrawCell += new OwnerDrawCellEventHandler(_flexM_OwnerDrawCell);
             _flexM.HelpClick += new EventHandler(_flexM_HelpClick);
