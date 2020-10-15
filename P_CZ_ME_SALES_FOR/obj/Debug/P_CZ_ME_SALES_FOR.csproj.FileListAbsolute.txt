@@ -484,3 +484,4 @@ D:\Source\P_CZ_ME_SALES_FOR\obj\Debug\cz.P_CZ_ME_SALES_FOR.resources
 D:\Source\P_CZ_ME_SALES_FOR\obj\Debug\P_CZ_ME_SALES_FOR.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_SALES_FOR\obj\Debug\P_CZ_ME_SALES_FOR.dll
 D:\Source\P_CZ_ME_SALES_FOR\obj\Debug\P_CZ_ME_SALES_FOR.pdb
+D:\Source\P_CZ_ME_SALES_FOR\obj\Debug\P_CZ_ME_SALES_FOR.csprojResolveAssemblyReference.cache

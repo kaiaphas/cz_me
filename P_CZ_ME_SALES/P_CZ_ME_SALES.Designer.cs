@@ -33,6 +33,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt23 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt24 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt7 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt8 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt4 = new Duzon.Common.Controls.PanelExt();
+            this.panelExt5 = new Duzon.Common.Controls.PanelExt();
             this.lbl마감여부 = new Duzon.Common.Controls.LabelExt();
             this.dpMonthTo = new Duzon.Common.Controls.DateTimePickerExt();
             this.lbl결산일시 = new Duzon.Common.Controls.LabelExt();
@@ -41,7 +47,10 @@
             this.dpYear = new Duzon.Common.Controls.DateTimePickerExt();
             this.labelExt30 = new Duzon.Common.Controls.LabelExt();
             this.dp매체월TO = new Duzon.Common.Controls.DatePicker();
+            this.cbo조정구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.dp매체월FROM = new Duzon.Common.Controls.DatePicker();
+            this.panelExt25 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt20 = new Duzon.Common.Controls.LabelExt();
             this.MULTI_CD_MEDIAGR = new Duzon.Common.BpControls.BpComboBox();
             this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
             this.MULTI_CD_ACCOUNT = new Duzon.Common.BpControls.BpComboBox();
@@ -96,10 +105,6 @@
             this.labelExt4 = new Duzon.Common.Controls.LabelExt();
             this.panelExt9 = new Duzon.Common.Controls.PanelExt();
             this.labelExt6 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt7 = new Duzon.Common.Controls.PanelExt();
-            this.panelExt8 = new Duzon.Common.Controls.PanelExt();
-            this.panelExt4 = new Duzon.Common.Controls.PanelExt();
-            this.panelExt5 = new Duzon.Common.Controls.PanelExt();
             this.cbo수주액 = new Duzon.Common.Controls.DropDownComboBox();
             this.panelExt31 = new Duzon.Common.Controls.PanelExt();
             this.labelExt26 = new Duzon.Common.Controls.LabelExt();
@@ -115,8 +120,6 @@
             this.labelExt2 = new Duzon.Common.Controls.LabelExt();
             this.panelExt1 = new Duzon.Common.Controls.PanelExt();
             this.labelExt1 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt23 = new Duzon.Common.Controls.PanelExt();
-            this.panelExt24 = new Duzon.Common.Controls.PanelExt();
             this.labelExt28 = new Duzon.Common.Controls.LabelExt();
             this.panel7 = new Duzon.Common.Controls.PanelExt();
             this.labelExt5 = new Duzon.Common.Controls.LabelExt();
@@ -126,16 +129,17 @@
             this.btn삭제반영 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn이월반영 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.labelExt20 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt25 = new Duzon.Common.Controls.PanelExt();
-            this.cbo마감구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panelExt23.SuspendLayout();
+            this.panelExt7.SuspendLayout();
+            this.panelExt4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월TO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월FROM)).BeginInit();
+            this.panelExt25.SuspendLayout();
             this.panelExt28.SuspendLayout();
             this.panelExt30.SuspendLayout();
             this.panelExt27.SuspendLayout();
@@ -156,17 +160,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dp대행사FROM)).BeginInit();
             this.panelExt6.SuspendLayout();
             this.panelExt9.SuspendLayout();
-            this.panelExt7.SuspendLayout();
-            this.panelExt4.SuspendLayout();
             this.panelExt31.SuspendLayout();
             this.panelExt29.SuspendLayout();
             this.panelExt26.SuspendLayout();
             this.panelExt17.SuspendLayout();
             this.panelExt2.SuspendLayout();
             this.panelExt1.SuspendLayout();
-            this.panelExt23.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panelExt25.SuspendLayout();
             this.SuspendLayout();
             // 
             // mDataArea
@@ -231,7 +231,7 @@
             this.panel1.Controls.Add(this.dpYear);
             this.panel1.Controls.Add(this.labelExt30);
             this.panel1.Controls.Add(this.dp매체월TO);
-            this.panel1.Controls.Add(this.cbo마감구분);
+            this.panel1.Controls.Add(this.cbo조정구분);
             this.panel1.Controls.Add(this.dp매체월FROM);
             this.panel1.Controls.Add(this.panelExt25);
             this.panel1.Controls.Add(this.MULTI_CD_MEDIAGR);
@@ -286,6 +286,81 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 122);
             this.panel1.TabIndex = 20;
+            // 
+            // panelExt23
+            // 
+            this.panelExt23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt23.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt23.BackgroundImage")));
+            this.panelExt23.Controls.Add(this.panelExt24);
+            this.panelExt23.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt23.Location = new System.Drawing.Point(45, 29);
+            this.panelExt23.Name = "panelExt23";
+            this.panelExt23.Size = new System.Drawing.Size(1494, 1);
+            this.panelExt23.TabIndex = 253;
+            // 
+            // panelExt24
+            // 
+            this.panelExt24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt24.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt24.BackgroundImage")));
+            this.panelExt24.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt24.Location = new System.Drawing.Point(0, 24);
+            this.panelExt24.Name = "panelExt24";
+            this.panelExt24.Size = new System.Drawing.Size(1494, 1);
+            this.panelExt24.TabIndex = 155;
+            // 
+            // panelExt7
+            // 
+            this.panelExt7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt7.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt7.BackgroundImage")));
+            this.panelExt7.Controls.Add(this.panelExt8);
+            this.panelExt7.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt7.Location = new System.Drawing.Point(-152, 89);
+            this.panelExt7.Name = "panelExt7";
+            this.panelExt7.Size = new System.Drawing.Size(1494, 1);
+            this.panelExt7.TabIndex = 268;
+            // 
+            // panelExt8
+            // 
+            this.panelExt8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt8.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt8.BackgroundImage")));
+            this.panelExt8.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt8.Location = new System.Drawing.Point(0, 24);
+            this.panelExt8.Name = "panelExt8";
+            this.panelExt8.Size = new System.Drawing.Size(1494, 1);
+            this.panelExt8.TabIndex = 155;
+            // 
+            // panelExt4
+            // 
+            this.panelExt4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt4.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt4.BackgroundImage")));
+            this.panelExt4.Controls.Add(this.panelExt5);
+            this.panelExt4.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt4.Location = new System.Drawing.Point(-78, 59);
+            this.panelExt4.Name = "panelExt4";
+            this.panelExt4.Size = new System.Drawing.Size(1494, 1);
+            this.panelExt4.TabIndex = 267;
+            // 
+            // panelExt5
+            // 
+            this.panelExt5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelExt5.BackColor = System.Drawing.Color.Transparent;
+            this.panelExt5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt5.BackgroundImage")));
+            this.panelExt5.Font = new System.Drawing.Font("굴림", 9F);
+            this.panelExt5.Location = new System.Drawing.Point(0, 24);
+            this.panelExt5.Name = "panelExt5";
+            this.panelExt5.Size = new System.Drawing.Size(1494, 1);
+            this.panelExt5.TabIndex = 155;
             // 
             // lbl마감여부
             // 
@@ -342,8 +417,8 @@
             this.MULTI_CD_AGENCY_ORI.Size = new System.Drawing.Size(150, 21);
             this.MULTI_CD_AGENCY_ORI.TabIndex = 305;
             this.MULTI_CD_AGENCY_ORI.TabStop = false;
-            this.MULTI_CD_AGENCY_ORI.UserCodeName = "biz_name";
-            this.MULTI_CD_AGENCY_ORI.UserCodeValue = "CD_PARTNER";
+            this.MULTI_CD_AGENCY_ORI.UserCodeName = "CORPNAME";
+            this.MULTI_CD_AGENCY_ORI.UserCodeValue = "CORPID";
             this.MULTI_CD_AGENCY_ORI.UserHelpID = "H_CZ_HELP02";
             this.MULTI_CD_AGENCY_ORI.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_AGENCY_ORI_QueryBefore);
             // 
@@ -384,6 +459,18 @@
             this.dp매체월TO.Tag = "";
             this.dp매체월TO.Value = new System.DateTime(((long)(0)));
             // 
+            // cbo조정구분
+            // 
+            this.cbo조정구분.AutoDropDown = true;
+            this.cbo조정구분.BackColor = System.Drawing.Color.White;
+            this.cbo조정구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo조정구분.ItemHeight = 12;
+            this.cbo조정구분.Location = new System.Drawing.Point(962, 34);
+            this.cbo조정구분.Name = "cbo조정구분";
+            this.cbo조정구분.Size = new System.Drawing.Size(90, 20);
+            this.cbo조정구분.TabIndex = 294;
+            this.cbo조정구분.UseKeyF3 = false;
+            // 
             // dp매체월FROM
             // 
             this.dp매체월FROM.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -398,6 +485,25 @@
             this.dp매체월FROM.TabIndex = 301;
             this.dp매체월FROM.Tag = "";
             this.dp매체월FROM.Value = new System.DateTime(((long)(0)));
+            // 
+            // panelExt25
+            // 
+            this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt25.Controls.Add(this.labelExt20);
+            this.panelExt25.Location = new System.Drawing.Point(891, 29);
+            this.panelExt25.Name = "panelExt25";
+            this.panelExt25.Size = new System.Drawing.Size(70, 32);
+            this.panelExt25.TabIndex = 258;
+            // 
+            // labelExt20
+            // 
+            this.labelExt20.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt20.Location = new System.Drawing.Point(3, 7);
+            this.labelExt20.Name = "labelExt20";
+            this.labelExt20.Size = new System.Drawing.Size(61, 18);
+            this.labelExt20.TabIndex = 55;
+            this.labelExt20.Text = "조정구분";
+            this.labelExt20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MULTI_CD_MEDIAGR
             // 
@@ -972,56 +1078,6 @@
             this.labelExt6.Text = "거래처명";
             this.labelExt6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelExt7
-            // 
-            this.panelExt7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelExt7.BackColor = System.Drawing.Color.Transparent;
-            this.panelExt7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt7.BackgroundImage")));
-            this.panelExt7.Controls.Add(this.panelExt8);
-            this.panelExt7.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt7.Location = new System.Drawing.Point(-152, 89);
-            this.panelExt7.Name = "panelExt7";
-            this.panelExt7.Size = new System.Drawing.Size(1494, 1);
-            this.panelExt7.TabIndex = 268;
-            // 
-            // panelExt8
-            // 
-            this.panelExt8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelExt8.BackColor = System.Drawing.Color.Transparent;
-            this.panelExt8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt8.BackgroundImage")));
-            this.panelExt8.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt8.Location = new System.Drawing.Point(0, 24);
-            this.panelExt8.Name = "panelExt8";
-            this.panelExt8.Size = new System.Drawing.Size(1494, 1);
-            this.panelExt8.TabIndex = 155;
-            // 
-            // panelExt4
-            // 
-            this.panelExt4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelExt4.BackColor = System.Drawing.Color.Transparent;
-            this.panelExt4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt4.BackgroundImage")));
-            this.panelExt4.Controls.Add(this.panelExt5);
-            this.panelExt4.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt4.Location = new System.Drawing.Point(-78, 59);
-            this.panelExt4.Name = "panelExt4";
-            this.panelExt4.Size = new System.Drawing.Size(1494, 1);
-            this.panelExt4.TabIndex = 267;
-            // 
-            // panelExt5
-            // 
-            this.panelExt5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelExt5.BackColor = System.Drawing.Color.Transparent;
-            this.panelExt5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt5.BackgroundImage")));
-            this.panelExt5.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt5.Location = new System.Drawing.Point(0, 24);
-            this.panelExt5.Name = "panelExt5";
-            this.panelExt5.Size = new System.Drawing.Size(1494, 1);
-            this.panelExt5.TabIndex = 155;
-            // 
             // cbo수주액
             // 
             this.cbo수주액.AutoDropDown = true;
@@ -1171,31 +1227,6 @@
             this.labelExt1.Text = "캠페인명";
             this.labelExt1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelExt23
-            // 
-            this.panelExt23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelExt23.BackColor = System.Drawing.Color.Transparent;
-            this.panelExt23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt23.BackgroundImage")));
-            this.panelExt23.Controls.Add(this.panelExt24);
-            this.panelExt23.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt23.Location = new System.Drawing.Point(45, 29);
-            this.panelExt23.Name = "panelExt23";
-            this.panelExt23.Size = new System.Drawing.Size(1494, 1);
-            this.panelExt23.TabIndex = 253;
-            // 
-            // panelExt24
-            // 
-            this.panelExt24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelExt24.BackColor = System.Drawing.Color.Transparent;
-            this.panelExt24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelExt24.BackgroundImage")));
-            this.panelExt24.Font = new System.Drawing.Font("굴림", 9F);
-            this.panelExt24.Location = new System.Drawing.Point(0, 24);
-            this.panelExt24.Name = "panelExt24";
-            this.panelExt24.Size = new System.Drawing.Size(1494, 1);
-            this.panelExt24.TabIndex = 155;
-            // 
             // labelExt28
             // 
             this.labelExt28.BackColor = System.Drawing.Color.Transparent;
@@ -1315,37 +1346,6 @@
             this.btn이월반영.Text = "이월처리";
             this.btn이월반영.UseVisualStyleBackColor = false;
             // 
-            // labelExt20
-            // 
-            this.labelExt20.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt20.Location = new System.Drawing.Point(3, 7);
-            this.labelExt20.Name = "labelExt20";
-            this.labelExt20.Size = new System.Drawing.Size(61, 18);
-            this.labelExt20.TabIndex = 55;
-            this.labelExt20.Text = "마감구분";
-            this.labelExt20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelExt25
-            // 
-            this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt25.Controls.Add(this.labelExt20);
-            this.panelExt25.Location = new System.Drawing.Point(891, 29);
-            this.panelExt25.Name = "panelExt25";
-            this.panelExt25.Size = new System.Drawing.Size(70, 32);
-            this.panelExt25.TabIndex = 258;
-            // 
-            // cbo마감구분
-            // 
-            this.cbo마감구분.AutoDropDown = true;
-            this.cbo마감구분.BackColor = System.Drawing.Color.White;
-            this.cbo마감구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo마감구분.ItemHeight = 12;
-            this.cbo마감구분.Location = new System.Drawing.Point(962, 34);
-            this.cbo마감구분.Name = "cbo마감구분";
-            this.cbo마감구분.Size = new System.Drawing.Size(90, 20);
-            this.cbo마감구분.TabIndex = 294;
-            this.cbo마감구분.UseKeyF3 = false;
-            // 
             // btn상세검색
             // 
             this.btn상세검색.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1389,8 +1389,12 @@
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelExt23.ResumeLayout(false);
+            this.panelExt7.ResumeLayout(false);
+            this.panelExt4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월TO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dp매체월FROM)).EndInit();
+            this.panelExt25.ResumeLayout(false);
             this.panelExt28.ResumeLayout(false);
             this.panelExt30.ResumeLayout(false);
             this.panelExt27.ResumeLayout(false);
@@ -1411,17 +1415,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dp대행사FROM)).EndInit();
             this.panelExt6.ResumeLayout(false);
             this.panelExt9.ResumeLayout(false);
-            this.panelExt7.ResumeLayout(false);
-            this.panelExt4.ResumeLayout(false);
             this.panelExt31.ResumeLayout(false);
             this.panelExt29.ResumeLayout(false);
             this.panelExt26.ResumeLayout(false);
             this.panelExt17.ResumeLayout(false);
             this.panelExt2.ResumeLayout(false);
             this.panelExt1.ResumeLayout(false);
-            this.panelExt23.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panelExt25.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1526,7 +1526,7 @@
         private Duzon.Common.Controls.LabelExt lbl마감여부;
         private Duzon.Common.Controls.LabelExt labelExt20;
         private Duzon.Common.Controls.PanelExt panelExt25;
-        private Duzon.Common.Controls.DropDownComboBox cbo마감구분;
+        private Duzon.Common.Controls.DropDownComboBox cbo조정구분;
         private Duzon.Common.Controls.RoundedButton btn상세검색;
 
     }

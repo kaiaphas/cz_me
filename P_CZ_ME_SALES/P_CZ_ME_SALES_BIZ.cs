@@ -28,7 +28,7 @@ namespace cz
 
         internal bool Search_Save(object[] obj)
         {
-             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_I_2", obj);
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_I_2", obj);
         }
 
         internal DataTable Get계정코드()
@@ -49,9 +49,9 @@ namespace cz
 
         internal DataTable Get일괄처리여부(string 연월)
         {
-            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NM_USERDE1,'') != '' THEN '1' ELSE '0' END AS FLAG
+            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NM_USERDE1,'') = '일괄처리완료' THEN '1' ELSE '0' END AS FLAG
                 FROM [NEOE].[CZ_MEZZO_SALES_DOCU] 
-                WHERE DT_YEAR_MONTH = '" +연월+ @"' 
+                WHERE DT_YEAR_MONTH = '" +연월+ @"' AND ISNULL(NM_USERDE1,'') = '일괄처리완료'
                 GROUP BY NM_USERDE1 ", 회사코드);
 
             return DBHelper.GetDataTable(sql);
@@ -77,9 +77,18 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
-        internal DataTable Get전표여부(string 캠페인ID, string SEQ)
+        internal DataTable Get대행사전표여부(string 캠페인ID, string SEQ)
         {
-            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NO_DOCU_M,'') != '' OR ISNULL(NO_DOCU_D,'') != '' THEN '1' ELSE '0' END AS NO_DOCU
+            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NO_DOCU_M,'') != '' THEN '1' ELSE '0' END AS NO_DOCU
+                FROM [NEOE].[CZ_MEZZO_SALES_MAP] 
+                WHERE ME_CPID = '" +캠페인ID+ @"' AND ME_SEQ = '" +SEQ+ @"'", 회사코드);
+
+            return DBHelper.GetDataTable(sql);
+        }
+
+        internal DataTable Get매체전표여부(string 캠페인ID, string SEQ)
+        {
+            string sql = string.Format(@" SELECT CASE WHEN ISNULL(NO_DOCU_D,'') != '' THEN '1' ELSE '0' END AS NO_DOCU
                 FROM [NEOE].[CZ_MEZZO_SALES_MAP] 
                 WHERE ME_CPID = '" +캠페인ID+ @"' AND ME_SEQ = '" +SEQ+ @"'", 회사코드);
 
@@ -171,7 +180,7 @@ namespace cz
             if (dtM != null)
             {
                 si = new SpInfo();
-                
+
                 si.DataValue = dtM;
                 si.CompanyID = 회사코드;
                 si.UserID = 사용자ID;
@@ -195,7 +204,7 @@ namespace cz
                     , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "AM_BUDGET"
                     , "AM_AGY_PRICE", "AM_INCOME", "AM_MEDIA_PRICE", "AM_FEE_ALL", "CP_AGENTID", "NM_NOTE", "ID_INSERT"
                 };
-                
+
                 sic.Add(si);
 
             }

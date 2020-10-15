@@ -63,20 +63,22 @@ namespace cz
                 si.SpNameUpdate = "UP_CZ_ME_SALES_FOR_U";
                 si.SpNameDelete = "UP_CZ_ME_SALES_FOR_D";
                 si.SpParamsInsert = new string[] { 
-                    "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_CPNM"
-                    , "ME_SEQ", "AY_AGENCYID", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_YEAR_MONTH"
-                    , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "ME_TEAMNM", "AM_BUDGET"
-                    , "AM_INCOME", "AM_AGY_PRICE", "AM_MEDIA_PRICE", "AY_AGENCYNO", "AY_AGENCYNM", "ME_CORPNO"
-                    , "ME_CORPNM", "DT_YEAR_MONTH", "ID_INSERT"
+                    "cd_company", "tp_sales", "req_no", "cpid", "cpname"
+                    , "seq", "ay_agencyid", "ay_year_month", "ay_trade_type", "me_corpid"
+                    , "me_year_month", "me_trade_type", "cd_sysdef", "cd_acct", "me_teamid"
+                    , "me_teamnm", "am_budget", "am_income", "am_agy_price", "am_media_price"
+                    , "ay_agencyno", "ay_agencynm", "me_corpno", "me_corpnm", "ay_year"
+                    , "id_insert"
                 };
                 si.SpParamsUpdate = new string[] { 
-                    "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_CPNM"
-                    , "ME_SEQ", "AY_AGENCYID", "AY_YEAR_MONTH", "AY_TRADE_TYPE", "ME_CORPID", "ME_YEAR_MONTH"
-                    , "ME_TRADE_TYPE", "CD_SYSDEF", "CD_ACCT", "ME_TEAMID", "ME_TEAMNM", "AM_BUDGET"
-                    , "AM_INCOME", "AM_AGY_PRICE", "AM_MEDIA_PRICE", "AY_AGENCYNO", "AY_AGENCYNM", "ME_CORPNO"
-                    , "ME_CORPNM", "DT_YEAR_MONTH", "ID_INSERT"
+                    "cd_company", "tp_sales", "req_no", "cpid", "cpname"
+                    , "seq", "ay_agencyid", "ay_year_month", "ay_trade_type", "me_corpid"
+                    , "me_year_month", "me_trade_type", "cd_sysdef", "cd_acct", "me_teamid"
+                    , "me_teamnm", "am_budget", "am_income", "am_agy_price", "am_media_price"
+                    , "ay_agencyno", "ay_agencynm", "me_corpno", "me_corpnm", "ay_year"
+                    , "id_insert"
                 };
-                si.SpParamsDelete = new string[] { "CD_COMPANY", "TP_SALES", "MER_REQ_NO", "ME_CPID", "ME_SEQ" };
+                si.SpParamsDelete = new string[] { "cd_company", "tp_sales", "req_no", "cpid", "seq" };
                 sic.Add(si);
             }
             

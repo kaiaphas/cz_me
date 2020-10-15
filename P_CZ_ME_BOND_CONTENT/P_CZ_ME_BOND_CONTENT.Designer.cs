@@ -31,8 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P_CZ_ME_BOND_CONTENT));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this._flexD = new Dass.FlexGrid.FlexGrid(this.components);
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
             this.dt기간 = new Duzon.Common.Controls.PeriodPicker();
             this.cbo조회구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.panelExt13 = new Duzon.Common.Controls.PanelExt();
@@ -49,9 +51,9 @@
             this.MULTI_CD_DEPT = new Duzon.Common.BpControls.BpComboBox();
             this.panelExt9 = new Duzon.Common.Controls.PanelExt();
             this.labelExt6 = new Duzon.Common.Controls.LabelExt();
-            this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._flexD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelExt13.SuspendLayout();
@@ -72,17 +74,45 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this._flexD, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this._flexM, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 470F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 628F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1346, 756);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // _flexD
+            // 
+            this._flexD.AllowFreezing = C1.Win.C1FlexGrid.AllowFreezingEnum.Both;
+            this._flexD.AllowResizing = C1.Win.C1FlexGrid.AllowResizingEnum.Both;
+            this._flexD.AllowSorting = C1.Win.C1FlexGrid.AllowSortingEnum.None;
+            this._flexD.AutoResize = false;
+            this._flexD.ColumnInfo = "1,1,0,0,0,90,Columns:0{TextAlign:CenterCenter;TextAlignFixed:CenterCenter;}\t";
+            this._flexD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._flexD.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw;
+            this._flexD.EnabledHeaderCheck = true;
+            this._flexD.Font = new System.Drawing.Font("굴림", 9F);
+            this._flexD.KeyActionEnter = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
+            this._flexD.KeyActionLeft = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
+            this._flexD.KeyActionRight = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcrossOut;
+            this._flexD.KeyActionTab = C1.Win.C1FlexGrid.KeyActionEnum.MoveAcross;
+            this._flexD.Location = new System.Drawing.Point(3, 669);
+            this._flexD.Name = "_flexD";
+            this._flexD.Rows.Count = 1;
+            this._flexD.Rows.DefaultSize = 20;
+            this._flexD.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
+            this._flexD.ShowButtons = C1.Win.C1FlexGrid.ShowButtonsEnum.Always;
+            this._flexD.ShowSort = false;
+            this._flexD.Size = new System.Drawing.Size(1340, 84);
+            this._flexD.StyleInfo = resources.GetString("_flexD.StyleInfo");
+            this._flexD.TabIndex = 22;
+            this._flexD.UseGridCalculator = true;
             // 
             // _flexM
             // 
@@ -106,7 +136,7 @@
             this._flexM.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this._flexM.ShowButtons = C1.Win.C1FlexGrid.ShowButtonsEnum.Always;
             this._flexM.ShowSort = false;
-            this._flexM.Size = new System.Drawing.Size(1340, 712);
+            this._flexM.Size = new System.Drawing.Size(1340, 622);
             this._flexM.StyleInfo = resources.GetString("_flexM.StyleInfo");
             this._flexM.TabIndex = 21;
             this._flexM.UseGridCalculator = true;
@@ -130,6 +160,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 32);
             this.panel1.TabIndex = 20;
+            // 
+            // MULTI_CD_CORP
+            // 
+            this.MULTI_CD_CORP.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MULTI_CD_CORP.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
+            this.MULTI_CD_CORP.Location = new System.Drawing.Point(713, 5);
+            this.MULTI_CD_CORP.Name = "MULTI_CD_CORP";
+            this.MULTI_CD_CORP.Size = new System.Drawing.Size(150, 21);
+            this.MULTI_CD_CORP.TabIndex = 1975;
+            this.MULTI_CD_CORP.TabStop = false;
+            this.MULTI_CD_CORP.UserCodeName = "biz_name";
+            this.MULTI_CD_CORP.UserCodeValue = "CD_PARTNER";
+            this.MULTI_CD_CORP.UserHelpID = "H_CZ_HELP02";
+            this.MULTI_CD_CORP.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_CORP_QueryBefore);
             // 
             // dt기간
             // 
@@ -176,7 +220,7 @@
             // 
             this.dp조회일자.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dp조회일자.Location = new System.Drawing.Point(349, 4);
-            this.dp조회일자.Mask = "####/##";
+            this.dp조회일자.Mask = "####/##/##";
             this.dp조회일자.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
             this.dp조회일자.MaximumSize = new System.Drawing.Size(0, 21);
             this.dp조회일자.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
@@ -302,20 +346,6 @@
             this.labelExt6.Text = "거래처명";
             this.labelExt6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // MULTI_CD_CORP
-            // 
-            this.MULTI_CD_CORP.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MULTI_CD_CORP.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
-            this.MULTI_CD_CORP.Location = new System.Drawing.Point(713, 5);
-            this.MULTI_CD_CORP.Name = "MULTI_CD_CORP";
-            this.MULTI_CD_CORP.Size = new System.Drawing.Size(150, 21);
-            this.MULTI_CD_CORP.TabIndex = 1975;
-            this.MULTI_CD_CORP.TabStop = false;
-            this.MULTI_CD_CORP.UserCodeName = "biz_name";
-            this.MULTI_CD_CORP.UserCodeValue = "CD_PARTNER";
-            this.MULTI_CD_CORP.UserHelpID = "H_CZ_HELP02";
-            this.MULTI_CD_CORP.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_CORP_QueryBefore);
-            // 
             // P_CZ_ME_BOND_CONTENT
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -324,6 +354,7 @@
             this.TitleText = "채권관리내용";
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._flexD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panelExt13.ResumeLayout(false);
@@ -359,6 +390,7 @@
         private Duzon.Common.Controls.DropDownComboBox cbo조회구분;
         private Duzon.Common.Controls.PeriodPicker dt기간;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_CORP;
+        private Dass.FlexGrid.FlexGrid _flexD;
 
     }
 }

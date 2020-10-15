@@ -115,10 +115,10 @@ D:\Source\P_CZ_ME_BOND_CONTENT\bin\Debug\en-us\Duzon.ReportDesigner.FileManager.
 D:\Source\P_CZ_ME_BOND_CONTENT\bin\Debug\ja-jp\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\P_CZ_ME_BOND_CONTENT\bin\Debug\zh-cn\Duzon.ReportDesigner.FileManager.resources.dll
 D:\Source\P_CZ_ME_BOND_CONTENT\bin\Debug\Duzon.ReportDesigner.Components.XmlSerializers.dll
-D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\P_CZ_ME_BOND_CONTENT.csprojResolveAssemblyReference.cache
 D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\cz.Properties.Resources.resources
 D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\cz.P_CZ_ME_BOND_CONTENT.resources
 D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\cz.P_CZ_ME_BOND_CONTENT_SUB.resources
 D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\P_CZ_ME_BOND_CONTENT.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\P_CZ_ME_BOND_CONTENT.dll
 D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\P_CZ_ME_BOND_CONTENT.pdb
+D:\Source\P_CZ_ME_BOND_CONTENT\obj\Debug\P_CZ_ME_BOND_CONTENT.csprojResolveAssemblyReference.cache

@@ -117,7 +117,7 @@ D:\Source\P_CZ_ME_BOND_BALANCE\bin\Debug\zh-cn\Duzon.ReportDesigner.FileManager.
 D:\Source\P_CZ_ME_BOND_BALANCE\bin\Debug\Duzon.ReportDesigner.Components.XmlSerializers.dll
 D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\cz.Properties.Resources.resources
 D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\cz.P_CZ_ME_BOND_BALANCE.resources
-D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\cz.P_CZ_ME_BOND_BALANCE_SUB.resources
 D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\P_CZ_ME_BOND_BALANCE.csproj.GenerateResource.Cache
 D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\P_CZ_ME_BOND_BALANCE.dll
 D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\P_CZ_ME_BOND_BALANCE.pdb
+D:\Source\P_CZ_ME_BOND_BALANCE\obj\Debug\P_CZ_ME_BOND_BALANCE.csprojResolveAssemblyReference.cache

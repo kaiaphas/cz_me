@@ -145,6 +145,7 @@
             this.rdoYn3.Name = "rdoYn3";
             this.rdoYn3.Size = new System.Drawing.Size(78, 18);
             this.rdoYn3.TabIndex = 192;
+            this.rdoYn3.TabStop = true;
             this.rdoYn3.Text = "미사용";
             this.rdoYn3.TextDD = null;
             this.rdoYn3.UseKeyEnter = true;
@@ -169,6 +170,7 @@
             this.rdoYn1.Name = "rdoYn1";
             this.rdoYn1.Size = new System.Drawing.Size(51, 18);
             this.rdoYn1.TabIndex = 190;
+            this.rdoYn1.TabStop = true;
             this.rdoYn1.Text = "전체";
             this.rdoYn1.TextDD = null;
             this.rdoYn1.UseKeyEnter = true;
@@ -225,9 +227,9 @@
             // 
             this.panelExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt2.Controls.Add(this.labelExt1);
-            this.panelExt2.Location = new System.Drawing.Point(372, -1);
+            this.panelExt2.Location = new System.Drawing.Point(372, 0);
             this.panelExt2.Name = "panelExt2";
-            this.panelExt2.Size = new System.Drawing.Size(123, 31);
+            this.panelExt2.Size = new System.Drawing.Size(123, 28);
             this.panelExt2.TabIndex = 1958;
             // 
             // labelExt1
@@ -244,9 +246,9 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panel7.Controls.Add(this.lbl구분);
-            this.panel7.Location = new System.Drawing.Point(-1, -1);
+            this.panel7.Location = new System.Drawing.Point(-1, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(123, 31);
+            this.panel7.Size = new System.Drawing.Size(123, 28);
             this.panel7.TabIndex = 1956;
             // 
             // lbl구분

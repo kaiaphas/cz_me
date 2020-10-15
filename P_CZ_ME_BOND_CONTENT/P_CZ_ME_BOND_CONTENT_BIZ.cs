@@ -23,7 +23,7 @@ namespace cz
 
         internal DataSet Search_M(object[] obj)
         {
-            return DBHelper.GetDataSet("UP_CZ_ME_SALES_H_S3", obj);
+            return DBHelper.GetDataSet("UP_CZ_ME_BOND_BALACE_S1", obj);
         }
 
         internal bool Search_Save(object[] obj)

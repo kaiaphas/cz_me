@@ -67,14 +67,17 @@ namespace cz
         {
             //DETAIL
             //merge 기능을 위해서 row 2 설정
-            _flexM.BeginSetting(2, 1, false);
+            _flexM.BeginSetting(1, 1, false);
 
             _flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);
 
             _flexM.SetCol("tp_sales", "구분", 60, false);
             _flexM.SetCol("cd_acct", "계정과목", 120, true);
             _flexM.SetCol("cpid", "캠페인", 60, false);
-            _flexM.SetCol("cpname", "캠페인명", 160, true);
+            _flexM.SetCol("cpname", "캠페인명", 160, false);
+
+            _flexM.SetCol("seq", "SEQ", 0, false);
+            _flexM.SetCol("req_no", "REQ_NO", 0, false);
 
             _flexM.SetCol("ay_year_month", "월", 60, true, typeof(string), FormatTpType.YEAR_MONTH);
             _flexM.SetCol("ay_trade_type", "기준", 60, true);
@@ -87,7 +90,8 @@ namespace cz
             _flexM.SetCol("me_corpno", "사업자등록번호", 120, true);
             _flexM.SetCol("me_corpid", "매체코드", 0, false);
             _flexM.SetCol("me_corpnm", "매체명", 120, false);
-            _flexM.SetCol("nm_mediagr", "구분", 60, false);
+            _flexM.SetCol("cd_sysdef", "구분", 100, true);
+            //_flexM.SetCol("nm_mediagr", "구분", 60, true);
 
             _flexM.SetCol("me_teamid", "팀코드", 0, false);
             _flexM.SetCol("me_teamnm", "팀명", 120, true);
@@ -117,18 +121,18 @@ namespace cz
             _flexM.SetNoMaskSaveCol("me_corpno");
 
             _flexM.Cols["am_budget"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["am_budget"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_budget"].Format = "###,###,###,##0";
 
             _flexM.Cols["am_agy_price"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["am_agy_price"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_agy_price"].Format = "###,###,###,##0";
 
             _flexM.Cols["am_income"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["am_income"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_income"].Format = "###,###,###,##0";
 
             _flexM.Cols["am_media_price"].TextAlign = TextAlignEnum.RightCenter;
-            _flexM.Cols["am_media_price"].Format = "###,###,###,##0;(###,###,###,##0)";
+            _flexM.Cols["am_media_price"].Format = "###,###,###,##0";
 
-            _flexM.Cols["nm_mediagr"].TextAlign = TextAlignEnum.LeftCenter;
+            _flexM.Cols["cd_sysdef"].TextAlign = TextAlignEnum.LeftCenter;
 
             _flexM.SetDummyColumn("S");
             _flexM.Cols.Frozen = 1;
@@ -149,14 +153,14 @@ namespace cz
             _flexM[0, "me_corpnm"] = _flexM[0, "MED"] = "매체";
             _flexM[0, "nm_mediagr"] = _flexM[0, "MED"] = "매체";
             */
-            _flexM.SettingVersion = "1.0.1.9";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.2.0";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.Top);
 
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
             _flexM.SetCodeHelpCol("ay_agencyno", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "ay_agencyno", "ay_agencyid", "ay_agencynm" }, new string[] { "no_company", "cd_partner", "ln_partner" }, ResultMode.FastMode);
             _flexM.SetCodeHelpCol("me_corpno", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "me_corpno", "me_corpid", "me_corpnm" }, new string[] { "no_company", "cd_partner", "ln_partner" }, ResultMode.FastMode);
             _flexM.SetCodeHelpCol("me_teamnm", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "me_teamid", "me_teamnm" }, new string[] { "cd_dept", "nm_dept" }, ResultMode.FastMode);
-            _flexM.SetCodeHelpCol("cpname", "H_CZ_CP_SUB", ShowHelpEnum.Always, new string[] { "cpid", "cpname" }, new string[] { "cpid", "cpname" });
+            _flexM.SetCodeHelpCol("cpid", "H_CZ_CP_SUB", ShowHelpEnum.Always, new string[] { "cpid", "cpname" }, new string[] { "cpid", "cpname" });
 
             //rdo컷.CheckedChanged += new EventHandler(rdo컷_CheckedChanged);
             //_flexM.StartEdit += new RowColEventHandler(_flexM_StartEdit);
@@ -199,8 +203,9 @@ namespace cz
             //_flexM.SetDataMap("CD_ACCT", dt계정코드.Copy(), "CODE", "NAME");
             _flexM.SetDataMap("cd_acct", MA.GetCode("CZ_ME_C008"), "CODE", "NAME");
             _flexM.SetDataMap("tp_sales", MA.GetCode("CZ_ME_C005"), "CODE", "NAME");
-            _flexM.SetDataMap("ay_trade_type", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
-            _flexM.SetDataMap("me_trade_type", MA.GetCode("CZ_ME_C004"), "CODE", "NAME");
+            _flexM.SetDataMap("ay_trade_type", MA.GetCode("CZ_ME_C004", true), "CODE", "NAME");
+            _flexM.SetDataMap("me_trade_type", MA.GetCode("CZ_ME_C004", true), "CODE", "NAME");
+            _flexM.SetDataMap("cd_sysdef", MA.GetCode("CZ_ME_C007", true), "CODE", "NAME");
 
             //페이지 로드 시 첫번 컷오프이므로 해당 컬럼 들 editing false 설정
             _flexM.Cols["cpname"].AllowEditing = false;
@@ -480,11 +485,17 @@ namespace cz
                     _flexM[_flexM.Row, "me_corpno"] = _flexM[preIndex, "me_corpno"];
                     _flexM[_flexM.Row, "me_corpid"] = _flexM[preIndex, "me_corpid"];
                     _flexM[_flexM.Row, "me_corpnm"] = _flexM[preIndex, "me_corpnm"];
-                    _flexM[_flexM.Row, "nm_mediagr"] = _flexM[preIndex, "nm_mediagr"];
+                    //_flexM[_flexM.Row, "nm_mediagr"] = _flexM[preIndex, "nm_mediagr"];
 
                     _flexM[_flexM.Row, "me_teamid"] = _flexM[preIndex, "me_teamid"];
                     _flexM[_flexM.Row, "me_teamnm"] = _flexM[preIndex, "me_teamnm"];
-                    _flexM[_flexM.Row, "ay_year"] = dp년도.Text + "01";
+
+                    _flexM[_flexM.Row, "seq"] = _flexM[preIndex, "seq"];
+                    _flexM[_flexM.Row, "req_no"] = _flexM[preIndex, "req_no"];
+                    _flexM[_flexM.Row, "cd_sysdef"] = _flexM[preIndex, "cd_sysdef"];
+                    _flexM[_flexM.Row, "ay_year"] = _flexM[preIndex, "ay_year"];
+
+                    //_flexM[_flexM.Row, "ay_year"] = dp년도.Text + "01";
 
                 }
                 else
@@ -586,13 +597,22 @@ namespace cz
                 {
                     switch (_flexM.Cols[e.Col].Name)
                     {
-                        case "cpname":
-
+                        case "cpid":
                             e.Parameter.UserParams = "캠페인 도움창;H_CZ_CP_SUB;";
                             break;
                     }
                 }
-
+                else if (cbo등록구분.SelectedValue.ToString().Equals("9"))
+                {
+                    switch (_flexM.Cols[e.Col].Name)
+                    {
+                        case "me_teamnm":
+                        case "me_corpno":
+                        case "ay_agencyno":
+                            e.Cancel = true;
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {
