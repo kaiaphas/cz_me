@@ -34,12 +34,20 @@
             this.panelExt6 = new Duzon.Common.Controls.PanelExt();
             this.panelExt14 = new Duzon.Common.Controls.PanelExt();
             this.panelExt25 = new Duzon.Common.Controls.PanelExt();
+            this.txt_7_memo = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt51 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt50 = new Duzon.Common.Controls.LabelExt();
             this.txt_7_비고 = new Duzon.Common.Controls.TextBoxExt();
             this.labelExt20 = new Duzon.Common.Controls.LabelExt();
             this.panelExt27 = new Duzon.Common.Controls.PanelExt();
             this.labelExt21 = new Duzon.Common.Controls.LabelExt();
             this.panelExt31 = new Duzon.Common.Controls.PanelExt();
-            this.txt_6_분할횟수 = new Duzon.Common.Controls.TextBoxExt();
+            this.cur_6_분할횟수 = new Duzon.Common.Controls.CurrencyTextBox();
+            this.txt_6_memo = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt50 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt49 = new Duzon.Common.Controls.LabelExt();
+            this.dp_6_종료일 = new Duzon.Common.Controls.DatePicker();
+            this.dp_6_시작일 = new Duzon.Common.Controls.DatePicker();
             this.panelExt38 = new Duzon.Common.Controls.PanelExt();
             this.labelExt31 = new Duzon.Common.Controls.LabelExt();
             this.txt_6_구분 = new Duzon.Common.Controls.TextBoxExt();
@@ -54,6 +62,19 @@
             this.panelExt36 = new Duzon.Common.Controls.PanelExt();
             this.labelExt29 = new Duzon.Common.Controls.LabelExt();
             this.panelExt18 = new Duzon.Common.Controls.PanelExt();
+            this.cur_5_채권양도통지서 = new Duzon.Common.Controls.CurrencyTextBox();
+            this.labelExt52 = new Duzon.Common.Controls.LabelExt();
+            this.labelExt51 = new Duzon.Common.Controls.LabelExt();
+            this.txt_5_memo = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt49 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt45 = new Duzon.Common.Controls.LabelExt();
+            this.chk_5_부속합의서 = new System.Windows.Forms.CheckBox();
+            this.panelExt48 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt44 = new Duzon.Common.Controls.LabelExt();
+            this.chk_5_인감증명서 = new System.Windows.Forms.CheckBox();
+            this.labelExt43 = new Duzon.Common.Controls.LabelExt();
+            this.panelExt47 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt42 = new Duzon.Common.Controls.LabelExt();
             this.txt_5_제3채3 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt20 = new Duzon.Common.Controls.PanelExt();
             this.labelExt14 = new Duzon.Common.Controls.LabelExt();
@@ -64,7 +85,10 @@
             this.labelExt18 = new Duzon.Common.Controls.LabelExt();
             this.panelExt22 = new Duzon.Common.Controls.PanelExt();
             this.labelExt19 = new Duzon.Common.Controls.LabelExt();
-            this.panelExt19 = new Duzon.Common.Controls.PanelExt();
+            this.panel19 = new Duzon.Common.Controls.PanelExt();
+            this.txt_4_memo = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt46 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt41 = new Duzon.Common.Controls.LabelExt();
             this.txt_4_연대보증인3 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt41 = new Duzon.Common.Controls.PanelExt();
             this.labelExt13 = new Duzon.Common.Controls.LabelExt();
@@ -76,6 +100,9 @@
             this.panelExt43 = new Duzon.Common.Controls.PanelExt();
             this.labelExt35 = new Duzon.Common.Controls.LabelExt();
             this.panelExt17 = new Duzon.Common.Controls.PanelExt();
+            this.txt_1_memo = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt15 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt22 = new Duzon.Common.Controls.LabelExt();
             this.panelExt4 = new Duzon.Common.Controls.PanelExt();
             this.labelExt1 = new Duzon.Common.Controls.LabelExt();
             this.labelExt9 = new Duzon.Common.Controls.LabelExt();
@@ -87,7 +114,10 @@
             this.txt_1_채무자 = new Duzon.Common.Controls.TextBoxExt();
             this.txt_1_물건지 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt16 = new Duzon.Common.Controls.PanelExt();
+            this.txt_2_memo = new Duzon.Common.Controls.TextBoxExt();
             this.labelExt7 = new Duzon.Common.Controls.LabelExt();
+            this.panelExt26 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt23 = new Duzon.Common.Controls.LabelExt();
             this.labelExt12 = new Duzon.Common.Controls.LabelExt();
             this.panelExt10 = new Duzon.Common.Controls.PanelExt();
             this.labelExt6 = new Duzon.Common.Controls.LabelExt();
@@ -105,7 +135,28 @@
             this.panelExt12 = new Duzon.Common.Controls.PanelExt();
             this.labelExt10 = new Duzon.Common.Controls.LabelExt();
             this.panelExt8 = new Duzon.Common.Controls.PanelExt();
-            this.txt_3_보험료 = new Duzon.Common.Controls.TextBoxExt();
+            this.cur_3_발생채무액 = new Duzon.Common.Controls.CurrencyTextBox();
+            this.cur_3_계약금액 = new Duzon.Common.Controls.CurrencyTextBox();
+            this.cur_3_보험료 = new Duzon.Common.Controls.CurrencyTextBox();
+            this.txt_3_memo = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt45 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt40 = new Duzon.Common.Controls.LabelExt();
+            this.panelExt44 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt39 = new Duzon.Common.Controls.LabelExt();
+            this.panelExt35 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt38 = new Duzon.Common.Controls.LabelExt();
+            this.dp_3_계약체결일자 = new Duzon.Common.Controls.DatePicker();
+            this.panelExt33 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt37 = new Duzon.Common.Controls.LabelExt();
+            this.dp_3_계약종료일 = new Duzon.Common.Controls.DatePicker();
+            this.panelExt28 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt26 = new Duzon.Common.Controls.LabelExt();
+            this.dp_3_계약시작일 = new Duzon.Common.Controls.DatePicker();
+            this.txt_3_주계약내용 = new Duzon.Common.Controls.TextBoxExt();
+            this.panelExt29 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt27 = new Duzon.Common.Controls.LabelExt();
+            this.panelExt30 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt36 = new Duzon.Common.Controls.LabelExt();
             this.panelExt39 = new Duzon.Common.Controls.PanelExt();
             this.labelExt32 = new Duzon.Common.Controls.LabelExt();
             this.labelExt33 = new Duzon.Common.Controls.LabelExt();
@@ -113,7 +164,13 @@
             this.labelExt34 = new Duzon.Common.Controls.LabelExt();
             this.txt_3_증권번호 = new Duzon.Common.Controls.TextBoxExt();
             this.panel1 = new Duzon.Common.Controls.PanelExt();
-            this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
+            this.txt번호 = new Duzon.Common.Controls.TextBoxExt();
+            this.cur설정액 = new Duzon.Common.Controls.CurrencyTextBox();
+            this.ctx거래처 = new Duzon.Common.BpControls.BpCodeTextBox();
+            this.dp소멸시효 = new Duzon.Common.Controls.DatePicker();
+            this.dp만기일 = new Duzon.Common.Controls.DatePicker();
+            this.dp시작일 = new Duzon.Common.Controls.DatePicker();
+            this.dp체결일 = new Duzon.Common.Controls.DatePicker();
             this.panelExt75 = new Duzon.Common.Controls.PanelExt();
             this.labelExt48 = new Duzon.Common.Controls.LabelExt();
             this.panelExt74 = new Duzon.Common.Controls.PanelExt();
@@ -122,7 +179,6 @@
             this.panelExt72 = new Duzon.Common.Controls.PanelExt();
             this.panelExt73 = new Duzon.Common.Controls.PanelExt();
             this.labelExt46 = new Duzon.Common.Controls.LabelExt();
-            this.txt설정액 = new Duzon.Common.Controls.TextBoxExt();
             this.panelExt2 = new Duzon.Common.Controls.PanelExt();
             this.labelExt2 = new Duzon.Common.Controls.LabelExt();
             this.panelExt23 = new Duzon.Common.Controls.PanelExt();
@@ -140,46 +196,71 @@
             this.rdoMts2 = new Duzon.Common.Controls.RadioButtonExt();
             this.rdoMts1 = new Duzon.Common.Controls.RadioButtonExt();
             this.btn입력 = new Duzon.Common.Controls.RoundedButton(this.components);
-            this.dp체결일 = new Duzon.Common.Controls.DatePicker();
-            this.dp시작일 = new Duzon.Common.Controls.DatePicker();
-            this.dp만기일 = new Duzon.Common.Controls.DatePicker();
-            this.dp소멸시효 = new Duzon.Common.Controls.DatePicker();
-            this.dp_6_시작일 = new Duzon.Common.Controls.DatePicker();
-            this.dp_6_종료일 = new Duzon.Common.Controls.DatePicker();
+            this.txt기존번호 = new Duzon.Common.Controls.TextBoxExt();
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelExt6.SuspendLayout();
             this.panelExt14.SuspendLayout();
             this.panelExt25.SuspendLayout();
+            this.panelExt51.SuspendLayout();
             this.panelExt27.SuspendLayout();
             this.panelExt31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_6_분할횟수)).BeginInit();
+            this.panelExt50.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dp_6_종료일)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp_6_시작일)).BeginInit();
             this.panelExt38.SuspendLayout();
             this.panelExt37.SuspendLayout();
             this.panelExt32.SuspendLayout();
             this.panelExt34.SuspendLayout();
             this.panelExt36.SuspendLayout();
             this.panelExt18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_5_채권양도통지서)).BeginInit();
+            this.panelExt49.SuspendLayout();
+            this.panelExt48.SuspendLayout();
+            this.panelExt47.SuspendLayout();
             this.panelExt20.SuspendLayout();
             this.panelExt21.SuspendLayout();
             this.panelExt22.SuspendLayout();
-            this.panelExt19.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panelExt46.SuspendLayout();
             this.panelExt41.SuspendLayout();
             this.panelExt42.SuspendLayout();
             this.panelExt43.SuspendLayout();
             this.panelExt17.SuspendLayout();
+            this.panelExt15.SuspendLayout();
             this.panelExt4.SuspendLayout();
             this.panelExt5.SuspendLayout();
             this.panelExt7.SuspendLayout();
             this.panelExt16.SuspendLayout();
+            this.panelExt26.SuspendLayout();
             this.panelExt10.SuspendLayout();
             this.panelExt11.SuspendLayout();
             this.panelExt13.SuspendLayout();
             this.panelExt9.SuspendLayout();
             this.panelExt12.SuspendLayout();
             this.panelExt8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_3_발생채무액)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_3_계약금액)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_3_보험료)).BeginInit();
+            this.panelExt45.SuspendLayout();
+            this.panelExt44.SuspendLayout();
+            this.panelExt35.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dp_3_계약체결일자)).BeginInit();
+            this.panelExt33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dp_3_계약종료일)).BeginInit();
+            this.panelExt28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dp_3_계약시작일)).BeginInit();
+            this.panelExt29.SuspendLayout();
+            this.panelExt30.SuspendLayout();
             this.panelExt39.SuspendLayout();
             this.panelExt40.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur설정액)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp소멸시효)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp만기일)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp시작일)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp체결일)).BeginInit();
             this.panelExt75.SuspendLayout();
             this.panelExt74.SuspendLayout();
             this.panelExt71.SuspendLayout();
@@ -194,12 +275,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp체결일)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp시작일)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp만기일)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp소멸시효)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp_6_시작일)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp_6_종료일)).BeginInit();
             this.SuspendLayout();
             // 
             // mDataArea
@@ -238,7 +313,7 @@
             this.panelExt14.Controls.Add(this.panelExt25);
             this.panelExt14.Controls.Add(this.panelExt31);
             this.panelExt14.Controls.Add(this.panelExt18);
-            this.panelExt14.Controls.Add(this.panelExt19);
+            this.panelExt14.Controls.Add(this.panel19);
             this.panelExt14.Controls.Add(this.panelExt17);
             this.panelExt14.Controls.Add(this.panelExt16);
             this.panelExt14.Controls.Add(this.panelExt8);
@@ -251,13 +326,43 @@
             // 
             this.panelExt25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelExt25.Controls.Add(this.txt_7_memo);
+            this.panelExt25.Controls.Add(this.panelExt51);
             this.panelExt25.Controls.Add(this.txt_7_비고);
             this.panelExt25.Controls.Add(this.labelExt20);
             this.panelExt25.Controls.Add(this.panelExt27);
-            this.panelExt25.Location = new System.Drawing.Point(-1, 357);
+            this.panelExt25.Location = new System.Drawing.Point(-1, 600);
             this.panelExt25.Name = "panelExt25";
-            this.panelExt25.Size = new System.Drawing.Size(1083, 28);
+            this.panelExt25.Size = new System.Drawing.Size(1083, 55);
             this.panelExt25.TabIndex = 1992;
+            // 
+            // txt_7_memo
+            // 
+            this.txt_7_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_7_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_7_memo.Location = new System.Drawing.Point(138, 29);
+            this.txt_7_memo.Name = "txt_7_memo";
+            this.txt_7_memo.Size = new System.Drawing.Size(540, 25);
+            this.txt_7_memo.TabIndex = 1980;
+            // 
+            // panelExt51
+            // 
+            this.panelExt51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt51.Controls.Add(this.labelExt50);
+            this.panelExt51.Location = new System.Drawing.Point(65, 27);
+            this.panelExt51.Name = "panelExt51";
+            this.panelExt51.Size = new System.Drawing.Size(70, 27);
+            this.panelExt51.TabIndex = 1979;
+            // 
+            // labelExt50
+            // 
+            this.labelExt50.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt50.Location = new System.Drawing.Point(2, 4);
+            this.labelExt50.Name = "labelExt50";
+            this.labelExt50.Size = new System.Drawing.Size(81, 18);
+            this.labelExt50.TabIndex = 41;
+            this.labelExt50.Text = "memo";
+            this.labelExt50.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txt_7_비고
             // 
@@ -271,7 +376,7 @@
             // labelExt20
             // 
             this.labelExt20.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt20.Location = new System.Drawing.Point(2, 2);
+            this.labelExt20.Location = new System.Drawing.Point(2, 15);
             this.labelExt20.Name = "labelExt20";
             this.labelExt20.Size = new System.Drawing.Size(62, 25);
             this.labelExt20.TabIndex = 41;
@@ -301,9 +406,11 @@
             // 
             this.panelExt31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelExt31.Controls.Add(this.cur_6_분할횟수);
+            this.panelExt31.Controls.Add(this.txt_6_memo);
+            this.panelExt31.Controls.Add(this.panelExt50);
             this.panelExt31.Controls.Add(this.dp_6_종료일);
             this.panelExt31.Controls.Add(this.dp_6_시작일);
-            this.panelExt31.Controls.Add(this.txt_6_분할횟수);
             this.panelExt31.Controls.Add(this.panelExt38);
             this.panelExt31.Controls.Add(this.txt_6_구분);
             this.panelExt31.Controls.Add(this.panelExt37);
@@ -312,19 +419,91 @@
             this.panelExt31.Controls.Add(this.panelExt34);
             this.panelExt31.Controls.Add(this.labelExt28);
             this.panelExt31.Controls.Add(this.panelExt36);
-            this.panelExt31.Location = new System.Drawing.Point(-1, 271);
+            this.panelExt31.Location = new System.Drawing.Point(-1, 491);
             this.panelExt31.Name = "panelExt31";
-            this.panelExt31.Size = new System.Drawing.Size(1083, 81);
+            this.panelExt31.Size = new System.Drawing.Size(1083, 107);
             this.panelExt31.TabIndex = 1991;
             // 
-            // txt_6_분할횟수
+            // cur_6_분할횟수
             // 
-            this.txt_6_분할횟수.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.txt_6_분할횟수.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_6_분할횟수.Location = new System.Drawing.Point(666, 31);
-            this.txt_6_분할횟수.Name = "txt_6_분할횟수";
-            this.txt_6_분할횟수.Size = new System.Drawing.Size(100, 25);
-            this.txt_6_분할횟수.TabIndex = 1986;
+            this.cur_6_분할횟수.BackColor = System.Drawing.Color.White;
+            this.cur_6_분할횟수.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.cur_6_분할횟수.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cur_6_분할횟수.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cur_6_분할횟수.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cur_6_분할횟수.Font = new System.Drawing.Font("굴림체", 9F);
+            this.cur_6_분할횟수.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cur_6_분할횟수.Location = new System.Drawing.Point(666, 29);
+            this.cur_6_분할횟수.MaxLength = 17;
+            this.cur_6_분할횟수.Name = "cur_6_분할횟수";
+            this.cur_6_분할횟수.NullString = "0";
+            this.cur_6_분할횟수.PositiveColor = System.Drawing.Color.Black;
+            this.cur_6_분할횟수.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cur_6_분할횟수.Size = new System.Drawing.Size(52, 25);
+            this.cur_6_분할횟수.TabIndex = 2008;
+            this.cur_6_분할횟수.Tag = "";
+            this.cur_6_분할횟수.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cur_6_분할횟수.UseKeyF3 = false;
+            // 
+            // txt_6_memo
+            // 
+            this.txt_6_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_6_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_6_memo.Location = new System.Drawing.Point(138, 82);
+            this.txt_6_memo.Name = "txt_6_memo";
+            this.txt_6_memo.Size = new System.Drawing.Size(538, 25);
+            this.txt_6_memo.TabIndex = 2007;
+            // 
+            // panelExt50
+            // 
+            this.panelExt50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt50.Controls.Add(this.labelExt49);
+            this.panelExt50.Location = new System.Drawing.Point(66, 79);
+            this.panelExt50.Name = "panelExt50";
+            this.panelExt50.Size = new System.Drawing.Size(70, 27);
+            this.panelExt50.TabIndex = 2006;
+            // 
+            // labelExt49
+            // 
+            this.labelExt49.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt49.Location = new System.Drawing.Point(2, 4);
+            this.labelExt49.Name = "labelExt49";
+            this.labelExt49.Size = new System.Drawing.Size(81, 18);
+            this.labelExt49.TabIndex = 41;
+            this.labelExt49.Text = "memo";
+            this.labelExt49.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dp_6_종료일
+            // 
+            this.dp_6_종료일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp_6_종료일.Location = new System.Drawing.Point(400, 31);
+            this.dp_6_종료일.Mask = "####/##/##";
+            this.dp_6_종료일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp_6_종료일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp_6_종료일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp_6_종료일.Name = "dp_6_종료일";
+            this.dp_6_종료일.Size = new System.Drawing.Size(110, 21);
+            this.dp_6_종료일.TabIndex = 1991;
+            this.dp_6_종료일.Tag = "";
+            this.dp_6_종료일.Value = new System.DateTime(((long)(0)));
+            // 
+            // dp_6_시작일
+            // 
+            this.dp_6_시작일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp_6_시작일.Location = new System.Drawing.Point(138, 31);
+            this.dp_6_시작일.Mask = "####/##/##";
+            this.dp_6_시작일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp_6_시작일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp_6_시작일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp_6_시작일.Name = "dp_6_시작일";
+            this.dp_6_시작일.Size = new System.Drawing.Size(110, 21);
+            this.dp_6_시작일.TabIndex = 1990;
+            this.dp_6_시작일.Tag = "";
+            this.dp_6_시작일.Value = new System.DateTime(((long)(0)));
             // 
             // panelExt38
             // 
@@ -349,7 +528,7 @@
             // 
             this.txt_6_구분.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt_6_구분.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_6_구분.Location = new System.Drawing.Point(138, 3);
+            this.txt_6_구분.Location = new System.Drawing.Point(138, 4);
             this.txt_6_구분.Name = "txt_6_구분";
             this.txt_6_구분.Size = new System.Drawing.Size(540, 25);
             this.txt_6_구분.TabIndex = 1984;
@@ -398,7 +577,7 @@
             this.txt_6_특이사항.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_6_특이사항.Location = new System.Drawing.Point(138, 57);
             this.txt_6_특이사항.Name = "txt_6_특이사항";
-            this.txt_6_특이사항.Size = new System.Drawing.Size(540, 25);
+            this.txt_6_특이사항.Size = new System.Drawing.Size(539, 25);
             this.txt_6_특이사항.TabIndex = 1980;
             // 
             // panelExt34
@@ -423,7 +602,7 @@
             // labelExt28
             // 
             this.labelExt28.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt28.Location = new System.Drawing.Point(-1, 2);
+            this.labelExt28.Location = new System.Drawing.Point(-1, 14);
             this.labelExt28.Name = "labelExt28";
             this.labelExt28.Size = new System.Drawing.Size(67, 78);
             this.labelExt28.TabIndex = 41;
@@ -453,6 +632,16 @@
             // 
             this.panelExt18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelExt18.Controls.Add(this.cur_5_채권양도통지서);
+            this.panelExt18.Controls.Add(this.labelExt52);
+            this.panelExt18.Controls.Add(this.labelExt51);
+            this.panelExt18.Controls.Add(this.txt_5_memo);
+            this.panelExt18.Controls.Add(this.panelExt49);
+            this.panelExt18.Controls.Add(this.chk_5_부속합의서);
+            this.panelExt18.Controls.Add(this.panelExt48);
+            this.panelExt18.Controls.Add(this.chk_5_인감증명서);
+            this.panelExt18.Controls.Add(this.labelExt43);
+            this.panelExt18.Controls.Add(this.panelExt47);
             this.panelExt18.Controls.Add(this.txt_5_제3채3);
             this.panelExt18.Controls.Add(this.panelExt20);
             this.panelExt18.Controls.Add(this.txt_5_제3채2);
@@ -460,10 +649,149 @@
             this.panelExt18.Controls.Add(this.txt_5_제3채1);
             this.panelExt18.Controls.Add(this.labelExt18);
             this.panelExt18.Controls.Add(this.panelExt22);
-            this.panelExt18.Location = new System.Drawing.Point(-1, 237);
+            this.panelExt18.Location = new System.Drawing.Point(-1, 408);
             this.panelExt18.Name = "panelExt18";
-            this.panelExt18.Size = new System.Drawing.Size(1083, 29);
+            this.panelExt18.Size = new System.Drawing.Size(1083, 81);
             this.panelExt18.TabIndex = 1990;
+            // 
+            // cur_5_채권양도통지서
+            // 
+            this.cur_5_채권양도통지서.BackColor = System.Drawing.Color.White;
+            this.cur_5_채권양도통지서.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.cur_5_채권양도통지서.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cur_5_채권양도통지서.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cur_5_채권양도통지서.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cur_5_채권양도통지서.Font = new System.Drawing.Font("굴림체", 9F);
+            this.cur_5_채권양도통지서.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cur_5_채권양도통지서.Location = new System.Drawing.Point(202, 30);
+            this.cur_5_채권양도통지서.MaxLength = 17;
+            this.cur_5_채권양도통지서.Name = "cur_5_채권양도통지서";
+            this.cur_5_채권양도통지서.NullString = "0";
+            this.cur_5_채권양도통지서.PositiveColor = System.Drawing.Color.Black;
+            this.cur_5_채권양도통지서.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cur_5_채권양도통지서.Size = new System.Drawing.Size(43, 25);
+            this.cur_5_채권양도통지서.TabIndex = 2007;
+            this.cur_5_채권양도통지서.Tag = "";
+            this.cur_5_채권양도통지서.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cur_5_채권양도통지서.UseKeyF3 = false;
+            // 
+            // labelExt52
+            // 
+            this.labelExt52.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt52.Location = new System.Drawing.Point(540, 33);
+            this.labelExt52.Name = "labelExt52";
+            this.labelExt52.Size = new System.Drawing.Size(85, 18);
+            this.labelExt52.TabIndex = 2006;
+            this.labelExt52.Text = "부속합의서";
+            this.labelExt52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelExt51
+            // 
+            this.labelExt51.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt51.Location = new System.Drawing.Point(428, 33);
+            this.labelExt51.Name = "labelExt51";
+            this.labelExt51.Size = new System.Drawing.Size(85, 18);
+            this.labelExt51.TabIndex = 42;
+            this.labelExt51.Text = "인감증명서";
+            this.labelExt51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_5_memo
+            // 
+            this.txt_5_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_5_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_5_memo.Location = new System.Drawing.Point(139, 56);
+            this.txt_5_memo.Name = "txt_5_memo";
+            this.txt_5_memo.Size = new System.Drawing.Size(538, 25);
+            this.txt_5_memo.TabIndex = 2005;
+            // 
+            // panelExt49
+            // 
+            this.panelExt49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt49.Controls.Add(this.labelExt45);
+            this.panelExt49.Location = new System.Drawing.Point(66, 53);
+            this.panelExt49.Name = "panelExt49";
+            this.panelExt49.Size = new System.Drawing.Size(70, 27);
+            this.panelExt49.TabIndex = 2004;
+            // 
+            // labelExt45
+            // 
+            this.labelExt45.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt45.Location = new System.Drawing.Point(2, 4);
+            this.labelExt45.Name = "labelExt45";
+            this.labelExt45.Size = new System.Drawing.Size(81, 18);
+            this.labelExt45.TabIndex = 41;
+            this.labelExt45.Text = "memo";
+            this.labelExt45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chk_5_부속합의서
+            // 
+            this.chk_5_부속합의서.AutoSize = true;
+            this.chk_5_부속합의서.Location = new System.Drawing.Point(627, 36);
+            this.chk_5_부속합의서.Name = "chk_5_부속합의서";
+            this.chk_5_부속합의서.Size = new System.Drawing.Size(18, 17);
+            this.chk_5_부속합의서.TabIndex = 1986;
+            this.chk_5_부속합의서.UseVisualStyleBackColor = true;
+            // 
+            // panelExt48
+            // 
+            this.panelExt48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt48.Controls.Add(this.labelExt44);
+            this.panelExt48.Location = new System.Drawing.Point(329, 27);
+            this.panelExt48.Name = "panelExt48";
+            this.panelExt48.Size = new System.Drawing.Size(98, 27);
+            this.panelExt48.TabIndex = 1980;
+            // 
+            // labelExt44
+            // 
+            this.labelExt44.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt44.Location = new System.Drawing.Point(1, 6);
+            this.labelExt44.Name = "labelExt44";
+            this.labelExt44.Size = new System.Drawing.Size(94, 18);
+            this.labelExt44.TabIndex = 41;
+            this.labelExt44.Text = "필수 체크 사항";
+            this.labelExt44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chk_5_인감증명서
+            // 
+            this.chk_5_인감증명서.AutoSize = true;
+            this.chk_5_인감증명서.Location = new System.Drawing.Point(515, 36);
+            this.chk_5_인감증명서.Name = "chk_5_인감증명서";
+            this.chk_5_인감증명서.Size = new System.Drawing.Size(18, 17);
+            this.chk_5_인감증명서.TabIndex = 1985;
+            this.chk_5_인감증명서.UseVisualStyleBackColor = true;
+            // 
+            // labelExt43
+            // 
+            this.labelExt43.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt43.Location = new System.Drawing.Point(245, 33);
+            this.labelExt43.Name = "labelExt43";
+            this.labelExt43.Size = new System.Drawing.Size(31, 18);
+            this.labelExt43.TabIndex = 1984;
+            this.labelExt43.Text = "건";
+            this.labelExt43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelExt47
+            // 
+            this.panelExt47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt47.Controls.Add(this.labelExt42);
+            this.panelExt47.Location = new System.Drawing.Point(66, 27);
+            this.panelExt47.Name = "panelExt47";
+            this.panelExt47.Size = new System.Drawing.Size(133, 27);
+            this.panelExt47.TabIndex = 1978;
+            // 
+            // labelExt42
+            // 
+            this.labelExt42.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt42.Location = new System.Drawing.Point(1, 6);
+            this.labelExt42.Name = "labelExt42";
+            this.labelExt42.Size = new System.Drawing.Size(132, 18);
+            this.labelExt42.TabIndex = 41;
+            this.labelExt42.Text = "채권양도통지서 부수";
+            this.labelExt42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txt_5_제3채3
             // 
@@ -533,7 +861,7 @@
             // labelExt18
             // 
             this.labelExt18.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt18.Location = new System.Drawing.Point(6, 5);
+            this.labelExt18.Location = new System.Drawing.Point(6, 32);
             this.labelExt18.Name = "labelExt18";
             this.labelExt18.Size = new System.Drawing.Size(63, 22);
             this.labelExt18.TabIndex = 41;
@@ -559,27 +887,57 @@
             this.labelExt19.Text = "제3채1";
             this.labelExt19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelExt19
+            // panel19
             // 
-            this.panelExt19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelExt19.Controls.Add(this.txt_4_연대보증인3);
-            this.panelExt19.Controls.Add(this.panelExt41);
-            this.panelExt19.Controls.Add(this.txt_4_연대보증인2);
-            this.panelExt19.Controls.Add(this.panelExt42);
-            this.panelExt19.Controls.Add(this.txt_4_연대보증인1);
-            this.panelExt19.Controls.Add(this.labelExt16);
-            this.panelExt19.Controls.Add(this.panelExt43);
-            this.panelExt19.Location = new System.Drawing.Point(-1, 204);
-            this.panelExt19.Name = "panelExt19";
-            this.panelExt19.Size = new System.Drawing.Size(1083, 28);
-            this.panelExt19.TabIndex = 1989;
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel19.Controls.Add(this.txt_4_memo);
+            this.panel19.Controls.Add(this.panelExt46);
+            this.panel19.Controls.Add(this.txt_4_연대보증인3);
+            this.panel19.Controls.Add(this.panelExt41);
+            this.panel19.Controls.Add(this.txt_4_연대보증인2);
+            this.panel19.Controls.Add(this.panelExt42);
+            this.panel19.Controls.Add(this.txt_4_연대보증인1);
+            this.panel19.Controls.Add(this.labelExt16);
+            this.panel19.Controls.Add(this.panelExt43);
+            this.panel19.Location = new System.Drawing.Point(-1, 352);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(1083, 54);
+            this.panel19.TabIndex = 1989;
+            // 
+            // txt_4_memo
+            // 
+            this.txt_4_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_4_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_4_memo.Location = new System.Drawing.Point(139, 29);
+            this.txt_4_memo.Name = "txt_4_memo";
+            this.txt_4_memo.Size = new System.Drawing.Size(538, 25);
+            this.txt_4_memo.TabIndex = 2003;
+            // 
+            // panelExt46
+            // 
+            this.panelExt46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt46.Controls.Add(this.labelExt41);
+            this.panelExt46.Location = new System.Drawing.Point(66, 26);
+            this.panelExt46.Name = "panelExt46";
+            this.panelExt46.Size = new System.Drawing.Size(70, 27);
+            this.panelExt46.TabIndex = 2002;
+            // 
+            // labelExt41
+            // 
+            this.labelExt41.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt41.Location = new System.Drawing.Point(2, 4);
+            this.labelExt41.Name = "labelExt41";
+            this.labelExt41.Size = new System.Drawing.Size(81, 18);
+            this.labelExt41.TabIndex = 41;
+            this.labelExt41.Text = "memo";
+            this.labelExt41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txt_4_연대보증인3
             // 
             this.txt_4_연대보증인3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt_4_연대보증인3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_4_연대보증인3.Location = new System.Drawing.Point(666, 3);
+            this.txt_4_연대보증인3.Location = new System.Drawing.Point(666, 4);
             this.txt_4_연대보증인3.Name = "txt_4_연대보증인3";
             this.txt_4_연대보증인3.Size = new System.Drawing.Size(100, 25);
             this.txt_4_연대보증인3.TabIndex = 1982;
@@ -607,7 +965,7 @@
             // 
             this.txt_4_연대보증인2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt_4_연대보증인2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_4_연대보증인2.Location = new System.Drawing.Point(401, 3);
+            this.txt_4_연대보증인2.Location = new System.Drawing.Point(401, 4);
             this.txt_4_연대보증인2.Name = "txt_4_연대보증인2";
             this.txt_4_연대보증인2.Size = new System.Drawing.Size(100, 25);
             this.txt_4_연대보증인2.TabIndex = 1980;
@@ -635,7 +993,7 @@
             // 
             this.txt_4_연대보증인1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
             this.txt_4_연대보증인1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_4_연대보증인1.Location = new System.Drawing.Point(138, 3);
+            this.txt_4_연대보증인1.Location = new System.Drawing.Point(138, 4);
             this.txt_4_연대보증인1.Name = "txt_4_연대보증인1";
             this.txt_4_연대보증인1.Size = new System.Drawing.Size(100, 25);
             this.txt_4_연대보증인1.TabIndex = 1978;
@@ -643,7 +1001,7 @@
             // labelExt16
             // 
             this.labelExt16.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt16.Location = new System.Drawing.Point(6, 5);
+            this.labelExt16.Location = new System.Drawing.Point(6, 16);
             this.labelExt16.Name = "labelExt16";
             this.labelExt16.Size = new System.Drawing.Size(60, 21);
             this.labelExt16.TabIndex = 41;
@@ -673,6 +1031,8 @@
             // 
             this.panelExt17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelExt17.Controls.Add(this.txt_1_memo);
+            this.panelExt17.Controls.Add(this.panelExt15);
             this.panelExt17.Controls.Add(this.panelExt4);
             this.panelExt17.Controls.Add(this.labelExt9);
             this.panelExt17.Controls.Add(this.txt_1_소유자);
@@ -682,8 +1042,36 @@
             this.panelExt17.Controls.Add(this.txt_1_물건지);
             this.panelExt17.Location = new System.Drawing.Point(-1, -1);
             this.panelExt17.Name = "panelExt17";
-            this.panelExt17.Size = new System.Drawing.Size(1083, 55);
+            this.panelExt17.Size = new System.Drawing.Size(1083, 82);
             this.panelExt17.TabIndex = 1988;
+            // 
+            // txt_1_memo
+            // 
+            this.txt_1_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_1_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_1_memo.Location = new System.Drawing.Point(139, 56);
+            this.txt_1_memo.Name = "txt_1_memo";
+            this.txt_1_memo.Size = new System.Drawing.Size(538, 25);
+            this.txt_1_memo.TabIndex = 1984;
+            // 
+            // panelExt15
+            // 
+            this.panelExt15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt15.Controls.Add(this.labelExt22);
+            this.panelExt15.Location = new System.Drawing.Point(67, 53);
+            this.panelExt15.Name = "panelExt15";
+            this.panelExt15.Size = new System.Drawing.Size(70, 27);
+            this.panelExt15.TabIndex = 1983;
+            // 
+            // labelExt22
+            // 
+            this.labelExt22.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt22.Location = new System.Drawing.Point(2, 4);
+            this.labelExt22.Name = "labelExt22";
+            this.labelExt22.Size = new System.Drawing.Size(81, 18);
+            this.labelExt22.TabIndex = 41;
+            this.labelExt22.Text = "memo";
+            this.labelExt22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt4
             // 
@@ -707,7 +1095,7 @@
             // labelExt9
             // 
             this.labelExt9.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt9.Location = new System.Drawing.Point(8, 3);
+            this.labelExt9.Location = new System.Drawing.Point(8, 16);
             this.labelExt9.Name = "labelExt9";
             this.labelExt9.Size = new System.Drawing.Size(51, 46);
             this.labelExt9.TabIndex = 41;
@@ -783,7 +1171,9 @@
             // 
             this.panelExt16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelExt16.Controls.Add(this.txt_2_memo);
             this.panelExt16.Controls.Add(this.labelExt7);
+            this.panelExt16.Controls.Add(this.panelExt26);
             this.panelExt16.Controls.Add(this.labelExt12);
             this.panelExt16.Controls.Add(this.panelExt10);
             this.panelExt16.Controls.Add(this.panelExt11);
@@ -795,20 +1185,48 @@
             this.panelExt16.Controls.Add(this.txt_2_발행인1);
             this.panelExt16.Controls.Add(this.txt_2_발행인2);
             this.panelExt16.Controls.Add(this.panelExt12);
-            this.panelExt16.Location = new System.Drawing.Point(-1, 59);
+            this.panelExt16.Location = new System.Drawing.Point(-1, 83);
             this.panelExt16.Name = "panelExt16";
-            this.panelExt16.Size = new System.Drawing.Size(1083, 107);
+            this.panelExt16.Size = new System.Drawing.Size(1083, 133);
             this.panelExt16.TabIndex = 1988;
+            // 
+            // txt_2_memo
+            // 
+            this.txt_2_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_2_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_2_memo.Location = new System.Drawing.Point(139, 108);
+            this.txt_2_memo.Name = "txt_2_memo";
+            this.txt_2_memo.Size = new System.Drawing.Size(538, 25);
+            this.txt_2_memo.TabIndex = 1986;
             // 
             // labelExt7
             // 
             this.labelExt7.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt7.Location = new System.Drawing.Point(5, 2);
+            this.labelExt7.Location = new System.Drawing.Point(8, 12);
             this.labelExt7.Name = "labelExt7";
             this.labelExt7.Size = new System.Drawing.Size(54, 102);
             this.labelExt7.TabIndex = 41;
             this.labelExt7.Text = "공정\r\n증서";
             this.labelExt7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelExt26
+            // 
+            this.panelExt26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt26.Controls.Add(this.labelExt23);
+            this.panelExt26.Location = new System.Drawing.Point(67, 105);
+            this.panelExt26.Name = "panelExt26";
+            this.panelExt26.Size = new System.Drawing.Size(70, 27);
+            this.panelExt26.TabIndex = 1985;
+            // 
+            // labelExt23
+            // 
+            this.labelExt23.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt23.Location = new System.Drawing.Point(2, 4);
+            this.labelExt23.Name = "labelExt23";
+            this.labelExt23.Size = new System.Drawing.Size(81, 18);
+            this.labelExt23.TabIndex = 41;
+            this.labelExt23.Text = "memo";
+            this.labelExt23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelExt12
             // 
@@ -836,7 +1254,7 @@
             this.labelExt6.Name = "labelExt6";
             this.labelExt6.Size = new System.Drawing.Size(59, 18);
             this.labelExt6.TabIndex = 41;
-            this.labelExt6.Text = "증권번호";
+            this.labelExt6.Text = "증서번호";
             this.labelExt6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt11
@@ -964,24 +1382,297 @@
             // 
             this.panelExt8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelExt8.Controls.Add(this.txt_3_보험료);
+            this.panelExt8.Controls.Add(this.cur_3_발생채무액);
+            this.panelExt8.Controls.Add(this.cur_3_계약금액);
+            this.panelExt8.Controls.Add(this.cur_3_보험료);
+            this.panelExt8.Controls.Add(this.txt_3_memo);
+            this.panelExt8.Controls.Add(this.panelExt45);
+            this.panelExt8.Controls.Add(this.panelExt44);
+            this.panelExt8.Controls.Add(this.panelExt35);
+            this.panelExt8.Controls.Add(this.dp_3_계약체결일자);
+            this.panelExt8.Controls.Add(this.panelExt33);
+            this.panelExt8.Controls.Add(this.dp_3_계약종료일);
+            this.panelExt8.Controls.Add(this.panelExt28);
+            this.panelExt8.Controls.Add(this.dp_3_계약시작일);
+            this.panelExt8.Controls.Add(this.txt_3_주계약내용);
+            this.panelExt8.Controls.Add(this.panelExt29);
+            this.panelExt8.Controls.Add(this.panelExt30);
             this.panelExt8.Controls.Add(this.panelExt39);
             this.panelExt8.Controls.Add(this.labelExt33);
             this.panelExt8.Controls.Add(this.panelExt40);
             this.panelExt8.Controls.Add(this.txt_3_증권번호);
-            this.panelExt8.Location = new System.Drawing.Point(-1, 171);
+            this.panelExt8.Location = new System.Drawing.Point(-1, 218);
             this.panelExt8.Name = "panelExt8";
-            this.panelExt8.Size = new System.Drawing.Size(1083, 28);
+            this.panelExt8.Size = new System.Drawing.Size(1083, 132);
             this.panelExt8.TabIndex = 1987;
             // 
-            // txt_3_보험료
+            // cur_3_발생채무액
             // 
-            this.txt_3_보험료.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.txt_3_보험료.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_3_보험료.Location = new System.Drawing.Point(666, 3);
-            this.txt_3_보험료.Name = "txt_3_보험료";
-            this.txt_3_보험료.Size = new System.Drawing.Size(100, 25);
-            this.txt_3_보험료.TabIndex = 1982;
+            this.cur_3_발생채무액.BackColor = System.Drawing.Color.White;
+            this.cur_3_발생채무액.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.cur_3_발생채무액.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cur_3_발생채무액.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cur_3_발생채무액.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cur_3_발생채무액.Font = new System.Drawing.Font("굴림체", 9F);
+            this.cur_3_발생채무액.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cur_3_발생채무액.Location = new System.Drawing.Point(535, 81);
+            this.cur_3_발생채무액.MaxLength = 17;
+            this.cur_3_발생채무액.Name = "cur_3_발생채무액";
+            this.cur_3_발생채무액.NullString = "0";
+            this.cur_3_발생채무액.PositiveColor = System.Drawing.Color.Black;
+            this.cur_3_발생채무액.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cur_3_발생채무액.Size = new System.Drawing.Size(100, 25);
+            this.cur_3_발생채무액.TabIndex = 2004;
+            this.cur_3_발생채무액.Tag = "";
+            this.cur_3_발생채무액.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cur_3_발생채무액.UseKeyF3 = false;
+            // 
+            // cur_3_계약금액
+            // 
+            this.cur_3_계약금액.BackColor = System.Drawing.Color.White;
+            this.cur_3_계약금액.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.cur_3_계약금액.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cur_3_계약금액.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cur_3_계약금액.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cur_3_계약금액.Font = new System.Drawing.Font("굴림체", 9F);
+            this.cur_3_계약금액.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cur_3_계약금액.Location = new System.Drawing.Point(139, 80);
+            this.cur_3_계약금액.MaxLength = 17;
+            this.cur_3_계약금액.Name = "cur_3_계약금액";
+            this.cur_3_계약금액.NullString = "0";
+            this.cur_3_계약금액.PositiveColor = System.Drawing.Color.Black;
+            this.cur_3_계약금액.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cur_3_계약금액.Size = new System.Drawing.Size(100, 25);
+            this.cur_3_계약금액.TabIndex = 2003;
+            this.cur_3_계약금액.Tag = "";
+            this.cur_3_계약금액.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cur_3_계약금액.UseKeyF3 = false;
+            // 
+            // cur_3_보험료
+            // 
+            this.cur_3_보험료.BackColor = System.Drawing.Color.White;
+            this.cur_3_보험료.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.cur_3_보험료.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cur_3_보험료.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cur_3_보험료.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cur_3_보험료.Font = new System.Drawing.Font("굴림체", 9F);
+            this.cur_3_보험료.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cur_3_보험료.Location = new System.Drawing.Point(666, 2);
+            this.cur_3_보험료.MaxLength = 17;
+            this.cur_3_보험료.Name = "cur_3_보험료";
+            this.cur_3_보험료.NullString = "0";
+            this.cur_3_보험료.PositiveColor = System.Drawing.Color.Black;
+            this.cur_3_보험료.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cur_3_보험료.Size = new System.Drawing.Size(100, 25);
+            this.cur_3_보험료.TabIndex = 2002;
+            this.cur_3_보험료.Tag = "";
+            this.cur_3_보험료.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cur_3_보험료.UseKeyF3 = false;
+            // 
+            // txt_3_memo
+            // 
+            this.txt_3_memo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_3_memo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_3_memo.Location = new System.Drawing.Point(139, 107);
+            this.txt_3_memo.Name = "txt_3_memo";
+            this.txt_3_memo.Size = new System.Drawing.Size(538, 25);
+            this.txt_3_memo.TabIndex = 2001;
+            // 
+            // panelExt45
+            // 
+            this.panelExt45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt45.Controls.Add(this.labelExt40);
+            this.panelExt45.Location = new System.Drawing.Point(67, 104);
+            this.panelExt45.Name = "panelExt45";
+            this.panelExt45.Size = new System.Drawing.Size(70, 27);
+            this.panelExt45.TabIndex = 2000;
+            // 
+            // labelExt40
+            // 
+            this.labelExt40.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt40.Location = new System.Drawing.Point(2, 4);
+            this.labelExt40.Name = "labelExt40";
+            this.labelExt40.Size = new System.Drawing.Size(81, 18);
+            this.labelExt40.TabIndex = 41;
+            this.labelExt40.Text = "memo";
+            this.labelExt40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelExt44
+            // 
+            this.panelExt44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt44.Controls.Add(this.labelExt39);
+            this.panelExt44.Location = new System.Drawing.Point(330, 78);
+            this.panelExt44.Name = "panelExt44";
+            this.panelExt44.Size = new System.Drawing.Size(203, 27);
+            this.panelExt44.TabIndex = 1993;
+            // 
+            // labelExt39
+            // 
+            this.labelExt39.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt39.Location = new System.Drawing.Point(1, 6);
+            this.labelExt39.Name = "labelExt39";
+            this.labelExt39.Size = new System.Drawing.Size(190, 18);
+            this.labelExt39.TabIndex = 41;
+            this.labelExt39.Text = "보험기간개시전발생채무액";
+            this.labelExt39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelExt35
+            // 
+            this.panelExt35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt35.Controls.Add(this.labelExt38);
+            this.panelExt35.Location = new System.Drawing.Point(67, 78);
+            this.panelExt35.Name = "panelExt35";
+            this.panelExt35.Size = new System.Drawing.Size(70, 27);
+            this.panelExt35.TabIndex = 1998;
+            // 
+            // labelExt38
+            // 
+            this.labelExt38.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt38.Location = new System.Drawing.Point(1, 5);
+            this.labelExt38.Name = "labelExt38";
+            this.labelExt38.Size = new System.Drawing.Size(59, 18);
+            this.labelExt38.TabIndex = 41;
+            this.labelExt38.Text = "계약금액";
+            this.labelExt38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dp_3_계약체결일자
+            // 
+            this.dp_3_계약체결일자.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp_3_계약체결일자.Location = new System.Drawing.Point(666, 56);
+            this.dp_3_계약체결일자.Mask = "####/##/##";
+            this.dp_3_계약체결일자.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp_3_계약체결일자.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp_3_계약체결일자.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp_3_계약체결일자.Name = "dp_3_계약체결일자";
+            this.dp_3_계약체결일자.Size = new System.Drawing.Size(110, 21);
+            this.dp_3_계약체결일자.TabIndex = 1997;
+            this.dp_3_계약체결일자.Tag = "";
+            this.dp_3_계약체결일자.Value = new System.DateTime(((long)(0)));
+            // 
+            // panelExt33
+            // 
+            this.panelExt33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt33.Controls.Add(this.labelExt37);
+            this.panelExt33.Location = new System.Drawing.Point(594, 52);
+            this.panelExt33.Name = "panelExt33";
+            this.panelExt33.Size = new System.Drawing.Size(70, 27);
+            this.panelExt33.TabIndex = 1996;
+            // 
+            // labelExt37
+            // 
+            this.labelExt37.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt37.Location = new System.Drawing.Point(1, 6);
+            this.labelExt37.Name = "labelExt37";
+            this.labelExt37.Size = new System.Drawing.Size(59, 18);
+            this.labelExt37.TabIndex = 41;
+            this.labelExt37.Text = "계약체결일자";
+            this.labelExt37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dp_3_계약종료일
+            // 
+            this.dp_3_계약종료일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp_3_계약종료일.Location = new System.Drawing.Point(401, 56);
+            this.dp_3_계약종료일.Mask = "####/##/##";
+            this.dp_3_계약종료일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp_3_계약종료일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp_3_계약종료일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp_3_계약종료일.Name = "dp_3_계약종료일";
+            this.dp_3_계약종료일.Size = new System.Drawing.Size(110, 21);
+            this.dp_3_계약종료일.TabIndex = 1995;
+            this.dp_3_계약종료일.Tag = "";
+            this.dp_3_계약종료일.Value = new System.DateTime(((long)(0)));
+            // 
+            // panelExt28
+            // 
+            this.panelExt28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt28.Controls.Add(this.labelExt26);
+            this.panelExt28.Location = new System.Drawing.Point(67, 26);
+            this.panelExt28.Name = "panelExt28";
+            this.panelExt28.Size = new System.Drawing.Size(70, 27);
+            this.panelExt28.TabIndex = 1993;
+            // 
+            // labelExt26
+            // 
+            this.labelExt26.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt26.Location = new System.Drawing.Point(1, 6);
+            this.labelExt26.Name = "labelExt26";
+            this.labelExt26.Size = new System.Drawing.Size(69, 18);
+            this.labelExt26.TabIndex = 41;
+            this.labelExt26.Text = "주계약내용";
+            this.labelExt26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dp_3_계약시작일
+            // 
+            this.dp_3_계약시작일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp_3_계약시작일.Location = new System.Drawing.Point(139, 56);
+            this.dp_3_계약시작일.Mask = "####/##/##";
+            this.dp_3_계약시작일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp_3_계약시작일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp_3_계약시작일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp_3_계약시작일.Name = "dp_3_계약시작일";
+            this.dp_3_계약시작일.Size = new System.Drawing.Size(110, 21);
+            this.dp_3_계약시작일.TabIndex = 1994;
+            this.dp_3_계약시작일.Tag = "";
+            this.dp_3_계약시작일.Value = new System.DateTime(((long)(0)));
+            // 
+            // txt_3_주계약내용
+            // 
+            this.txt_3_주계약내용.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt_3_주계약내용.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_3_주계약내용.Location = new System.Drawing.Point(139, 29);
+            this.txt_3_주계약내용.Name = "txt_3_주계약내용";
+            this.txt_3_주계약내용.Size = new System.Drawing.Size(379, 25);
+            this.txt_3_주계약내용.TabIndex = 1994;
+            // 
+            // panelExt29
+            // 
+            this.panelExt29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt29.Controls.Add(this.labelExt27);
+            this.panelExt29.Location = new System.Drawing.Point(330, 52);
+            this.panelExt29.Name = "panelExt29";
+            this.panelExt29.Size = new System.Drawing.Size(70, 27);
+            this.panelExt29.TabIndex = 1993;
+            // 
+            // labelExt27
+            // 
+            this.labelExt27.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt27.Location = new System.Drawing.Point(1, 6);
+            this.labelExt27.Name = "labelExt27";
+            this.labelExt27.Size = new System.Drawing.Size(59, 18);
+            this.labelExt27.TabIndex = 41;
+            this.labelExt27.Text = "계약종료일";
+            this.labelExt27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelExt30
+            // 
+            this.panelExt30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt30.Controls.Add(this.labelExt36);
+            this.panelExt30.Location = new System.Drawing.Point(67, 52);
+            this.panelExt30.Name = "panelExt30";
+            this.panelExt30.Size = new System.Drawing.Size(70, 27);
+            this.panelExt30.TabIndex = 1992;
+            // 
+            // labelExt36
+            // 
+            this.labelExt36.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt36.Location = new System.Drawing.Point(1, 7);
+            this.labelExt36.Name = "labelExt36";
+            this.labelExt36.Size = new System.Drawing.Size(59, 18);
+            this.labelExt36.TabIndex = 41;
+            this.labelExt36.Text = "계약시작일";
+            this.labelExt36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt39
             // 
@@ -1005,7 +1696,7 @@
             // labelExt33
             // 
             this.labelExt33.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt33.Location = new System.Drawing.Point(6, 5);
+            this.labelExt33.Location = new System.Drawing.Point(6, 56);
             this.labelExt33.Name = "labelExt33";
             this.labelExt33.Size = new System.Drawing.Size(66, 19);
             this.labelExt33.TabIndex = 41;
@@ -1043,16 +1734,18 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txt기존번호);
+            this.panel1.Controls.Add(this.txt번호);
+            this.panel1.Controls.Add(this.cur설정액);
+            this.panel1.Controls.Add(this.ctx거래처);
             this.panel1.Controls.Add(this.dp소멸시효);
             this.panel1.Controls.Add(this.dp만기일);
             this.panel1.Controls.Add(this.dp시작일);
             this.panel1.Controls.Add(this.dp체결일);
-            this.panel1.Controls.Add(this.MULTI_CD_CORP);
             this.panel1.Controls.Add(this.panelExt75);
             this.panel1.Controls.Add(this.panelExt74);
             this.panel1.Controls.Add(this.panelExt71);
             this.panel1.Controls.Add(this.panelExt73);
-            this.panel1.Controls.Add(this.txt설정액);
             this.panel1.Controls.Add(this.panelExt2);
             this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.cbo보전서류구분);
@@ -1065,19 +1758,104 @@
             this.panel1.Size = new System.Drawing.Size(1084, 82);
             this.panel1.TabIndex = 1;
             // 
-            // MULTI_CD_CORP
+            // txt번호
             // 
-            this.MULTI_CD_CORP.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MULTI_CD_CORP.HelpID = Duzon.Common.Forms.Help.HelpID.P_USER;
-            this.MULTI_CD_CORP.Location = new System.Drawing.Point(71, 3);
-            this.MULTI_CD_CORP.Name = "MULTI_CD_CORP";
-            this.MULTI_CD_CORP.Size = new System.Drawing.Size(150, 21);
-            this.MULTI_CD_CORP.TabIndex = 1983;
-            this.MULTI_CD_CORP.TabStop = false;
-            this.MULTI_CD_CORP.UserCodeName = "biz_name";
-            this.MULTI_CD_CORP.UserCodeValue = "CD_PARTNER";
-            this.MULTI_CD_CORP.UserHelpID = "H_CZ_HELP02";
-            this.MULTI_CD_CORP.QueryBefore += new Duzon.Common.BpControls.BpQueryHandler(this.MULTI_CD_CORP_QueryBefore);
+            this.txt번호.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt번호.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt번호.Location = new System.Drawing.Point(206, 29);
+            this.txt번호.Name = "txt번호";
+            this.txt번호.Size = new System.Drawing.Size(32, 25);
+            this.txt번호.TabIndex = 1985;
+            // 
+            // cur설정액
+            // 
+            this.cur설정액.BackColor = System.Drawing.Color.White;
+            this.cur설정액.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.cur설정액.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cur설정액.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cur설정액.DecimalValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.cur설정액.Font = new System.Drawing.Font("굴림체", 9F);
+            this.cur설정액.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cur설정액.Location = new System.Drawing.Point(341, 28);
+            this.cur설정액.MaxLength = 17;
+            this.cur설정액.Name = "cur설정액";
+            this.cur설정액.NullString = "0";
+            this.cur설정액.PositiveColor = System.Drawing.Color.Black;
+            this.cur설정액.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cur설정액.Size = new System.Drawing.Size(100, 25);
+            this.cur설정액.TabIndex = 1993;
+            this.cur설정액.Tag = "";
+            this.cur설정액.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cur설정액.UseKeyF3 = false;
+            // 
+            // ctx거래처
+            // 
+            this.ctx거래처.HelpID = Duzon.Common.Forms.Help.HelpID.P_MA_PARTNER_SUB;
+            this.ctx거래처.Location = new System.Drawing.Point(71, 3);
+            this.ctx거래처.Name = "ctx거래처";
+            this.ctx거래처.Size = new System.Drawing.Size(150, 21);
+            this.ctx거래처.TabIndex = 1992;
+            this.ctx거래처.TabStop = false;
+            // 
+            // dp소멸시효
+            // 
+            this.dp소멸시효.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp소멸시효.Location = new System.Drawing.Point(568, 57);
+            this.dp소멸시효.Mask = "####/##/##";
+            this.dp소멸시효.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp소멸시효.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp소멸시효.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp소멸시효.Name = "dp소멸시효";
+            this.dp소멸시효.Size = new System.Drawing.Size(110, 21);
+            this.dp소멸시효.TabIndex = 1991;
+            this.dp소멸시효.Tag = "";
+            this.dp소멸시효.Value = new System.DateTime(((long)(0)));
+            // 
+            // dp만기일
+            // 
+            this.dp만기일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp만기일.Location = new System.Drawing.Point(341, 57);
+            this.dp만기일.Mask = "####/##/##";
+            this.dp만기일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp만기일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp만기일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp만기일.Name = "dp만기일";
+            this.dp만기일.Size = new System.Drawing.Size(110, 21);
+            this.dp만기일.TabIndex = 1990;
+            this.dp만기일.Tag = "";
+            this.dp만기일.Value = new System.DateTime(((long)(0)));
+            // 
+            // dp시작일
+            // 
+            this.dp시작일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp시작일.Location = new System.Drawing.Point(71, 57);
+            this.dp시작일.Mask = "####/##/##";
+            this.dp시작일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp시작일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp시작일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp시작일.Name = "dp시작일";
+            this.dp시작일.Size = new System.Drawing.Size(110, 21);
+            this.dp시작일.TabIndex = 1989;
+            this.dp시작일.Tag = "";
+            this.dp시작일.Value = new System.DateTime(((long)(0)));
+            // 
+            // dp체결일
+            // 
+            this.dp체결일.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp체결일.Location = new System.Drawing.Point(568, 30);
+            this.dp체결일.Mask = "####/##/##";
+            this.dp체결일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp체결일.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp체결일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp체결일.Name = "dp체결일";
+            this.dp체결일.Size = new System.Drawing.Size(110, 21);
+            this.dp체결일.TabIndex = 1988;
+            this.dp체결일.Tag = "";
+            this.dp체결일.Value = new System.DateTime(((long)(0)));
             // 
             // panelExt75
             // 
@@ -1160,18 +1938,6 @@
             this.labelExt46.TabIndex = 41;
             this.labelExt46.Text = "만기일";
             this.labelExt46.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt설정액
-            // 
-            this.txt설정액.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.txt설정액.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt설정액.Location = new System.Drawing.Point(341, 30);
-            this.txt설정액.Name = "txt설정액";
-            this.txt설정액.Size = new System.Drawing.Size(100, 25);
-            this.txt설정액.TabIndex = 1976;
-            this.txt설정액.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt설정액.TextChanged += new System.EventHandler(this.txt설정액_TextChanged);
-            this.txt설정액.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt설정액_KeyPress);
             // 
             // panelExt2
             // 
@@ -1361,89 +2127,16 @@
             this.btn입력.Text = "입력";
             this.btn입력.UseVisualStyleBackColor = false;
             // 
-            // dp체결일
+            // txt기존번호
             // 
-            this.dp체결일.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp체결일.Location = new System.Drawing.Point(568, 30);
-            this.dp체결일.Mask = "####/##/##";
-            this.dp체결일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp체결일.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp체결일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp체결일.Name = "dp체결일";
-            this.dp체결일.Size = new System.Drawing.Size(110, 21);
-            this.dp체결일.TabIndex = 1988;
-            this.dp체결일.Tag = "";
-            this.dp체결일.Value = new System.DateTime(((long)(0)));
-            // 
-            // dp시작일
-            // 
-            this.dp시작일.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp시작일.Location = new System.Drawing.Point(71, 57);
-            this.dp시작일.Mask = "####/##/##";
-            this.dp시작일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp시작일.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp시작일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp시작일.Name = "dp시작일";
-            this.dp시작일.Size = new System.Drawing.Size(110, 21);
-            this.dp시작일.TabIndex = 1989;
-            this.dp시작일.Tag = "";
-            this.dp시작일.Value = new System.DateTime(((long)(0)));
-            // 
-            // dp만기일
-            // 
-            this.dp만기일.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp만기일.Location = new System.Drawing.Point(341, 57);
-            this.dp만기일.Mask = "####/##/##";
-            this.dp만기일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp만기일.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp만기일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp만기일.Name = "dp만기일";
-            this.dp만기일.Size = new System.Drawing.Size(110, 21);
-            this.dp만기일.TabIndex = 1990;
-            this.dp만기일.Tag = "";
-            this.dp만기일.Value = new System.DateTime(((long)(0)));
-            // 
-            // dp소멸시효
-            // 
-            this.dp소멸시효.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp소멸시효.Location = new System.Drawing.Point(568, 57);
-            this.dp소멸시효.Mask = "####/##/##";
-            this.dp소멸시효.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp소멸시효.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp소멸시효.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp소멸시효.Name = "dp소멸시효";
-            this.dp소멸시효.Size = new System.Drawing.Size(110, 21);
-            this.dp소멸시효.TabIndex = 1991;
-            this.dp소멸시효.Tag = "";
-            this.dp소멸시효.Value = new System.DateTime(((long)(0)));
-            // 
-            // dp_6_시작일
-            // 
-            this.dp_6_시작일.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp_6_시작일.Location = new System.Drawing.Point(138, 31);
-            this.dp_6_시작일.Mask = "####/##/##";
-            this.dp_6_시작일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp_6_시작일.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp_6_시작일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp_6_시작일.Name = "dp_6_시작일";
-            this.dp_6_시작일.Size = new System.Drawing.Size(110, 21);
-            this.dp_6_시작일.TabIndex = 1990;
-            this.dp_6_시작일.Tag = "";
-            this.dp_6_시작일.Value = new System.DateTime(((long)(0)));
-            // 
-            // dp_6_종료일
-            // 
-            this.dp_6_종료일.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp_6_종료일.Location = new System.Drawing.Point(400, 31);
-            this.dp_6_종료일.Mask = "####/##/##";
-            this.dp_6_종료일.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp_6_종료일.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp_6_종료일.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp_6_종료일.Name = "dp_6_종료일";
-            this.dp_6_종료일.Size = new System.Drawing.Size(110, 21);
-            this.dp_6_종료일.TabIndex = 1991;
-            this.dp_6_종료일.Tag = "";
-            this.dp_6_종료일.Value = new System.DateTime(((long)(0)));
+            this.txt기존번호.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.txt기존번호.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt기존번호.Enabled = false;
+            this.txt기존번호.Location = new System.Drawing.Point(267, 0);
+            this.txt기존번호.Name = "txt기존번호";
+            this.txt기존번호.Size = new System.Drawing.Size(32, 25);
+            this.txt기존번호.TabIndex = 1994;
+            this.txt기존번호.Visible = false;
             // 
             // P_CZ_ME_BOND_INFO
             // 
@@ -1454,17 +2147,22 @@
             this.Size = new System.Drawing.Size(1090, 796);
             this.TitleText = "채권보전서류";
             this.Controls.SetChildIndex(this.panRadio1, 0);
-            this.Controls.SetChildIndex(this.mDataArea, 0);
             this.Controls.SetChildIndex(this.btn입력, 0);
+            this.Controls.SetChildIndex(this.mDataArea, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelExt6.ResumeLayout(false);
             this.panelExt14.ResumeLayout(false);
             this.panelExt25.ResumeLayout(false);
             this.panelExt25.PerformLayout();
+            this.panelExt51.ResumeLayout(false);
             this.panelExt27.ResumeLayout(false);
             this.panelExt31.ResumeLayout(false);
             this.panelExt31.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_6_분할횟수)).EndInit();
+            this.panelExt50.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dp_6_종료일)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp_6_시작일)).EndInit();
             this.panelExt38.ResumeLayout(false);
             this.panelExt37.ResumeLayout(false);
             this.panelExt32.ResumeLayout(false);
@@ -1472,21 +2170,28 @@
             this.panelExt36.ResumeLayout(false);
             this.panelExt18.ResumeLayout(false);
             this.panelExt18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_5_채권양도통지서)).EndInit();
+            this.panelExt49.ResumeLayout(false);
+            this.panelExt48.ResumeLayout(false);
+            this.panelExt47.ResumeLayout(false);
             this.panelExt20.ResumeLayout(false);
             this.panelExt21.ResumeLayout(false);
             this.panelExt22.ResumeLayout(false);
-            this.panelExt19.ResumeLayout(false);
-            this.panelExt19.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panelExt46.ResumeLayout(false);
             this.panelExt41.ResumeLayout(false);
             this.panelExt42.ResumeLayout(false);
             this.panelExt43.ResumeLayout(false);
             this.panelExt17.ResumeLayout(false);
             this.panelExt17.PerformLayout();
+            this.panelExt15.ResumeLayout(false);
             this.panelExt4.ResumeLayout(false);
             this.panelExt5.ResumeLayout(false);
             this.panelExt7.ResumeLayout(false);
             this.panelExt16.ResumeLayout(false);
             this.panelExt16.PerformLayout();
+            this.panelExt26.ResumeLayout(false);
             this.panelExt10.ResumeLayout(false);
             this.panelExt11.ResumeLayout(false);
             this.panelExt13.ResumeLayout(false);
@@ -1494,10 +2199,28 @@
             this.panelExt12.ResumeLayout(false);
             this.panelExt8.ResumeLayout(false);
             this.panelExt8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_3_발생채무액)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_3_계약금액)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cur_3_보험료)).EndInit();
+            this.panelExt45.ResumeLayout(false);
+            this.panelExt44.ResumeLayout(false);
+            this.panelExt35.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dp_3_계약체결일자)).EndInit();
+            this.panelExt33.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dp_3_계약종료일)).EndInit();
+            this.panelExt28.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dp_3_계약시작일)).EndInit();
+            this.panelExt29.ResumeLayout(false);
+            this.panelExt30.ResumeLayout(false);
             this.panelExt39.ResumeLayout(false);
             this.panelExt40.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cur설정액)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp소멸시효)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp만기일)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp시작일)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dp체결일)).EndInit();
             this.panelExt75.ResumeLayout(false);
             this.panelExt74.ResumeLayout(false);
             this.panelExt71.ResumeLayout(false);
@@ -1512,12 +2235,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdoMts1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp체결일)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp시작일)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp만기일)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp소멸시효)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp_6_시작일)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dp_6_종료일)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1540,7 +2257,6 @@
         private Duzon.Common.Controls.DropDownComboBox cbo보전서류구분;
         private Duzon.Common.Controls.PanelExt panelExt23;
         private Duzon.Common.Controls.PanelExt panelExt24;
-        private Duzon.Common.Controls.TextBoxExt txt설정액;
         private Duzon.Common.Controls.PanelExt panelExt2;
         private Duzon.Common.Controls.LabelExt labelExt2;
         private Duzon.Common.Controls.PanelExt panelExt6;
@@ -1580,19 +2296,17 @@
         private Duzon.Common.Controls.PanelExt panelExt12;
         private Duzon.Common.Controls.LabelExt labelExt10;
         private Duzon.Common.Controls.LabelExt labelExt12;
-        private Duzon.Common.BpControls.BpComboBox MULTI_CD_CORP;
         private Duzon.Common.Controls.RoundedButton btn입력;
         private Duzon.Common.Controls.PanelExt panelExt17;
         private Duzon.Common.Controls.PanelExt panelExt16;
         private Duzon.Common.Controls.PanelExt panelExt8;
-        private Duzon.Common.Controls.TextBoxExt txt_3_보험료;
         private Duzon.Common.Controls.PanelExt panelExt39;
         private Duzon.Common.Controls.LabelExt labelExt32;
         private Duzon.Common.Controls.LabelExt labelExt33;
         private Duzon.Common.Controls.PanelExt panelExt40;
         private Duzon.Common.Controls.LabelExt labelExt34;
         private Duzon.Common.Controls.TextBoxExt txt_3_증권번호;
-        private Duzon.Common.Controls.PanelExt panelExt19;
+        private Duzon.Common.Controls.PanelExt panel19;
         private Duzon.Common.Controls.TextBoxExt txt_4_연대보증인3;
         private Duzon.Common.Controls.PanelExt panelExt41;
         private Duzon.Common.Controls.LabelExt labelExt13;
@@ -1615,7 +2329,6 @@
         private Duzon.Common.Controls.PanelExt panelExt22;
         private Duzon.Common.Controls.LabelExt labelExt19;
         private Duzon.Common.Controls.PanelExt panelExt31;
-        private Duzon.Common.Controls.TextBoxExt txt_6_분할횟수;
         private Duzon.Common.Controls.PanelExt panelExt38;
         private Duzon.Common.Controls.LabelExt labelExt31;
         private Duzon.Common.Controls.TextBoxExt txt_6_구분;
@@ -1640,6 +2353,61 @@
         private Duzon.Common.Controls.DatePicker dp소멸시효;
         private Duzon.Common.Controls.DatePicker dp_6_종료일;
         private Duzon.Common.Controls.DatePicker dp_6_시작일;
+        private Duzon.Common.Controls.TextBoxExt txt_1_memo;
+        private Duzon.Common.Controls.PanelExt panelExt15;
+        private Duzon.Common.Controls.LabelExt labelExt22;
+        private Duzon.Common.Controls.TextBoxExt txt_2_memo;
+        private Duzon.Common.Controls.PanelExt panelExt26;
+        private Duzon.Common.Controls.LabelExt labelExt23;
+        private Duzon.Common.Controls.PanelExt panelExt44;
+        private Duzon.Common.Controls.LabelExt labelExt39;
+        private Duzon.Common.Controls.PanelExt panelExt35;
+        private Duzon.Common.Controls.LabelExt labelExt38;
+        private Duzon.Common.Controls.DatePicker dp_3_계약체결일자;
+        private Duzon.Common.Controls.PanelExt panelExt33;
+        private Duzon.Common.Controls.LabelExt labelExt37;
+        private Duzon.Common.Controls.DatePicker dp_3_계약종료일;
+        private Duzon.Common.Controls.PanelExt panelExt28;
+        private Duzon.Common.Controls.LabelExt labelExt26;
+        private Duzon.Common.Controls.DatePicker dp_3_계약시작일;
+        private Duzon.Common.Controls.TextBoxExt txt_3_주계약내용;
+        private Duzon.Common.Controls.PanelExt panelExt29;
+        private Duzon.Common.Controls.LabelExt labelExt27;
+        private Duzon.Common.Controls.PanelExt panelExt30;
+        private Duzon.Common.Controls.LabelExt labelExt36;
+        private Duzon.Common.Controls.TextBoxExt txt_3_memo;
+        private Duzon.Common.Controls.PanelExt panelExt45;
+        private Duzon.Common.Controls.LabelExt labelExt40;
+        private Duzon.Common.Controls.TextBoxExt txt_4_memo;
+        private Duzon.Common.Controls.PanelExt panelExt46;
+        private Duzon.Common.Controls.LabelExt labelExt41;
+        private System.Windows.Forms.CheckBox chk_5_부속합의서;
+        private Duzon.Common.Controls.PanelExt panelExt48;
+        private Duzon.Common.Controls.LabelExt labelExt44;
+        private System.Windows.Forms.CheckBox chk_5_인감증명서;
+        private Duzon.Common.Controls.LabelExt labelExt43;
+        private Duzon.Common.Controls.PanelExt panelExt47;
+        private Duzon.Common.Controls.LabelExt labelExt42;
+        private Duzon.Common.Controls.TextBoxExt txt_5_memo;
+        private Duzon.Common.Controls.PanelExt panelExt49;
+        private Duzon.Common.Controls.LabelExt labelExt45;
+        private Duzon.Common.Controls.TextBoxExt txt_6_memo;
+        private Duzon.Common.Controls.PanelExt panelExt50;
+        private Duzon.Common.Controls.LabelExt labelExt49;
+        private Duzon.Common.Controls.TextBoxExt txt_7_memo;
+        private Duzon.Common.Controls.PanelExt panelExt51;
+        private Duzon.Common.Controls.LabelExt labelExt50;
+        private Duzon.Common.Controls.LabelExt labelExt52;
+        private Duzon.Common.Controls.LabelExt labelExt51;
+        private Duzon.Common.BpControls.BpCodeTextBox ctx거래처;
+        private Duzon.Common.Controls.CurrencyTextBox cur설정액;
+        private Duzon.Common.Controls.CurrencyTextBox cur_3_계약금액;
+        private Duzon.Common.Controls.CurrencyTextBox cur_3_발생채무액;
+        private Duzon.Common.Controls.CurrencyTextBox cur_6_분할횟수;
+        private Duzon.Common.Controls.CurrencyTextBox cur_5_채권양도통지서;
+        private Duzon.Common.Controls.CurrencyTextBox cur_3_보험료;
+        private Duzon.Common.Controls.TextBoxExt txt번호;
+        private Duzon.Common.Controls.TextBoxExt txt기존번호;
 
     }
 }

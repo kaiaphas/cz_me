@@ -126,3 +126,4 @@ D:\Source\P_CZ_ME_SALES_PAYABLE\bin\Debug\P_CZ_ME_SALES_PAYABLE.dll
 D:\Source\P_CZ_ME_SALES_PAYABLE\bin\Debug\P_CZ_ME_SALES_PAYABLE.pdb
 D:\Source\P_CZ_ME_SALES_PAYABLE\obj\Debug\P_CZ_ME_SALES_PAYABLE.dll
 D:\Source\P_CZ_ME_SALES_PAYABLE\obj\Debug\P_CZ_ME_SALES_PAYABLE.pdb
+D:\Source\P_CZ_ME_SALES_PAYABLE\obj\Debug\P_CZ_ME_SALES_PAYABLE.csprojResolveAssemblyReference.cache

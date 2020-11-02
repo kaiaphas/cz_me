@@ -96,7 +96,8 @@ namespace cz
             _flexM.SetCol("TEAMNAME", "팀", 120, false);
             _flexM.SetCol("CPNAME", "캠페인", 200, false);
             _flexM.SetCol("PERIOD", "기간", 0, false);
-            _flexM.SetCol("MEZZO_AE_NAME", "담당자", 70, false);
+            //_flexM.SetCol("MEZZO_AE_NAME", "담당자", 70, false);
+            _flexM.SetCol("AGENCY_AE_NAME", "담당자", 70, false);
             _flexM.SetCol("BUDGET", "수주액", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
           
             _flexM.SetCol("INCOME", "내수액", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
@@ -125,8 +126,6 @@ namespace cz
             _flexM.SetCol("AGE_FEE", "수수료율", 70, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexM.SetCol("AGE_ACDATE_TXT", "입금일", 120, false);
 
-
-            _flexM.Cols["REG_DATE"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["DUZON_STAT"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["ST_IO"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["SEND_DATE"].TextAlign = TextAlignEnum.CenterCenter;
@@ -260,7 +259,9 @@ namespace cz
             btn전자세금계산서반영.Click += new EventHandler(btn전자세금계산서반영_Click);
             btn전자세금계산서36524.Click += new EventHandler(btn전자세금계산서36524_Click);
             btnMTS반영.Click += new EventHandler(btnMTS반영_Click);
-            
+            //btn상태값변경MTS반영.Click += new EventHandler(btn상태값변경MTS반영_Click);
+
+            //Grant.CanSave = false;
             Grant.CanDelete = false;
             Grant.CanAdd = false;
             Grant.CanPrint = false;
@@ -351,7 +352,10 @@ namespace cz
 
                         _flexM.Binding = ds.Tables[0];
 
-                        _flexM.ShowCell(show_cell, 1);
+                        if (show_cell > 1)
+                        {
+                            _flexM.ShowCell(show_cell, 1);
+                        }
                     }
                 }
             }
@@ -373,7 +377,10 @@ namespace cz
 
                 _flexM.Binding = ds.Tables[0];
 
-                _flexM.ShowCell(show_cell, 1);
+                if (show_cell > 1)
+                {
+                    _flexM.ShowCell(show_cell, 1);
+                }
             }
         }
 
@@ -441,6 +448,7 @@ namespace cz
 
         #region ♥ 기타 이벤트
 
+        /*
         private void btn변경_Click(object sender, EventArgs e)
         {
             try
@@ -524,6 +532,7 @@ namespace cz
                 return;
             }
         }
+        */
 
         private void btn전자세금계산서반영_Click(object sender, EventArgs e)
         {
@@ -598,7 +607,10 @@ namespace cz
 
                     _flexM.Binding = ds.Tables[0];
 
-                    _flexM.ShowCell(show_cell, 1);
+                    if (show_cell > 1)
+                    {
+                        _flexM.ShowCell(show_cell, 1);
+                    }
                 }
             }
             catch (Exception ex)
@@ -618,7 +630,10 @@ namespace cz
 
                 _flexM.Binding = ds.Tables[0];
 
-                _flexM.ShowCell(show_cell, 1);
+                if (show_cell > 1)
+                {
+                    _flexM.ShowCell(show_cell, 1);
+                }
             }
         }
 
@@ -667,15 +682,115 @@ namespace cz
                             string 세금계산서일시 = _flexM[i, "ETAX_STATDT"].ToString();
                             string 세금계산서발행 = _flexM[i, "FINAL_STATUS"].ToString();
 
-                            //세금계산서상태가 2면 MTS 반영, 미반영인것만 적용, 세금계산서 발행이 2인것만 (상태확인완료된것)
-                            if (세금계산서상태 != "2" && (세금계산서발행 == "1" || 세금계산서발행 == "2"))
+                            string 전표번호 = _flexM[i, "NO_DOCU"].ToString();
+                            string 전표라인번호 = _flexM[i, "NO_DOLINE"].ToString();
+                            string 상태값변경 = _flexM[i, "ST_IO"].ToString();
+                            string 발행상태 = _flexM[i, "DUZON_STAT"].ToString();
+                            string 사유 = _flexM[i, "NM_USERDE1"].ToString();
+
+                            //세금계산서 발행이 1,2인것만 (발행 및 상태확인완료된것) , 발행상태이 발행요청 or 수정발행요청 or 취소인것
+                            if ((세금계산서발행 == "1" || 세금계산서발행 == "2") && (발행상태.Equals("2") || 발행상태.Equals("3") || 발행상태.Equals("7")))
                             {
-                                if (_biz.Update_Status(캠페인코드, 세금계산서상태, 세금계산서일시))
+                                if (_biz.Update_Status(캠페인코드, 세금계산서상태, 세금계산서일시, 사유))
                                 {
 
                                 }
                             }
 
+                            else
+                            {
+                                if (_biz.Insert_IO(캠페인코드, 전표번호, 전표라인번호, 상태값변경, 발행상태, 사유))
+                                {
+
+                                }    
+                            }
+                        }
+                    }
+
+                    ShowMessage("반영이 완료 되었습니다.");
+
+                    object[] Params = new object[5];
+                    Params[0] = LoginInfo.CompanyCode;
+                    Params[1] = "SELECT";
+                    Params[2] = dp년월.Text;
+                    Params[3] = cboIO상태.SelectedValue;
+                    Params[4] = cbo세금계산서발행상태.SelectedValue;
+
+                    DataSet ds = _biz.Search_M(Params);
+
+                    _flexM.Binding = ds.Tables[0];
+
+                    if (show_cell > 1)
+                    {
+                        _flexM.ShowCell(show_cell, 1);
+                    }
+                } 
+            }
+            catch (Exception ex)
+            {
+                //MsgEnd(ex);
+                ShowMessage("반영이 완료 되었습니다.");
+
+                show_cell = _flexM.Row;
+
+                object[] Params = new object[5];
+                Params[0] = LoginInfo.CompanyCode;
+                Params[1] = "SELECT";
+                Params[2] = dp년월.Text;
+                Params[3] = cboIO상태.SelectedValue;
+                Params[4] = cbo세금계산서발행상태.SelectedValue;
+
+                DataSet ds = _biz.Search_M(Params);
+
+                _flexM.Binding = ds.Tables[0];
+
+                if (show_cell > 1)
+                {
+                    _flexM.ShowCell(show_cell, 1);
+                }
+                return;
+            }
+        }
+
+        /*
+        private void btn상태값변경MTS반영_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_flexM.HasNormalRow)
+                    return;
+
+                if (!BeforeSaveChk())
+                    return;
+
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+                if (ldrchk == null || ldrchk.Length == 0)
+                {
+                    ShowMessage(공통메세지.선택된자료가없습니다);
+                    return;
+                }
+
+                if (ShowMessage("선택한 데이터를 상태값변경 MTS반영 하시겠습니까?", "QY2") == DialogResult.Yes)
+                {
+
+                    for (int i = 1; i < _flexM.Rows.Count; i++)
+                    {
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            show_cell = _flexM.Row;
+
+                            string 캠페인코드 = _flexM[i, "CPID"].ToString();
+                            string 전표번호 = _flexM[i, "NO_DOCU"].ToString();
+                            string 전표라인번호 = _flexM[i, "NO_DOLINE"].ToString();
+                            string 상태값변경 = _flexM[i, "ST_IO"].ToString();
+                            string 발행상태 = _flexM[i, "DUZON_STAT"].ToString();
+                            string 사유 = _flexM[i, "NM_USERDE1"].ToString();
+
+                            if (_biz.Insert_IO(캠페인코드, 전표번호, 전표라인번호, 상태값변경, 발행상태, 사유))
+                            {
+
+                            }    
                         }
                     }
 
@@ -693,7 +808,7 @@ namespace cz
                     _flexM.Binding = ds.Tables[0];
 
                     _flexM.ShowCell(show_cell, 1);
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -717,6 +832,7 @@ namespace cz
                 return;
             }
         }
+        */
 
         /*
         private void btn전표삭제_Click(object sender, EventArgs e)
@@ -866,10 +982,23 @@ namespace cz
         {
             if (_flexM.Cols[e.Col].Name == "S")
             {
-                if (_flexM[e.Row, "DUZON_STAT"].ToString() != "2" && _flexM[e.Row, "DUZON_STAT"].ToString() != "3")
+                /*
+                if ((_flexM[e.Row, "DUZON_STAT"].ToString() != "2" && _flexM[e.Row, "DUZON_STAT"].ToString() != "3"))
                 {
                     e.Cancel = true;
-                }   
+                }
+                
+    
+                if (_flexM[e.Row, "DUZON_STAT"].ToString().Equals("0") || _flexM[e.Row, "DUZON_STAT"].ToString().Equals("1") || _flexM[e.Row, "DUZON_STAT"].ToString().Equals("5"))
+                {
+                    if ((_flexM[e.Row, "STATE"].ToString().Equals("5") && _flexM[e.Row, "DUZON_STAT"].ToString().Equals("4")))
+                    {
+                        return;
+                    }   
+
+                    e.Cancel = true;
+                }
+                */
             }
 
             if (_flexM.Cols[e.Col].Name == "NO_DOCU")

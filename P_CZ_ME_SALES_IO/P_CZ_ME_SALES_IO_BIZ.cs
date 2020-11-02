@@ -38,9 +38,9 @@ namespace cz
             return DBHelper.GetDataTable(sql);
         }
 
-        internal bool Update_Status(string 캠페인코드, string 상태값변경, string 상태값변경2)
+        internal bool Update_Status(string 캠페인코드, string 상태값변경, string 상태값변경2, string 사유)
         {
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_IO_U2", new object[] { 캠페인코드, 상태값변경, 상태값변경2 });
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_IO_U2", new object[] { 캠페인코드, 상태값변경, 상태값변경2, 사유 });
         }
 
         internal bool Update_Status_Tax(string 전표번호, string 전표라인번호)

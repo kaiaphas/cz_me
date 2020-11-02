@@ -33,23 +33,31 @@ namespace cz
                 si.DataValue = dtM;
                 si.CompanyID = 회사코드;
                 si.UserID = 사용자ID;
-
+                
+                /*
                 if (타메뉴호출)
                     si.DataState = DataValueState.Added;
                 else
                     si.DataState = DataValueState.Modified;
+                */
 
                 si.SpNameInsert = "UP_CZ_ME_SALES_PAYABLE_IU";
                 si.SpNameUpdate = "UP_CZ_ME_SALES_PAYABLE_IU";
+                si.SpNameDelete = "UP_CZ_ME_SALES_PAYABLE_D";
                 si.SpParamsInsert = new string[] { 
                         "CD_COMPANY", "CD_PARTNER", "CD_MEDIA", "NM_MEDIA", "TP_PAYABLE"
-                      , "CD_BANK", "NO_DEPOSIT", "NO_COMPANY", "NM_COMPANY", "MA_CEO"
-                      , "NM_NOTE", "ID_INSERT"
+                      , "CD_BANK", "NO_DEPOSIT", "NM_DEPOSIT", "NO_COMPANY", "NM_COMPANY"
+                      , "MA_CEO", "NM_NOTE", "CD_DEPOSITNO", "CD_USE", "USE_YN"
+                      , "ID_INSERT"
                 };
                 si.SpParamsUpdate = new string[] { 
                         "CD_COMPANY", "CD_PARTNER", "CD_MEDIA", "NM_MEDIA", "TP_PAYABLE"
-                      , "CD_BANK", "NO_DEPOSIT", "NO_COMPANY", "NM_COMPANY", "MA_CEO"
-                      , "NM_NOTE", "ID_INSERT"
+                      , "CD_BANK", "NO_DEPOSIT", "NM_DEPOSIT", "NO_COMPANY", "NM_COMPANY"
+                      , "MA_CEO", "NM_NOTE", "CD_DEPOSITNO", "CD_USE", "USE_YN"
+                      , "ID_INSERT"
+                };
+                si.SpParamsDelete = new string[] { 
+                        "CD_COMPANY", "CD_PARTNER", "CD_MEDIA"
                 };
                 
                 sic.Add(si);

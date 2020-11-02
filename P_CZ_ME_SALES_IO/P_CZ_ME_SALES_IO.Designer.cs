@@ -35,6 +35,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelExt3 = new Duzon.Common.Controls.LabelExt();
             this.panel1 = new Duzon.Common.Controls.PanelExt();
+            this.cboMTS반영 = new Duzon.Common.Controls.DropDownComboBox();
+            this.panelExt2 = new Duzon.Common.Controls.PanelExt();
+            this.labelExt1 = new Duzon.Common.Controls.LabelExt();
             this.panelExt23 = new Duzon.Common.Controls.PanelExt();
             this.panelExt24 = new Duzon.Common.Controls.PanelExt();
             this.dp년월 = new Duzon.Common.Controls.DatePicker();
@@ -60,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._flexD)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelExt2.SuspendLayout();
             this.panelExt23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp년월)).BeginInit();
             this.panelExt1.SuspendLayout();
@@ -146,6 +150,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cboMTS반영);
+            this.panel1.Controls.Add(this.panelExt2);
             this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.dp년월);
             this.panel1.Controls.Add(this.cbo세금계산서발행상태);
@@ -158,6 +164,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1084, 32);
             this.panel1.TabIndex = 1;
+            // 
+            // cboMTS반영
+            // 
+            this.cboMTS반영.AutoDropDown = true;
+            this.cboMTS반영.BackColor = System.Drawing.Color.White;
+            this.cboMTS반영.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMTS반영.ItemHeight = 15;
+            this.cboMTS반영.Location = new System.Drawing.Point(953, 4);
+            this.cboMTS반영.Name = "cboMTS반영";
+            this.cboMTS반영.Size = new System.Drawing.Size(107, 23);
+            this.cboMTS반영.TabIndex = 1975;
+            this.cboMTS반영.UseKeyF3 = false;
+            // 
+            // panelExt2
+            // 
+            this.panelExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt2.Controls.Add(this.labelExt1);
+            this.panelExt2.Location = new System.Drawing.Point(802, -1);
+            this.panelExt2.Name = "panelExt2";
+            this.panelExt2.Size = new System.Drawing.Size(150, 31);
+            this.panelExt2.TabIndex = 1974;
+            // 
+            // labelExt1
+            // 
+            this.labelExt1.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt1.Location = new System.Drawing.Point(3, 7);
+            this.labelExt1.Name = "labelExt1";
+            this.labelExt1.Size = new System.Drawing.Size(154, 18);
+            this.labelExt1.TabIndex = 41;
+            this.labelExt1.Text = "MTS반영";
+            this.labelExt1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt23
             // 
@@ -187,7 +224,7 @@
             // dp년월
             // 
             this.dp년월.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp년월.Location = new System.Drawing.Point(163, 6);
+            this.dp년월.Location = new System.Drawing.Point(152, 6);
             this.dp년월.Mask = "####/##";
             this.dp년월.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
             this.dp년월.MaximumSize = new System.Drawing.Size(0, 21);
@@ -205,7 +242,7 @@
             this.cbo세금계산서발행상태.BackColor = System.Drawing.Color.White;
             this.cbo세금계산서발행상태.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo세금계산서발행상태.ItemHeight = 15;
-            this.cbo세금계산서발행상태.Location = new System.Drawing.Point(892, 5);
+            this.cbo세금계산서발행상태.Location = new System.Drawing.Point(680, 5);
             this.cbo세금계산서발행상태.Name = "cbo세금계산서발행상태";
             this.cbo세금계산서발행상태.Size = new System.Drawing.Size(107, 23);
             this.cbo세금계산서발행상태.TabIndex = 1969;
@@ -217,7 +254,7 @@
             this.cboIO상태.BackColor = System.Drawing.Color.White;
             this.cboIO상태.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIO상태.ItemHeight = 15;
-            this.cboIO상태.Location = new System.Drawing.Point(533, 6);
+            this.cboIO상태.Location = new System.Drawing.Point(406, 6);
             this.cboIO상태.Name = "cboIO상태";
             this.cboIO상태.Size = new System.Drawing.Size(107, 23);
             this.cboIO상태.TabIndex = 1967;
@@ -227,17 +264,17 @@
             // 
             this.panelExt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt1.Controls.Add(this.lbl세금계산서발행상태);
-            this.panelExt1.Location = new System.Drawing.Point(730, 0);
+            this.panelExt1.Location = new System.Drawing.Point(528, 0);
             this.panelExt1.Name = "panelExt1";
-            this.panelExt1.Size = new System.Drawing.Size(160, 31);
+            this.panelExt1.Size = new System.Drawing.Size(150, 31);
             this.panelExt1.TabIndex = 1964;
             // 
             // lbl세금계산서발행상태
             // 
             this.lbl세금계산서발행상태.BackColor = System.Drawing.Color.Transparent;
-            this.lbl세금계산서발행상태.Location = new System.Drawing.Point(3, 7);
+            this.lbl세금계산서발행상태.Location = new System.Drawing.Point(3, 8);
             this.lbl세금계산서발행상태.Name = "lbl세금계산서발행상태";
-            this.lbl세금계산서발행상태.Size = new System.Drawing.Size(154, 18);
+            this.lbl세금계산서발행상태.Size = new System.Drawing.Size(144, 18);
             this.lbl세금계산서발행상태.TabIndex = 41;
             this.lbl세금계산서발행상태.Text = "세금계산서 발행상태";
             this.lbl세금계산서발행상태.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,9 +283,9 @@
             // 
             this.panelExt3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt3.Controls.Add(this.lblIO상태);
-            this.panelExt3.Location = new System.Drawing.Point(371, 1);
+            this.panelExt3.Location = new System.Drawing.Point(254, 1);
             this.panelExt3.Name = "panelExt3";
-            this.panelExt3.Size = new System.Drawing.Size(160, 31);
+            this.panelExt3.Size = new System.Drawing.Size(150, 31);
             this.panelExt3.TabIndex = 1962;
             // 
             // lblIO상태
@@ -267,7 +304,7 @@
             this.panel6.Controls.Add(this.lbl조회월);
             this.panel6.Location = new System.Drawing.Point(0, 1);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(160, 29);
+            this.panel6.Size = new System.Drawing.Size(150, 29);
             this.panel6.TabIndex = 1959;
             // 
             // lbl조회월
@@ -275,7 +312,7 @@
             this.lbl조회월.BackColor = System.Drawing.Color.Transparent;
             this.lbl조회월.Location = new System.Drawing.Point(3, 5);
             this.lbl조회월.Name = "lbl조회월";
-            this.lbl조회월.Size = new System.Drawing.Size(154, 18);
+            this.lbl조회월.Size = new System.Drawing.Size(59, 18);
             this.lbl조회월.TabIndex = 41;
             this.lbl조회월.Text = "조회 월";
             this.lbl조회월.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -372,7 +409,7 @@
             this.btn전자세금계산서반영.BackColor = System.Drawing.Color.White;
             this.btn전자세금계산서반영.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전자세금계산서반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전자세금계산서반영.Location = new System.Drawing.Point(761, 10);
+            this.btn전자세금계산서반영.Location = new System.Drawing.Point(764, 10);
             this.btn전자세금계산서반영.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전자세금계산서반영.Name = "btn전자세금계산서반영";
             this.btn전자세금계산서반영.Size = new System.Drawing.Size(150, 19);
@@ -387,7 +424,7 @@
             this.btn전자세금계산서36524.BackColor = System.Drawing.Color.White;
             this.btn전자세금계산서36524.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn전자세금계산서36524.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn전자세금계산서36524.Location = new System.Drawing.Point(917, 10);
+            this.btn전자세금계산서36524.Location = new System.Drawing.Point(920, 10);
             this.btn전자세금계산서36524.MaximumSize = new System.Drawing.Size(0, 19);
             this.btn전자세금계산서36524.Name = "btn전자세금계산서36524";
             this.btn전자세금계산서36524.Size = new System.Drawing.Size(170, 19);
@@ -402,7 +439,7 @@
             this.btnMTS반영.BackColor = System.Drawing.Color.White;
             this.btnMTS반영.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMTS반영.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMTS반영.Location = new System.Drawing.Point(685, 10);
+            this.btnMTS반영.Location = new System.Drawing.Point(688, 10);
             this.btnMTS반영.MaximumSize = new System.Drawing.Size(0, 19);
             this.btnMTS반영.Name = "btnMTS반영";
             this.btnMTS반영.Size = new System.Drawing.Size(70, 19);
@@ -431,6 +468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._flexD)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panelExt2.ResumeLayout(false);
             this.panelExt23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dp년월)).EndInit();
             this.panelExt1.ResumeLayout(false);
@@ -473,6 +511,9 @@
         private Duzon.Common.Controls.PanelExt panelExt24;
         private Duzon.Common.Controls.RoundedButton btn전자세금계산서36524;
         private Duzon.Common.Controls.RoundedButton btnMTS반영;
+        private Duzon.Common.Controls.DropDownComboBox cboMTS반영;
+        private Duzon.Common.Controls.PanelExt panelExt2;
+        private Duzon.Common.Controls.LabelExt labelExt1;
 
     }
 }

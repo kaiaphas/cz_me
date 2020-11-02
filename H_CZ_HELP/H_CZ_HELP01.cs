@@ -61,6 +61,11 @@ namespace cz
                     list.Add(new object[] { "NO_EMP", "사원코드", 100 });
                     list.Add(new object[] { "NM_KOR", "사원명", 200 });
                     break;
+
+                case "H_CZ_ME_COR":              //사원 도움창 메조미디어
+                    list.Add(new object[] { "CD_MEDIA", "매체ID", 100 });
+                    list.Add(new object[] { "NM_MEDIA", "매체명", 200 });
+                    break;
             }
 
             base.InitGrid(flex, list);  //그리드는 PageBase의 그리드와 다르다 
@@ -110,6 +115,11 @@ namespace cz
                 //메조미디어 사원
                 case "H_CZ_ME_EMP":
                     dt = DBHelper.GetDataTable("UP_CZ_ME_EMP_P_S", new object[] { 회사코드, 검색, GetListParam[0] });
+                    break;
+
+                //메조미디어 매체
+                case "H_CZ_ME_COR":
+                    dt = DBHelper.GetDataTable("UP_CZ_MEZZO_H_COR_S", new object[] { 회사코드, 검색, GetListParam[0] });
                     break;
             }
 

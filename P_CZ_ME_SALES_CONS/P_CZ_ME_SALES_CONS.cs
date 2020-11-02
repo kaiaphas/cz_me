@@ -134,7 +134,7 @@ namespace cz
             _flexM.Cols["AM_ADDTAX"].Format = "###,###,###,##0;(###,###,###,##0)";
             _flexM.Cols["AM_SUM"].Format = "###,###,###,##0;(###,###,###,##0)";
 
-            _flexM.VerifyNotNull = new string[] { "NO_ETAX", "CD_COMPANY", "NO_COMPANY1", "NO_COMPANY2" };
+            //_flexM.VerifyNotNull = new string[] { "NO_ETAX", "CD_COMPANY", "NO_COMPANY1", "NO_COMPANY2" };
           
             _flexM.SettingVersion = new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
@@ -537,6 +537,26 @@ namespace cz
 
                     for (int r = 7; r <= range.Rows.Count; r++)
                     {
+
+                        if (data[r, 2] == "" || data[r, 2] == null)
+                        {
+                            ShowMessage((r) + "행 승인번호가 없습니다. 업로드할 수 없습니다.");
+                            return;
+                        }
+
+                        if (data[r, 5] == "" || data[r, 5] == null)
+                        {
+                            ShowMessage((r) + "행 공급자 사업자등록번호가 없습니다. 업로드할 수 없습니다.");
+                            return;
+                        }
+
+                        if (data[r, 10] == "" || data[r, 10] == null)
+                        {
+                            ShowMessage((r) + "행 공급받는자 사업자등록번호가 없습니다. 업로드할 수 없습니다.");
+                            return;
+                        }
+
+
                         _flexM.Rows.Add();
                         _flexM.Row = _flexM.Rows.Count - 1;
        
@@ -571,7 +591,7 @@ namespace cz
                         _flexM[_flexM.Row, "NM_COMPANY3"] = data[r, 27];
                         _flexM[_flexM.Row, "NM_BIGO2"] = data[r, 35];
                         _flexM[_flexM.Row, "ID_INSERT"] = Duzon.Common.Forms.Global.MainFrame.LoginInfo.UserID;
-                        
+
                     }
 
 

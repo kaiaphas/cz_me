@@ -127,3 +127,4 @@ D:\Source\P_CZ_ME_SALES_IO\obj\Debug\cz.P_CZ_ME_SALES_IO.resources
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\IPC_CLS.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Pkcs11Interop.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Duzon.BizOn.Scraping.Auth.dll
+D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.csprojResolveAssemblyReference.cache

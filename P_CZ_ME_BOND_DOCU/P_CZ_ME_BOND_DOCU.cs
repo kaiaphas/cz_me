@@ -57,9 +57,8 @@ namespace cz
             DateTime time = this.MainFrameInterface.GetDateTimeToday(); // 오늘 날짜
 
             today = time.ToString("yyyMMdd");
-            toyear = today.Substring(0, 8);
 
-            toyear = time.ToString("yyyy") + "0101";
+            toyear = "20000101";
 
             dt기간.StartDate = DateTime.ParseExact(toyear, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
             dt기간.EndDate = DateTime.ParseExact(today, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
@@ -96,6 +95,7 @@ namespace cz
             _flexM.SetCol("LN_PARTNER", "거래처명", 150, false);
 
             _flexM.SetCol("DOCU_GUBUN", "종류", 100, false);
+            _flexM.SetCol("NO_GUBUN", "번호", 50, false);
             _flexM.SetCol("AM_SET", "설정액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
 
             _flexM.SetCol("DT_SIGN", "체결일", 100, false, typeof(decimal), FormatTpType.YEAR_MONTH_DAY);
@@ -106,25 +106,41 @@ namespace cz
             _flexM.SetCol("NM_USERDE2_1", "소유자", 100, false);
             _flexM.SetCol("NM_USERDE1_1", "채무자", 100, false);
             _flexM.SetCol("NM_USERDE3_1", "물건지", 100, false);
+            _flexM.SetCol("NM_USERDE4_1", "부동산근저당MEMO", 100, false);
             _flexM.SetCol("NM_USERDE1_2", "종류", 100, false);
-            _flexM.SetCol("NM_USERDE2_2", "증권번호", 100, false);
+            _flexM.SetCol("NM_USERDE2_2", "증서번호", 100, false);
             _flexM.SetCol("NM_USERDE3_2", "발행인1", 100, false);
             _flexM.SetCol("NM_USERDE4_2", "발행인2", 100, false);
             _flexM.SetCol("NM_USERDE5_2", "발행인3", 100, false);
+            _flexM.SetCol("NM_USERDE6_2", "공정증서MEMO", 100, false);
             _flexM.SetCol("NM_USERDE1_3", "증권번호", 100, false);
             _flexM.SetCol("NM_USERDE2_3", "보험료", 100, false);
+            _flexM.SetCol("NM_USERDE3_3", "주계약내용", 100, false);
+            _flexM.SetCol("NM_USERDE4_3", "계약시작일", 100, false, typeof(decimal), FormatTpType.YEAR_MONTH_DAY);
+            _flexM.SetCol("NM_USERDE5_3", "계약종료일", 100, false, typeof(decimal), FormatTpType.YEAR_MONTH_DAY);
+            _flexM.SetCol("NM_USERDE6_3", "계약체결일", 100, false, typeof(decimal), FormatTpType.YEAR_MONTH_DAY);
+            _flexM.SetCol("NM_USERDE7_3", "계약금", 100, false);
+            _flexM.SetCol("NM_USERDE8_3", "보험기간개시전발생채무액", 100, false);
+            _flexM.SetCol("NM_USERDE9_3", "보증보험MEMO", 100, false);
             _flexM.SetCol("NM_USERDE1_4", "연대보증인1", 100, false);
             _flexM.SetCol("NM_USERDE2_4", "연대보증인2", 100, false);
             _flexM.SetCol("NM_USERDE3_4", "연대보증인3", 100, false);
+            _flexM.SetCol("NM_USERDE4_4", "연대보증MEMO", 100, false);
             _flexM.SetCol("NM_USERDE1_5", "제3채1", 100, false);
             _flexM.SetCol("NM_USERDE2_5", "제3채2", 100, false);
             _flexM.SetCol("NM_USERDE3_5", "제3채3", 100, false);
+            _flexM.SetCol("NM_USERDE4_5", "채권양도통지서부수건", 100, false);
+            _flexM.SetCol("NM_USERDE5_5", "인감증명서", 100, false);
+            _flexM.SetCol("NM_USERDE6_5", "부속합의서", 100, false);
+            _flexM.SetCol("NM_USERDE7_5", "채권양도MEMO", 100, false);
             _flexM.SetCol("NM_USERDE1_6", "구분(문서명)", 100, false);
             _flexM.SetCol("NM_USERDE2_6", "시작일", 100, false, typeof(decimal), FormatTpType.YEAR_MONTH_DAY);
             _flexM.SetCol("NM_USERDE3_6", "종료일", 100, false, typeof(decimal), FormatTpType.YEAR_MONTH_DAY);
             _flexM.SetCol("NM_USERDE4_6", "분할횟수", 100, false);
             _flexM.SetCol("NM_USERDE5_6", "특이사항", 100, false);
+            _flexM.SetCol("NM_USERDE6_6", "상환계획MEMO", 100, false);
             _flexM.SetCol("NM_USERDE1_7", "비고", 100, false);
+            _flexM.SetCol("NM_USERDE2_7", "기타MEMO", 100, false);
 
             _flexM.Cols["NO_COMPANY"].Format = _flexM.Cols["NO_COMPANY"].EditMask = "###-##-#####";
             _flexM.Cols["NO_COMPANY"].TextAlign = TextAlignEnum.CenterCenter;
@@ -136,13 +152,17 @@ namespace cz
             _flexM.Cols["DT_END"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["DT_LIMIT"].TextAlign = TextAlignEnum.CenterCenter;
 
+            _flexM.Cols["NM_USERDE4_3"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["NM_USERDE5_3"].TextAlign = TextAlignEnum.CenterCenter;
+            _flexM.Cols["NM_USERDE6_3"].TextAlign = TextAlignEnum.CenterCenter;
+
             _flexM.Cols["NM_USERDE2_6"].TextAlign = TextAlignEnum.CenterCenter;
             _flexM.Cols["NM_USERDE3_6"].TextAlign = TextAlignEnum.CenterCenter;
 
          
-            _flexM.SettingVersion = "1.0.0.2";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.0.4";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
-
+            _flexM.HelpClick += new EventHandler(_flexM_HelpClick);
             //_flexM.SetCodeHelpCol("CD_DEPT", HelpID.P_MA_DEPT_SUB, ShowHelpEnum.Always, new string[] { "CD_DEPT", "NM_DEPT" }, new string[] { "CD_DEPT", "NM_DEPT" }, ResultMode.FastMode);
             //_flexM.SetCodeHelpCol("AY_AGENCYNO", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "AY_AGENCYNO", "AY_AGENCYID", "AY_AGENCYNM" }, new string[] { "NO_COMPANY", "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
         }
@@ -186,12 +206,14 @@ namespace cz
         {
             try
             {
-                object[] Params = new object[5];
+                object[] Params = new object[6];
                 Params[0] = LoginInfo.CompanyCode;
                 Params[1] = dt기간.StartDate.ToString().Substring(0, 10).Replace("-", "");
                 Params[2] = dt기간.EndDate.ToString().Substring(0, 10).Replace("-", "");
-                Params[3] = MULTI_CD_CORP.QueryWhereIn_Pipe.Replace("|", "");
-                Params[4] = cbo조회구분.SelectedValue;
+                Params[3] = dp조회일자.Text; //조회일자
+                Params[4] = MULTI_CD_CORP.QueryWhereIn_Pipe.Replace("|", "");
+                Params[5] = cbo조회구분.SelectedValue;
+               
                 
                 DataSet ds = _biz.Search_M(Params);
 
@@ -313,22 +335,23 @@ namespace cz
         string ServerKey { get { return Global.MainFrame.ServerKeyCommon.ToUpper(); } }
         #endregion
 
-        void Page_DataChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                
-            }
-            catch (Exception ex)
-            {
-                MsgControl.CloseMsg();
-                MsgEnd(ex);
-            }
-        }
-
         void _flexM_HelpClick(object sender, EventArgs e)
         {
+            if (_flexM.Cols[_flexM.Col].Name == "AM_SET")
+            {
+                string 거래처코드 = D.GetString(_flexM["NO_COMPANY"]);
+                string 거래처명 = D.GetString(_flexM["LN_PARTNER"]);
+                string 종류 = D.GetString(_flexM["DOCU_GUBUN"]);
+                string 번호 = D.GetString(_flexM["NO_GUBUN"]);
 
+                object[] Args = { 거래처코드, 거래처명, 종류, 번호 };
+                CallOtherPageMethod("P_CZ_ME_BOND_INFO", "채권보전서류등록(" + PageName + ")", Grant, Args);
+            }
+           
+            else
+            {
+                return;
+            }
         }
     }
 }

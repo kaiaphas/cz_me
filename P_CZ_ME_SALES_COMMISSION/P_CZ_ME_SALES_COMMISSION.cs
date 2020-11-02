@@ -260,7 +260,7 @@ namespace cz
             _flexT.SetCol("AM_BUDGET", "광고수주액", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexT.SetCol("AM_AGY_PRICE", "대행사수수료", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexT.SetCol("AM_INCOME", "영업수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
-            _flexT.SetCol("AM_MEDIA_PRICE", "매출수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
+            _flexT.SetCol("AM_MEDIA_PRICE", "매체수익", 100, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexT.SetCol("AM_FEE_ALL", "AM_FEE_ALL", 0, false, typeof(decimal), FormatTpType.FOREIGN_MONEY);
             _flexT.SetCol("NO_DOCU_M", "대행사 전표번호", 120, false);
             _flexT.SetCol("NO_DOCU_D", "매체 전표번호", 120, false);

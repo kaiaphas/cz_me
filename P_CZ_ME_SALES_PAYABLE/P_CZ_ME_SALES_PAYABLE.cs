@@ -12,6 +12,9 @@ using Duzon.ERPU.MF;
 using Duzon.ERPU.MF.Common;
 using Duzon.Windows.Print;
 using Duzon.Common.Forms.Help;
+using System.ComponentModel;
+using Duzon.Common.Controls;
+using Duzon.Common.Util;
 
 namespace cz
 {
@@ -41,7 +44,6 @@ namespace cz
         {
             InitializeComponent();
             MainGrids = new FlexGrid[] { _flexM };    //그리드 자동 저장 기능 필요시 주석 해제
-            //_flexM.DetailGrids = new FlexGrid[] { _flexD }; 
         }
 
         #endregion
@@ -52,7 +54,6 @@ namespace cz
         {
             base.InitLoad();
 
-            Grant.CanDelete = false;
             Grant.CanPrint = false;
 
             InitGrid();
@@ -68,8 +69,9 @@ namespace cz
             //merge 기능을 위해서 row 2 설정
             _flexM.BeginSetting(1, 1, false);
 
-            //_flexM.SetCol("S", "선택", 35, true, CheckTypeEnum.Y_N);
-
+            _flexM.SetCol("S", "S", 35, true, CheckTypeEnum.Y_N);
+            
+            _flexM.SetCol("CD_COMPANY", "회사구분", 0, false);
             _flexM.SetCol("CD_PARTNER", "거래처코드", 100, true);
             _flexM.SetCol("LN_PARTNER", "거래처명", 150, false);
             _flexM.SetCol("CD_MEDIA", "매체코드", 100, true);
@@ -77,11 +79,17 @@ namespace cz
             _flexM.SetCol("TP_PAYABLE", "지급조건", 100, true);
             _flexM.SetCol("CD_BANK", "은행코드", 100, true);
             _flexM.SetCol("NO_DEPOSIT", "계좌번호", 120, true);
+            _flexM.SetCol("NM_DEPOSIT", "예금주", 50, true);
             _flexM.SetCol("NO_COMPANY", "사업자등록번호", 100, true);
             _flexM.SetCol("NM_COMPANY", "사업자등록증법인명", 150, true);
             _flexM.SetCol("MA_CEO", "사업자등록증대표자명", 100, true);
             _flexM.SetCol("NM_NOTE", "비고", 200, true);
+            _flexM.SetCol("CD_DEPOSITNO", "계좌번호코드", 100, false);
             _flexM.SetCol("CD_USE", "사용여부", 100, true);
+            _flexM.SetCol("USE_YN", "주요사용", 35, true, CheckTypeEnum.Y_N);
+
+            _flexM.SetDummyColumn("S");
+            _flexM.Cols.Frozen = 1;
 
             _flexM.Cols["NO_COMPANY"].Format = _flexM.Cols["NO_COMPANY"].EditMask = "###-##-#####";
             _flexM.Cols["NO_COMPANY"].TextAlign = TextAlignEnum.CenterCenter;
@@ -90,15 +98,16 @@ namespace cz
 
             //_flexM.Cols["DT_SIGN"].TextAlign = TextAlignEnum.CenterCenter;
          
-            _flexM.SettingVersion = "1.0.0.3";// new Random().Next().ToString();
+            _flexM.SettingVersion = "1.0.0.6";// new Random().Next().ToString();
             _flexM.EndSetting(GridStyleEnum.Green, AllowSortingEnum.MultiColumn, SumPositionEnum.None);
 
-            _flexM.SetCodeHelpCol("CD_PARTNER", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "CD_PARTNER", "LN_PARTNER" }, new string[] { "CD_PARTNER", "LN_PARTNER" }, ResultMode.FastMode);
+            _flexM.SetCodeHelpCol("CD_PARTNER", HelpID.P_MA_PARTNER_SUB, ShowHelpEnum.Always, new string[] { "CD_PARTNER", "LN_PARTNER", "NO_COMPANY" }, new string[] { "CD_PARTNER", "LN_PARTNER", "CD_PARTNER" }, ResultMode.FastMode);
 
-            //_flexM.SetCodeHelpCol("CD_MEDIA", "H_CZ_HELP02", ShowHelpEnum.Always, new string[] { "CD_PARTNER", "biz_name" }, new string[] { "CD_MEDIA", "NM_MEDIA" });
-            //_flexM.SetCodeHelpCol("CD_MEDIA", "H_CZ_HELP02", ShowHelpEnum.Always, new string[] { "CD_MEDIA", "NM_MEDIA" }, new string[] { "CD_MEDIAGR", "NM_MEDIAGR" });
-            _flexM.SetCodeHelpCol("CD_MEDIA", "H_CZ_HELP02", ShowHelpEnum.Always, new string[] { "CD_MEDIA", "NM_MEDIA", "" }, new string[] { "biz_no", "biz_name", "" });
+            _flexM.SetCodeHelpCol("CD_MEDIA", "H_CZ_HELP01", ShowHelpEnum.Always, new string[] { "CD_MEDIA", "NM_MEDIA" }, new string[] { "CD_MEDIA", "NM_MEDIA" });
+          
             _flexM.BeforeCodeHelp += new BeforeCodeHelpEventHandler(_flexM_BeforeCodeHelp);
+
+            _flexM.VerifyNotNull = new string[] { "CD_PARTNER", "CD_MEDIA", "NO_DEPOSIT" };
         }
 
         #endregion
@@ -115,11 +124,13 @@ namespace cz
             {
                 _flexM.SetDataMap("TP_PAYABLE", MA.GetCode("CZ_ME_C023", true), "CODE", "NAME");
                 _flexM.SetDataMap("CD_BANK", MA.GetCode("MA_B000043", true), "CODE", "NAME");
-                _flexM.SetDataMap("CD_USE", MA.GetCode("CZ_ME_C014", true), "CODE", "NAME");
+                _flexM.SetDataMap("CD_USE", MA.GetCode("CZ_ME_C014"), "CODE", "NAME");
 
                 SetControl set = new SetControl();
                 set.SetCombobox(cbo사용여부, MA.GetCode("CZ_ME_C014", true));
-               
+
+                
+                SetToolBarButtonState(true, true, false, false, false);
             }
             catch (Exception ex)
             {
@@ -184,15 +195,10 @@ namespace cz
 
             if (_flexM.HasNormalRow)
             {
-                //DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
-
-                DataTable dt = _flexM.DataTable;
-
-                if (ShowMessage("저장 하시겠습니까?", "QY2") == DialogResult.Yes)
-                {
-                    obj = _biz.Save(dt, _타메뉴호출);
-                }
+                obj = _biz.Save(_flexM.GetChanges(), _타메뉴호출);
             }
+
+            ResultData[] result = (ResultData[])obj;
 
             return true;
         }
@@ -206,13 +212,11 @@ namespace cz
                 if (!BeforeSaveChk())
                     return;
 
-                _타메뉴호출 = false;
-
                 if (SaveData())
                 {
                     ShowMessage(PageResultMode.SaveGood);
                     {
-
+                        searchNo();
                     }
                 }
             }
@@ -265,6 +269,11 @@ namespace cz
             try
             {
                 _flexM.Rows.Add();
+                _flexM.Row = _flexM.Rows.Count - 1;
+
+                _flexM[_flexM.Row, "CD_COMPANY"] = Global.MainFrame.LoginInfo.CompanyCode;
+                _flexM[_flexM.Row, "CD_USE"] = "Y"; 
+
                 _flexM.AddFinished();
                 _flexM.Col = _flexM.Cols.Fixed;
             }
@@ -316,7 +325,7 @@ namespace cz
                 {
                     case "CD_MEDIA":
 
-                        e.Parameter.UserParams = "매체 도움창;H_CZ_ME_GR;";
+                        e.Parameter.UserParams = "매체 도움창;H_CZ_ME_COR;";
                         break;
                 }
 
