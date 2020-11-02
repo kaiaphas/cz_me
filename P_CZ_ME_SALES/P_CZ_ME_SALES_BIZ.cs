@@ -31,6 +31,13 @@ namespace cz
             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_H_I_2", obj);
         }
 
+        internal DataTable Get계정변경코드()
+        {
+            string sql = string.Format(@"                                
+                                        SELECT CD_FLAG1 AS CODE, NM_SYSDEF AS [NAME], CD_FLAG2 AS GUBUN FROM MA_CODEDTL WHERE CD_COMPANY != '' AND CD_FIELD = 'CZ_ME_C024' ", 회사코드);
+            return DBHelper.GetDataTable(sql);
+        }
+
         internal DataTable Get계정코드()
         {
             string sql = string.Format(@" 
@@ -170,6 +177,11 @@ namespace cz
             string EMPLOYEE_NO = Global.MainFrame.LoginInfo.EmployeeNo;
 
             return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_TP_UP", new object[] { 회사코드, 구분, 캠페인코드, 순번, EMPLOYEE_NO });
+        }
+
+        internal bool Update_Acct(string 대행사전표, string 매체전표, string 전계정, string 후계정)
+        {
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_ACCT_U", new object[] { 회사코드, 대행사전표, 매체전표, 전계정, 후계정 });
         }
 
         public object Save(DataTable dtM, bool 타메뉴호출)

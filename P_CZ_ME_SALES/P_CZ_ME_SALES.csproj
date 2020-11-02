@@ -124,6 +124,12 @@
     <Compile Include="P_CZ_ME_SALES_SUB.designer.cs">
       <DependentUpon>P_CZ_ME_SALES_SUB.cs</DependentUpon>
     </Compile>
+    <Compile Include="P_CZ_ME_SALES_SUB2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P_CZ_ME_SALES_SUB2.designer.cs">
+      <DependentUpon>P_CZ_ME_SALES_SUB2.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P_CZ_ME_SALES_SUB.resx">
       <DependentUpon>P_CZ_ME_SALES_SUB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P_CZ_ME_SALES_SUB2.resx">
+      <DependentUpon>P_CZ_ME_SALES_SUB2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -557,8 +557,8 @@ namespace cz
                     return;
               
                 // 20200720 이미 전표처리된 데이터는 전표발행이 불가능하도록 추가 (DB연동)
-                if (!BeforeSaveChk())
-                    return;
+                //if (!BeforeSaveChk())
+                //    return;
 
                 DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y' or S1 = 'Y' or S2 = 'Y'", "", DataViewRowState.CurrentRows);
 
@@ -575,78 +575,74 @@ namespace cz
                 {
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        if (D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0)
+                        if ((_flexM[i, "S"].ToString().Equals("Y") || _flexM[i, "S1"].ToString().Equals("Y") || _flexM[i, "S2"].ToString().Equals("Y")))
                         {
-                            ShowMessage("수주전표가 이미 발행되었습니다.");
-                            return;
-                        }
-
-                        if (D.GetString(_flexM.Rows[i]["NO_DOCU_C"]).Length == 0 && _flexM[i, "S1"].ToString().Equals("Y"))
-                        {
-                            ShowMessage("수수료 전표가 발행되지 않았습니다.");
-                            return;
-                        }
-
-                        if ((_flexM[i, "S"].ToString().Equals("Y") || _flexM[i, "S1"].ToString().Equals("Y") || _flexM[i, "S2"].ToString().Equals("Y")) && _flexM[i, "TP_INDEX"].ToString().Equals("전표처리"))
-                        {
-                            ShowMessage((i-1) + "행은 이미 전표가 처리되었습니다.");
-                        }
-                        /*
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("수기등록"))
-                        {
-                            ShowMessage((i-1) + "행은 수주전표 및 수수료전표를 입력한 건으로 전표처리할 수 없습니다.");
-                        }
-
-
-
-                        if (_flexM[i, "S"].ToString().Equals("Y") && _flexM[i, "TP_INDEX"].ToString().Equals("자료변경"))
-                        {
-                            ShowMessage((i-1) + "행 전표를 삭제 후 처리하세요.");
-                        }
-                        */
-                        if ((_flexM[i, "S"].ToString().Equals("Y") || _flexM[i, "S1"].ToString().Equals("Y") || _flexM[i, "S2"].ToString().Equals("Y")) && (_flexM[i, "TP_INDEX"].ToString().Equals("미처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
-                        {
-                            string tp_job = "";
-
-                            if (_flexM[i, "S1"].ToString().Equals("Y"))
+                            if (D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0 && _flexM[i, "S2"].ToString().Equals("Y"))
                             {
-                                tp_job = "수주전표";
+                                ShowMessage((i-1) + "행은 수주전표가 발행되어 전표처리가 불가능합니다.");
                             }
-                            else if (_flexM[i, "S2"].ToString().Equals("Y"))
+                                /*
+                            else if (D.GetString(_flexM.Rows[i]["NO_DOCU_C"]).Length == 0 && _flexM[i, "S1"].ToString().Equals("Y"))
                             {
-                                tp_job = "수수료전표";
+                                ShowMessage((i-1) + "행은 수수료 전표가 발행되지 않아 전표처리가 불가능합니다.");
                             }
-                            else if (_flexM[i, "S"].ToString().Equals("Y"))
+                                 */
+                            else if (D.GetString(_flexM.Rows[i]["NO_DOCU_C"]).Length != 0 && _flexM[i, "S2"].ToString().Equals("Y"))
                             {
-                                tp_job = "일괄발행";
+                                ShowMessage((i-1) + "행은 이미 수수료 전표가 처리되었습니다.");
                             }
-
-                            object[] Params = new object[18];
-                            Params[0] = LoginInfo.CompanyCode;
-                            Params[1] = _flexM[i, "ME_CORPNO"].ToString();
-                            Params[2] = _flexM[i, "ME_CORPNM"].ToString();  //조회연월 FROM
-                            Params[3] = _flexM[i, "ME_TRADE_TYPE"].ToString();
-                            Params[4] = _flexM[i, "AM_BUDGET"].ToString();
-                            Params[5] = _flexM[i, "AM_AGY_PRICE"].ToString();
-                            Params[6] = _flexM[i, "AM_MEDIA_PRICE"].ToString();
-                            Params[7] = Global.MainFrame.LoginInfo.BizAreaCode;
-                            Params[8] = Global.MainFrame.LoginInfo.CdPc;
-                            Params[9] = Global.MainFrame.LoginInfo.DeptCode;
-                            Params[10] = Global.MainFrame.LoginInfo.EmployeeNo;
-                            Params[11] = _flexM[i, "TP_SALES"].ToString();
-                            Params[12] = _flexM[i, "ME_CPID"].ToString();
-                            Params[13] = _flexM[i, "ME_SEQ"].ToString();
-                            Params[14] = _flexM[i, "ME_YEAR_MONTH"].ToString();
-                            Params[15] = _flexM[i, "DT_SYNC"].ToString();
-                            Params[16] = tp_job;
-                            Params[17] = Global.MainFrame.LoginInfo.UserID;
-
-                            if (_biz.Save_Junpyo(Params))
+                            else if (D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0 && _flexM[i, "S1"].ToString().Equals("Y"))
                             {
-                                if(j == 0)
+                                ShowMessage((i-1) + "행은 이미 수주 전표가 처리되었습니다.");
+                            }
+                            else if ((_flexM[i, "S"].ToString().Equals("Y") && D.GetString(_flexM.Rows[i]["NO_DOCU_M"]).Length != 0) || (_flexM[i, "S"].ToString().Equals("Y") && D.GetString(_flexM.Rows[i]["NO_DOCU_C"]).Length != 0))
+                            {
+                                ShowMessage((i-1) + "행은 이미 전표가 처리되어 일괄발행할 수 없습니다. 개별로 선택하여 전표처리 해주세요.");
+                            }
+                            else
+                            {
+                                string tp_job = "";
+
+                                if (_flexM[i, "S1"].ToString().Equals("Y"))
                                 {
-                                    row_chk = i;
-                                    j = j + 1;
+                                    tp_job = "수주전표";
+                                }
+                                else if (_flexM[i, "S2"].ToString().Equals("Y"))
+                                {
+                                    tp_job = "수수료전표";
+                                }
+                                else if (_flexM[i, "S"].ToString().Equals("Y"))
+                                {
+                                    tp_job = "일괄발행";
+                                }
+
+                                object[] Params = new object[18];
+                                Params[0] = LoginInfo.CompanyCode;
+                                Params[1] = _flexM[i, "ME_CORPNO"].ToString();
+                                Params[2] = _flexM[i, "ME_CORPNM"].ToString();  //조회연월 FROM
+                                Params[3] = _flexM[i, "ME_TRADE_TYPE"].ToString();
+                                Params[4] = _flexM[i, "AM_BUDGET"].ToString();
+                                Params[5] = _flexM[i, "AM_AGY_PRICE"].ToString();
+                                Params[6] = _flexM[i, "AM_MEDIA_PRICE"].ToString();
+                                Params[7] = Global.MainFrame.LoginInfo.BizAreaCode;
+                                Params[8] = Global.MainFrame.LoginInfo.CdPc;
+                                Params[9] = Global.MainFrame.LoginInfo.DeptCode;
+                                Params[10] = Global.MainFrame.LoginInfo.EmployeeNo;
+                                Params[11] = _flexM[i, "TP_SALES"].ToString();
+                                Params[12] = _flexM[i, "ME_CPID"].ToString();
+                                Params[13] = _flexM[i, "ME_SEQ"].ToString();
+                                Params[14] = _flexM[i, "ME_YEAR_MONTH"].ToString();
+                                Params[15] = _flexM[i, "DT_SYNC"].ToString();
+                                Params[16] = tp_job;
+                                Params[17] = Global.MainFrame.LoginInfo.UserID;
+
+                                if (_biz.Save_Junpyo(Params))
+                                {
+                                    if (j == 0)
+                                    {
+                                        row_chk = i;
+                                        j = j + 1;
+                                    }
                                 }
                             }
                         }
@@ -686,7 +682,7 @@ namespace cz
                 if (!_flexM.HasNormalRow)
                     return;
 
-                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+                DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y' or S1 = 'Y' or S2 = 'Y'", "", DataViewRowState.CurrentRows);
 
                 if (ldrchk == null || ldrchk.Length == 0)
                 {
@@ -696,27 +692,48 @@ namespace cz
 
                 if (ShowMessage("선택하신 전표를 삭제하시겠습니까?", "QY2") == DialogResult.Yes)
                 {
-
                     int row_chk = 0;
                     int j = 0;
 
                     for (int i = 2; i < _flexM.Rows.Count; i++)
                     {
-                        // 20200721 세금계산서 처리 시 삭제할 수 없도록 추가
-                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        if (_flexM[i, "S1"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("전표처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
                         {
-                            if (_flexM[i, "TP_TAXSTATUS"].ToString().Equals("처리"))
+                            string 수주전표번호 = _flexM[i, "NO_DOCU_M"].ToString();
+
+                            if (_flexM[i, "S1"].ToString().Equals("Y"))
                             {
-                                ShowMessage((i - 1) + "행은 세금계산서 처리가 되어 삭제할 수 없습니다.");
-                                return;
+                                if (_flexM[i, "TP_TAXSTATUS"].ToString().Equals("처리"))
+                                {
+                                    ShowMessage((i - 1) + "행은 세금계산서 처리가 되어 삭제할 수 없습니다.");
+                                    return;
+                                }
+                            }
+
+                            if (_biz.Delete_Junpyo("0", 수주전표번호))
+                            {
+                                if (j == 0)
+                                {
+                                    row_chk = i;
+                                    j = j + 1;
+                                }
                             }
                         }
 
-                        if (_flexM[i, "S"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("전표처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
+                        if (_flexM[i, "S2"].ToString().Equals("Y") && (_flexM[i, "TP_INDEX"].ToString().Equals("전표처리") || _flexM[i, "TP_INDEX"].ToString().Equals("변경")))
                         {
-                            string 전표번호 = _flexM[i, "NO_DOCU"].ToString();
+                            string 수수료전표번호 = _flexM[i, "NO_DOCU_C"].ToString();
 
-                            if (_biz.Delete_Junpyo(전표번호))
+                            if (_flexM[i, "S2"].ToString().Equals("Y"))
+                            {
+                                if (_flexM[i, "TP_TAXSTATUS"].ToString().Equals("처리"))
+                                {
+                                    ShowMessage((i - 1) + "행은 세금계산서 처리가 되어 삭제할 수 없습니다.");
+                                    return;
+                                }
+                            }
+
+                            if (_biz.Delete_Junpyo("1", 수수료전표번호))
                             {
                                 if (j == 0)
                                 {

@@ -372,6 +372,7 @@ namespace cz
             grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn삭제반영", btn삭제반영);
             grant.GrantButtonVisible(Global.MainFrame.CurrentPageID, "btn이월반영", btn이월반영);
 
+            btn계정변경.Click += new EventHandler(btn계정변경_Click);
             btn전표일괄처리.Click += new EventHandler(btn전표일괄처리_Click);
             //btn전표일괄취소.Click += new EventHandler(btn전표일괄취소_Click);
 
@@ -382,6 +383,7 @@ namespace cz
             btn이월반영.Click += new EventHandler(btn이월반영_Click);
             dpMonthFr.ValueChanged += new EventHandler(dpMonthFr_ValueChanged);
             dpMonthTo.ValueChanged += new EventHandler(dpMonthTo_ValueChanged);
+            chk수정구분.CheckedChanged += new EventHandler(chk수정구분_CheckedChanged);
             try
             {
                 SetControl set = new SetControl();
@@ -755,7 +757,7 @@ namespace cz
             {
                 string 대행사 = D.GetString(_flexM["NO_DOCU_M"]);
 
-                if (대행사.Length == 14)
+                if (대행사.Length == 15)
                 {
                     object[] Args = { 대행사, "", "", Global.MainFrame.LoginInfo.CompanyCode };
                     CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
@@ -765,7 +767,7 @@ namespace cz
             {
                 string 매체 = D.GetString(_flexM["NO_DOCU_D"]);
 
-                if (매체.Length == 14)
+                if (매체.Length == 15)
                 {
                     object[] Args = { 매체, "", "", Global.MainFrame.LoginInfo.CompanyCode };
                     CallOtherPageMethod("P_FI_DOCU", "전표입력(" + PageName + ")", Grant, Args);
@@ -948,6 +950,44 @@ namespace cz
             public static int Count = 0;
         }
 
+        private void btn계정변경_Click(object sender, EventArgs e)
+        {
+            DataRow[] ldrchk = _flexM.DataTable.Select("S = 'Y'", "", DataViewRowState.CurrentRows);
+
+            if (ldrchk == null || ldrchk.Length == 0)
+            {
+                ShowMessage(공통메세지.선택된자료가없습니다);
+                return;
+            }
+
+            try
+            {
+                P_CZ_ME_SALES_SUB2 sub = new P_CZ_ME_SALES_SUB2();		//WinForm 생성
+
+                if (sub.ShowDialog() == DialogResult.OK)			//WinForm Close시에 DialogResult.OK 이면 추가 설정을 한다
+                {
+                    for (int i = 1; i < _flexM.Rows.Count; i++)
+                    {
+                        if (_flexM[i, "S"].ToString().Equals("Y"))
+                        {
+                            _biz.Update_Acct(_flexM[i, "NO_DOCU_M"].ToString(), _flexM[i, "NO_DOCU_D"].ToString(), sub.strCD_ACCT_J, sub.strCD_ACCT_H);
+                        }
+                    }
+                }
+
+                /*
+                P_CZ_ME_SALES_SUB2 sub = new P_CZ_ME_SALES_SUB2(D.GetString(_flexM["NO_DOCU_M"]), D.GetString(_flexM["NO_DOCU_D"]));		//WinForm 생성
+                
+                if (sub.ShowDialog() != DialogResult.OK)
+                    return;
+                 * */
+            }
+            catch (Exception ex)
+            {
+                this.MsgEnd(ex);
+            }
+        }
+
         /*
         private void btn상세검색_Click_1(object sender, EventArgs e)
         {
@@ -994,6 +1034,12 @@ namespace cz
             foreach (Form openForm in Application.OpenForms)
             {
                 if (openForm.Name == "P_CZ_ME_SALES_SUB") // 열린 폼의 이름 검사
+                {
+                    openForm.Close();
+                    return;
+                }
+
+                if (openForm.Name == "P_CZ_ME_SALES_SUB2") // 열린 폼의 이름 검사
                 {
                     openForm.Close();
                     return;
@@ -1450,6 +1496,19 @@ namespace cz
         private void cbo수정구분_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (D.GetString(cbo수정구분.SelectedValue) == "2")
+            {
+                _flexM.RowFilter = "confirm_date > '" + dt_Syncday + "'";
+            }
+            else
+            {
+                _flexM.RowFilter = String.Empty;
+                //_flexM.RowFilter = "confirm_date > '" + dt_Syncday + "'";
+            }
+        }
+
+        private void chk수정구분_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk수정구분.Checked.Equals(true))
             {
                 _flexM.RowFilter = "confirm_date > '" + dt_Syncday + "'";
             }

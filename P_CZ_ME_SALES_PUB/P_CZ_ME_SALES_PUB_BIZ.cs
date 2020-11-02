@@ -79,9 +79,9 @@ namespace cz
                 return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_I", obj);
         }
 
-        internal bool Delete_Junpyo(string 전표번호)
+        internal bool Delete_Junpyo(string 구분, string 전표번호)
         {
-            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_D", new object[] { 회사코드, 전표번호});
+            return DBHelper.ExecuteNonQuery("UP_CZ_ME_SALES_PUB_DOCU_D", new object[] { 회사코드, 구분, 전표번호, 사용자ID });
         }
 
         public DataTable GetLineTable()

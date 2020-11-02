@@ -130,6 +130,8 @@
             this.btn동기화 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn이월반영 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.btn상세검색 = new Duzon.Common.Controls.RoundedButton(this.components);
+            this.chk수정구분 = new Duzon.Common.Controls.CheckBoxExt();
+            this.btn계정변경 = new Duzon.Common.Controls.RoundedButton(this.components);
             this.mDataArea.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).BeginInit();
@@ -220,6 +222,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelExt25);
+            this.panel1.Controls.Add(this.chk수정구분);
             this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.panelExt7);
             this.panel1.Controls.Add(this.panelExt4);
@@ -233,13 +237,11 @@
             this.panel1.Controls.Add(this.dp매체월TO);
             this.panel1.Controls.Add(this.cbo조정구분);
             this.panel1.Controls.Add(this.dp매체월FROM);
-            this.panel1.Controls.Add(this.panelExt25);
             this.panel1.Controls.Add(this.MULTI_CD_MEDIAGR);
             this.panel1.Controls.Add(this.MULTI_CD_CORP);
             this.panel1.Controls.Add(this.MULTI_CD_ACCOUNT);
             this.panel1.Controls.Add(this.cbo매체수익);
             this.panel1.Controls.Add(this.panelExt28);
-            this.panel1.Controls.Add(this.cbo수정구분);
             this.panel1.Controls.Add(this.panelExt30);
             this.panel1.Controls.Add(this.cbo영업수익);
             this.panel1.Controls.Add(this.cbo수수료);
@@ -584,11 +586,12 @@
             this.cbo수정구분.BackColor = System.Drawing.Color.White;
             this.cbo수정구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo수정구분.ItemHeight = 12;
-            this.cbo수정구분.Location = new System.Drawing.Point(796, 34);
+            this.cbo수정구분.Location = new System.Drawing.Point(587, 8);
             this.cbo수정구분.Name = "cbo수정구분";
             this.cbo수정구분.Size = new System.Drawing.Size(90, 20);
             this.cbo수정구분.TabIndex = 295;
             this.cbo수정구분.UseKeyF3 = false;
+            this.cbo수정구분.Visible = false;
             this.cbo수정구분.SelectionChangeCommitted += new System.EventHandler(this.cbo수정구분_SelectionChangeCommitted);
             // 
             // panelExt30
@@ -1362,9 +1365,35 @@
             this.btn상세검색.UseVisualStyleBackColor = false;
             this.btn상세검색.Visible = false;
             // 
+            // chk수정구분
+            // 
+            this.chk수정구분.Location = new System.Drawing.Point(795, 34);
+            this.chk수정구분.Name = "chk수정구분";
+            this.chk수정구분.Size = new System.Drawing.Size(96, 24);
+            this.chk수정구분.TabIndex = 1972;
+            this.chk수정구분.Text = "수정내역조회";
+            this.chk수정구분.TextDD = null;
+            this.chk수정구분.UseVisualStyleBackColor = true;
+            // 
+            // btn계정변경
+            // 
+            this.btn계정변경.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn계정변경.BackColor = System.Drawing.Color.White;
+            this.btn계정변경.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn계정변경.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn계정변경.Location = new System.Drawing.Point(784, 10);
+            this.btn계정변경.MaximumSize = new System.Drawing.Size(0, 19);
+            this.btn계정변경.Name = "btn계정변경";
+            this.btn계정변경.Size = new System.Drawing.Size(78, 19);
+            this.btn계정변경.TabIndex = 296;
+            this.btn계정변경.TabStop = false;
+            this.btn계정변경.Text = "계정변경";
+            this.btn계정변경.UseVisualStyleBackColor = false;
+            // 
             // P_CZ_ME_SALES
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.btn계정변경);
             this.Controls.Add(this.btn이월반영);
             this.Controls.Add(this.btn삭제반영);
             this.Controls.Add(this.btn동기화);
@@ -1372,10 +1401,12 @@
             this.Controls.Add(this.btn전표처리);
             this.Controls.Add(this.btn전표일괄처리);
             this.Controls.Add(this.btn상세검색);
+            this.Controls.Add(this.cbo수정구분);
             this.Name = "P_CZ_ME_SALES";
             this.Size = new System.Drawing.Size(1346, 796);
             this.TitleText = "매출분석";
             this.OwerClosed += new System.EventHandler(this.P_CZ_ME_SALES_OwerClosed);
+            this.Controls.SetChildIndex(this.cbo수정구분, 0);
             this.Controls.SetChildIndex(this.btn상세검색, 0);
             this.Controls.SetChildIndex(this.btn전표일괄처리, 0);
             this.Controls.SetChildIndex(this.btn전표처리, 0);
@@ -1384,6 +1415,7 @@
             this.Controls.SetChildIndex(this.btn삭제반영, 0);
             this.Controls.SetChildIndex(this.btn이월반영, 0);
             this.Controls.SetChildIndex(this.mDataArea, 0);
+            this.Controls.SetChildIndex(this.btn계정변경, 0);
             this.mDataArea.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._flexM)).EndInit();
@@ -1528,6 +1560,8 @@
         private Duzon.Common.Controls.PanelExt panelExt25;
         private Duzon.Common.Controls.DropDownComboBox cbo조정구분;
         private Duzon.Common.Controls.RoundedButton btn상세검색;
+        private Duzon.Common.Controls.CheckBoxExt chk수정구분;
+        private Duzon.Common.Controls.RoundedButton btn계정변경;
 
     }
 }
