@@ -118,12 +118,6 @@
       <DependentUpon>P_CZ_ME_BOND_DOCU.cs</DependentUpon>
     </Compile>
     <Compile Include="P_CZ_ME_BOND_DOCU_BIZ.cs" />
-    <Compile Include="P_CZ_ME_BOND_DOCU_SUB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="P_CZ_ME_BOND_DOCU_SUB.designer.cs">
-      <DependentUpon>P_CZ_ME_BOND_DOCU_SUB.cs</DependentUpon>
-    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -133,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P_CZ_ME_BOND_DOCU.resx">
       <DependentUpon>P_CZ_ME_BOND_DOCU.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="P_CZ_ME_BOND_DOCU_SUB.resx">
-      <DependentUpon>P_CZ_ME_BOND_DOCU_SUB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

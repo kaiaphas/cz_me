@@ -6,6 +6,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>D:\AppLib\NeoWeb.exe</StartProgram>
-    <StartArguments>TEST 01 더존 1 P_CZ_ME_SALES_IO</StartArguments>
+    <StartArguments>TEST 01 더존2 1 P_CZ_ME_SALES_IO</StartArguments>
   </PropertyGroup>
 </Project>

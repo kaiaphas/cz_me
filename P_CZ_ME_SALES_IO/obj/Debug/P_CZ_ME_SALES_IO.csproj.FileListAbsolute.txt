@@ -100,7 +100,6 @@ D:\Source\P_CZ_ME_SALES_IO\bin\Debug\NPOI.OpenXml4Net.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Dass.FlexGridLight_v4.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Interop.Office.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Interop.VBIDE.dll
-D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Interop.MSXML2.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Duzon.ReportViewer.Viewer.xml
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\en-us\Duzon.ReportViewer.Viewer.resources.dll
 D:\Source\P_CZ_ME_SALES_IO\bin\Debug\ja-jp\Duzon.ReportViewer.Viewer.resources.dll
@@ -125,4 +124,7 @@ D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.csproj.GenerateResource.Ca
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.dll
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.pdb
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\cz.P_CZ_ME_SALES_IO.resources
+D:\Source\P_CZ_ME_SALES_IO\bin\Debug\IPC_CLS.dll
+D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Pkcs11Interop.dll
+D:\Source\P_CZ_ME_SALES_IO\bin\Debug\Duzon.BizOn.Scraping.Auth.dll
 D:\Source\P_CZ_ME_SALES_IO\obj\Debug\P_CZ_ME_SALES_IO.csprojResolveAssemblyReference.cache

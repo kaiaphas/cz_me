@@ -67,6 +67,15 @@ namespace cz
                      list.Add(new object[] { "CD_MEDIAGR", "매체구분ID", 70 });
                      list.Add(new object[] { "NM_MEDIAGR", "매체구분명", 180 });
                      break;
+                 case "H_CZ_ME_COR":                 //매체구분 도움창 메조미디어
+                     list.Add(new object[] { "CD_MEDIA", "매체구분ID", 70 });
+                     list.Add(new object[] { "NM_MEDIA", "매체구분명", 180 });
+                     break;
+                 case "H_CZ_ME_ACCT":                 //계정코드 도움창 메조미디어
+                     list.Add(new object[] { "CD_ACCT", "계정코드", 70 });
+                     list.Add(new object[] { "NM_ACCT", "계정명", 180 });
+                     break;
+
                  //default:
                  //    list.Add(new object[] { "CODE", "코드", 100 });
                  //    list.Add(new object[] { "NAME", "코드명", 100 });
@@ -126,6 +135,15 @@ namespace cz
                  case "H_CZ_ME_MEDIAGR":
                      dt = DBHelper.GetDataTable("UP_CZ_ME_MEDIAGR_P_S", new object[] { 회사코드, 검색, GetListParam[0] });
                      break;
+                 //메조미디어 매체
+                 case "H_CZ_ME_COR":
+                     dt = DBHelper.GetDataTable("UP_CZ_MEZZO_H_COR_S", new object[] { 회사코드, 검색, GetListParam[0] });
+                     break;
+                 //메조미디어 계정
+                 case "H_CZ_ME_ACCT":
+                     dt = DBHelper.GetDataTable("UP_CZ_MEZZO_H_ACCT_S", new object[] { 회사코드, 검색, GetListParam[0] });
+                     break;
+
                  //case "":
                  //    break;
              }

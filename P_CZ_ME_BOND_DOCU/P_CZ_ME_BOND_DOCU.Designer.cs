@@ -33,15 +33,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._flexM = new Dass.FlexGrid.FlexGrid(this.components);
             this.panel1 = new Duzon.Common.Controls.PanelExt();
-            this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
-            this.dt기간 = new Duzon.Common.Controls.PeriodPicker();
-            this.cbo거래처합산 = new Duzon.Common.Controls.DropDownComboBox();
-            this.cbo조회구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.panelExt13 = new Duzon.Common.Controls.PanelExt();
             this.labelExt10 = new Duzon.Common.Controls.LabelExt();
             this.dp조회일자 = new Duzon.Common.Controls.DatePicker();
-            this.panelExt29 = new Duzon.Common.Controls.PanelExt();
-            this.labelExt24 = new Duzon.Common.Controls.LabelExt();
+            this.MULTI_CD_CORP = new Duzon.Common.BpControls.BpComboBox();
+            this.dt기간 = new Duzon.Common.Controls.PeriodPicker();
+            this.cbo조회구분 = new Duzon.Common.Controls.DropDownComboBox();
             this.panelExt26 = new Duzon.Common.Controls.PanelExt();
             this.labelExt21 = new Duzon.Common.Controls.LabelExt();
             this.panelExt23 = new Duzon.Common.Controls.PanelExt();
@@ -56,7 +53,6 @@
             this.panel1.SuspendLayout();
             this.panelExt13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dp조회일자)).BeginInit();
-            this.panelExt29.SuspendLayout();
             this.panelExt26.SuspendLayout();
             this.panelExt23.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -114,13 +110,11 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.MULTI_CD_CORP);
-            this.panel1.Controls.Add(this.dt기간);
-            this.panel1.Controls.Add(this.cbo거래처합산);
-            this.panel1.Controls.Add(this.cbo조회구분);
             this.panel1.Controls.Add(this.panelExt13);
             this.panel1.Controls.Add(this.dp조회일자);
-            this.panel1.Controls.Add(this.panelExt29);
+            this.panel1.Controls.Add(this.MULTI_CD_CORP);
+            this.panel1.Controls.Add(this.dt기간);
+            this.panel1.Controls.Add(this.cbo조회구분);
             this.panel1.Controls.Add(this.panelExt26);
             this.panel1.Controls.Add(this.panelExt23);
             this.panel1.Controls.Add(this.panel7);
@@ -130,6 +124,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1340, 32);
             this.panel1.TabIndex = 20;
+            // 
+            // panelExt13
+            // 
+            this.panelExt13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelExt13.Controls.Add(this.labelExt10);
+            this.panelExt13.Location = new System.Drawing.Point(316, 2);
+            this.panelExt13.Name = "panelExt13";
+            this.panelExt13.Size = new System.Drawing.Size(70, 27);
+            this.panelExt13.TabIndex = 1974;
+            // 
+            // labelExt10
+            // 
+            this.labelExt10.BackColor = System.Drawing.Color.Transparent;
+            this.labelExt10.Location = new System.Drawing.Point(4, 4);
+            this.labelExt10.Name = "labelExt10";
+            this.labelExt10.Size = new System.Drawing.Size(60, 18);
+            this.labelExt10.TabIndex = 55;
+            this.labelExt10.Text = "조회일자";
+            this.labelExt10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dp조회일자
+            // 
+            this.dp조회일자.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp조회일자.Location = new System.Drawing.Point(388, 5);
+            this.dp조회일자.Mask = "####/##/##";
+            this.dp조회일자.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
+            this.dp조회일자.MaximumSize = new System.Drawing.Size(0, 21);
+            this.dp조회일자.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dp조회일자.Name = "dp조회일자";
+            this.dp조회일자.ShowUpDown = true;
+            this.dp조회일자.Size = new System.Drawing.Size(86, 21);
+            this.dp조회일자.TabIndex = 1975;
+            this.dp조회일자.Tag = "";
+            this.dp조회일자.Value = new System.DateTime(((long)(0)));
             // 
             // MULTI_CD_CORP
             // 
@@ -155,88 +183,23 @@
             this.dt기간.Size = new System.Drawing.Size(185, 21);
             this.dt기간.TabIndex = 1972;
             // 
-            // cbo거래처합산
-            // 
-            this.cbo거래처합산.AutoDropDown = true;
-            this.cbo거래처합산.BackColor = System.Drawing.Color.White;
-            this.cbo거래처합산.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo거래처합산.ItemHeight = 12;
-            this.cbo거래처합산.Location = new System.Drawing.Point(722, 4);
-            this.cbo거래처합산.Name = "cbo거래처합산";
-            this.cbo거래처합산.Size = new System.Drawing.Size(89, 20);
-            this.cbo거래처합산.TabIndex = 298;
-            this.cbo거래처합산.UseKeyF3 = false;
-            // 
             // cbo조회구분
             // 
             this.cbo조회구분.AutoDropDown = true;
             this.cbo조회구분.BackColor = System.Drawing.Color.White;
             this.cbo조회구분.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo조회구분.ItemHeight = 12;
-            this.cbo조회구분.Location = new System.Drawing.Point(534, 4);
+            this.cbo조회구분.ItemHeight = 15;
+            this.cbo조회구분.Location = new System.Drawing.Point(627, 4);
             this.cbo조회구분.Name = "cbo조회구분";
-            this.cbo조회구분.Size = new System.Drawing.Size(90, 20);
+            this.cbo조회구분.Size = new System.Drawing.Size(120, 23);
             this.cbo조회구분.TabIndex = 296;
             this.cbo조회구분.UseKeyF3 = false;
-            // 
-            // panelExt13
-            // 
-            this.panelExt13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt13.Controls.Add(this.labelExt10);
-            this.panelExt13.Location = new System.Drawing.Point(277, 1);
-            this.panelExt13.Name = "panelExt13";
-            this.panelExt13.Size = new System.Drawing.Size(70, 27);
-            this.panelExt13.TabIndex = 263;
-            // 
-            // labelExt10
-            // 
-            this.labelExt10.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt10.Location = new System.Drawing.Point(4, 4);
-            this.labelExt10.Name = "labelExt10";
-            this.labelExt10.Size = new System.Drawing.Size(60, 18);
-            this.labelExt10.TabIndex = 55;
-            this.labelExt10.Text = "조회일자";
-            this.labelExt10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dp조회일자
-            // 
-            this.dp조회일자.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dp조회일자.Location = new System.Drawing.Point(349, 4);
-            this.dp조회일자.Mask = "####/##";
-            this.dp조회일자.MaxDate = new System.DateTime(9999, 12, 31, 23, 59, 59, 999);
-            this.dp조회일자.MaximumSize = new System.Drawing.Size(0, 21);
-            this.dp조회일자.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dp조회일자.Name = "dp조회일자";
-            this.dp조회일자.ShowUpDown = true;
-            this.dp조회일자.Size = new System.Drawing.Size(86, 21);
-            this.dp조회일자.TabIndex = 270;
-            this.dp조회일자.Tag = "";
-            this.dp조회일자.Value = new System.DateTime(((long)(0)));
-            // 
-            // panelExt29
-            // 
-            this.panelExt29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelExt29.Controls.Add(this.labelExt24);
-            this.panelExt29.Location = new System.Drawing.Point(637, 1);
-            this.panelExt29.Name = "panelExt29";
-            this.panelExt29.Size = new System.Drawing.Size(84, 27);
-            this.panelExt29.TabIndex = 264;
-            // 
-            // labelExt24
-            // 
-            this.labelExt24.BackColor = System.Drawing.Color.Transparent;
-            this.labelExt24.Location = new System.Drawing.Point(1, 4);
-            this.labelExt24.Name = "labelExt24";
-            this.labelExt24.Size = new System.Drawing.Size(80, 18);
-            this.labelExt24.TabIndex = 55;
-            this.labelExt24.Text = "거래처합산";
-            this.labelExt24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt26
             // 
             this.panelExt26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelExt26.Controls.Add(this.labelExt21);
-            this.panelExt26.Location = new System.Drawing.Point(452, 1);
+            this.panelExt26.Location = new System.Drawing.Point(545, 1);
             this.panelExt26.Name = "panelExt26";
             this.panelExt26.Size = new System.Drawing.Size(81, 27);
             this.panelExt26.TabIndex = 263;
@@ -292,7 +255,7 @@
             this.labelExt5.Name = "labelExt5";
             this.labelExt5.Size = new System.Drawing.Size(60, 18);
             this.labelExt5.TabIndex = 55;
-            this.labelExt5.Text = "기간";
+            this.labelExt5.Text = "체결일자";
             this.labelExt5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelExt9
@@ -326,7 +289,6 @@
             this.panel1.ResumeLayout(false);
             this.panelExt13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dp조회일자)).EndInit();
-            this.panelExt29.ResumeLayout(false);
             this.panelExt26.ResumeLayout(false);
             this.panelExt23.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -345,18 +307,15 @@
         private Duzon.Common.Controls.PanelExt panelExt23;
         private Duzon.Common.Controls.PanelExt panelExt9;
         private Duzon.Common.Controls.LabelExt labelExt6;
-        private Duzon.Common.Controls.PanelExt panelExt29;
-        private Duzon.Common.Controls.LabelExt labelExt24;
         private Duzon.Common.Controls.PanelExt panelExt26;
         private Duzon.Common.Controls.LabelExt labelExt21;
         private Duzon.Common.Controls.PanelExt panelExt24;
-        private Duzon.Common.Controls.PanelExt panelExt13;
-        private Duzon.Common.Controls.LabelExt labelExt10;
-        private Duzon.Common.Controls.DatePicker dp조회일자;
-        private Duzon.Common.Controls.DropDownComboBox cbo거래처합산;
         private Duzon.Common.Controls.DropDownComboBox cbo조회구분;
         private Duzon.Common.Controls.PeriodPicker dt기간;
         private Duzon.Common.BpControls.BpComboBox MULTI_CD_CORP;
+        private Duzon.Common.Controls.PanelExt panelExt13;
+        private Duzon.Common.Controls.LabelExt labelExt10;
+        private Duzon.Common.Controls.DatePicker dp조회일자;
 
     }
 }
